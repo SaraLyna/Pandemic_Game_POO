@@ -15,9 +15,11 @@
 
 ## Livrable 1
 
-### Atteinte des objectifs
+### Atteinte des objectifs:
+Modélisation des villes, de la carte
 
-### Difficultés restant à résoudre
+### Difficultés restant à résoudre:
+
 
 ## Livrable 2
 
@@ -40,6 +42,10 @@
 # Journal de bord
 
 ## Semaine 1
+Modélisation du diagramme UML et des classes(tout le groupe a participé),
+Lecture du fichier JSON sur eclipse,
+Modélisation des villes,
+
 
 ## Semaine 2
 
