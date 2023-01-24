@@ -1,7 +1,6 @@
 package pandemic;
 
-
-public class Players{
+public class Players {
 	private name String;
 	private role Roles;
 	private location Cities;
@@ -10,5 +9,5 @@ public class Players{
 		
 		
 	}
-	
+
 }
