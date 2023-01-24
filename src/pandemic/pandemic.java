@@ -18,7 +18,7 @@ public class pandemic {
 	public void play() {
 		
 	}
-	public boolean isFinished(){
+	/*public boolean isFinished(){
 		if() {
 			return true;
 		}
@@ -27,6 +27,7 @@ public class pandemic {
 		}
 		
 	}
+	*/
 	public String toString() {
 		return "the global infection rate :"+this.GlobalInfectionRate + " and the infection focus amount "+this.InfectionFocusAmount;
 	}
