@@ -1,18 +1,17 @@
 package pandemic;
 
 import java.util.Iterator;
-<<<<<<< HEAD
-=======
+import java.util.Stack;
 
-public class pandemic {
->>>>>>> branch 'main' of git@gitlab-etu.fil.univ-lille.fr:saralyna.ouyahia.etu/l-2-s-4-projet-2023-groupe-8.git
-
-<<<<<<< HEAD
-public class pandemic {
+public class Pandemic {
+	
 	private int GlobalInfectionRate;
 	private int InfectionFocusAmount ;
+	private Stack<InfectionCards> infectionStack;
+	private Stack<PlayersCards> playersStack;
 	
-	public pandemic (int GlobalInfectionRate, int InfectionFocusAmount ){
+	
+	public Pandemic (int GlobalInfectionRate, int InfectionFocusAmount ){
 		this.GlobalInfectionRate=GlobalInfectionRate;
 		this.InfectionFocusAmount=InfectionFocusAmount;
 	}
@@ -24,8 +23,9 @@ public class pandemic {
 	public void play() {
 		
 	}
-	/*public boolean isFinished(){
-		if() {
+	
+	public boolean isFinished(){
+		if( findRemedy() || InfectionFocusAmount == 8 || this.playersStack.size() < 2) {
 			return true;
 		}
 		else {
@@ -33,18 +33,11 @@ public class pandemic {
 		}
 		
 	}
-	*/
+
 	public String toString() {
 		return "the global infection rate :"+this.GlobalInfectionRate + " and the infection focus amount "+this.InfectionFocusAmount;
 	}
-	}
-=======
-	public static Iterator<String> keys() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 
 }
->>>>>>> branch 'main' of git@gitlab-etu.fil.univ-lille.fr:saralyna.ouyahia.etu/l-2-s-4-projet-2023-groupe-8.git
+
