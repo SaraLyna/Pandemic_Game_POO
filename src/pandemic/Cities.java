@@ -26,6 +26,6 @@ public class Cities {
 	      return this.neighbors;
 	   }
 	public String toString() {
-		return "this city's name is " + this.name ;
+		return "the name of this city is " + this.name ;
 	}
 }
