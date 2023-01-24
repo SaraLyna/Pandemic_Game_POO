@@ -19,7 +19,7 @@ public class pandemicMain {
 	    
 	    {
 		    // premier test : lecture des entrees du dictionnaire principal
-		    Iterator<String> entries = pandemic.keys();
+		    Iterator<String> entries = Pandemic.keys();
 		    System.out.println("Affichage des villes");
 		    while (entries.hasNext()) {
 		    	System.out.println(entries.next());

@@ -5,10 +5,10 @@ import java.util.Stack;
 
 public class Pandemic {
 	
-	private int GlobalInfectionRate;
-	private int InfectionFocusAmount ;
-	private Stack<InfectionCards> infectionStack;
-	private Stack<PlayersCards> playersStack;
+	protected int GlobalInfectionRate;
+	protected int InfectionFocusAmount ;
+	protected Stack<InfectionCards> infectionStack;
+	protected Stack<PlayersCards> playersStack;
 	
 	
 	public Pandemic (int GlobalInfectionRate, int InfectionFocusAmount ){
