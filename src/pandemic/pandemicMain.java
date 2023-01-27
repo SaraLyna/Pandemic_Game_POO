@@ -15,7 +15,7 @@ public class pandemicMain {
 		
 		FileReader reader = new FileReader(filename);
 		
-	    JSONObject phonebook = new JSONObject(new JSONTokener(reader));
+	    JSONObject pandemic = new JSONObject(new JSONTokener(reader));
 	    
 	    {
 		    // premier test : lecture des entrees du dictionnaire principal

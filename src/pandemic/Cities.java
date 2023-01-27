@@ -7,15 +7,13 @@ public class Cities {
 	protected List<Cities> neighbors;
 	
 	
+	
 	public Cities(String name ) {
 		this.name=name;
 	}
-	public boolean isInfectionFocus() {
-		if (InfectionFocusAmount==3) {
-			return true;
-		}
-		return false;
-	}
+	//public boolean isInfectionFocus() {
+		
+	//}
 	public String getName() {
 		return this.name;
 	}

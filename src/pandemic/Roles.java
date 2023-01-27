@@ -1,17 +1,17 @@
 package pandemic;
 
 public class Roles{
-	public String Scientist() {
+//	public String Scientist() {
 		
-	}
-	public String  globetrotter() {
+	//}
+	//public String  globetrotter() {
 		
-	}
-	public String expert() {
+//	}
+	//public String expert() {
 		
-	}
-	public String doctor() {
+//	}
+	//public String doctor() {
 		
-	}
+	//}
 	
 }
