@@ -1,19 +1,61 @@
 package pandemic;
 import java.util.*;
+import java.lang.*;
 
 public class Cities {
 	protected String name ;
-	protected List<Cubes> infectionCubes;
+	protected List<Cubes> infectionCubes;// faire une hashmap
 	protected List<Cities> neighbors;
+	protected String sector;
+	protected boolean isReasearchCenter;
+	protected boolean isInfectionFocus;
 	
 	
 	
-	public Cities(String name ) {
+	
+	public Cities(String name, List<Cities>neighbors, String sector) {
 		this.name=name;
-	}
-	//public boolean isInfectionFocus() {
+		this.neighbors = neighbors;
+		this.sector = sector;
+		this.isReasearchCenter = false;
+		this.isInfectionFocus = false;
 		
-	//}
+	}
+	
+	
+	/**public void becomeInfectionFocus() {
+		Map <String,Integer> count = new HashMap<>();
+		Set<String> theKeys = count.keySet();
+		Iterator<Cubes>it_key = this.infectionCubes.iterator();
+		 while(!this.isInfectionFocus){
+			Cubes c = it_key.next();
+			if(! count.containsKey(c.getDiseaseName())){
+				count.put(c.getDiseaseName(),1);
+			}
+			else {
+				
+				count.put(c.getDiseaseName(),count.get(c.getDiseaseName()+1));
+				if(count.get(c.getDiseaseName()) == 3) {
+					this.isInfectionFocus = true;
+					//this.infectionPropagation();
+				}
+			}
+		}
+	}*/
+	
+	
+	private void infectionPropagation() {
+		
+		for(Cities c : this.neighbors) {
+			c.infectionCubes.add(new cubes());
+		}
+	}
+	
+	public boolean isInfectionFocus() {
+		
+		return this.isInfectionFocus;
+	}
+	
 	public String getName() {
 		return this.name;
 	}
