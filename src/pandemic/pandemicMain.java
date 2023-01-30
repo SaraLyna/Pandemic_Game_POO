@@ -18,7 +18,7 @@ public class pandemicMain {
 	    JSONObject pandemic = new JSONObject(new JSONTokener(reader));
 	    
 	    {
-		    // premier test : lecture des entrees du dictionnaire principal
+		    // lecture des entrees du dictionnaire principal: villes
 		    Iterator<String> entries = Pandemic.keys();
 		    System.out.println("Affichage des villes");
 		    while (entries.hasNext()) {
