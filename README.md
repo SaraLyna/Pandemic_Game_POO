@@ -59,6 +59,12 @@ on a essayé d'écrire le code des méthodes de la MappeMonde pour lire le fichi
 on a ajouté la classe MappeMonde au diagramme UML
 
 ## Semaine 3
+Amélioration du Diagramme UML,
+Implémentation de la classe MappeMonde.java (on a réussit à afficher cities et neighbors),
+amélioration des méthodes de la classe Cities.java,
+Création du dossier test, et des classe CitiesTest.java et MappeMondeTest.java,(JUnit 4),
+Ecriture dans le Readme.
+
 
 ## Semaine 4
 
