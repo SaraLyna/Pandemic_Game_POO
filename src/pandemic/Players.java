@@ -1,9 +1,6 @@
 package pandemic;
 
-/**
- * @author saralyna.ouyahia.etu
- *
- */
+
 public class Players {
 	private String name;
 	private Roles role;

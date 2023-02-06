@@ -2,10 +2,6 @@ package pandemic;
 import java.util.*;
 import java.lang.*;
 
-/**
- * @author saralyna.ouyahia.etu
- *
- */
 public class Cities {
 	protected String name ;
 	protected List<Cubes> infectionCubes;// faire une hashmap
@@ -53,9 +49,7 @@ public class Cities {
 	}*/
 	
 	
-	/**
-	 * 
-	 */
+	
 	private void infectionPropagation() {
 		
 		for(Cities c : this.neighbors) {
@@ -63,35 +57,25 @@ public class Cities {
 		}
 	}
 	
-	/**
-	 * @return
-	 */
+	
 	public boolean isInfectionFocus() {
 		
 		return this.isInfectionFocus;
 	}
 	
-	/**
-	 * @return
-	 */
+	
 	public String getName() {
 		return this.name;
 	}
-	 /**
-	 * @return
-	 */
+	 
 	public List<Cubes> getAllCubes() {
 	      return this.infectionCubes;
 	   }
-	 /**
-	 * @return
-	 */
+	 
 	public List<Cities> getAllCities() {
 	      return this.neighbors;
 	   }
-	/**
-	 *
-	 */
+	
 	public String toString() {
 		return "the name of this city is " + this.name ;
 	}

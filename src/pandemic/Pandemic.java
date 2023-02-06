@@ -3,10 +3,7 @@ package pandemic;
 import java.util.Iterator;
 import java.util.Stack;
 
-/**
- * @author saralyna.ouyahia.etu
- *
- */
+
 public class Pandemic {
 	
 	protected int GlobalInfectionRate;
@@ -24,16 +21,12 @@ public class Pandemic {
 		this.InfectionFocusAmount=InfectionFocusAmount;
 	}
 
-	/**
-	 * @return
-	 */
+	
 	public static Iterator<String> keys() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	/**
-	 * 
-	 */
+	
 	public void play() {
 		
 	}
@@ -48,9 +41,7 @@ public class Pandemic {
 		
 	//}
 
-	/**
-	 *
-	 */
+	
 	public String toString() {
 		return "the global infection rate :"+this.GlobalInfectionRate + " and the infection focus amount "+this.InfectionFocusAmount;
 	}
