@@ -13,24 +13,17 @@ import org.json.JSONTokener;
  *
  */
 public class MappeMonde {
+	protected List<Cities> Villes ;
 	
-		protected List<Cities> Villes ;
-		protected String args[];
-		
-			String filename = args[0];
-			
-				
+		public MappeMonde(String filename) throws FileNotFoundException {
 		//Creation of the file reader
 		FileReader reader = new FileReader(filename);
 		
 	    JSONObject pandemic = new JSONObject(new JSONTokener(reader));
 	    
-	    {
 		    Iterator<String> entries = Pandemic.keys();
-		    System.out.println("Affichage des villes");
 		    while (entries.hasNext()) {
-		    	System.out.println(entries.next());
+		    	entries.next();
 		    }
 	    }
-
 }
