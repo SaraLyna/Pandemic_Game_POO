@@ -2,6 +2,10 @@ package pandemic;
 import java.util.*;
 import java.lang.*;
 
+/**
+ * @author saralyna.ouyahia.etu
+ *
+ */
 public class Cities {
 	protected String name ;
 	protected List<Cubes> infectionCubes;// faire une hashmap
@@ -28,7 +32,7 @@ public class Cities {
 	}
 	
 	
-	/**public void becomeInfectionFocus() {
+	/*public void becomeInfectionFocus(Cubes c) {// à revoir!!! mettre le paramètre (cube occasionnant l'infection)
 		Map <String,Integer> count = new HashMap<>();
 		Set<String> theKeys = count.keySet();
 		Iterator<Cubes>it_key = this.infectionCubes.iterator();
@@ -46,36 +50,64 @@ public class Cities {
 				}
 			}
 		}
-	}*/
+	}
+	*/
 	
-	
-	
-	private void infectionPropagation() {
+	/**
+	 * allow to start an infection propagation 
+	 * @param c, the cube to add
+	 */
+	private void infectionPropagation(Cubes c) {
 		
-		for(Cities c : this.neighbors) {
-			c.infectionCubes.add(new cubes());
+		for(Cities neighbor : this.neighbors) {
+			neighbor.addCube(c);
 		}
 	}
 	
+	/**
+	 * allow to add a cube to a city if it is contaminated
+	 * if the count of the cube list of the city is more than 3, this city become an infection propagation
+	 * @param c, the cube to add
+	 */
+	public void addCube(Cubes c) {
+		if(this.infectionCubes.size() < 3) {
+			this.infectionCubes.add(c);
+		}
+		else {
+			this.infectionPropagation(c);
+			this.isInfectionFocus = true;
+		}
+	}
 	
+	/**
+	 * @return
+	 */
 	public boolean isInfectionFocus() {
 		
 		return this.isInfectionFocus;
 	}
 	
-	
+	/**
+	 * @return
+	 */
 	public String getName() {
 		return this.name;
 	}
-	 
+	 /**
+	 * @return
+	 */
 	public List<Cubes> getAllCubes() {
 	      return this.infectionCubes;
 	   }
-	 
+	 /**
+	 * @return
+	 */
 	public List<Cities> getAllCities() {
 	      return this.neighbors;
 	   }
-	
+	/**
+	 *
+	 */
 	public String toString() {
 		return "the name of this city is " + this.name ;
 	}
