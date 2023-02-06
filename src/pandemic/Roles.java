@@ -9,17 +9,17 @@ public class Roles{
 	//}
 	
 	
-	//public String  globetrotter() {
+	//public String  GlobetRotter() {
 		
 //	}
 	
 	
-	//public String expert() {
+	//public String Expert() {
 		
 //	}
 	
 	
-	//public String doctor() {
+	//public String Doctor() {
 		
 	//}
 	
