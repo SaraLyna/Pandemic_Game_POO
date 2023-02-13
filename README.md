@@ -43,10 +43,6 @@ Cette Classe a pour but d'executer notre programme et d'afficher tout ce qui doi
 On a d'abord essayé de gérer ça à l'aide d'un void "becomeInfectionFocus" , sauf qu'on avait du mal à recupérer la maladie responsable de l'explosion .
 Ce qui nous a conduit à créer deux méthodes nommées InfectionPropagation, ainsi que addCube qui prennent en paramètre la maladie , ce qui nous permet de mieux gérer la propagation et ainsi d'ajouter le bon cube correspondant à la maladie aux villes voisines .
 
-### Difficultés restant à résoudre :
-
--- lorsque une ville se trouvant à la frontière , contient deux cubes de la meme maladie(maladie de son secteur ) , est contaminée par sa ville voisine (située dans un autre secteur ) , cette dernière reçoit un cube infection différent de celui de son secteur . 
-Meme si , le nombre de cubes qu'elle contient est égal à 3 , cette ville ne doit pas déclencher une propagation et ne doit pas devenir un foyer , car les cubes de maladies sont différents .
 
 ## Livrable 2
 
