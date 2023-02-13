@@ -6,6 +6,10 @@ import java.io.*;
 //import org.json.*;
 
 
+/**
+ * @author saralyna.ouyahia.etu
+ *
+ */
 public class pandemicMain {
 	
 	/**
