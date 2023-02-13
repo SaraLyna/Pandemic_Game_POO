@@ -1,8 +1,11 @@
 package pandemic;
 
 
-public class Roles{
-	
+/**
+ * @author saralyna.ouyahia.etu
+ *
+ */
+	public class Roles{
 	
 //	public String Scientist() {
 		

@@ -7,10 +7,14 @@ import java.util.List;
 
 import org.json.JSONObject;
 import org.json.JSONTokener;
-import org.json.*;
 
 
 
+
+/**
+ * @author saralyna.ouyahia.etu
+ *
+ */
 public class MappeMonde {
 	protected List<Cities> Villes ;
 	
@@ -20,9 +24,10 @@ public class MappeMonde {
 		 * @param filename
 		 * @throws FileNotFoundException
 		 */
+	
 		public MappeMonde(String filename) throws FileNotFoundException {
 		//Creation of the file reader
-//filename="villes.json" , plus tard pour l'extension du jeu
+        //filename="villes.json" , plus tard pour l'extension du jeu
 		FileReader reader = new FileReader("villes.json"); //reader allows the reading
 		
 	    JSONObject pandemic = new JSONObject(new JSONTokener(reader));
