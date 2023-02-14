@@ -17,7 +17,7 @@ public class pandemicMain {
 	 * @throws FileNotFoundException
 	 */
 	public static void main(String args[]) throws FileNotFoundException {
-       MappeMonde Map = new MappeMonde("villes.json");
+       MappeMonde Map= new MappeMonde("villes.json");
        //System.out.println("Map");
 	}
 }
