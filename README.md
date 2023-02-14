@@ -1,13 +1,13 @@
 # l2s4-projet-2023
 
-# Equipe
+# Equipe 
 
 - Sara Lyna OUYAHIA
 - Anais BENIKKEN
 - Charles Kevin Adovi KPAKPO
 - Ayman EL ALASS
 
-# Sujet
+# Sujet 
 
 [Le sujet 2023](https://www.fil.univ-lille.fr/~varre/portail/l2s4-projet/sujet2023.pdf)
 
@@ -17,31 +17,43 @@
 
 ### Atteinte des objectifs:
 
-Modélisation des villes,
-Modélisation de la carte.
+Modélisation des villes:
+-Affichage des villes + affichage des voisins (cities et neighbors)
+Modélisation de la carte:
+-Faire enc sorte que si un secteur est un foyer d'infection, alors les villes voisines seront infectées
+et du coup la propahation de la maladie commence.
 
 Explications du code:
 
 --Classe Cities:
 
-La classe contient un constructeur Cities prenant en parametre le nom de la ville , la liste de ses villes voisines , ainsi que son secteur ; de plus , on initialise nos deux booléens isResearchCenter , et isInfectionFocus à false , car au début , la ville n'est pas un foyer d'infection et ne contient pas de centre de recherche .
-L'objectif de cette classe est de vérifier si la ville est un foyer d'infection , de déclencher une propagation de maladie chez les villes voisines , et leur ajouter un cube d'infection de la maladie propagée .
+La classe contient un constructeur Cities prenant en parametre le nom de la ville ,
+ la liste de ses villes voisines , ainsi que son secteur ;
+  de plus , on initialise nos deux booléens isResearchCenter , et isInfectionFocus à false ,
+   car au début , la ville n'est pas un foyer d'infection et ne contient pas de centre de recherche .
+L'objectif de cette classe est de vérifier si la ville est un foyer d'infection ,
+ de déclencher une propagation de maladie chez les villes voisines , et leur ajouter un cube d'infection de la maladie propagée .
 
 
 -- Classe Mappemonde:
 
-La visée de cette classe , est de lire la carte des villes et de les afficher par la suite , ça correspond à notre plateau de jeu 
+La visée de cette classe , est de lire la carte des villes (cities et neighbors dans le fichier villes.json)
+et de les afficher par la suite ,ça correspond à notre plateau de jeu (Carte du monde) .
 
 
 -- Classe pandemicMain:
 
-Cette Classe a pour but d'executer notre programme et d'afficher tout ce qui doit s'afficher à l'écran 
+Cette Classe a pour but d'exécuter notre programme et d'afficher tout ce qui doit s'afficher à l'écran (les villes et les voisins).
 
 ### Difficultés rencontrées(résolues!):
 
--- la première difficulté rencontrée , est le fait qu'une ville soit infectée par plus d'une maladie à la fois ( ce qui est du à l'infection des villes voisines appartenant à deux secteurs différents , (villes situées à la frontière)) .
-On a d'abord essayé de gérer ça à l'aide d'un void "becomeInfectionFocus" , sauf qu'on avait du mal à recupérer la maladie responsable de l'explosion .
-Ce qui nous a conduit à créer deux méthodes nommées InfectionPropagation, ainsi que addCube qui prennent en paramètre la maladie , ce qui nous permet de mieux gérer la propagation et ainsi d'ajouter le bon cube correspondant à la maladie aux villes voisines .
+-- la première difficulté rencontrée , est le fait qu'une ville soit infectée par plus d'une maladie à la fois 
+( ce qui est du à l'infection des villes voisines appartenant à deux secteurs différents , (villes situées à la frontière)) .
+On a d'abord essayé de gérer ça à l'aide d'un void "becomeInfectionFocus" , 
+sauf qu'on avait du mal à recupérer la maladie responsable de l'explosion .
+Ce qui nous a conduit à créer deux méthodes nommées InfectionPropagation,
+ ainsi que addCube qui prennent en paramètre la maladie , ce qui nous permet de mieux gérer la propagation et ainsi,
+  d'ajouter le bon cube correspondant à la maladie aux villes voisines .
 
 
 ## Livrable 2
@@ -85,7 +97,8 @@ Implémentation de la classe MappeMonde (on a réussi à afficher cities et neig
 amélioration des méthodes de la classe Cities
 
 ## Semaine 4
-Création des tests pour les classes Cities et Mappemonde 
+Création des tests pour les classes Cities et Mappemonde ,
+Finalisation et quelques modifications pour la classe MappeMonde,
 Finalisation du livrable 1 , (+ explication du code ).
 
 ## Semaine 5
