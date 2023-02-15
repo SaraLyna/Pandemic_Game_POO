@@ -7,7 +7,7 @@ import java.io.*;
 
 
 /**
- * @author saralyna.ouyahia.etu
+ * 
  *
  */
 public class pandemicMain {

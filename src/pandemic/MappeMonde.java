@@ -13,7 +13,7 @@ import org.json.JSONArray;
 
 
 /**
- * @author saralyna.ouyahia.etu
+ * 
  *
  */
 public class MappeMonde {
