@@ -9,14 +9,15 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.json.JSONArray;
 
-
+   
 
 
 /**
- * 
+ * @author saralyna.ouyahia.etu
  *
  */
 public class MappeMonde {
+
 	protected List<Cities> Villes ;
 	
 		/**
@@ -50,7 +51,7 @@ public class MappeMonde {
 		while (villes_entries.hasNext()) {
 			// Obtient le nom de la ville.
 			String nomVille = villes_entries.next();
-			// Obtient le numéro de la ville (basé sur le nom).
+			// ObtientSystem.out.println("Etat de la ville") le numéro de la ville (basé sur le nom).
 			String numberVille = nomVille.replaceAll("[^0-9]", "");
 			// La liste des villes commence par 1, mais un tableau en Java 
 			// commence à l'index 0. De cette manière, il est nécessaire d'utiliser -1.
@@ -77,5 +78,19 @@ public class MappeMonde {
 	    }
 		
 	}
+	
+	public Cities getVille(String nameVille) {
+		for(Cities c : this.Villes) {
+			if(c.getName().equals(nameVille))
+				return c;
+		}
+		return null;
+	}
+	
+	
+	//stocker les villes (liste_villes) dans une Map
+	//stocker les voisins (liste_voisins) dans une map2
 }
+
+
 

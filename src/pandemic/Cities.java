@@ -1,6 +1,6 @@
 package pandemic;
 import java.util.*;
-import java.lang.*;
+//import java.lang.*;
 
 /**
  * 
@@ -13,7 +13,7 @@ public class Cities {
 	protected String sector;
 	protected boolean isReasearchCenter;
 	protected boolean isInfectionFocus;
-	
+	protected Map<String,Integer> cubes;
 	
 	
 	
@@ -28,6 +28,13 @@ public class Cities {
 		this.sector = sector;
 		this.isReasearchCenter = false;
 		this.isInfectionFocus = false;
+		this.cubes= new HashMap<String,Integer>(); 
+		this.cubes.put("bleu", 0);
+		this.cubes.put("jaune", 0);
+		this.cubes.put("noir", 0);
+		this.cubes.put("rouge", 0);
+		
+		
 		
 	}
 	
@@ -71,7 +78,9 @@ public class Cities {
 	 */
 	public void addCube(Cubes c) {
 		if(this.infectionCubes.size() < 3) {
-			this.infectionCubes.add(c);
+			int  a  = this.cubes.get(c.getDiseaseName());
+			this.cubes.put(c.getDiseaseName(), a++);
+			//this.infectionCubes.add(c);
 		}
 		else {
 			this.infectionPropagation(c);
@@ -79,6 +88,14 @@ public class Cities {
 		}
 	}
 	
+	public Map<String, Integer> getDiseases(){
+		return this.cubes;
+	}
+	
+	
+	public int getNbDisease(String name) {
+		return this.cubes.get(name);
+	}
 	/**
 	 * @return
 	 */

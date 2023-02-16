@@ -38,12 +38,17 @@ L'objectif de cette classe est de vérifier si la ville est un foyer d'infection
 -- Classe Mappemonde:
 
 La visée de cette classe , est de lire la carte des villes (cities et neighbors dans le fichier villes.json)
-et de les afficher par la suite ,ça correspond à notre plateau de jeu (Carte du monde) .
+puis stocker les villes dans une liste (de préférence Map,ici)
+et les voisins dans une autre Map, histoire de pouvoir les afficher et les utiliser dans le main.
+pour pouvoir récupérer le nombre de maladie de chaque ville (couleur de la maladie), et ses voisins
+et de les afficher par la suite (pandemicMain),
+ça correspond à notre plateau de jeu (Carte du monde) .
 
 
 -- Classe pandemicMain:
 
-Cette Classe a pour but d'exécuter notre programme et d'afficher tout ce qui doit s'afficher à l'écran (les villes et les voisins).
+Cette Classe a pour but d'exécuter notre programme et d'afficher tout ce qui doit s'afficher à l'écran (les villes et les voisins) 
+selon les secteurs et le nombre de maladie de chaque ville.
 
 ### Difficultés rencontrées(résolues!):
 
