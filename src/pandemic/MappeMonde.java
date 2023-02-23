@@ -1,10 +1,8 @@
 package pandemic;
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Iterator;
-import java.util.List;
-
+//import java.util.List;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.json.JSONArray;
@@ -14,18 +12,21 @@ import org.json.JSONArray;
 
 /**
  * @author saralyna.ouyahia.etu
- *
+ *this class is the representation of the World of pandemic (Carte du monde de la pandémie)
+ *this class allows the reading of villes.json (json file)
  */
 public class MappeMonde {
 
-	protected List<Cities> Villes ;
+	protected Cities[] Villes ;
 	
 		/**
 		 * this method allows the reading of a json file
-		 * here we read "villes.json"
-		 * @param filename
-		 * @throws FileNotFoundException
+		 * constructor of the class MappeMonde
+		 * here we read "villes.json" which countains informations about cities and neighbors
+		 * @param filename, the name of the json file villes.json
+		 * @throws FileNotFoundException if filename can not be found
 		 */
+	
 	
 	public MappeMonde(String filename) throws FileNotFoundException {
 	    //filename="villes.json" , plus tard pour l'extension du jeu
@@ -47,15 +48,18 @@ public class MappeMonde {
 		 * Pour les classer, je vous conseille de créer un tableau et d'utiliser 
 		 * les commandes suivantes.
 		 */
+		this.Villes= new Cities[villes.length()];
 		String[] liste_villes = new String[villes.length()];
 		while (villes_entries.hasNext()) {
 			// Obtient le nom de la ville.
 			String nomVille = villes_entries.next();
-			// ObtientSystem.out.println("Etat de la ville") le numéro de la ville (basé sur le nom).
+			// Obtient le numéro de la ville (basé sur le nom).
 			String numberVille = nomVille.replaceAll("[^0-9]", "");
 			// La liste des villes commence par 1, mais un tableau en Java 
 			// commence à l'index 0. De cette manière, il est nécessaire d'utiliser -1.
 			liste_villes[Integer.parseInt(numberVille)-1] = nomVille;
+			this.Villes[Integer.parseInt(numberVille)-1]= new Cities(nomVille, villes.get(nomVille).toString());
+			
 		}
 		// Imprimer la liste des villes. 
 		for(int j = 0; j < liste_villes.length; j++) {
@@ -71,7 +75,12 @@ public class MappeMonde {
 	        String nomVille = voisins_entries.next();
 	        System.out.print(nomVille+" : ");
 	    	JSONArray liste_voisins = voisins.getJSONArray(nomVille);
+	    	String numberVille = nomVille.replaceAll("[^0-9]", "");
 	    	for (int i = 0; i < liste_voisins.length(); i++) {
+	    		String nomNeighbor = liste_voisins.get(i).toString();
+	    		String numberNeighbor = nomNeighbor.replaceAll("[^0-9]", "");
+	    		this.Villes[Integer.parseInt(numberVille)-1].addNeighbors(this.Villes[Integer.parseInt(numberNeighbor)-1]);
+	    		
 	    	    System.out.print(liste_voisins.get(i)+" ");
 	    	}
 	    	System.out.println();
@@ -79,17 +88,29 @@ public class MappeMonde {
 		
 	}
 	
-	public Cities getVille(String nameVille) {
-		for(Cities c : this.Villes) {
-			if(c.getName().equals(nameVille))
-				return c;
+	
+	/**
+	 * this method displays all the cities in the Map world
+	 * it goes all over elements of the list of cities and displays them with toString() method of the class Cities
+	 */
+	public void displayAllCities() {
+		for(Cities cities : this.Villes) {
+			System.out.println(cities);
 		}
-		return null;
 	}
 	
 	
-	//stocker les villes (liste_villes) dans une Map
-	//stocker les voisins (liste_voisins) dans une map2
+	/**
+	 * this method is used for the final tour of infection
+	 * it goes all over the cities of the map world and initialize the boolean hasBeenInfectedTurn
+	 * of each city with calling the method resetTurn of the class Cities
+	 */
+	
+	public void endInfectionTurn() {
+		for(Cities cities : this.Villes) {
+			cities.resetTurn();
+		}
+	}
 }
 
 

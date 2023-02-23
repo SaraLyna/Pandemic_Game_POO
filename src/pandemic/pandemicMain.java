@@ -4,11 +4,12 @@ import java.io.*;
 
 //import org.json.*;
 
-
 /**
  * 
- *
+ * @author saralyna.ouyahia.etu
+ *this class displays all the code we have been coding
  */
+
 public class pandemicMain {
 	
 	/**
