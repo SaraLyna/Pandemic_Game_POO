@@ -1,20 +1,33 @@
 package pandemic;
 
+/**
 
+Enumération représentant les maladies dans le jeu Pandemic.
 
-public class Diseases {
-	protected String diseases;
-	
-	
-	public Diseases(String diseases) {
-		this.diseases=diseases;
-	}
-	
-	public String getName() {
-		return this.diseases;
-	}
-	
-	public String toString() {
-		return "the name of this city is :"+this.getName();
-	}
+Les maladies sont représentées par une couleur et une chaîne de caractères correspondant à leur nom.
+*/
+
+public enum Diseases {
+    BLUE("bleu"),
+    RED("rouge"),
+    YELLOW("jaune"),
+    BLACK("noir");
+
+    private String name;
+    /**
+
+    Constructeur de l'énumération Diseases.
+    @param name nom de la maladie.
+    */
+    Diseases(String name) {
+        this.name = name;
+    }
+    /**
+
+    Retourne le nom de la maladie.
+    @return le nom de la maladie.
+    */
+    public String getName() {
+        return this.name;
+    }
 }
