@@ -1,7 +1,7 @@
 package pandemic;
 
 	/**
-	 * @author saralyna.ouyahia.etu
+	 * 
 	 *
 	 */
 	public class Roles{
