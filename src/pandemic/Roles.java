@@ -4,25 +4,26 @@ package pandemic;
 	 * 
 	 *
 	 */
-	public class Roles{
-	
-//	public String Scientist() {
+	public abstract class Roles{
+		//on devra créer les classes des roles aprés
+	/** 
+	public String Scientist() {
 		
-	//}
+	}
 	
 	
-	//public String  GlobetRotter() {
+	public String  GlobetRotter() {
 		
-//	}
+	}
 	
 	
-	//public String Expert() {
+	public String Expert() {
 		
-//	}
+	}
 	
 	
-	//public String Doctor() {
+	public String Doctor() {
 		
-	//}
-	
+	}
+	*/
 }

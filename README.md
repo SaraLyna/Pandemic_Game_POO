@@ -1,13 +1,13 @@
 # l2s4-projet-2023
 
-# Equipe 
+# Equipe
 
 - Sara Lyna OUYAHIA
 - Anais BENIKKEN
 - Charles Kevin Adovi KPAKPO
 - Ayman EL ALASS
 
-# Sujet 
+# Sujet
 
 [Le sujet 2023](https://www.fil.univ-lille.fr/~varre/portail/l2s4-projet/sujet2023.pdf)
 
@@ -47,14 +47,14 @@ et de les afficher par la suite (pandemicMain),
 
 -- Classe pandemicMain:
 
-Cette Classe a pour but d'exécuter notre programme et d'afficher tout ce qui doit s'afficher à l'écran (les villes et les voisins) 
+Cette Classe a pour but d'exécuter notre programme et d'afficher tout ce qui doit s'afficher à l'écran (les villes et les voisins)
 selon les secteurs et le nombre de maladie de chaque ville.
 
 ### Difficultés rencontrées(résolues!):
 
--- la première difficulté rencontrée , est le fait qu'une ville soit infectée par plus d'une maladie à la fois 
+-- la première difficulté rencontrée , est le fait qu'une ville soit infectée par plus d'une maladie à la fois
 ( ce qui est du à l'infection des villes voisines appartenant à deux secteurs différents , (villes situées à la frontière)) .
-On a d'abord essayé de gérer ça à l'aide d'un void "becomeInfectionFocus" , 
+On a d'abord essayé de gérer ça à l'aide d'un void "becomeInfectionFocus" ,
 sauf qu'on avait du mal à recupérer la maladie responsable de l'explosion .
 Ce qui nous a conduit à créer deux méthodes nommées InfectionPropagation,
  ainsi que addCube qui prennent en paramètre la maladie , ce qui nous permet de mieux gérer la propagation et ainsi,
@@ -83,7 +83,7 @@ Ce qui nous a conduit à créer deux méthodes nommées InfectionPropagation,
 
 ## Semaine 1
 Modélisation du diagramme UML (modélisation de toutes les classes du jeu)
- et des classes Java:( Actions.java , Cards.java, Cities.java, Cubes.java, Diseases.java, 
+ et des classes Java:( Actions.java , Cards.java, Cities.java, Cubes.java, Diseases.java,
 EpidemicCards.java, InfectionCards.java, Pandemic.java, pandemicMain.java, Players.java, PlayersCards.java,Roles.java).
 
 Lecture du fichier JSON sur eclipse, création du jars.
@@ -107,6 +107,11 @@ Finalisation et quelques modifications pour la classe MappeMonde,
 Finalisation du livrable 1 , (+ explication du code ).
 
 ## Semaine 5
+On a modélisé sur papier les Roles(ou on a aussi mis une classe Abstract pour qu'à la fin on crée des classes pour chaque role, Doctor, Expert, Globetrotter et Scientist),
+et les Cards(ou on a mis une classe Abstract pour Cards pour que InfectionCards et EpidemicCards héritent de la classe),
+puis pour les joueurs on devra juste créer une pile représebtant la pile des cards dans la main du joueur,  on créera un attribut MAX=7 (nombre maximal de Cards qu'un joueur peut avoir lors d'une partie).
+et on créera aussi la méthode pour défausser les Cards(si jamais >MAX).
+
 
 ## Semaine 6
 
