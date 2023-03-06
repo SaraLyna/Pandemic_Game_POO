@@ -19,7 +19,7 @@ public enum Diseases {
     Constructeur de l'énumération Diseases.
     @param name nom de la maladie.
     */
-    Diseases(String name) {
+     Diseases(String name) {
         this.name = name;
     }
     /**

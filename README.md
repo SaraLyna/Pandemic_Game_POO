@@ -114,6 +114,9 @@ et on créera aussi la méthode pour défausser les Cards(si jamais >MAX).
 
 
 ## Semaine 6
+codage des classes: ScientistRole, GlobetRotterRole, ExpertRole, DoctorRole.
+mise à jour du diagramme UML avec les nouvelles classes,
+codage de la classe PLayer.
 
 ## Semaine 7
 
