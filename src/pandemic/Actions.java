@@ -5,5 +5,18 @@ package pandemic;
  * each player (or role) do an action with the card he gets
  */
 public class Actions {
-
+	/**
+	public String discover(){
+		
+	}
+	public String move() {
+		
+	}
+	public String construct() {
+		
+	}
+	public String HealDisease() {
+		
+	}
+*/
 }

@@ -1,5 +1,9 @@
 package pandemic;
 
+/**
+ * this class represent the cubes of diseases
+ *
+ */
 public class Cubes {
 	
 	protected String diseasename;
