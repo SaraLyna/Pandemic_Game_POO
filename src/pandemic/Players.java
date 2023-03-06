@@ -7,7 +7,7 @@ public class Players {
 	private Cities location;
 
 	/**
-	 * @author saralyna.ouyahia.etu
+	 * 
 	 * constructor of the class Players
 	 * @param name
 	 * @param role

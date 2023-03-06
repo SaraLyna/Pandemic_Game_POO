@@ -11,7 +11,7 @@ import org.json.JSONArray;
 
 
 /**
- * @author saralyna.ouyahia.etu
+ * 
  *this class is the representation of the World of pandemic (Carte du monde de la pandémie)
  *this class allows the reading of villes.json (json file)
  */
