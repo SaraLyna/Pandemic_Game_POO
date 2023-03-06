@@ -6,7 +6,7 @@ import java.io.*;
 
 /**
  * 
- * @author saralyna.ouyahia.etu
+ * 
  *this class displays all the code we have been coding
  */
 
