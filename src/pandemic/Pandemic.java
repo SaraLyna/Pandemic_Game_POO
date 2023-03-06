@@ -41,7 +41,9 @@ public class Pandemic {
 		
 	//}
 
-	
+	/**
+	 *Returns a string representation of the object.
+	 */
 	public String toString() {
 		return "the global infection rate :"+this.GlobalInfectionRate + " and the infection focus amount "+this.InfectionFocusAmount;
 	}

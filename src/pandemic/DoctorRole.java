@@ -11,6 +11,9 @@ public class DoctorRole extends Actions {
 	//sans action: retirer tous les
 	//cubes dès qu’il passe dans une ville où il existe des cubes d’une maladie guérie, sans que cela compte pour une action
 	private String name;
+	/**
+	 * @return
+	 */
 	public String getName() {
 		return this.name;
 	}

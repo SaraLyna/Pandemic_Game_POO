@@ -11,6 +11,9 @@ class ScientistRole extends Actions{
 	//un remède. C’est donc en relation avec l’action découvrir un remède
 	
 	private String name;
+	/**
+	 * @return
+	 */
 	public String getName() {
 		return this.name;
 	}
