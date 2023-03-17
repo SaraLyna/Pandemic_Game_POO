@@ -5,7 +5,7 @@ import java.io.*;
 //import org.json.*;
 
 /**
- * 
+ * en quelques sorte c'est les plateau de jeu
  * 
  *this class displays all the code we have been coding
  */

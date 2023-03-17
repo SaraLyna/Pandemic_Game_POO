@@ -20,8 +20,8 @@
 Modélisation des villes:
 -Affichage des villes + affichage des voisins (cities et neighbors)
 Modélisation de la carte:
--Faire enc sorte que si un secteur est un foyer d'infection, alors les villes voisines seront infectées
-et du coup la propahation de la maladie commence.
+-Faire en sorte que si un secteur est un foyer d'infection, alors les villes voisines seront infectées
+et du coup la propagation de la maladie commence.
 
 Explications du code:
 
@@ -65,7 +65,38 @@ Ce qui nous a conduit à créer deux méthodes nommées InfectionPropagation,
 
 ### Atteinte des objectifs
 
+Modélisation des Cartes :
+
+affichage de la pile de cartes
+
+
+
+Modélisation des joueurs et de leur role:
+
+faire en sorte que chaque joueur ait un role spécifique
+
+Explications du code:
+
+--Classe Cards:
+
+--Classe Players:
+
+--Classe Roles:
+
+--Classe DoctorRole:
+
+--Classe ExpertRole:
+
+--Classe ScientistRole:
+
+--Classe GlobetRotter:
+
+--Classe pandemicMain:
+
+
+
 ### Difficultés restant à résoudre
+--Créer la relation entre chaque role et son action spécifique
 
 ## Livrable 3
 
@@ -109,16 +140,20 @@ Finalisation du livrable 1 , (+ explication du code ).
 ## Semaine 5
 On a modélisé sur papier les Roles(ou on a aussi mis une classe Abstract pour qu'à la fin on crée des classes pour chaque role, Doctor, Expert, Globetrotter et Scientist),
 et les Cards(ou on a mis une classe Abstract pour Cards pour que InfectionCards et EpidemicCards héritent de la classe),
-puis pour les joueurs on devra juste créer une pile représebtant la pile des cards dans la main du joueur,  on créera un attribut MAX=7 (nombre maximal de Cards qu'un joueur peut avoir lors d'une partie).
+puis pour les joueurs on devra juste créer une pile représentant la pile des cards dans la main du joueur,  on créera un attribut MAX=7 (nombre maximal de Cards qu'un joueur peut avoir lors d'une partie).
 et on créera aussi la méthode pour défausser les Cards(si jamais >MAX).
 
 
 ## Semaine 6
-codage des classes: ScientistRole, GlobetRotterRole, ExpertRole, DoctorRole.
+codage des classes: ScientistRole, GlobetRotter, ExpertRole, DoctorRole.
 mise à jour du diagramme UML avec les nouvelles classes,
-codage de la classe PLayer.
+codage de la classe Players.
 
 ## Semaine 7
+Codage des classes Players et Cards.
+Tests pour les classes Players et Cards.
+Codage de la suite de pandemicMain pour l'affichage des villes, des cartes et du reste du plateau de jeu.
+Mise à jour du diagramme UML et du Readme.
 
 ## Semaine 8
 
