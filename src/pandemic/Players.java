@@ -1,10 +1,12 @@
 package pandemic;
+import java.util.Stack;
 
 
 public class Players {
 	private String name;
 	private Roles role;
 	private Cities location;
+	private Stack<Cards> CardsInHand; /* the stack of cards in the player's hand */
 
 	/**
 	 * 
@@ -17,6 +19,7 @@ public class Players {
 		this.name=name;
 		this.role=role;
 		this.location=location;
+		this.CardsInHand = new Stack<Cards>();
 	}
 
 	/**
@@ -41,6 +44,14 @@ public class Players {
 	 */
 	public Cities getLocation() {
 		return this.location;
+	}
+	
+	/**
+	 *this method allows to discard a card from the player's stack cards if the stack 's size (number of cards it contains) extends 7 (MAX)
+	 */
+	public void discard() {
+		
+		this.CardsInHand.pop();
 	}
 
 }
