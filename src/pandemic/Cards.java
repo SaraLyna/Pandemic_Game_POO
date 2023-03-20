@@ -1,6 +1,6 @@
 package pandemic;
 
-public abstract class Cards {
+public  class Cards {
 	protected String city;
 	protected String disease;
 	

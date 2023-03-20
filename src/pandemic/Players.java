@@ -53,5 +53,21 @@ public class Players {
 		
 		this.CardsInHand.pop();
 	}
+	/**
+	 * Getter of the class Players
+	 * @return the player's hand of cards
+	 */
+	public Stack<Cards> getCardsInHand() {
+	    return this.CardsInHand;
+	}
+
+	/**
+	 * Setter of the class Players
+	 * @param cardsInHand the new stack of cards in the player's hand
+	 */
+	public void setCardsInHand(Stack<Cards> cardsInHand) {
+	    this.CardsInHand = cardsInHand;
+	}
+	
 
 }
