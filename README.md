@@ -93,10 +93,19 @@ Explications du code:
 
 --Classe pandemicMain:
 
+On a ajouté des tests pour la classe Players :
+
+--PlayersTest
 
 
-### Difficultés restant à résoudre
+### Difficultés restant à résoudre:
+
 --Créer la relation entre chaque role et son action spécifique
+
+### Difficultés résolues:
+
+On a eu du mal avec les tests de la classe Players , car on avait une classe abstraite , et donc on a créé des objets PlayersCards au lieu des objets Cards.
+
 
 ## Livrable 3
 
@@ -151,9 +160,12 @@ codage de la classe Players.
 
 ## Semaine 7
 Codage des classes Players et Cards.
-Tests pour les classes Players et Cards.
+
 Codage de la suite de pandemicMain pour l'affichage des villes, des cartes et du reste du plateau de jeu.
+
 Mise à jour du diagramme UML et du Readme.
+
+Ajout des tests PlayersTest.
 
 ## Semaine 8
 

@@ -1,13 +1,14 @@
 package pandemic;
 
+
 public class PlayersTest {
 	public static void main(String[] args) {
 		// create a new player object
 		Cities city1= new Cities("ville-11","3");
-		Cards card1= new Cards("ville-10","bleu");
-		Cards card2= new Cards("ville-12","rouge");
-		Cards card3= new Cards("ville-44","jaune");
-		Cards card4= new Cards("ville-20","noir");
+		PlayersCards card1= new PlayersCards("ville-10","bleu");
+		PlayersCards card2= new PlayersCards("ville-12","rouge");
+		PlayersCards card3= new PlayersCards("ville-44","jaune");
+		PlayersCards card4= new PlayersCards("ville-20","noir");
 		
 		
 		Players player1 = new Players("John", Roles.Doctor, city1);
