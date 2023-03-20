@@ -67,35 +67,50 @@ Ce qui nous a conduit à créer deux méthodes nommées InfectionPropagation,
 
 Modélisation des Cartes :
 
-affichage de la pile de cartes
+affichage de la pile de cartes et faire en sorte qu'il y ait plusieurs types de cartes,
+dont des cartes d'infection, des cartes epidémie, et des cartes joueurs.
 
 
 
 Modélisation des joueurs et de leur role:
 
-faire en sorte que chaque joueur ait un role spécifique
+faire en sorte que chaque joueur ait un role spécifique parmis le docteur, l'expert, le scientifique et le globetrotter.
 
 Explications du code:
 
 --Classe Cards:
 
+--Classe EpidemicCards:
+
+--Classe InfectionCards:
+
+--Classe PlayersCards:
+
 --Classe Players:
 
 --Classe Roles:
+c'est une classe enum qui enumère les quatres roles qu'on a, Doctor, Scientist, GlobetRotter et Expert.
 
 --Classe DoctorRole:
+le role du doctor consiste à retirer tous les cubes dès qu’il passe dans une ville où il existe des cubes
+ d’une maladie guérie, sans que cela compte pour une action.
+ et on fait ça à l'aide d'une méthode RemoveCubes().
 
 --Classe ExpertRole:
+l'expert n’a pas besoin de disposer de carte joueur pour construire une station,
+on fait ça à l'aide d'une méthode BuildStationWoCard(), qui consiste à ajouter une station de recherche (addResearchCenter()) à une ville
+puis dire que c'est une station de recherche (isResearchCenter()) et afficher le nom de la ville dans laquelle on a construit cette
+station de recherche.
 
 --Classe ScientistRole:
 
 --Classe GlobetRotter:
 
 --Classe pandemicMain:
+Cette Classe a pour but d'exécuter notre programme et d'afficher tout ce qui doit s'afficher à l'écran (les villes et les voisins)
+selon les secteurs et le nombre de maladie de chaque ville.
+et ensuite afficher les cartes et les roles de chaque joueur(simulation d'une partie)
 
-On a ajouté des tests pour la classe Players :
-
---PlayersTest
 
 
 ### Difficultés restant à résoudre:

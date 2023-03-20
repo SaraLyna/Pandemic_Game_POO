@@ -13,6 +13,7 @@ public class InfectionCards extends Cards {
 	public InfectionCards(String city,String disease){
 		super(city,disease);
 	}
+	
 	/**
 	 *Returns a string representation of the object.
 	 */

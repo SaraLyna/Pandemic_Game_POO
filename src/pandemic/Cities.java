@@ -153,6 +153,31 @@ public class Cities {
 	}
 	
 	/**
+	 * setteur de sector
+	 * @param sector
+	 */
+	public void setSector(String sector) {
+		this.sector = sector;
+	}
+	/**
+	 * @return une station de recherche
+	 */
+	public boolean isResearchCenter() {
+		return this.isReasearchCenter;
+	}
+
+
+	/**
+	 * ajoute une station de recherche
+	 */
+	public void addResearchCenter() {
+		this.isReasearchCenter = true;
+	}
+
+
+
+	
+	/**
 
     Cette méthode permet de réinitialiser le statut de la ville en indiquant que la ville n'a pas été infectée pendant le tour actuel.
     */
