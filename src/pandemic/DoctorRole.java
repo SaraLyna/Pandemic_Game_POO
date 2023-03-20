@@ -1,8 +1,10 @@
 package pandemic;
+import pandemic.Diseases;
 
 /**
  * this class represent the action of the Doctor
  */
+
 public class DoctorRole extends Actions {
 	//c'est en relation avec l'action traiter une maladie
 	
@@ -11,11 +13,14 @@ public class DoctorRole extends Actions {
 	//sans action: retirer tous les
 	//cubes dès qu’il passe dans une ville où il existe des cubes d’une maladie guérie, sans que cela compte pour une action
 	private String name;
+	
 	/**
-	 * @return
+	 * @param city
 	 */
-	public String getName() {
-		return this.name;
+	public void RemoveCubes(Cities city) {
+		
 	}
+	
+	
 
 }
