@@ -12,27 +12,29 @@ public class DoctorRole extends Actions {
 	
 	//sans action: retirer tous les
 	//cubes dès qu’il passe dans une ville où il existe des cubes d’une maladie guérie, sans que cela compte pour une action
-	
-	
+	private String name;
+	private Cities city;
+	private MappeMonde Map;
+	public DoctorRole() {
+		super();
+		this.name=name;
+		this.city=city;
+		this.Map=Map;
+	}
 	
 	/**
 	 * @param city
 	 * @param disease
 	 */
-	public void RemoveCubes(Cities city, Diseases disease) {
-		if(disease.equals("bleu")) {
-			
+	public Cities getCity() {
+		return this.city;
+	}
+	public void RemoveCubes(Diseases disease) {
+		Cities city=getCity();
+		int diseaseCubes= city.getCube(disease);
+		for(int i=diseaseCubes; i>= 0; i--) {
+			city.reduceInfection(disease);
 		}
-		else if(disease.equals("rouge")) {
-			
-		}
-		else if(disease.equals("jaune")) {
-			
-		}
-		else if(disease.equals("noir")) {
-			
-		}
-		
 		
 	}
 	

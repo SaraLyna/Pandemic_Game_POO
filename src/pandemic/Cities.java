@@ -13,6 +13,7 @@ public class Cities {
     protected boolean isReasearchCenter;
     protected boolean isInfectionFocus;
     protected boolean hasBeenInfectedThisTurn;
+    private int nbCube;
 
     /**
      * @param name le nom de la ville
@@ -25,6 +26,7 @@ public class Cities {
         this.sector = sector;
         this.isReasearchCenter = false;
         this.isInfectionFocus = false;
+        this.nbCube=0;
         this.hasBeenInfectedThisTurn = false;
         this.infectionRates = new HashMap<>();
         this.infectionRates.put(Diseases.BLUE, 0);
@@ -173,7 +175,16 @@ public class Cities {
 	public void addResearchCenter() {
 		this.isReasearchCenter = true;
 	}
-
+    
+    public int getCube(Diseases d){
+    	return this.infectionRates.get(d);
+    	
+    }
+    public void reduceInfection(Diseases d) {
+    	if(this.infectionRates.containsKey(d)){
+    		this.infectionRates.replace(d, this.nbCube--);
+    	}
+    }
 
 
 	
