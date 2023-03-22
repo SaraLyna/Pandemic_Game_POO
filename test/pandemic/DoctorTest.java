@@ -4,11 +4,6 @@
 package pandemic;
 
 import static org.junit.Assert.*;
-
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
@@ -17,37 +12,14 @@ import org.junit.Test;
  */
 public class DoctorTest {
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@After
-	public void tearDown() throws Exception {
-	}
-
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testRemoveCubes() {
+		 Cities city = new Cities("ville-2","Secteur 1");
+	     DoctorRole doctor = new DoctorRole("Charles", city);
+	     city.setCube(0);   
+	     assertEquals(city.getCube(Diseases.BLUE),0);
+	     doctor.RemoveCubes(Diseases.BLUE);
+	     assertEquals(0, city.getCube(Diseases.BLUE));
 	}
 
 }

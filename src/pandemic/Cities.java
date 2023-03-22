@@ -176,10 +176,27 @@ public class Cities {
 		this.isReasearchCenter = true;
 	}
     
+    /**
+     * @param d
+     * @return
+     */
     public int getCube(Diseases d){
     	return this.infectionRates.get(d);
     	
     }
+    
+    /**
+     * @param nbCube
+     * @return
+     */
+    public int setCube(int nbCube){
+    	return this.nbCube=nbCube;
+    	
+    }
+
+    /**
+     * @param d
+     */
     public void reduceInfection(Diseases d) {
     	if(this.infectionRates.containsKey(d)){
     		this.infectionRates.replace(d, this.nbCube--);

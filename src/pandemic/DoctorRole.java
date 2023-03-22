@@ -14,12 +14,10 @@ public class DoctorRole extends Actions {
 	//cubes dès qu’il passe dans une ville où il existe des cubes d’une maladie guérie, sans que cela compte pour une action
 	private String name;
 	private Cities city;
-	private MappeMonde Map;
-	public DoctorRole() {
+	public DoctorRole(String name, Cities city) {
 		super();
 		this.name=name;
 		this.city=city;
-		this.Map=Map;
 	}
 	
 	/**
