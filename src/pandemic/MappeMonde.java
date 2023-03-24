@@ -2,6 +2,8 @@ package pandemic;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Iterator;
+import java.util.*;
+
 //import java.util.List;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -85,7 +87,15 @@ public class MappeMonde {
 	    	}
 	    	System.out.println();
 	    }
-		
+		/**
+		Random random = new Random();
+	    for (String city: liste_villes) {
+	        int nbInfections = random.nextInt() + 1; 
+	         for (int i = 0; i < nbInfections; i++) {
+	        //       InfectionCards.addCarte(new InfectionCards());
+	           }
+	       }
+		*/
 	}
 	
 	
@@ -111,7 +121,20 @@ public class MappeMonde {
 			cities.resetTurn();
 		}
 	}
-}
+	
+
+
+	
+	    
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 

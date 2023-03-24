@@ -1,6 +1,7 @@
 package pandemic;
 
 import java.io.*;
+import java.util.*;
 
 //import org.json.*;
 
@@ -37,6 +38,19 @@ public class pandemicMain {
        System.out.println(v1);
        System.out.println();
        v1.addCube(Diseases.RED);
+       
+       
+       
+      // PlayersCards CartesJoueurs = new PlayersCards(Cities, String);
+      // InfectionCards CartesInfection = new InfectionCards(Cities, String);
+       
+     //  CartesJoueurs.addCarte(new PlayersCards("ville-10","rouge"));
+       //CartesInfection.addCarte(new InfectionCards("ville-15","bleu"));
+       
+       
+     //  PlayersCards.melanger();
+      // InfectionCards.melanger();
+
        
 	}
 	
