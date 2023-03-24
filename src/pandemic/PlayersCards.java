@@ -10,7 +10,7 @@ public class PlayersCards extends Cards{
 	 * @param city
 	 * @param disease
 	 */
-	public PlayersCards(String city,String disease) {
+	public PlayersCards(Cities city,String disease) {
 		super(city,disease);
 	}
 	
