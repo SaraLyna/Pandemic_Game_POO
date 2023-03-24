@@ -69,5 +69,13 @@ public class Players {
 	    this.CardsInHand = cardsInHand;
 	}
 	
+	 /**
+	  * add a card in the hand of the player 
+	 * @param c
+	 */
+	public void addCard(Cards c ) { 
+		 this.CardsInHand.add(c); 
+	}
+	 
 
 }

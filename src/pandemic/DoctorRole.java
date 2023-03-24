@@ -16,7 +16,7 @@ public class DoctorRole extends Actions {
 	private Cities city;
 	public DoctorRole(String name, Cities city) {
 		super();
-		this.name=name;
+		this.setName(name);
 		this.city=city;
 	}
 	
@@ -34,6 +34,14 @@ public class DoctorRole extends Actions {
 			city.reduceInfection(disease);
 		}
 		
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	

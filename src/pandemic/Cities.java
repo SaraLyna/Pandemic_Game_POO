@@ -63,10 +63,10 @@ public class Cities {
         	// Marque la ville comme infectée pour ce tour
         	this.hasBeenInfectedThisTurn = true;
         	int cubesCount = infectionRates.getOrDefault(d, 0);
-        	System.out.print(this.name+" est infectee par "+d.getName()+", ");
+        	System.out.print(this.name+" est infectee par "+d.getDIseaseName()+", ");
         	if (cubesCount < 3) {
         		infectionRates.put(d, cubesCount + 1);
-        		System.out.println("son taux d'infection pour "+d.getName()+" passe a "+infectionRates.get(d));
+        		System.out.println("son taux d'infection pour "+d.getDIseaseName()+" passe a "+infectionRates.get(d));
         	} else {
         	System.out.println(" mais elle est deja a 3, elle infecte ses voisins");
         	infectionPropagation(d);
@@ -122,7 +122,7 @@ public class Cities {
     public String toString() {
         String str = name + " [";
         for (Map.Entry<Diseases, Integer> entry : infectionRates.entrySet()) {
-            str += entry.getKey().getName() + ":" + entry.getValue() + ", ";
+            str += entry.getKey().getDIseaseName() + ":" + entry.getValue() + ", ";
         }
         str = str.substring(0, str.length() - 2);
         str += "]";

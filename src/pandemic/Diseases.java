@@ -27,7 +27,7 @@ public enum Diseases {
     Retourne le nom de la maladie.
     @return le nom de la maladie.
     */
-    public String getName() {
+    public String getDIseaseName() {
         return this.name;
     }
 }

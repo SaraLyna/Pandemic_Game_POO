@@ -1,7 +1,7 @@
 package pandemic;
 
 /**
- * this class represent the action of the Expert
+ * this class represents the action of the Expert
  *
  */
 public class ExpertRole extends Actions {
@@ -11,7 +11,7 @@ public class ExpertRole extends Actions {
 	
 	public ExpertRole(String name) {
 		super();	
-		this.name=name;
+		this.setName(name);
 	}
 	/**
 	 * 
@@ -28,6 +28,12 @@ public class ExpertRole extends Actions {
 			
 		
 		
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	

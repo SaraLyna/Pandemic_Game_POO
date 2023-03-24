@@ -1,7 +1,7 @@
 package pandemic;
 
 /**
- * this class represent the action of the GlobetRotter
+ * this class represents the action of the GlobetRotter
  *
  */
 
