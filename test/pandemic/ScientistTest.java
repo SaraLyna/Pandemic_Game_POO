@@ -8,9 +8,9 @@ class ScientistRoleTest {
 
     @Test
     void testDiscoverCure() {
-        ScientistRole scientist = new ScientistRole();
+        ScientistRole scientist = new ScientistRole("Scientist",4);
         List<Cards> hand = new ArrayList<>();
-        hand.add(new Cards("ville-11", "rouge"));
+        hand.add(new Cards("ville-11" ,"Secteur 1", "rouge"));
         hand.add(new Cards("ville-44", "rouge"));
         hand.add(new Cards("ville-20", "rouge"));
         hand.add(new Cards("ville-13", "rouge"));
@@ -25,7 +25,7 @@ class ScientistRoleTest {
 
 	@Test
     void testFindRemedy() {
-        ScientistRole scientist = new ScientistRole();
+        ScientistRole scientist = new ScientistRole("Scientist",4);
         List<Cards> hand = new ArrayList<>();
         hand.add(new Cards("ville-11", "rouge"));
         hand.add(new Cards("ville-44", "rouge"));

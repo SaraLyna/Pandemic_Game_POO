@@ -15,6 +15,13 @@ class ScientistRole extends Actions{
 	private String name="Scientist";
 	private int handSize=4;
 	
+	public ScientistRole (String name, int handSize) {
+		super();
+		this.name=name;
+		this.handSize=handSize;
+		
+	}
+	
 	/**
 	 * @return
 	 */
