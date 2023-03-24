@@ -18,7 +18,7 @@ class GlobetRotter extends Actions {
 		
 		public static void moveAnywhere(Players player,Cities city ) {
 			player.setLocation(city);
-			System.out.println("Le GlobetRotter s'est déplacée dans " + city);
+			System.out.println("Le GlobetRotter s'est déplacée dans " + city.getName());
 		}
 		
 		
