@@ -1,13 +1,17 @@
-
 package pandemic;
-import java.util.ArrayList;
-import java.util.List;
-import org.junit.Test;
 
-class ScientistRoleTest {
+import org.junit.Test;
+import java.util.*;
+
+/**
+ * @author Sara Lyna
+ *
+ */
+public class ScientistTest {
+	
 
     @Test
-    void testDiscoverCure() {
+    public void testDiscoverCure() {
         ScientistRole scientist = new ScientistRole("Scientist",4);
         List<Cards> hand = new ArrayList<>();
         hand.add(new PlayersCards("ville-11","rouge"));
@@ -24,7 +28,7 @@ class ScientistRoleTest {
 	}
 
 	@Test
-    void testFindRemedy() {
+    public void testFindRemedy() {
         ScientistRole scientist = new ScientistRole("Scientist",4);
         List<Cards> hand = new ArrayList<>();
         hand.add(new PlayersCards("ville-11", "rouge"));
