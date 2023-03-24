@@ -10,10 +10,10 @@ class ScientistRoleTest {
     void testDiscoverCure() {
         ScientistRole scientist = new ScientistRole("Scientist",4);
         List<Cards> hand = new ArrayList<>();
-        hand.add(new Cards("ville-11" ,"Secteur 1", "rouge"));
-        hand.add(new Cards("ville-44", "rouge"));
-        hand.add(new Cards("ville-20", "rouge"));
-        hand.add(new Cards("ville-13", "rouge"));
+        hand.add(new PlayersCards("ville-11","rouge"));
+        hand.add(new PlayersCards("ville-44", "rouge"));
+        hand.add(new PlayersCards("ville-20", "rouge"));
+        hand.add(new PlayersCards("ville-13", "rouge"));
 
         assertTrue(scientist.discoverCure(hand));
     }
@@ -27,15 +27,15 @@ class ScientistRoleTest {
     void testFindRemedy() {
         ScientistRole scientist = new ScientistRole("Scientist",4);
         List<Cards> hand = new ArrayList<>();
-        hand.add(new Cards("ville-11", "rouge"));
-        hand.add(new Cards("ville-44", "rouge"));
-        hand.add(new Cards("ville-20", "rouge"));
-        hand.add(new Cards("ville-13", "rouge"));
+        hand.add(new PlayersCards("ville-11", "rouge"));
+        hand.add(new PlayersCards("ville-44", "rouge"));
+        hand.add(new PlayersCards("ville-20", "rouge"));
+        hand.add(new PlayersCards("ville-13", "rouge"));
 
-        Diseases redDisease = new Diseases("rouge");
+        Diseases redDisease = Diseases.RED;
         List<Diseases> discoveredDiseases = new ArrayList<>();
 
         assertTrue(scientist.findRemedy(hand, discoveredDiseases, redDisease));
-        assertEquals(discoveredDiseases.get(0), redDisease);
+        assertTrue(discoveredDiseases.get(0).getDIseaseName().equals("rouge"));
     }
 }

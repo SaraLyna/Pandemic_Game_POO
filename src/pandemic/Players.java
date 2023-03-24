@@ -69,6 +69,14 @@ public class Players {
 	    this.CardsInHand = cardsInHand;
 	}
 	
+	/**
+	 * allows to set a new location to the player
+	 * @param city ; the city to set
+	 */
+	
+	public void setLocation(Cities city) {
+		this.location = city;
+	}
 	 /**
 	  * add a card in the hand of the player 
 	 * @param c

@@ -1,7 +1,7 @@
 package pandemic;
 
 public  abstract class Cards {
-	protected Cities city;
+	protected String cityName;
 	protected String disease;
 	
 	/**
@@ -9,12 +9,13 @@ public  abstract class Cards {
 	 * @param city
 	 * @param disease
 	 */
-	public Cards(Cities city, String disease) {
-		this.city=city;
+	public Cards(String cityName, String disease) {
+		this.cityName=cityName;
 		this.disease=disease;
 
 	}
+	
 	public String getDiseaseName() {
-		return this.city.getName();
+		return this.disease;
 	}
 }

@@ -13,15 +13,15 @@ public class PlayersCards extends Cards{
 	 * @param city
 	 * @param disease
 	 */
-	public PlayersCards(Cities city,String disease) {
-		super(city,disease);
+	public PlayersCards(String cityName,String disease) {
+		super(cityName,disease);
 	}
 	
 	/**
 	 *Returns a string representation of the object.
 	 */
 	public String toString() {
-		return "A player card for the city "+city+" and the disease "+disease;
+		return "A player card for the city named "+cityName+" and the disease "+disease;
 	}
 	
 	 public void addCarte(PlayersCards card) {

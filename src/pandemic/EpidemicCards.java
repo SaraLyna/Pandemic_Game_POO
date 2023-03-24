@@ -10,15 +10,15 @@ public class EpidemicCards extends Cards {
 	 * @param city
 	 * @param disease
 	 */
-	public EpidemicCards(Cities city,String disease){
-		super(city,disease);
+	public EpidemicCards(String cityName,String disease){
+		super(cityName,disease);
 	}
 	
 	/**
 	 *Returns a string representation of the object.
 	 */
 	public String toString(){
-		return "EpidemicCards for the city "+city+" and the disease "+disease;
+		return "EpidemicCards for the city named"+cityName+" and the disease "+disease;
 		
 	}
 
