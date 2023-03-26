@@ -15,7 +15,12 @@ public  abstract class Cards {
 
 	}
 	
+	/**
+	 * @return the name of the disease
+	 */
 	public String getDiseaseName() {
 		return this.disease;
 	}
+	
+	
 }

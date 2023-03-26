@@ -8,7 +8,7 @@ import java.util.Collections;
  *
  */
 public class PlayersCards extends Cards{
-	private ArrayList<PlayersCards> cartes;
+	private static ArrayList<PlayersCards> cartes;
 	/**
 	 * @param city
 	 * @param disease
@@ -24,20 +24,35 @@ public class PlayersCards extends Cards{
 		return "A player card for the city named "+cityName+" and the disease "+disease;
 	}
 	
-	 public void addCarte(PlayersCards card) {
+	 /**
+	 * @param card
+	 * add a Playerscard 
+	 */
+	public void addCarte(PlayersCards card) {
 	        cartes.add(card);
 	    }
 
-	    protected void melanger() {
-	        Collections.shuffle(cartes);
+	    /**
+	     * shuffle the cards
+	     */
+	    public static void melanger() {
+			Collections.shuffle(cartes);
+			
 	    }
 
-	    public Cards tirerCarte() {
+	    /**
+	     * @param cartes
+	     * @return a card
+	     */
+	    public Cards tirerCarte( ArrayList<PlayersCards> cartes) {
 	        Cards carte = cartes.get(0);
 	        cartes.remove(0);
 	        return carte;
 	    }
 
+	    /**
+	     * @return the number of cards
+	     */
 	    public int nbCartes() {
 	        return cartes.size();
 	    }

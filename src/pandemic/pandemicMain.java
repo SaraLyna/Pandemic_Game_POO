@@ -41,16 +41,27 @@ public class pandemicMain {
        
        
        
-      // PlayersCards CartesJoueurs = new PlayersCards(Cities, String);
-      // InfectionCards CartesInfection = new InfectionCards(Cities, String);
+       List<PlayersCards> CartesJoueurs = new ArrayList<PlayersCards>();
+       InfectionCards CartesInfection = new InfectionCards("ville1", "bleu");
        
-     //  CartesJoueurs.addCarte(new PlayersCards("ville-10","rouge"));
-       //CartesInfection.addCarte(new InfectionCards("ville-15","bleu"));
+      // CartesJoueurs.addCarte(new PlayersCards("ville-10","rouge"));
+      // CartesInfection.addCarte(new InfectionCards("ville-15","bleu"));
        
        
-     //  PlayersCards.melanger();
-      // InfectionCards.melanger();
-
+       PlayersCards.melanger();
+       InfectionCards.melanger();
+       
+       Players Sara = new Players("Sara",Roles.Doctor,v1);
+       Players Lyna = new Players("Lyna",Roles.Expert, v1);
+       Players Anais = new Players("Anais",Roles.Scientist,v1);
+       Players Charles = new Players("Charles",Roles.GlobetRotter, v1);
+       
+       //Map.addPlayer(Lyna);
+       //Sara.addCard(Cards);
+       //Lyna.tirerCarte(CartesJoueurs);
+       //Anais.tirerCarte(CartesJoueurs);
+      // Charles.tirerCarte(CartesJoueurs);
+       
        
 	}
 	

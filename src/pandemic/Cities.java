@@ -13,13 +13,14 @@ public class Cities {
     protected boolean isReasearchCenter;
     protected boolean isInfectionFocus;
     protected boolean hasBeenInfectedThisTurn;
-    private int nbCube;
+    private int nbCube; //nombre de cubes dans une ville,
 
     /**
      * @param name le nom de la ville
      * @param neighbors la liste des villes voisines
      * @param sector le secteur de la ville
      */
+   
     public Cities(String name, String sector) {
         this.name = name;
         this.neighbors = new ArrayList<Cities>();
@@ -162,7 +163,9 @@ public class Cities {
 		this.sector = sector;
 	}
 	/**
-	 * @return une station de recherche
+	 * @return un booleen,
+	 * si c'est bien une station de recherche alors true
+	 * sinon false
 	 */
 	public boolean isResearchCenter() {
 		return this.isReasearchCenter;
@@ -171,14 +174,15 @@ public class Cities {
 
 	/**
 	 * ajoute une station de recherche
+	 * et met le booleen a true
 	 */
 	public void addResearchCenter() {
 		this.isReasearchCenter = true;
 	}
     
     /**
-     * @param d
-     * @return
+     * @param d: maladie
+     * @return un cube d'une maladie
      */
     public int getCube(Diseases d){
     	return this.infectionRates.get(d);
@@ -187,7 +191,7 @@ public class Cities {
     
     /**
      * @param nbCube
-     * @return
+     * @return le nombre de cubes
      */
     public int setCube(int nbCube){
     	return this.nbCube=nbCube;
@@ -195,7 +199,8 @@ public class Cities {
     }
 
     /**
-     * @param d
+     * @param d: maladie
+     * reduit le taux d'infection en réduisant le nombre de cubes dans une ville
      */
     public void reduceInfection(Diseases d) {
     	if(this.infectionRates.containsKey(d)){
@@ -212,4 +217,5 @@ public class Cities {
 	public void resetTurn() {
 		this.hasBeenInfectedThisTurn = false;
 	}
+	
 }

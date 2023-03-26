@@ -14,32 +14,52 @@ public class DoctorRole extends Actions {
 	//cubes dès qu’il passe dans une ville où il existe des cubes d’une maladie guérie, sans que cela compte pour une action
 	private String name;
 	private Cities city;
+	/**
+	 * constructor of the class DoctorRole
+	 * @param name
+	 * @param city
+	 */
 	public DoctorRole(String name, Cities city) {
 		super();
 		this.setName(name);
 		this.city=city;
 	}
 	
+	
 	/**
-	 * @param city
-	 * @param disease
+	 * @return une city
 	 */
 	public Cities getCity() {
 		return this.city;
 	}
+	
+	
+	/**
+	 * @param disease
+	 * retire les cubes d'une maladie dans une ville
+	 * tout en réduisant le taux d'infection
+	 */
 	public void RemoveCubes(Diseases disease) {
 		Cities city=getCity();
 		int diseaseCubes= city.getCube(disease);
 		for(int i=diseaseCubes; i>= 0; i--) {
 			city.reduceInfection(disease);
 		}
-		System.out.println("Le doctor removes all cubes of " + city );
+		System.out.println("Le doctor removes all cubes of " + city.getName() );
 	}
 
+	
+	/**
+	 * @return name of the doctor
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * @param name
+	 * 
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}

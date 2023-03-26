@@ -15,6 +15,11 @@ class ScientistRole extends Actions{
 	private String name="Scientist";
 	private int handSize=4;
 	
+	/**
+	 * constructor of the class ScientistRole
+	 * @param name
+	 * @param handSize
+	 */
 	public ScientistRole (String name, int handSize) {
 		super();
 		this.name=name;
@@ -23,14 +28,21 @@ class ScientistRole extends Actions{
 	}
 	
 	/**
-	 * @return
+	 * @return name
 	 */
 	public String getName() {
 		return this.name;
 	}
+	
+	
+	/**
+	 * @return the number of cards ih the hand of the player ==4
+	 */
 	public int getSize() {
 		return this.handSize;
 	}
+	
+	
 	//méthode pour trouver un remède avec une main de cartes .
 	public boolean discoverCure(List<Cards> hand) {
         if (hand.size() != handSize) {
@@ -47,6 +59,10 @@ class ScientistRole extends Actions{
         // Si toutes les cartes ont le meme nom de ville , le remède est découvert
         return true;
     }
+	
+	/**
+	 * method equals
+	 */
 	public boolean equals(Object o) {
 	    if (o == this) {
 	        return true;

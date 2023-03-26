@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class InfectionCards extends Cards {
 	
-	private ArrayList<InfectionCards> cartes;
+	private static ArrayList<InfectionCards> cartes;
 	/**
 	 * constructor of the class InfectionCards
 	 * @param city
@@ -26,20 +26,36 @@ public class InfectionCards extends Cards {
 		return "InfectionCards for the city "+cityName+" and the disease "+disease;
 		
 	}
-	  public void addCarte(InfectionCards card) {
+	
+	
+	  /**
+	 * @param card
+	 * add an InfectionCard in the list of cards
+	 */
+	public void addCarte(InfectionCards card) {
 	        cartes.add(card);
 	    }
 
-	    protected void melanger() {
+	    /**
+	     * shuffle the list of cards
+	     */
+	 protected static void melanger() {
 	        Collections.shuffle(cartes);
 	    }
 
+	 
+	    /**
+	     * @return a card from the pack
+	     */
 	    public Cards tirerCarte() {
 	        Cards carte = cartes.get(0);
 	        cartes.remove(0);
 	        return carte;
 	    }
 
+	    /**
+	     * @return number of cards
+	     */
 	    public int nbCartes() {
 	        return cartes.size();
 	    }

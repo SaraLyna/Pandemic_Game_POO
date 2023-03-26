@@ -1,5 +1,5 @@
 package pandemic;
-import java.util.Stack;
+import java.util.*;
 
 
 public class Players {
@@ -7,6 +7,7 @@ public class Players {
 	private Roles role;
 	private Cities location;
 	private Stack<Cards> CardsInHand; /* the stack of cards in the player's hand */
+	protected  List<Players> thePlayers;
 
 	/**
 	 * 
@@ -84,6 +85,25 @@ public class Players {
 	public void addCard(Cards c ) { 
 		 this.CardsInHand.add(c); 
 	}
+	
+	
+	/**
+	 * @return the list of the Players
+	 */
+	public List<Players> getPlayers(){
+		return this.thePlayers;
+	}
+	
+	/**
+	 * @param player
+	 * add a player in the game
+	 */
+	public void addPlayer(Players player) {
+		this.getPlayers().add(player);
+	}
+
+	
+
 	 
 
 }

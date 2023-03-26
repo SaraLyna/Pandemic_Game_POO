@@ -79,6 +79,8 @@ faire en sorte que chaque joueur ait un role spécifique parmis le docteur, l'ex
 Explications du code:
 
 --Classe Cards:
+on a créé une classe Cards qui est une classe abstraite ,pour ensuite faire un héritage avec les différents types de cartes
+qui en dépendent, dont: InfectionCards, PlayersCards et EpidemicCards.
 
 --Classe EpidemicCards:
 
@@ -87,6 +89,10 @@ Explications du code:
 --Classe PlayersCards:
 
 --Classe Players:
+on a créé une pile de cartes dans la main du joueur, à qui on avait attribué un nom, une localisation sur la carte (une ville)
+et un role parmis les quatres prédéfinis.
+on a également créé une méthode discard() si jamais le nombre de cartes dans la main du joueur atteignait son maximum, c'est à dire
+7, enplus des méthodes addCard() pour ajouter une carte dans la main du joueur.
 
 --Classe Roles:
 c'est une classe enum qui enumère les quatres roles qu'on a, Doctor, Scientist, GlobetRotter et Expert.
@@ -94,17 +100,24 @@ c'est une classe enum qui enumère les quatres roles qu'on a, Doctor, Scientist,
 --Classe DoctorRole:
 le role du doctor consiste à retirer tous les cubes dès qu’il passe dans une ville où il existe des cubes
  d’une maladie guérie, sans que cela compte pour une action.
- et on fait ça à l'aide d'une méthode RemoveCubes().
+ et on fait ça à l'aide d'une méthode RemoveCubes(), qui consiste à retirer tous les cubes d'une maladie guérie dans une ville.
 
 --Classe ExpertRole:
 l'expert n’a pas besoin de disposer de carte joueur pour construire une station,
-on fait ça à l'aide d'une méthode BuildStationWoCard(), qui consiste à ajouter une station de recherche (addResearchCenter()) à une ville
-puis dire que c'est une station de recherche (isResearchCenter()) et afficher le nom de la ville dans laquelle on a construit cette
+on fait ça à l'aide d'une méthode BuildStationWoCard(), qui consiste à  dire si il existe déja  une station de recherche
+ (isResearchCenter()) on déclenche une exception, sinon on ajoute une station de recherche (addResearchCenter()) à une ville
+puis on affiche le nom de la ville dans laquelle on a construit cette
 station de recherche.
 
 --Classe ScientistRole:
+le scientifique a besoin de disposer de 4 cartes d'une meme maladie pour découvrir un remede, alors 
+Si toutes les cartes ont le meme nom de ville , le remède est découvert(discoverCure()), et on a aussi créé une méthode
+findRemedy()  qui permettrait de trouver un remede pour une maladie donnée en utilisant la méthode discoverCure() définie plus haut
+et qui Vérifie s'il y a assez de cartes de la maladie pour découvrir un remède et si un remède n'a pas encore été découvert pour la maladie donnée
 
 --Classe GlobetRotter:
+le globetrottera la possibilité de se déplacer dans n’importe quelle ville. Ce qui augmente sa capacité d’action
+et on a fait ca à l'aide d 'une méthode moveAnywhere() qui lui permet de se déplacer dans la ville de son choix.
 
 --Classe pandemicMain:
 Cette Classe a pour but d'exécuter notre programme et d'afficher tout ce qui doit s'afficher à l'écran (les villes et les voisins)
