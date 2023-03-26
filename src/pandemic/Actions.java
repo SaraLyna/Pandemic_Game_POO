@@ -5,6 +5,9 @@ package pandemic;
  * each player (or role) do an action with the card he gets
  */
 public class Actions {
+	public Actions() {
+		
+	}
 	/**
 	public String discover(){
 		
