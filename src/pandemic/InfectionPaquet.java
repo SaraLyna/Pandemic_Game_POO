@@ -7,7 +7,7 @@ public class InfectionPaquet {
 private ArrayList<InfectionCards> cards;
 	
 	/**
-	 * constroctur of the class InfectionPaquet
+	 * constructor of the class InfectionPaquet
 	 */
 	public InfectionPaquet() {
 		this.cards= new ArrayList<>();

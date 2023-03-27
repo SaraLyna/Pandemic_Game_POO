@@ -54,7 +54,7 @@ class ScientistRole extends Actions{
             if (!card.getDiseaseName().equals(diseasename)) {
                 return false;
             }
-            System.out.println("Le Scientist a découvert un remède grace à ses 4 cartes");
+            System.out.println("The Scientist has find a remedy with his 4 cards");
         }
         // Si toutes les cartes ont le meme nom de ville , le remède est découvert
         return true;

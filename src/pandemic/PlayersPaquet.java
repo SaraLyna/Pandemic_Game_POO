@@ -73,12 +73,6 @@ public class PlayersPaquet {
 			
 		}
 	
-//	
-//	public void initPaquet(Cities[] villes) {
-//		for (int i = 0; i < villes.length ; i++)
-//			this.cards.add(new PlayersCards(villes[i].getName(), villes[i].get))
-//	}
-//	    
 		
 	/**
 	 * @param card

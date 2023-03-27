@@ -1,12 +1,8 @@
 package pandemic;
 
-
-/**
- * 
- *
- */
 public class PlayersCards extends Cards{
 	/**
+	 * constructor of the class PlayersCards
 	 * @param city
 	 * @param disease
 	 */

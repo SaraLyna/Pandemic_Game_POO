@@ -35,7 +35,7 @@ public class MappeMonde {
 		// Creation d'un object JSON pour lire seulement les villes.
 		JSONObject villes = pandemic.getJSONObject("cities");
 		Iterator<String> villes_entries = villes.keys();
-		System.out.println("affichage des villes:");
+		System.out.println("Cities :");
 		/*Les villes du fichier ne sont pas lues en ordre à cause des 
 		 * caractéristiques de la bibliothèque JSON pour JAVA. Ce n'est pas 
 		 * un problème ni un bug. Le site de la documentation JSON précise que 
@@ -70,7 +70,7 @@ public class MappeMonde {
 		 */
 		JSONObject voisins = pandemic.getJSONObject("neighbors");
 		Iterator<String> voisins_entries = villes.keys();
-		System.out.println("affichage des voisins:");
+		System.out.println("Neighbors :");
 		while (voisins_entries.hasNext()) {
 	        String nomVille = voisins_entries.next();
 	        System.out.print(nomVille+" : ");
@@ -85,15 +85,6 @@ public class MappeMonde {
 	    	}
 	    	System.out.println();
 	    }
-		/**
-		Random random = new Random();
-	    for (String city: liste_villes) {
-	        int nbInfections = random.nextInt() + 1; 
-	         for (int i = 0; i < nbInfections; i++) {
-	        //       InfectionCards.addCarte(new InfectionCards());
-	           }
-	       }
-		*/
 	}
 	
 	
@@ -109,7 +100,7 @@ public class MappeMonde {
 	
 	/**
 	 * 
-	 * @return
+	 * @return a list of the cities
 	 */
 	public Cities[] getVilles() {
 		return this.Villes;

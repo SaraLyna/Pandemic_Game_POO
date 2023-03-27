@@ -27,6 +27,9 @@ public class Pandemic {
 		return null;
 	}
 	
+	/**
+	 * the most important method in the game, the method to play a party
+	 */
 	public void play() {
 		
 	}
@@ -40,12 +43,14 @@ public class Pandemic {
 		//}
 		
 	//}
+	
+	
 
 	/**
 	 *Returns a string representation of the object.
 	 */
 	public String toString() {
-		return "the global infection rate :"+this.GlobalInfectionRate + " and the infection focus amount "+this.InfectionFocusAmount;
+		return "The global infection rate :"+this.GlobalInfectionRate + " and the infection focus amount "+this.InfectionFocusAmount;
 	}
 
 

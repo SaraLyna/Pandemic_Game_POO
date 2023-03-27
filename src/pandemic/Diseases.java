@@ -31,6 +31,10 @@ public enum Diseases {
         return this.name;
     }
     
+    /**
+     * @param name
+     * @return une maladie
+     */
     public static Diseases nameToDisease(String name) {
         Diseases d = null; // initialiser à null pour gérer les noms de maladies invalides
 

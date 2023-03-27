@@ -28,7 +28,7 @@ public class ExpertRole extends Actions {
 	public void BuildStationWoCard(	Cities city) throws ResearchCenterException {
 		if(! city.isResearchCenter()) {
 			city.addResearchCenter();
-			System.out.println("Une nouvelle station de recherche a été construite par l'expert dans :" + city.getName());
+			System.out.println("A new research station was built by the expert in :" + city.getName());
 		}
 		else {
 			throw new ResearchCenterException("this city already has a research station");

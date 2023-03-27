@@ -18,7 +18,7 @@ public class EpidemicCards extends PlayersCards {
 	 *Returns a string representation of the object.
 	 */
 	public String toString(){
-		return "EpidemicCards for the city named "+ cityName + " and the disease "+ disease;
+		return "A card Epidemic for the city named "+ cityName + " and the disease "+ disease;
 		
 	}
 

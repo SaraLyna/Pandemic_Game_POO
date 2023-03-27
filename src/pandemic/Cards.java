@@ -23,6 +23,9 @@ public abstract class Cards {
 	}
 	
 	
+	/**
+	 * @return the name of the city
+	 */
 	public String getCityName() {
 		return this.cityName;
 	}

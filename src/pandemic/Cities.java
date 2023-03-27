@@ -3,7 +3,7 @@ package pandemic;
 import java.util.*;
 
 /**
- * Cette classe représente une ville dans le jeu Pandemic.
+ * this class represents the cities in the Map, the cities in the game pandemic.
  */
 public class Cities {
     protected String name;
@@ -13,14 +13,14 @@ public class Cities {
     protected boolean isReasearchCenter;
     protected boolean isInfectionFocus;
     protected boolean hasBeenInfectedThisTurn;
-    private int nbCube; //nombre de cubes dans une ville,
-   // private Diseases CityDisease;
+    private int nbCube; //number of cubes in the city,
+   
     /**
-     * @param name le nom de la ville
-     * @param neighbors la liste des villes voisines
-     * @param sector le secteur de la ville
+     * constructor of the class Cities
+     * @param name , the name of city
+     * @param neighbors , the list of the neighbors
+     * @param sector , the sector of the city
      */
-    // public Cities(String name, Disease d ) {
     public Cities(String name, String sector) {
         this.name = name;
         this.neighbors = new ArrayList<Cities>();
@@ -37,9 +37,8 @@ public class Cities {
     }
 
     /**
-     * Permet de démarrer une propagation de l'infection dans la ville courante.
-     * 
-     * @param d la maladie à ajouter
+     * start a propagation og the infection in the current city,
+     * @param d the disease to add,
      */
     private void infectionPropagation(Diseases d) {
     	this.displayAllNeighbors();
@@ -49,43 +48,43 @@ public class Cities {
     }
 
     /**
-     * Permet d'ajouter un cube de maladie dans la ville courante si elle est contaminée. 
-     * Si le nombre de cubes dans la ville est supérieur à 3, la ville devient un point de propagation.
-     * Chaque ville n'est infectée qu'une fois par phase de propagation.
+     * adds a disease cube in the current city if it's already contaminated. 
+     *if the number of cubes in the city is > 3, the city becomes a center of propagation.
+     * each city is infected once in a propagation phase.
      * 
-     * @param d le cube à ajouter
+     * @param d the cube to add 
      */
     public void addCube(Diseases d) {
         
         if(hasBeenInfectedThisTurn) {
-        	System.out.println(this.name + " n'est pas reinfectee parce qu elle a deja ete infectee ce tour");
+        	System.out.println(this.name + " is not re-infected because it has already been infected this turn ,");
         }
         else {
-        	// Marque la ville comme infectée pour ce tour
+        	// marked that the city is infected this turn
         	this.hasBeenInfectedThisTurn = true;
         	int cubesCount = infectionRates.getOrDefault(d, 0);
-        	System.out.print(this.name+" est infectee par "+d.getDIseaseName()+", ");
+        	System.out.print(this.name+" is infected by  "+d.getDIseaseName()+", ");
         	if (cubesCount < 3) {
      		infectionRates.put(d, cubesCount + 1);
-        		System.out.println("son taux d'infection pour "+d.getDIseaseName()+" passe a "+infectionRates.get(d));
+        		System.out.println("its infection rate for "+d.getDIseaseName()+" rises to "+ infectionRates.get(d));
         	} else {
-        	System.out.println(" mais elle est deja a 3, elle infecte ses voisins");
+        	System.out.println(" But she is already at 3, she infects her neighbors");
         	infectionPropagation(d);
         	}
         }
     }
 
     /**
-     * Permet de savoir si la ville est un point de propagation.
+     * to know if the city is center of propagation
      * 
-     * @return vrai si la ville est un point de propagation, faux sinon
+     * @returntrue if the city is center of propagation, false either
      */
     public boolean isInfectionFocus() {
         return this.isInfectionFocus;
     }
 
     /**
-     * @return le nom de la ville
+     * @return the name of the city
      */
     public String getName() {
         return this.name;
@@ -94,33 +93,32 @@ public class Cities {
     
 
     /**
-     * @return un dictionnaire contenant le nombre de cubes de chaque maladie dans la ville
+     * @return a dictionnary of all the cubes of diseases in a city
      */
     public HashMap<Diseases, Integer> getAllCubes() {
         return this.infectionRates;
     }
 
     /**
-     * @return la liste des villes voisines
+     * @return the list of the neighbors
      */
     public List<Cities> getAllCities() {
         return this.neighbors;
     }
 
 	/**
-	 * Affiche les voisins de la ville courante.
+	 * displays the neighbors of the current city
 	 */
     public void displayAllNeighbors(){
-    	System.out.println("Les voisin de la "+this.getName()+" sont :");
+    	System.out.println("The neighbors of  "+this.getName()+" are :");
     	for(Cities neighbor:this.neighbors) {
     		System.out.println(neighbor);
     	}
     }
 
     /**
-
-    Cette méthode permet de convertir l'objet Cities en une chaîne de caractères qui décrit le nom de la ville ainsi que les taux d'infection de chaque maladie présente dans la ville.
-    @return une chaîne de caractères qui décrit le nom de la ville ainsi que les taux d'infection de chaque maladie présente dans la ville
+    *Cette méthode permet de convertir l'objet Cities en une chaîne de caractères qui décrit le nom de la ville ainsi que les taux d'infection de chaque maladie présente dans la ville.
+    *@return une chaîne de caractères qui décrit le nom de la ville ainsi que les taux d'infection de chaque maladie présente dans la ville
     */
     public String toString() {
         String str = name + " [";
@@ -131,10 +129,10 @@ public class Cities {
         str += "]";
         return str;
     }
+    
     /**
-
-    Cette méthode permet d'obtenir la liste des villes voisines de la ville actuelle.
-    @return une liste contenant les villes voisines de la ville actuelle
+    *Cette méthode permet d'obtenir la liste des villes voisines de la ville actuelle.
+    *@return une liste contenant les villes voisines de la ville actuelle
     */
     public List<Cities> getNeighbors(){
     	return this.neighbors;
@@ -164,6 +162,8 @@ public class Cities {
 	public void setSector(String sector) {
 		this.sector = sector;
 	}
+	
+	
 	/**
 	 * @return un booleen,
 	 * si c'est bien une station de recherche alors true
@@ -182,6 +182,7 @@ public class Cities {
 		this.isReasearchCenter = true;
 	}
     
+	
     /**
      * @param d: maladie
      * @return un cube d'une maladie
@@ -200,6 +201,7 @@ public class Cities {
     	return this.nbCube=nbCube;
     	
     }
+    
 
     /**
      * @param d: maladie
@@ -210,6 +212,8 @@ public class Cities {
     		this.infectionRates.replace(d, this.nbCube--);
     	}
     }
+    
+    
 	/**
 
     Cette méthode permet de réinitialiser le statut de la ville en indiquant que la ville n'a pas été infectée pendant le tour actuel.
@@ -218,9 +222,4 @@ public class Cities {
 		this.hasBeenInfectedThisTurn = false;
 	}
 	
-	
-	public void addCubeInCity(Cities c, Diseases d) {
-		c.addCube(d);
-		
-	}
 }

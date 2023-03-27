@@ -69,26 +69,26 @@ public class pandemicMain {
        
        
         
-       System.out.println("Affichage du nombre de cartes dans chaque paquet");
+       System.out.println("Display the number of cards in each pack of cards :");
        PlayersPaquet paquetPlayers=new PlayersPaquet();
-       System.out.println("le nombre de cartes players est " + paquetPlayers.nbCartes());
+       System.out.println("The number of cards Players is : " + paquetPlayers.nbCartes());
        InfectionPaquet paquetInfection=new InfectionPaquet();
-       System.out.println("le nombre de cartes infection est " + paquetInfection.nbCartes());
+       System.out.println("The number of cards Infection is : " + paquetInfection.nbCartes());
        //System.out.println("creation of the discarded cards deck");
        
     
        
        
-       System.out.println("on commence par mélanger les cartes");
+       System.out.println("Start by shuffling the cards ,");
        paquetPlayers.melanger();
        paquetInfection.melanger();
        
        
-       System.out.println("on crée les quatres joueurs en attribuant à chacun un role spécifique");
-       System.out.println("Sara est Doctor");
-       System.out.println("Lyna est Expert");
-       System.out.println("Anais est Scientist");
-       System.out.println("Charles est GlobetRotter");
+       System.out.println("We create the four players by assigning each a specific role :");
+       System.out.println("Sara is Doctor");
+       System.out.println("Lyna is Expert");
+       System.out.println("Anais is Scientist");
+       System.out.println("Charles is GlobetRotter");
        Players Sara = new Players("Sara",Roles.Doctor,v1);
        Players Lyna = new Players("Lyna",Roles.Expert, v1);
        Players Anais = new Players("Anais",Roles.Scientist,v1);
@@ -98,28 +98,28 @@ public class pandemicMain {
        System.out.println();
        
        
-       System.out.println("on met les joueurs sur la carte des villes ");
+       System.out.println("After that, we put the players on the city map ,");
        put(Lyna,Map);
        put(Sara,Map);
        put(Anais,Map);
        put(Charles,Map);
        System.out.println();
-       System.out.println("On commence la partie !");
+       System.out.println("We start the game !");
        System.out.println();
        
        
-       System.out.println("on tire deux cartes infection: ");
+       System.out.println("First of all, we draw two Infection cards : ");
        InfectionCards une = paquetInfection.tirerCarte();
        InfectionCards deux=paquetInfection.tirerCarte();
-       System.out.println("Première carte infection : " + une.toString());
-       System.out.println("Deuxième carte infection : " + deux.toString());
+       System.out.println("First card Infection : " + une.toString());
+       System.out.println("Second card infection : " + deux.toString());
        System.out.println();
 
        for(Cities city : Map.getVilles()) {
     	   if( city.getName().equals(une.getCityName())) {
     		   city.addCube(Diseases.nameToDisease(une.getDiseaseName()));
     		   city.toString();
-    		   System.out.println("Etat de la ville " + city.getName());
+    		   System.out.println("City state : " + city.getName());
     		   System.out.println(city);
     	   }
     	   
@@ -130,7 +130,7 @@ public class pandemicMain {
     	   if( city.getName().equals(deux.getCityName())) {
     		   city.addCube(Diseases.nameToDisease(deux.getDiseaseName()));
     		   city.toString();
-    		   System.out.println("Etat de la ville " + city.getName());
+    		   System.out.println("City state : " + city.getName());
     		   System.out.println(city);
     	   }
     	   
@@ -138,18 +138,10 @@ public class pandemicMain {
        
        
        System.out.println();
-     
-      // public int addCubeCity(int i, Diseases d) {
-    	//   List[i].addCube(d);
-       //}
-      // Map.addCube(parseInt(Villes[],d));
-       //un.addCube();
-      // deux.addCube(Diseases.RED);
        
+       System.out.println("Then each player in turn draws two player cards :");
        
-       System.out.println("Puis chaque joueur tire à son tour deux cartes joueurs :");
-       
-       System.out.println("premier joueur: Sara ");
+       System.out.println("First player : Sara ");
        PlayersCards l1=paquetPlayers.tirerCarte();
        PlayersCards l2=paquetPlayers.tirerCarte();
        Sara.addCard(l1);
@@ -157,12 +149,12 @@ public class pandemicMain {
        System.out.println("Sara" + l1.toString());
        System.out.println("Sara" + l2.toString());
        Stack<Cards> sara=Sara.getCardsInHand();
-       System.out.println("Sara a " + sara.size()+ " cartes players dans sa main");
+       System.out.println("Sara has " + sara.size()+ " cards Players in her hand");
        //System.out.println(sara.get(1));
        System.out.println();
        
        
-       System.out.println("deuxieme joueur; Lyna");
+       System.out.println("Second player : Lyna");
        PlayersCards l3=paquetPlayers.tirerCarte();
        PlayersCards l4=paquetPlayers.tirerCarte();       
        Lyna.addCard(l3);
@@ -170,13 +162,13 @@ public class pandemicMain {
        System.out.println("Lyna" + l3.toString());
        System.out.println("Lyna" +l4.toString());
        Stack<Cards> lyna=Lyna.getCardsInHand();
-       System.out.println("Lyna a "+ lyna.size() +" cartes players dans sa main");
+       System.out.println("Lyna has "+ lyna.size() +" cards Players in her hand");
        //System.out.println(lyna.get(1));
        System.out.println();
       
        
        
-       System.out.println("troisieme joueur: Anais");
+       System.out.println("Third player: Anais");
        PlayersCards l5=paquetPlayers.tirerCarte();
        PlayersCards l6=paquetPlayers.tirerCarte();       
        Anais.addCard(l5);
@@ -184,40 +176,40 @@ public class pandemicMain {
        System.out.println("Anais" + l5.toString());
        System.out.println("Anais" + l6.toString());       
        Stack<Cards> anais=Anais.getCardsInHand();
-       System.out.println("Anais a " + anais.size() +" cartes players dans main");
+       System.out.println("Anais has " + anais.size() +" cards Players in her hand");
        //System.out.println(anais.get(1));
        System.out.println();
        
        
-       System.out.println("quatrieme joueur: Charles");
+       System.out.println("Fourth player : Charles");
        PlayersCards l7=paquetPlayers.tirerCarte();// a players card
        PlayersCards l8=paquetPlayers.tirerCarte(); // this is an epidemic card
        overallInfectionRate ++; // we increase the global rate of infection
-       System.out.println("Charles picked an epidemic card, he must now pick an infection card");
+       System.out.println("Charles picked an Epidemic card" + l8 + ", he must now pick an Infection card");
        InfectionCards l9=paquetInfection.tirerCarte(); 
        Charles.addCard(l7);
        System.out.println("Charles" + l7.toString());   
        Stack<Cards> charles=Charles.getCardsInHand();
-       System.out.println("Charles has in his hand " + charles.size()+" player card(s)");
-       System.out.println(" a cube of the disease " + l9.getDiseaseName() + " is added to the city named " + l9.getCityName()  );
+       System.out.println("Charles has " + charles.size()+" card Players in his hand");
+       System.out.println("A cube of the disease " + l9.getDiseaseName() + " is added to the city named " + l9.getCityName()  );
        
        for(Cities city : Map.getVilles()) {
     	   if( city.getName().equals(l9.getCityName())) {
     		   city.addCube(Diseases.nameToDisease(l9.getDiseaseName()));
     		   city.toString();
-    		   System.out.println("Etat de la ville " + city.getName());
+    		   System.out.println("City state : " + city.getName());
     		   System.out.println(city);
     	   }
     	   
        }
        
-       System.out.println("we re-put the discarded  infection card  in the InfectionPaquet ");
+       System.out.println("we re-put the discarded  card Infection  in the InfectionPaquet ");
        paquetInfection.addCarte(l9);
        
-       
        System.out.println();
+       System.out.println("the global rate of infection is : "+overallInfectionRate);      
        System.out.println();
-       System.out.println("Suite à venir..");
+       System.out.println("...");
        
 	}
 

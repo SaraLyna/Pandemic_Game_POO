@@ -11,6 +11,7 @@ public class Cubes {
 	
 	
 	/**
+	 * constructor of the class Cubes
 	 * @param diseasename
 	 */
 	public Cubes (String diseasename) {

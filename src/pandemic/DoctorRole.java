@@ -45,7 +45,7 @@ public class DoctorRole extends Actions {
 		for(int i=diseaseCubes; i>= 0; i--) {
 			city.reduceInfection(disease);
 		}
-		System.out.println("Le doctor removes all cubes of " + city.getName() );
+		System.out.println("The doctor removes all cubes of " + city.getName() );
 	}
 
 	

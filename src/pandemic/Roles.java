@@ -1,7 +1,7 @@
 package pandemic;
 
 	/**
-	 * this enum class is for the role of each player
+	 * this enumeration class is for the role of each player
 	 * 
 	 */
 	public enum Roles{
