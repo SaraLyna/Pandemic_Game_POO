@@ -19,7 +19,7 @@ public class PlayersCards extends Cards{
 	 *Returns a string representation of the object.
 	 */
 	public String toString() {
-		return "A player card for the city named "+ cityName +" and the disease "+ disease;
+		return  " has a player card for the city named "+ cityName +" and the disease "+ disease;
 	}
 
 	

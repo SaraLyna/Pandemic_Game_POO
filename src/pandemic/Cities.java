@@ -14,13 +14,13 @@ public class Cities {
     protected boolean isInfectionFocus;
     protected boolean hasBeenInfectedThisTurn;
     private int nbCube; //nombre de cubes dans une ville,
-
+   // private Diseases CityDisease;
     /**
      * @param name le nom de la ville
      * @param neighbors la liste des villes voisines
      * @param sector le secteur de la ville
      */
-   
+    // public Cities(String name, Disease d ) {
     public Cities(String name, String sector) {
         this.name = name;
         this.neighbors = new ArrayList<Cities>();
@@ -66,7 +66,7 @@ public class Cities {
         	int cubesCount = infectionRates.getOrDefault(d, 0);
         	System.out.print(this.name+" est infectee par "+d.getDIseaseName()+", ");
         	if (cubesCount < 3) {
-        		infectionRates.put(d, cubesCount + 1);
+     		infectionRates.put(d, cubesCount + 1);
         		System.out.println("son taux d'infection pour "+d.getDIseaseName()+" passe a "+infectionRates.get(d));
         	} else {
         	System.out.println(" mais elle est deja a 3, elle infecte ses voisins");
@@ -90,6 +90,8 @@ public class Cities {
     public String getName() {
         return this.name;
     }
+    
+    
 
     /**
      * @return un dictionnaire contenant le nombre de cubes de chaque maladie dans la ville
@@ -185,10 +187,11 @@ public class Cities {
      * @return un cube d'une maladie
      */
     public int getCube(Diseases d){
-    	return this.infectionRates.get(d);
-    	
+    	return this.infectionRates.get(d);    	
     }
     
+    
+     
     /**
      * @param nbCube
      * @return le nombre de cubes
@@ -207,9 +210,6 @@ public class Cities {
     		this.infectionRates.replace(d, this.nbCube--);
     	}
     }
-
-
-	
 	/**
 
     Cette méthode permet de réinitialiser le statut de la ville en indiquant que la ville n'a pas été infectée pendant le tour actuel.

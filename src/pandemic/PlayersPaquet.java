@@ -6,25 +6,31 @@ import java.util.Collections;
 public class PlayersPaquet {
 	private ArrayList<PlayersCards> cards;
 	
+	/**
+	 * constructor of the class PlayersPaquet
+	 */
 	public PlayersPaquet() {
 		this.cards= new ArrayList<>();
 		this.initCards();
 	}
     
+		/**
+		 * all the cards in the package players
+		 */
 		public void initCards() {
-			cards.add(new PlayersCards("ville-19", "rouge"));
-		    cards.add(new PlayersCards("ville-23", "rouge"));
-		    cards.add(new PlayersCards("ville-24", "rouge"));
-		    cards.add(new PlayersCards("ville-25", "rouge"));
-		    cards.add(new PlayersCards("ville-29", "rouge"));
-			cards.add(new PlayersCards("ville-30", "rouge"));
-			cards.add(new PlayersCards("ville-31", "rouge"));
-			cards.add(new PlayersCards("ville-35", "rouge"));
-			cards.add(new PlayersCards("ville-36", "rouge"));
-			cards.add(new PlayersCards("ville-37", "rouge"));
-			cards.add(new PlayersCards("ville-42", "rouge"));
-			cards.add(new PlayersCards("ville-48", "rouge"));
-			cards.add(new PlayersCards("ville-2", "noir"));
+			this.cards.add(new PlayersCards("ville-19", "rouge"));
+		    this.cards.add(new PlayersCards("ville-23", "rouge"));
+		    this.cards.add(new PlayersCards("ville-24", "rouge"));
+		    this.cards.add(new PlayersCards("ville-25", "rouge"));
+		    this.cards.add(new PlayersCards("ville-29", "rouge"));
+			this.cards.add(new PlayersCards("ville-30", "rouge"));
+			this.cards.add(new PlayersCards("ville-31", "rouge"));
+			this.cards.add(new PlayersCards("ville-35", "rouge"));
+			this.cards.add(new PlayersCards("ville-36", "rouge"));
+			this.cards.add(new PlayersCards("ville-37", "rouge"));
+			this.cards.add(new PlayersCards("ville-42", "rouge"));
+			this.cards.add(new PlayersCards("ville-48", "rouge"));
+			this.cards.add(new PlayersCards("ville-2", "noir"));
 			this.cards.add(new PlayersCards("ville-3", "noir"));
 			this.cards.add(new PlayersCards("ville-8", "noir"));
 			this.cards.add(new PlayersCards("ville-9", "noir"));
@@ -66,7 +72,13 @@ public class PlayersPaquet {
 			this.cards.add(new EpidemicCards("epidemic","epidemic"));
 			
 		}
-	    
+	
+//	
+//	public void initPaquet(Cities[] villes) {
+//		for (int i = 0; i < villes.length ; i++)
+//			this.cards.add(new PlayersCards(villes[i].getName(), villes[i].get))
+//	}
+//	    
 		
 	/**
 	 * @param card

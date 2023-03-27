@@ -58,7 +58,7 @@ public class MappeMonde {
 			// La liste des villes commence par 1, mais un tableau en Java 
 			// commence à l'index 0. De cette manière, il est nécessaire d'utiliser -1.
 			liste_villes[Integer.parseInt(numberVille)-1] = nomVille;
-			this.Villes[Integer.parseInt(numberVille)-1]= new Cities(nomVille, villes.get(nomVille).toString());
+			this.Villes[Integer.parseInt(numberVille)-1]= new Cities(nomVille, villes.get(nomVille).toString());//erreur
 			
 		}
 		// Imprimer la liste des villes. 
@@ -107,7 +107,14 @@ public class MappeMonde {
 		}
 	}
 	
-	
+	/**
+	 * 
+	 * @return
+	 */
+	public Cities[] getVilles() {
+		return this.Villes;
+	}
+
 	/**
 	 * this method is used for the final tour of infection
 	 * it goes all over the cities of the map world and initialize the boolean hasBeenInfectedTurn

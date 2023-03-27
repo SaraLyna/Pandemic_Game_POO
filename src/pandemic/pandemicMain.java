@@ -67,10 +67,20 @@ public class pandemicMain {
        PlayersCards l1=paquetPlayers.tirerCarte();
        PlayersCards l2=paquetPlayers.tirerCarte();
        
+       InfectionCards un = paquetInfection.tirerCarte();
+       InfectionCards deux=paquetInfection.tirerCarte();
+       System.out.println("Première carte infection: " + un);
+       System.out.println("Deuxième carte infection : " + deux);
+       
+       			
+       
+//       un.addCube(Diseases.RED);
+//       deux.addCube(Diseases.RED);
+       
        Lyna.addCard(l1);
        Lyna.addCard(l2);
-       System.out.println(l1.toString());
-       System.out.println(l2.toString());
+       System.out.println("Sara" + l1.toString());
+       System.out.println("Sara" + l2.toString());
        
        Stack<Cards> lyna=Lyna.getCardsInHand();
        System.out.println(lyna.size());
@@ -81,8 +91,8 @@ public class pandemicMain {
        
        Sara.addCard(l3);
        Sara.addCard(l4);
-       System.out.println(l3.toString());
-       System.out.println(l4.toString());
+       System.out.println("Lyna" + l3.toString());
+       System.out.println("Lyna" +l4.toString());
        
        Stack<Cards> sara=Sara.getCardsInHand();
        System.out.println(sara.size());
@@ -94,25 +104,26 @@ public class pandemicMain {
        
        Anais.addCard(l5);
        Anais.addCard(l6);
-       System.out.println(l5.toString());
-       System.out.println(l6.toString());
+       System.out.println("Anais" + l5.toString());
+       System.out.println("Anais" + l6.toString());
        
        Stack<Cards> anais=Anais.getCardsInHand();
        System.out.println(anais.size());
        //System.out.println(anais.get(1));
        
        PlayersCards l7=paquetPlayers.tirerCarte();
-       InfectionCards l8=paquetInfection.tirerCarte();
+       PlayersCards l8=paquetPlayers.tirerCarte();
        
        Charles.addCard(l7);
-       System.out.println(l7.toString());
-       System.out.println(l8.toString());
+       System.out.println("Charles" + l7.toString());
+       System.out.println("Charles" + l8.toString());
+       //System.out.println("Charles a tiré une carte epidemie");
        
        Stack<Cards> charles=Charles.getCardsInHand();
-       System.out.println("charles a tiré une carte epidemie");
        System.out.println(charles.size());
-       //String n=l8.getCityName();
-       // n.addCube();
+       //l8.infectionPropagation(l8.getDiseaseName());
+       //l8.getCityName();
+       //l8.addCube();
        
 	}
 

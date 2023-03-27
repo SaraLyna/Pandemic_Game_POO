@@ -6,11 +6,17 @@ import java.util.Collections;
 public class InfectionPaquet {
 private ArrayList<InfectionCards> cards;
 	
+	/**
+	 * constroctur of the class InfectionPaquet
+	 */
 	public InfectionPaquet() {
 		this.cards= new ArrayList<>();
 		this.initCards();
 	}
     
+		/**
+		 * all the cards in the package infection
+		 */
 		public void initCards() {
 			 this.cards = new ArrayList<>();
 			    this.cards.add(new InfectionCards("ville-19", "rouge"));

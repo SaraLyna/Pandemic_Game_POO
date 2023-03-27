@@ -20,7 +20,7 @@ public class InfectionCards extends Cards {
 	 *Returns a string representation of the object.
 	 */
 	public String toString(){
-		return "InfectionCards for the city "+cityName+" and the disease "+disease;
+		return " has an infection card for the city named "+ cityName +" and the disease "+disease;
 		
 	}
 	
