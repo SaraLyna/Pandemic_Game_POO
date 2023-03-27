@@ -40,29 +40,85 @@ public class pandemicMain {
        v1.addCube(Diseases.RED);
        
        
+        
+   	   
+       PlayersPaquet paquetPlayers=new PlayersPaquet();
+       System.out.println(paquetPlayers.nbCartes());
+       InfectionPaquet paquetInfection=new InfectionPaquet();
+       System.out.println(paquetInfection.nbCartes());
+    
        
-       PlayersCards CartesJoueurs = new PlayersCards("ville1", "bleu");
-       InfectionCards CartesInfection = new InfectionCards("ville1", "bleu");
-       
-       CartesJoueurs.addCarte(new PlayersCards("ville-10","rouge"));
-       CartesInfection.addCarte(new InfectionCards("ville-15","bleu"));
        
        
-       PlayersCards.melanger();
-       InfectionCards.melanger();
+       paquetPlayers.melanger();
+       paquetInfection.melanger();
        
        Players Sara = new Players("Sara",Roles.Doctor,v1);
        Players Lyna = new Players("Lyna",Roles.Expert, v1);
        Players Anais = new Players("Anais",Roles.Scientist,v1);
        Players Charles = new Players("Charles",Roles.GlobetRotter, v1);
        
-       //Map.addPlayer(Lyna);
-       //Sara.addCard(Cards);
-       //Lyna.tirerCarte(CartesJoueurs);
-       //Anais.tirerCarte(CartesJoueurs);
-      // Charles.tirerCarte(CartesJoueurs);
+       put(Lyna,Map);
+       put(Sara,Map);
+       put(Anais,Map);
+       put(Charles,Map);
        
        
+       PlayersCards l1=paquetPlayers.tirerCarte();
+       PlayersCards l2=paquetPlayers.tirerCarte();
+       
+       Lyna.addCard(l1);
+       Lyna.addCard(l2);
+       System.out.println(l1.toString());
+       System.out.println(l2.toString());
+       
+       Stack<Cards> lyna=Lyna.getCardsInHand();
+       System.out.println(lyna.size());
+       //System.out.println(lyna.get(1));
+       
+       PlayersCards l3=paquetPlayers.tirerCarte();
+       PlayersCards l4=paquetPlayers.tirerCarte();
+       
+       Sara.addCard(l3);
+       Sara.addCard(l4);
+       System.out.println(l3.toString());
+       System.out.println(l4.toString());
+       
+       Stack<Cards> sara=Sara.getCardsInHand();
+       System.out.println(sara.size());
+       //System.out.println(sara.get(1));
+       
+       
+       PlayersCards l5=paquetPlayers.tirerCarte();
+       PlayersCards l6=paquetPlayers.tirerCarte();
+       
+       Anais.addCard(l5);
+       Anais.addCard(l6);
+       System.out.println(l5.toString());
+       System.out.println(l6.toString());
+       
+       Stack<Cards> anais=Anais.getCardsInHand();
+       System.out.println(anais.size());
+       //System.out.println(anais.get(1));
+       
+       PlayersCards l7=paquetPlayers.tirerCarte();
+       InfectionCards l8=paquetInfection.tirerCarte();
+       
+       Charles.addCard(l7);
+       System.out.println(l7.toString());
+       System.out.println(l8.toString());
+       
+       Stack<Cards> charles=Charles.getCardsInHand();
+       System.out.println("charles a tiré une carte epidemie");
+       System.out.println(charles.size());
+       //String n=l8.getCityName();
+       // n.addCube();
+       
+	}
+
+	private static void put(Players player, MappeMonde map) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

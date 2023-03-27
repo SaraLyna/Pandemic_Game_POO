@@ -1,6 +1,6 @@
 package pandemic;
 
-public  abstract class Cards {
+public abstract class Cards {
 	protected String cityName;
 	protected String disease;
 	
@@ -12,16 +12,19 @@ public  abstract class Cards {
 	public Cards(String cityName, String disease) {
 		this.cityName=cityName;
 		this.disease=disease;
-		this.initCards();
 
 	}
-	protected abstract void initCards();
 	
 	/**
 	 * @return the name of the disease
 	 */
 	public String getDiseaseName() {
 		return this.disease;
+	}
+	
+	
+	public String getCityName() {
+		return this.cityName;
 	}
 	
 	

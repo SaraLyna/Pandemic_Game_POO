@@ -4,7 +4,7 @@ package pandemic;
  * this class represent the EpidemicCards
  *
  */
-public class EpidemicCards extends Cards {
+public class EpidemicCards extends PlayersCards {
 	/**
 	 * constructor of the class EpidemicCards
 	 * @param city
@@ -18,7 +18,7 @@ public class EpidemicCards extends Cards {
 	 *Returns a string representation of the object.
 	 */
 	public String toString(){
-		return "EpidemicCards for the city named"+cityName+" and the disease "+disease;
+		return "EpidemicCards for the city named "+ cityName + " and the disease "+ disease;
 		
 	}
 
