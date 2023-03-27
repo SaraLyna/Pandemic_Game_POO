@@ -74,8 +74,8 @@ public class pandemicMain {
        
        			
        
-//       un.addCube(Diseases.RED);
-//       deux.addCube(Diseases.RED);
+       un.addCube(Diseases.RED);
+       deux.addCube(Diseases.RED);
        
        Lyna.addCard(l1);
        Lyna.addCard(l2);
