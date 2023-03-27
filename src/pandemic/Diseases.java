@@ -17,7 +17,7 @@ public enum Diseases {
     /**
 
     Constructeur de l'énumération Diseases.
-    @param name nom de la maladie.
+    @param name nom de la maladie
     */
      Diseases(String name) {
         this.name = name;
@@ -30,5 +30,29 @@ public enum Diseases {
     public String getDIseaseName() {
         return this.name;
     }
+    
+    public static Diseases nameToDisease(String name) {
+        Diseases d = null; // initialiser à null pour gérer les noms de maladies invalides
+
+        if (name.equalsIgnoreCase("bleu")) {
+            d = Diseases.BLUE;
+        }
+        else if (name.equalsIgnoreCase("rouge")) {
+            d = Diseases.RED;
+        }
+        else if (name.equalsIgnoreCase("jaune")) { 
+            d = Diseases.YELLOW;
+        }
+        else if(name.equalsIgnoreCase("noir")) { 
+            d = Diseases.BLACK;
+        }
+
+        if (d == null) { // gérer les noms de maladies invalides
+            throw new IllegalArgumentException("Invalid disease name: " + name);
+        }
+
+        return d;
+    }
+
     
 }

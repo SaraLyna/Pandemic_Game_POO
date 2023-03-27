@@ -18,6 +18,7 @@ public class pandemicMain {
 	 * @throws FileNotFoundException
 	 */
 	public static void main(String args[]) throws FileNotFoundException {
+		int overallInfectionRate = 2; // Le taux global d'infection 
        MappeMonde Map= new MappeMonde("villes.json");
        //System.out.println("Map");
        System.out.println();
@@ -73,7 +74,8 @@ public class pandemicMain {
        System.out.println("le nombre de cartes players est " + paquetPlayers.nbCartes());
        InfectionPaquet paquetInfection=new InfectionPaquet();
        System.out.println("le nombre de cartes infection est " + paquetInfection.nbCartes());
-       System.out.println();
+       //System.out.println("creation of the discarded cards deck");
+       
     
        
        
@@ -109,10 +111,32 @@ public class pandemicMain {
        System.out.println("on tire deux cartes infection: ");
        InfectionCards une = paquetInfection.tirerCarte();
        InfectionCards deux=paquetInfection.tirerCarte();
-       System.out.println("Première carte infection : " + une);
-       System.out.println("Deuxième carte infection : " + deux);
+       System.out.println("Première carte infection : " + une.toString());
+       System.out.println("Deuxième carte infection : " + deux.toString());
        System.out.println();
-       System.out.println("On ajoute un cube à "+ "" + "et un cube à "+ "");
+
+       for(Cities city : Map.getVilles()) {
+    	   if( city.getName().equals(une.getCityName())) {
+    		   city.addCube(Diseases.nameToDisease(une.getDiseaseName()));
+    		   city.toString();
+    		   System.out.println("Etat de la ville " + city.getName());
+    		   System.out.println(city);
+    	   }
+    	   
+       }
+       
+
+       for(Cities city : Map.getVilles()) {
+    	   if( city.getName().equals(deux.getCityName())) {
+    		   city.addCube(Diseases.nameToDisease(deux.getDiseaseName()));
+    		   city.toString();
+    		   System.out.println("Etat de la ville " + city.getName());
+    		   System.out.println(city);
+    	   }
+    	   
+       }
+       
+       
        System.out.println();
      
       // public int addCubeCity(int i, Diseases d) {
@@ -133,7 +157,7 @@ public class pandemicMain {
        System.out.println("Sara" + l1.toString());
        System.out.println("Sara" + l2.toString());
        Stack<Cards> sara=Sara.getCardsInHand();
-       System.out.println("Sara a " + sara.size()+ "cartes players dans sa main");
+       System.out.println("Sara a " + sara.size()+ " cartes players dans sa main");
        //System.out.println(sara.get(1));
        System.out.println();
        
@@ -166,23 +190,31 @@ public class pandemicMain {
        
        
        System.out.println("quatrieme joueur: Charles");
-       PlayersCards l7=paquetPlayers.tirerCarte();
-       PlayersCards l8=paquetPlayers.tirerCarte(); 
+       PlayersCards l7=paquetPlayers.tirerCarte();// a players card
+       PlayersCards l8=paquetPlayers.tirerCarte(); // this is an epidemic card
+       overallInfectionRate ++; // we increase the global rate of infection
+       System.out.println("Charles picked an epidemic card, he must now pick an infection card");
        InfectionCards l9=paquetInfection.tirerCarte(); 
        Charles.addCard(l7);
-       System.out.println("Charles" + l7.toString());
-       System.out.println("Charles a tiré une carte epidemie"); //puisque c'est une carte epidemic on l'ajoute pas a sa main
-       Charles.addCard(l9);
-       System.out.println("Charles" + l9.toString());      
+       System.out.println("Charles" + l7.toString());   
        Stack<Cards> charles=Charles.getCardsInHand();
-       System.out.println("Charles a " + charles.size()+" cartes dans sa main, une carte players et une carte infection");
-       System.out.println("Charles va déclencher une épidémie !");
-       //l9.infectionPropagation(l9.getDiseaseName());
-       //l9.addCube();
-       System.out.println();
-       System.out.println();
+       System.out.println("Charles has in his hand " + charles.size()+" player card(s)");
+       System.out.println(" a cube of the disease " + l9.getDiseaseName() + " is added to the city named " + l9.getCityName()  );
        
-       System.out.println("Une epidémie a été déclenchée...");
+       for(Cities city : Map.getVilles()) {
+    	   if( city.getName().equals(l9.getCityName())) {
+    		   city.addCube(Diseases.nameToDisease(l9.getDiseaseName()));
+    		   city.toString();
+    		   System.out.println("Etat de la ville " + city.getName());
+    		   System.out.println(city);
+    	   }
+    	   
+       }
+       
+       System.out.println("we re-put the discarded  infection card  in the InfectionPaquet ");
+       paquetInfection.addCarte(l9);
+       
+       
        System.out.println();
        System.out.println();
        System.out.println("Suite à venir..");
