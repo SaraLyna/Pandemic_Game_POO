@@ -218,4 +218,9 @@ public class Cities {
 		this.hasBeenInfectedThisTurn = false;
 	}
 	
+	
+	public void addCubeInCity(Cities c, Diseases d) {
+		c.addCube(d);
+		
+	}
 }

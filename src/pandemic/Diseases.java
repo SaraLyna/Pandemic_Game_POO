@@ -30,4 +30,5 @@ public enum Diseases {
     public String getDIseaseName() {
         return this.name;
     }
+    
 }

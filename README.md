@@ -80,22 +80,104 @@ Explications du code:
 
 --Classe Cards:
 on a créé une classe Cards qui est une classe abstraite ,pour ensuite faire un héritage avec les différents types de cartes
-qui en dépendent, dont: InfectionCards, PlayersCards et EpidemicCards.
+qui en dépendent, dont: InfectionCards, PlayersCards et EpidemicCards qui elle dépend de PlayersCards.
+on a créé deux methodes getCityName() et getDiseaseName() pour pouvoir recuperer le nom de la ville et de la maladie de la carte.
 
 --Classe EpidemicCards:
+c est une classe qui herite de la classe PlayersCards car les cartes epidemie font partie des cartes joueurs.
+on a juste créé une methode toString() pour pouvoir afficher un message lors du tirage d'une carte epidemie.
 
 --Classe InfectionCards:
+c est une classe qui herite de Cards.
+on a juste créé une methode toString() pour pouvoir afficher un message lors du tirage d'une carte infection.
 
 --Classe PlayersCards:
+c est une classe qui herite de Cards.
+on a juste créé une methode toString() pour pouvoir afficher un message lors du tirage d'une carte joueur.
 
 --Classe Players:
 on a créé une pile de cartes dans la main du joueur, à qui on avait attribué un nom, une localisation sur la carte (une ville)
 et un role parmis les quatres prédéfinis.
 on a également créé une méthode discard() si jamais le nombre de cartes dans la main du joueur atteignait son maximum, c'est à dire
 7, enplus des méthodes addCard() pour ajouter une carte dans la main du joueur.
+et aussi une methode getCardsInHand() pour pouvoir recuperer le nombre de carte dans la main du joeur.
+
+
+
+--Classe InfectionPaquet:
+c'est une classe qui crée le paquet des cartes d'infection avec une ArrayListe<>(), et il y a une méthode init qui implemente toutes les cartes
+une par une.
+on a aussi créer les méthodes principales pour pouvoir manier ces cartes, melanger(), tirerCarte() au hasard , AddCarte() pour ajouter une 
+nouvelle carte et nbCartes() pour recuperer le nombre de cartes dans le paquet.
+
+
+--Classe PlayersPaquet:
+c'est une classe qui crée le paquet des cartes joueurs avec une ArrayListe<>(), et il y a une méthode init qui implemente toutes les cartes
+une par une.
+on a aussi créer les méthodes principales pour pouvoir manier ces cartes, melanger(), tirerCarte() au hasard , AddCarte() pour ajouter une 
+nouvelle carte et nbCartes() pour recuperer le nombre de cartes dans le paquet.
+
+
+
 
 --Classe Roles:
 c'est une classe enum qui enumère les quatres roles qu'on a, Doctor, Scientist, GlobetRotter et Expert.
+
+--Classe DoctorRole:
+le role du doctor consiste à retirer tous les cubes dès qu’il passe dans une ville où il existe des cubes
+ d’une maladie guérie, sans que cela compte pour une action.
+ et on fait ça à l'aide d'une méthode RemoveCubes(), qui consiste à retirer tous les cubes d'une maladie guérie dans une ville.
+
+--Classe ExpertRole:
+l'expert n’a pas besoin de disposer de carte joueur pour construire une station,
+on fait ça à l'aide d'une méthode BuildStationWoCard(), qui consiste à  dire si il existe déja  une station de recherche
+ (isResearchCenter()) on déclenche une exception, sinon on ajoute une station de recherche (addResearchCenter()) à une ville
+puis on affiche le nom de la ville dans laquelle on a construit cette
+station de recherche.
+
+--Classe ResearchCenterException:
+c'est une classe ou on a créé nous meme une exception pour pouvoir afficher un message lors d'une erreur(d'une exception).
+
+--Classe ScientistRole:
+le scientifique a besoin de disposer de 4 cartes d'une meme maladie pour découvrir un remede, alors 
+Si toutes les cartes ont le meme nom de ville , le remède est découvert(discoverCure()), et on a aussi créé une méthode
+findRemedy()  qui permettrait de trouver un remede pour une maladie donnée en utilisant la méthode discoverCure() définie plus haut
+et qui Vérifie s'il y a assez de cartes de la maladie pour découvrir un remède et si un remède n'a pas encore été découvert pour la maladie donnée
+
+--Classe GlobetRotter:
+le globetrottera la possibilité de se déplacer dans n’importe quelle ville. Ce qui augmente sa capacité d’action
+et on a fait ca à l'aide d 'une méthode moveAnywhere() qui lui permet de se déplacer dans la ville de son choix.
+
+--Classe pandemicMain:
+Cette Classe a pour but d'exécuter notre programme et d'afficher tout ce qui doit s'afficher à l'écran (les villes et les voisins)
+selon les secteurs et le nombre de maladie de chaque ville.
+et ensuite afficher les cartes et les roles de chaque joueur(simulation d'une partie)
+
+
+
+### Difficultés restant à résoudre:
+
+--Créer la relation entre chaque role et son action spécifique
+
+
+### Difficultés résolues:
+
+On a eu du mal avec les tests de la classe Players , car on avait une classe abstraite , et donc on a créé des objets PlayersCards au lieu des objets Cards.
+La creation des paquets de cartes n'etait pas vraiment facile, on a préféré cependant travailler avec des ArrayList car on etait plus alaise.
+On a trouvé quelques difficultés dans le main car toutes les classes devaient avoir un lien , comme par exemple Disease et Cities 
+pour pouvoir utiliser la méthode addCube().
+
+## Livrable 3
+
+### Atteinte des objectifs
+--Explication du code:
+
+
+--Classe actions:
+
+
+
+
 
 --Classe DoctorRole:
 le role du doctor consiste à retirer tous les cubes dès qu’il passe dans une ville où il existe des cubes
@@ -119,27 +201,10 @@ et qui Vérifie s'il y a assez de cartes de la maladie pour découvrir un remèd
 le globetrottera la possibilité de se déplacer dans n’importe quelle ville. Ce qui augmente sa capacité d’action
 et on a fait ca à l'aide d 'une méthode moveAnywhere() qui lui permet de se déplacer dans la ville de son choix.
 
---Classe pandemicMain:
-Cette Classe a pour but d'exécuter notre programme et d'afficher tout ce qui doit s'afficher à l'écran (les villes et les voisins)
-selon les secteurs et le nombre de maladie de chaque ville.
-et ensuite afficher les cartes et les roles de chaque joueur(simulation d'une partie)
-
-
-
-### Difficultés restant à résoudre:
-
---Créer la relation entre chaque role et son action spécifique
-
-### Difficultés résolues:
-
-On a eu du mal avec les tests de la classe Players , car on avait une classe abstraite , et donc on a créé des objets PlayersCards au lieu des objets Cards.
-
-
-## Livrable 3
-
-### Atteinte des objectifs
 
 ### Difficultés restant à résoudre
+
+--Implementer la classe Actions et apporter quelques modifications aux classes des roles.
 
 ## Livrable 4
 
@@ -196,6 +261,8 @@ Mise à jour du diagramme UML et du Readme.
 Ajout des tests PlayersTest.
 
 ## Semaine 8
+Implementation du main et Création des paquets de cartes avec ArrayList pour la version finale, affichage du résultats
+et implementation des tests des classes InfectionPaquet et PlayersPaquet.
 
 ## Semaine 9
 
