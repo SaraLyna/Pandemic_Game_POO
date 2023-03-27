@@ -12,8 +12,10 @@ public  abstract class Cards {
 	public Cards(String cityName, String disease) {
 		this.cityName=cityName;
 		this.disease=disease;
+		this.initCards();
 
 	}
+	protected abstract void initCards();
 	
 	/**
 	 * @return the name of the disease

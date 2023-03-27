@@ -41,11 +41,11 @@ public class pandemicMain {
        
        
        
-       List<PlayersCards> CartesJoueurs = new ArrayList<PlayersCards>();
+       PlayersCards CartesJoueurs = new PlayersCards("ville1", "bleu");
        InfectionCards CartesInfection = new InfectionCards("ville1", "bleu");
        
-      // CartesJoueurs.addCarte(new PlayersCards("ville-10","rouge"));
-      // CartesInfection.addCarte(new InfectionCards("ville-15","bleu"));
+       CartesJoueurs.addCarte(new PlayersCards("ville-10","rouge"));
+       CartesInfection.addCarte(new InfectionCards("ville-15","bleu"));
        
        
        PlayersCards.melanger();
