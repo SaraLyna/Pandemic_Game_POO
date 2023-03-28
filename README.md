@@ -88,12 +88,12 @@ c est une classe qui herite de la classe PlayersCards car les cartes epidemie fo
 on a juste créé une methode toString() pour pouvoir afficher un message lors du tirage d'une carte epidemie.
 
 --Classe InfectionCards:
-c est une classe qui herite de Cards.
-on a juste créé une methode toString() pour pouvoir afficher un message lors du tirage d'une carte infection.
+C'est une classe qui herite de Cards.
+on a juste créé une methode toString() pour pouvoir afficher un message lors du tirage d'une carte infection ainsi que les getters pour obtenir les noms des villes et des maladies inscrits sur les cartes.
 
 --Classe PlayersCards:
-c est une classe qui herite de Cards.
-on a juste créé une methode toString() pour pouvoir afficher un message lors du tirage d'une carte joueur.
+C'est une classe qui herite de Cards.
+on a juste créé une methode toString() pour pouvoir afficher un message lors du tirage d'une carte joueur ainsi que les getters pour obtenir les noms des villes et des maladies inscrits sur les cartes.
 
 --Classe Players:
 on a créé une pile de cartes dans la main du joueur, à qui on avait attribué un nom, une localisation sur la carte (une ville)
@@ -114,14 +114,14 @@ nouvelle carte et nbCartes() pour recuperer le nombre de cartes dans le paquet.
 --Classe PlayersPaquet:
 c'est une classe qui crée le paquet des cartes joueurs avec une ArrayListe<>(), et il y a une méthode init qui implemente toutes les cartes
 une par une.
-on a aussi créer les méthodes principales pour pouvoir manier ces cartes, melanger(), tirerCarte() au hasard , AddCarte() pour ajouter une 
-nouvelle carte et nbCartes() pour recuperer le nombre de cartes dans le paquet.
+on a aussi créer les méthodes principales pour pouvoir manier ces cartes, melanger(), pour melanger les cartes; tirerCarte(),permettant de tirer une carte; AddCarte() pour ajouter une 
+nouvelle carte  à la liste et nbCartes() pour recuperer le nombre de cartes dans le paquet.
 
 
 
 
 --Classe Roles:
-c'est une classe enum qui enumère les quatres roles qu'on a, Doctor, Scientist, GlobetRotter et Expert.
+c'est une classe enum qui enumère les quatres roles qu'on a, Doctor, Scientist, GlobetRotter et Expert. Elle contient egalement une méthode appelée nameToDisease() permettant de transformer le nom d'une maladie en objet maladie.
 
 --Classe DoctorRole:
 le role du doctor consiste à retirer tous les cubes dès qu’il passe dans une ville où il existe des cubes
@@ -157,13 +157,13 @@ et ensuite afficher les cartes et les roles de chaque joueur(simulation d'une pa
 
 ### Difficultés restant à résoudre:
 
---Créer la relation entre chaque role et son action spécifique
+--Créer la relation entre chaque role et son action spécifique.
 
 
 ### Difficultés résolues:
 
-On a eu du mal avec les tests de la classe Players , car on avait une classe abstraite , et donc on a créé des objets PlayersCards au lieu des objets Cards.
-La creation des paquets de cartes n'etait pas vraiment facile, on a préféré cependant travailler avec des ArrayList car on etait plus alaise.
+On a eu du mal avec la création des piles de cartes car on avait défint une méthode initCards qui initialisait la pile de cartes en faisant appel au constructeur qui lui même faisait appel à la methode initCards(), ce qui déclenchait donc une exécution en "loop". On est donc arrivé à résoudre le problème par la création d'une classe à part entière pour les piles de cartes.
+La creation des paquets de cartes n'etait pas vraiment facile, on a préféré cependant travailler avec des ArrayList car on etait plus à l'aise avec.
 On a trouvé quelques difficultés dans le main car toutes les classes devaient avoir un lien , comme par exemple Disease et Cities 
 pour pouvoir utiliser la méthode addCube().
 
