@@ -19,7 +19,7 @@ public class pandemicMain {
 	 * @throws FileNotFoundException
 	 */
 	public static void main(String args[]) throws FileNotFoundException {
-		System.out.println( "\u001B[40m");
+		//System.out.println( "\u001B[40m");
 		int overallInfectionRate = 2; // Le taux global d'infection 
        MappeMonde Map= new MappeMonde("villes.json");
        //System.out.println("Map");
