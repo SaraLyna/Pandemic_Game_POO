@@ -8,7 +8,7 @@ import org.junit.Test;
 public class InfectionPaquetTest {
 
 	
-private InfectionPaquet paquet;
+//private InfectionPaquet paquet;
     
     @Test
     public void testInitCards() {

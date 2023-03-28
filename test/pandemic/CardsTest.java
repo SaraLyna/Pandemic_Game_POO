@@ -12,7 +12,7 @@ public class CardsTest {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		fail("it's an abstract class, don't have a test");
 	}
 
 }
