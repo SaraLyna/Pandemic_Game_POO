@@ -13,17 +13,17 @@ import java.util.*;
 
 public class pandemicMain {
 	
+	
 	/**
 	 * @param args
 	 * @throws FileNotFoundException
 	 */
 	public static void main(String args[]) throws FileNotFoundException {
+		System.out.println( "\u001B[40m");
 		int overallInfectionRate = 2; // Le taux global d'infection 
        MappeMonde Map= new MappeMonde("villes.json");
        //System.out.println("Map");
-       System.out.println();
        Map.displayAllCities();
-       System.out.println("/n");
        Cities v1 = Map.Villes[0];
        Cities v2 = Map.Villes[1];
        Cities v3 = Map.Villes[2];

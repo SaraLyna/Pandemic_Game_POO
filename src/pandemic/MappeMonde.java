@@ -64,6 +64,8 @@ public class MappeMonde {
 		// Imprimer la liste des villes. 
 		for(int j = 0; j < liste_villes.length; j++) {
 			System.out.println(liste_villes[j]);
+			
+			
 		}
 		/*Le programme lira maintenant les voisins. J'ai suivi l'ordre établi 
 		 * par JSON ici. Vous pouvez les trier en suivant la procédure ci-dessus.
