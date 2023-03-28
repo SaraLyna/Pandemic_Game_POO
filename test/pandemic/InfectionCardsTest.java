@@ -1,14 +1,27 @@
 package pandemic;
-
+import org.junit.Test;
 import static org.junit.Assert.*;
 
-import org.junit.Test;
-
 public class InfectionCardsTest {
-
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
-
+    
+    @Test
+    public void testToString() {
+        InfectionCards card = new InfectionCards("Paris", "Blue");
+        String expected = " A card Infection for the city named Paris and the disease Blue";
+        assertEquals(expected, card.toString());
+    }
+    
+    @Test
+    public void testGetCityName() {
+        InfectionCards card = new InfectionCards("Paris", "Blue");
+        String expected = "Paris";
+        assertEquals(expected, card.getCityName());
+    }
+    
+    @Test
+    public void testGetDiseaseName() {
+        InfectionCards card = new InfectionCards("Paris", "Blue");
+        String expected = "Blue";
+        assertEquals(expected, card.getDiseaseName());
+    }
 }

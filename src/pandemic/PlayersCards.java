@@ -18,6 +18,21 @@ public class PlayersCards extends Cards{
 		return  " has a player card for the city named "+ cityName +" and the disease "+ disease;
 	}
 
+	/**
+	 * @return the name of the city on the card
+	 */
+	
+	public String getCityName() {
+		return super.getCityName();
+	}
+	
+	/**
+	 * @return the name of the disease on the card
+	 */
+	
+	public String getDiseaseName() {
+		return super.getDiseaseName();
+	}
 	
 	
 }
