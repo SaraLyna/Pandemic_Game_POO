@@ -102,6 +102,11 @@ on a également créé une méthode discard() si jamais le nombre de cartes dans
 7, enplus des méthodes addCard() pour ajouter une carte dans la main du joueur.
 et aussi une methode getCardsInHand() pour pouvoir recuperer le nombre de carte dans la main du joeur.
 
+--Classe Diseases:
+on a créé une classe Diseases, qui est une classe enum pour enumerer les quatres maladies principales: RED, BLUE, 
+YELLOW, BLACK. et on une méthode getDIseaseName() pour recuperer le nom de la maladie.
+Elle contient egalement une méthode appelée nameToDisease() permettant de transformer le nom d'une maladie en objet 
+maladie.
 
 
 --Classe InfectionPaquet:
@@ -121,7 +126,7 @@ nouvelle carte  à la liste et nbCartes() pour recuperer le nombre de cartes dan
 
 
 --Classe Roles:
-c'est une classe enum qui enumère les quatres roles qu'on a, Doctor, Scientist, GlobetRotter et Expert. Elle contient egalement une méthode appelée nameToDisease() permettant de transformer le nom d'une maladie en objet maladie.
+c'est une classe enum qui enumère les quatres roles qu'on a, Doctor, Scientist, GlobetRotter et Expert. 
 
 --Classe DoctorRole:
 le role du doctor consiste à retirer tous les cubes dès qu’il passe dans une ville où il existe des cubes
@@ -162,9 +167,14 @@ et ensuite afficher les cartes et les roles de chaque joueur(simulation d'une pa
 
 ### Difficultés résolues:
 
-On a eu du mal avec la création des piles de cartes car on avait défint une méthode initCards qui initialisait la pile de cartes en faisant appel au constructeur qui lui même faisait appel à la methode initCards(), ce qui déclenchait donc une exécution en "loop". On est donc arrivé à résoudre le problème par la création d'une classe à part entière pour les piles de cartes.
-La creation des paquets de cartes n'etait pas vraiment facile, on a préféré cependant travailler avec des ArrayList car on etait plus à l'aise avec.
-On a trouvé quelques difficultés dans le main car toutes les classes devaient avoir un lien , comme par exemple Disease et Cities 
+On a eu du mal avec la création des piles de cartes car on avait défint une méthode initCards qui initialisait la pile
+ de cartes en faisant appel au constructeur qui lui même faisait appel à la methode initCards(), ce qui déclenchait 
+ donc une exécution en "loop". On est donc arrivé à résoudre le problème par la création d'une classe à part entière
+  pour les piles de cartes.
+La creation des paquets de cartes n'etait pas vraiment facile, on a préféré cependant travailler avec des ArrayList car
+ on etait plus à l'aise avec.
+On a trouvé quelques difficultés dans le main car toutes les classes devaient avoir un lien , comme par exemple Diseases
+ et Cities 
 pour pouvoir utiliser la méthode addCube().
 
 ## Livrable 3
