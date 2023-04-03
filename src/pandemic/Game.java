@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.Stack;
 
 
-public class Pandemic {
+public class Game {
 	
 	protected int GlobalInfectionRate;
 	protected int InfectionFocusAmount ;
@@ -16,7 +16,7 @@ public class Pandemic {
 	 * @param GlobalInfectionRate
 	 * @param InfectionFocusAmount
 	 */
-	public Pandemic (int GlobalInfectionRate, int InfectionFocusAmount ){
+	public Game (int GlobalInfectionRate, int InfectionFocusAmount ){
 		this.GlobalInfectionRate=GlobalInfectionRate;
 		this.InfectionFocusAmount=InfectionFocusAmount;
 	}

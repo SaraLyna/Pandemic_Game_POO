@@ -5,7 +5,6 @@
 - Sara Lyna OUYAHIA
 - Anais BENIKKEN
 - Charles Kevin Adovi KPAKPO
-- Ayman EL ALASS
 
 # Sujet
 
@@ -180,21 +179,27 @@ pour pouvoir utiliser la méthode addCube().
 ## Livrable 3
 
 ### Atteinte des objectifs
+
+Modélisation des Actions :
+
+
 --Explication du code:
 
 
---Classe actions:
+--Classe Actions:
 
 
 
 
 
 --Classe DoctorRole:
+cette classe hérite de la classe principale Actions.java
 le role du doctor consiste à retirer tous les cubes dès qu’il passe dans une ville où il existe des cubes
  d’une maladie guérie, sans que cela compte pour une action.
  et on fait ça à l'aide d'une méthode RemoveCubes(), qui consiste à retirer tous les cubes d'une maladie guérie dans une ville.
 
 --Classe ExpertRole:
+cette classe hérite de la classe principale Actions.java
 l'expert n’a pas besoin de disposer de carte joueur pour construire une station,
 on fait ça à l'aide d'une méthode BuildStationWoCard(), qui consiste à  dire si il existe déja  une station de recherche
  (isResearchCenter()) on déclenche une exception, sinon on ajoute une station de recherche (addResearchCenter()) à une ville
@@ -202,12 +207,14 @@ puis on affiche le nom de la ville dans laquelle on a construit cette
 station de recherche.
 
 --Classe ScientistRole:
+cette classe hérite de la classe principale Actions.java
 le scientifique a besoin de disposer de 4 cartes d'une meme maladie pour découvrir un remede, alors 
 Si toutes les cartes ont le meme nom de ville , le remède est découvert(discoverCure()), et on a aussi créé une méthode
 findRemedy()  qui permettrait de trouver un remede pour une maladie donnée en utilisant la méthode discoverCure() définie plus haut
 et qui Vérifie s'il y a assez de cartes de la maladie pour découvrir un remède et si un remède n'a pas encore été découvert pour la maladie donnée
 
 --Classe GlobetRotter:
+cette classe hérite de la classe principale Actions.java
 le globetrottera la possibilité de se déplacer dans n’importe quelle ville. Ce qui augmente sa capacité d’action
 et on a fait ca à l'aide d 'une méthode moveAnywhere() qui lui permet de se déplacer dans la ville de son choix.
 
@@ -215,10 +222,31 @@ et on a fait ca à l'aide d 'une méthode moveAnywhere() qui lui permet de se d�
 ### Difficultés restant à résoudre
 
 --Implementer la classe Actions et apporter quelques modifications aux classes des roles.
+--Hésitation sur la classe Actions et Players, s'il faut mettre un héritage entre les deux ou pas.
 
 ## Livrable 4
 
 ### Atteinte des objectifs
+
+Modélisation de la classe Game et rendu final :
+
+
+
+
+--Explication du code :
+
+--Classe Game:
+
+
+
+
+Makefile:
+
+
+Le fonctionnement du fichier JAR :
+
+
+
 
 ### Difficultés restant à résoudre
 
@@ -263,11 +291,8 @@ codage de la classe Players.
 
 ## Semaine 7
 Codage des classes Players et Cards.
-
 Codage de la suite de pandemicMain pour l'affichage des villes, des cartes et du reste du plateau de jeu.
-
 Mise à jour du diagramme UML et du Readme.
-
 Ajout des tests PlayersTest.
 
 ## Semaine 8
@@ -275,6 +300,9 @@ Implementation du main et Création des paquets de cartes avec ArrayList pour la
 et implementation des tests des classes InfectionPaquet et PlayersPaquet.
 
 ## Semaine 9
+Avancée pour le rendu final du projet, création des dossiers jar et uml pour la division des uml de chaque livrable.
+Modélisation de la classe Actions et discussion avec les deux nouveaux membres du groupe pour chosiir la meilleure version.
+
 
 ## Semaine 10
 
