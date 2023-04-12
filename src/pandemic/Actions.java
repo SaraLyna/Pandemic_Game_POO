@@ -32,7 +32,7 @@ public class Actions {
 		//get number
 		Scanner scanner = new Scanner(System.in);
 		
-		int input;
+		int input=1; /*initialization to avoid warnings, should be overriden when input is read*/
 		boolean inputNeeded = true;
 		while (inputNeeded) {
 			input = scanner.nextInt(); //get input from user
