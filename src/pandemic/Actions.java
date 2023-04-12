@@ -15,7 +15,23 @@ public class Actions {
 	}
 	
 	public void discover(){
-		
+		 /* Pour découvrir un remède, il faut que la ville dans laquelle le joueur se trouve dispose d’une station de recherche et
+		avoir dans sa main 5 cartes joueur de la même maladie. 
+		Les 5 cartes sont défaussées et il est pris note qu’un remède
+		est trouvé pour cette maladie. Une fois un remède trouvé, on dit que la maladie est guérie. Si les remèdes sont trouvés*/
+			public String discover(Players p){
+				Stack<Cards> hand = p.getCardsInHand();
+				for (int i=0; i<hand.size();i++){
+					if (p.getLocation().isResearchCenter()){
+						if() {
+							Iterator<Cards> it = hand.iterator();
+								while (it.hasNext()) {
+								
+							}
+						}
+					}
+				}
+
 	} 
 	
 	
