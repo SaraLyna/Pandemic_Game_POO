@@ -15,8 +15,11 @@ public class Actions {
 	public String discover(){
 		
 	}
+	
+	/** Give the player a choice among the adjacent cities and moves them accordingly. */
 	public String move() {
-		
+		// todo Clément print choix de la ville
+		//todo Clément effectuer le déplacement
 	}
 	public String construct() {
 		
