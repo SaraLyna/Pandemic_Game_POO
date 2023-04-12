@@ -24,5 +24,11 @@ public class Actions {
 	public String HealDisease() {
 		
 	}
-*/
+	*/
+	public void DontDoAnything(){ 
+	//cette méthode ne fait rien  
+		System.out.println("this player don't do anything");
+	}
+	
+
 }
