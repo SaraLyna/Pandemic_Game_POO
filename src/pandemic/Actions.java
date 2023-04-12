@@ -19,13 +19,13 @@ public class Actions {
 	} */
 	
 	/** Give the player a choice among the adjacent cities and moves them accordingly. */
-	public String move(Players playerToMove, MappeMonde map) {
+	public void move(Players playerToMove, MappeMonde map) {
 		List<Cities> neighborsList = playerToMove.getLocation().getNeighbors();
 		System.out.print("What neighboring city do you want to travel to ? Enter the number.");
 		
 		for(int i = 0; i< neighborsList.size();i++) {
 			System.out.print(
-					(i+1) + "\t" neighborsList.get(i).getName() + "\n" ); //si erreur ici il faudra caster i+1 vers string
+					(i+1) + "\t" + neighborsList.get(i).getName() + "\n" ); //si erreur ici il faudra caster i+1 vers string
 
 		}
 		
@@ -46,6 +46,8 @@ public class Actions {
 		playerToMove.setLocation(neighborsList.get(input-1));
 
 		System.out.print(playerToMove.getName() + " has been moved to " + neighborsList.get(input-1).getName() + ".");
+		
+		scanner.close(); //to avoid ressource leak
 	}
 	
 	
