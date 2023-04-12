@@ -44,7 +44,7 @@ public class Actions {
 	 * Give the player a choice among the adjacent cities 
 	 * and moves them accordingly. 
 	 */
-	public void move(Players playerToMove, MappeMonde map) {
+	public void move(Players playerToMove) {
 		List<Cities> neighborsList = playerToMove.getLocation().getNeighbors();
 		System.out.print("What neighboring city do you want to travel to ? Enter the number.");
 		
