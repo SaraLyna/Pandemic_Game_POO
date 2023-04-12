@@ -3,6 +3,7 @@ package pandemic;
 import static org.junit.Assert.*;
 
 import java.io.ByteArrayInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 //import org.junit.Test;
@@ -28,7 +29,7 @@ public class GlobetRotterTest {
 	}
 	*/
 	
-	public void moveTest() { 
+	public void moveTest() throws FileNotFoundException { 
 		MappeMonde m1 = new MappeMonde("data/carte.json");
 		city1 = m1.getVilles()[2];
 		player = new Players("Albert",Roles.GlobetRotter, city1 );
