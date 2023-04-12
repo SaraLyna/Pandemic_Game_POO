@@ -172,7 +172,7 @@ public class Cities {
 	public boolean isResearchCenter() {
 		return this.isReasearchCenter;
 	}
-
+	
 
 	/**
 	 * ajoute une station de recherche

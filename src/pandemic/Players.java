@@ -50,9 +50,23 @@ public class Players {
 	/**
 	 *this method allows to discard a card from the player's stack cards if the stack 's size (number of cards it contains) extends 7 (MAX)
 	 */
-	public void discard() {
-		
+	public void discard() {		
 		this.CardsInHand.pop();
+	}
+	
+	
+	/**
+	 * defausse la carte de la main du joueur ,
+	 * new version
+	 */
+	public void removeCard(Cards c) {
+		Iterator<Cards> it= CardsInHand.iterator();
+		while(it.hasNext()) {
+			Cards card = it.next();
+			if(card.getCityName()==c.getCityName()) {
+		        it.remove();
+			}		
+		}
 	}
 	/**
 	 * Getter of the class Players

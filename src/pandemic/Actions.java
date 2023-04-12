@@ -1,22 +1,23 @@
 package pandemic;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * this class represent the most important actions to do
  * each player (or role) do an action with the card he gets
  */
 public class Actions {
+	
 	/**
 	 * constructor of the class Actions
 	 */
 	public Actions() {
 		
 	}
-	/**
-	public String discover(){
+	
+	public void discover(){
 		
-	} */
+	} 
+	
 	
 	/** Give the player a choice among the adjacent cities and moves them accordingly. */
 	public void move(Players playerToMove, MappeMonde map) {
@@ -26,9 +27,7 @@ public class Actions {
 		for(int i = 0; i< neighborsList.size();i++) {
 			System.out.print(
 					(i+1) + "\t" + neighborsList.get(i).getName() + "\n" ); //si erreur ici il faudra caster i+1 vers string
-
-		}
-		
+		}		
 		//get number
 		Scanner scanner = new Scanner(System.in);
 		
@@ -44,22 +43,44 @@ public class Actions {
 		}
 		//move the player
 		playerToMove.setLocation(neighborsList.get(input-1));
-
 		System.out.print(playerToMove.getName() + " has been moved to " + neighborsList.get(input-1).getName() + ".");
 		
 		scanner.close(); //to avoid ressource leak
 	}
 	
 	
-	public String construct() {
-		
+	/**
+	 * @param player
+	 * this action consist to build a research center
+	 * in the same city where the player card is
+	 */
+	public void construct( Players player) {
+		Stack<Cards> cards= player.getCardsInHand();
+		Cities city = player.getLocation();
+		Iterator<Cards> it= cards.iterator();
+		while(it.hasNext()) {
+			Cards card = it.next();
+			if(card.getCityName()==city.getName()) {
+				city.addResearchCenter();
+		        player.removeCard(card);
+			}		
+		}			
 	}
-	public String HealDisease() {
+	
+	
+	/**
+	 * 
+	 */
+	public void HealDisease() {
 		
 	}
 	
+	
+	/**
+	 * this action is to do nothing,
+	 * 
+	 */
 	public void DontDoAnything(){ 
-	//cette méthode ne fait rien  
 		System.out.println("this player don't do anything");
 	}
 	
