@@ -6,7 +6,7 @@ import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-//import org.junit.Test;
+import org.junit.Test;
 
 public class GlobetRotterTest {
 	
@@ -15,8 +15,9 @@ public class GlobetRotterTest {
 	private Cities city2;
 	
 	
-	/*
-	@Test 
+	
+	@Test
+	/* 
 	public void MoveAnywhereTest(){
 		
 		city1 = new Cities("City 1", "Secteur 1");
@@ -30,7 +31,7 @@ public class GlobetRotterTest {
 	*/
 	
 	public void moveTest() throws FileNotFoundException { 
-		MappeMonde m1 = new MappeMonde("data/carte.json");
+		MappeMonde m1 = new MappeMonde("villes.json");
 		city1 = m1.getVilles()[2];
 		player = new Players("Albert",Roles.GlobetRotter, city1 );
 		
