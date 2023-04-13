@@ -6,6 +6,10 @@
 - Anais BENIKKEN
 - Charles Kevin Adovi KPAKPO
 
+pour le livrable 3 et 4 on aura en plus:
+- Clement GUILLAUMIN
+- Samuel PAYEN
+
 # Sujet
 
 [Le sujet 2023](https://www.fil.univ-lille.fr/~varre/portail/l2s4-projet/sujet2023.pdf)
@@ -181,12 +185,34 @@ pour pouvoir utiliser la méthode addCube().
 ### Atteinte des objectifs
 
 Modélisation des Actions :
+Codage des 4 (ou 5 si on compte l'action ne rien faire) actions principales pour pouvoir effectuer un tour de jeu complet et faire faire les actions aux joueurs
+et enplus de ça, codage des classe filles de actions (GlobetRotterRole , DoctorRole, ExpertRole et ScientistRole) pour les
+actions spécifiques à chaque role.
 
 
 --Explication du code:
 
 
 --Classe Actions:
+Cette classe represente les actions principales que les joueurs devront effectuer, 
+on a 5 méthodes et un constructeur,
+la méthode construct() :Pour construire une station de recherche, il faut disposer dans sa main d’une carte joueur
+ dont la ville est celle sur laquelle on se trouve. Cette carte est défaussée et on place une station de recherche sur 
+ la ville correspondante. Néanmoins, le nombre de stations de recherche est limité. S’il n’y en a plus de disponible, 
+ il faut en déplacer une d’une autre ville.
+ d'abord on cherchait la carte dans la main du joueur , ensuite on cherchait la position de ce joueur,
+ puis pour le reste on a codé tout cela à l'aide d'un iterateur qui parcourait toutes les villes et s'il trouvait une correspondance
+  avec la ville de la carte dans la main du joueur il crée une station de recherche justement dans cette ville là,
+ et ensuite on défausse la carte de la main du joueur.
+ et pour le défaussage il nous fallait une nouvelle version de la méthode removeCard() dans la classe Players.java.
+ 
+ la méthode move():
+ 
+ la méthode discover():
+ 
+ la méthode healDisease():
+ 
+ et enfin la méthode DontDoAnything(): qui consiste à ce que le joueur ne fasse RIEN.
 
 
 
@@ -219,9 +245,9 @@ le globetrottera la possibilité de se déplacer dans n’importe quelle ville. 
 et on a fait ca à l'aide d 'une méthode moveAnywhere() qui lui permet de se déplacer dans la ville de son choix.
 
 
-### Difficultés restant à résoudre
+### Difficultés restant à résoudre (résolues)
 
---Implementer la classe Actions et apporter quelques modifications aux classes des roles.
+--Implementer la classe Actions et apporter quelques modifications aux classes des roles. 
 --Hésitation sur la classe Actions et Players, s'il faut mettre un héritage entre les deux ou pas.
 
 ## Livrable 4
@@ -301,10 +327,13 @@ et implementation des tests des classes InfectionPaquet et PlayersPaquet.
 
 ## Semaine 9
 Avancée pour le rendu final du projet, création des dossiers jar et uml pour la division des uml de chaque livrable.
-Modélisation de la classe Actions et discussion avec les deux nouveaux membres du groupe pour chosiir la meilleure version.
+Modélisation de la classe Actions et discussion avec les deux nouveaux membres du groupe pour choisir la meilleure version.
 
 
 ## Semaine 10
+codage des méthodes de la classe Actions.java
+chaque membre du groupe a codé une méthode et le dernier a fait les tests
+ensuite rendu de l'uml du Livrable3 et enfin on a complété le readme et on essaie d'avancer sur le rendu final.
 
 ## Semaine 11
 
