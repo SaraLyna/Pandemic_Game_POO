@@ -44,7 +44,7 @@ public class GlobetRotterTest {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		
-		GlobetRotter.move(player, m1); //todo : voir si globetrotter est statique ou non
+		GlobetRotter.moveAnywhere(player, city2); //todo : voir si globetrotter est statique ou non
 		
 		assertFalse(player.getLocation().getName().equals(city1.getName()));
 		assertTrue(player.getLocation().getName().equals(city2.getName()));
