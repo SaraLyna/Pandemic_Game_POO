@@ -6,11 +6,9 @@ import java.util.*;
 //import org.json.*;
 
 /**
- * en quelques sorte c'est les plateau de jeu
- * 
- *this class displays all the code we have been coding
+ * en quelques sorte c'est le plateau de jeu
+ * this class displays all the code we have been coding
  */
-
 public class pandemicMain {
 	
 	/**
@@ -155,7 +153,7 @@ public class pandemicMain {
        
        System.out.println("Second player : Lyna");
        pandemicMain.makePlayerTakeATurn(Lyna, paquetPlayers);
-       //TODO RAJOUTER UNE ACTION POUR LYNA
+       Actions.construct(Lyna);       // RAJOUTER UNE ACTION POUR LYNA
        
        System.out.println("Third player: Anais");
        pandemicMain.makePlayerTakeATurn(Anais, paquetPlayers);
@@ -198,6 +196,7 @@ public class pandemicMain {
        System.out.println();
        
        //TODO RAJOUTER UNE ACTION POUR LYNA
+       Actions.construct(Lyna);
        
        System.out.println("Third player: Anais");
        PlayersCards l5=paquetPlayers.tirerCarte();

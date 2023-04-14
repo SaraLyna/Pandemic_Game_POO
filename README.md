@@ -259,13 +259,14 @@ et on a fait ca à l'aide d 'une méthode moveAnywhere() qui lui permet de se d�
 ### Atteinte des objectifs
 
 Modélisation de la classe Game et rendu final :
-
+jouer au jeu pandemic !
 
 
 
 --Explication du code :
 
 --Classe Game:
+méthode play():
 
 
 
@@ -277,7 +278,7 @@ Le fonctionnement du fichier JAR :
 
 
 
-
+diaporama de la soutenance .
 ### Difficultés restant à résoudre
 
 # Journal de bord
@@ -340,5 +341,8 @@ chaque membre du groupe a codé une méthode et le dernier a fait les tests
 ensuite rendu de l'uml du Livrable3 et enfin on a complété le readme et on essaie d'avancer sur le rendu final.
 
 ## Semaine 11
+premiere version du diaporama de la soutenance finale,
+ codage de la classe Game.java
+  Revision du code
 
 ## Semaine 12

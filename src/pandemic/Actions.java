@@ -98,7 +98,7 @@ public class Actions {
 	 * this action consist to build a research center
 	 * in the same city where the player card is
 	 */
-	public void construct( Players player) {
+	public static void construct( Players player) {
 		Stack<Cards> cards= player.getCardsInHand();
 		Cities city = player.getLocation();
 		Iterator<Cards> it= cards.iterator();
