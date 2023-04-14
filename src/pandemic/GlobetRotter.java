@@ -1,6 +1,6 @@
 package pandemic;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 /**
  * this class represent the action of the GlobetRotter
@@ -24,37 +24,43 @@ class GlobetRotter extends Actions {
 		
 		/**
 		 * this method allows the player whose role is "globetRotter" to travel to the city of his choice
-		 * @param player; the player who has this role
-		 * @param city; the city chosen by the player
+		 * @param playerToMove; the player who has this role
+		 * @param destination; the city chosen by the player
 		 */
-		public static void move(Players playerToMove, MappeMonde map) {
+		public static void moveAnywhere(Players playerToMove, Cities destination) {
 			
-			Cities[] citiesList = map.getVilles();
 			
-			System.out.print("What city do you want to travel to ? Enter the number.");
+			/* le code ci-dessous est à décommenter si l'on veut récupérer l'input de l'utilisateur et/ou afficher les possibilités pour les villes
+			public static void move(Players playerToMove, MappeMonde map) {
 			
-			for(int i = 0; i< citiesList.length;i++) {
-				System.out.print(
-						(i+1) + "\t" + citiesList[i].getName() + "\n" ); //si erreur ici il faudra caster i+1 vers string
-			}		
-			//get number
-			Scanner scanner = new Scanner(System.in);
-			
-			int input=1; /*initialization to avoid warnings, should be overriden when input is read*/
-			boolean inputNeeded = true;
-			while (inputNeeded) {
-				input = scanner.nextInt(); //get input from user
-				if (input > citiesList.length) {
-					System.out.print("Invalid number, try again.");
-				} else {
-					inputNeeded = false; //end loop
-				}
-			}
+						Cities[] citiesList = map.getVilles();
+						
+						System.out.print("What city do you want to travel to ? Enter the number.");
+						
+						for(int i = 0; i< citiesList.length;i++) {
+							System.out.print(
+									(i+1) + "\t" + citiesList[i].getName() + "\n" ); //si erreur ici il faudra caster i+1 vers string
+						}		
+						//get number
+						Scanner scanner = new Scanner(System.in);
+						
+						int input=1; //initialization to avoid warnings, should be overriden when input is read
+						boolean inputNeeded = true;
+						while (inputNeeded) {
+							input = scanner.nextInt(); //get input from user
+							if (input > citiesList.length) {
+								System.out.print("Invalid number, try again.");
+							} else {
+								inputNeeded = false; //end loop
+							}
+						}
+						destination = citiesList[input-1];
+						*/
 			//move the player
-			playerToMove.setLocation(citiesList[input-1]);
-			System.out.print(playerToMove.getName() + " has been moved to " + citiesList[input-1].getName() + ".");
+			playerToMove.setLocation(destination);
+			System.out.print(playerToMove.getName() + " has been moved to " + destination.getName() + ".");
 			
-			scanner.close(); //to avoid ressource leak
+			//scanner.close(); //to avoid ressource leak
 		}
 		
 		

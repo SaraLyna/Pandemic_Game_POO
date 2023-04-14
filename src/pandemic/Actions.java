@@ -44,7 +44,7 @@ public class Actions {
 	 * @param destination the wanted destination
 	 * @throws IllegalArgumentException see above
 	 */
-	public void move(Players playerToMove, Cities destination) throws IllegalArgumentException {
+	public static void move(Players playerToMove, Cities destination) throws IllegalArgumentException {
 		List<Cities> neighborsList = playerToMove.getLocation().getNeighbors();
 		
 		
