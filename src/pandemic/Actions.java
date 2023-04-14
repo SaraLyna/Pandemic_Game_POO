@@ -17,26 +17,37 @@ public class Actions {
 	
 	
     
+
     /**
      * @param p
-     *   Pour découvrir un remède, il faut que la ville dans laquelle le joueur se trouve
-     *   dispose d’une station de recherche et doit avoir dans sa main 5 cartes joueur de la même maladie. 
-     *   Les 5 cartes sont défaussées et il est pris note qu’un remède
-     *   est trouvé pour cette maladie. Une fois un remède trouvé,
-     *    on dit que la maladie est guérie. Si les remèdes sont trouvés
+	 * check if the city has a Research Center and discover a Cure for a specific disease.
+	 * Then discard the 5 players cards.
      */
-    public void discover(Players p){
-				Stack<Cards> hand = p.getCardsInHand();
-				for (int i=0; i<hand.size();i++){
-					if (p.getLocation().isResearchCenter()){
-						if() {
-							Iterator<Cards> it = hand.iterator();
-							while (it.hasNext()) {								
-							}
-						}
+    public void discover(Players p, Diseases Disease){
+    	int cpt = 0;
+		Stack<Cards> hand = p.getCardsInHand();
+		Cities city = p.getLocation();
+		if (city.isResearchCenter()){
+			Iterator<Cards> it = hand.iterator();
+			while (it.hasNext()) {	
+				Cards card = it.next();
+				if(card.getDiseaseName()==city.getName()) {
+					cpt += 1;
+				}
+			}
+			if (cpt > 4) {
+				Disease.setCured(true);
+				while (it.hasNext()) {
+					Cards card = it.next();
+					if(card.getDiseaseName()==city.getName()) {
+						p.removeCard(card);
 					}
 				}
-	} 
+				
+			}
+		}
+    }
+	
 	
 	
 	/** Calls setLocation() on the Player passed in parameters, throws an exception if the destination is not among the Player's neighboring cities.
