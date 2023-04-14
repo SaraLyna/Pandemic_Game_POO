@@ -39,37 +39,52 @@ public class Actions {
 	} 
 	
 	
-	/** 
-	 * @param playerToMove, map
-	 * Give the player a choice among the adjacent cities 
-	 * and moves them accordingly. 
+	/** Calls setLocation() on the Player passed in parameters, throws an exception if the destination is not among the Player's neighboring cities.
+	 * @param playerToMove the player to be moved
+	 * @param destination the wanted destination
+	 * @throws IllegalArgumentException see above
 	 */
-	public void move(Players playerToMove) {
+	public void move(Players playerToMove, Cities destination) throws IllegalArgumentException {
 		List<Cities> neighborsList = playerToMove.getLocation().getNeighbors();
-		System.out.print("What neighboring city do you want to travel to ? Enter the number.");
 		
-		for(int i = 0; i< neighborsList.size();i++) {
-			System.out.print(
-					(i+1) + "\t" + neighborsList.get(i).getName() + "\n" ); //si erreur ici il faudra caster i+1 vers string
-		}		
-		//get number
-		Scanner scanner = new Scanner(System.in);
 		
-		int input=1; /*initialization to avoid warnings, should be overriden when input is read*/
-		boolean inputNeeded = true;
-		while (inputNeeded) {
-			input = scanner.nextInt(); //get input from user
-			if (input > neighborsList.size() ) {
-				System.out.print("Invalid number, try again.");
-			} else {
-				inputNeeded = false; //end loop
-			}
+		/* le code ci-dessous est à décommenter si l'on veut récupérer l'input de l'utilisateur et/ou afficher les possibilités pour les villes
+		
+						System.out.print("What neighboring city do you want to travel to ? Enter the number.");
+						for(int i = 0; i< neighborsList.size();i++) {
+							System.out.print(
+									(i+1) + "\t" + neighborsList.get(i).getName() + "\n" ); //si erreur ici il faudra caster i+1 vers string
+						}		
+						
+						//get input from user number
+						Scanner scanner = new Scanner(System.in);
+						
+						int input=1; //initialization to avoid warnings, should be overriden when input is read
+						boolean inputNeeded = true;
+						while (inputNeeded) {
+							input = scanner.nextInt(); //get input from user
+							if (input > neighborsList.size() ) {
+								System.out.print("Invalid number, try again.");
+							} else {
+								inputNeeded = false; //end loop
+							}
+						}
+						
+						destination = neighborsList.get(input-1);
+		 */
+		
+		
+		if (! neighborsList.contains(destination)){
+			throw new IllegalArgumentException("the destination is not among the Player's neighboring cities");
 		}
-		//move the player
-		playerToMove.setLocation(neighborsList.get(input-1));
-		System.out.print(playerToMove.getName() + " has been moved to " + neighborsList.get(input-1).getName() + ".");
 		
-		scanner.close(); //to avoid ressource leak
+		//move the player
+		playerToMove.setLocation(destination);
+		System.out.print(playerToMove.getName() + " has been moved to " + destination.getName() + ".");
+		 
+		/* décommenter cette ligne si on utilise Scanner plus haut
+		 * 					scanner.close(); //to avoid ressource leak
+		 */
 	}
 	
 	
