@@ -85,10 +85,10 @@ public class Actions {
 		 */
 				
 		if (! neighborsList.contains(destination)){
-			throw new IllegalArgumentException("the destination is not among the Player's neighboring cities");
+			throw new IllegalArgumentException("the destination is not among the Player's neighboring cities ");
 		}
 		playerToMove.setLocation(destination);
-		System.out.print(playerToMove.getName() + " has been moved to " + destination.getName() + ".");
+		System.out.print(playerToMove.getName() + " has been moved to " + destination.getName());
 	}
 	
 	
@@ -106,6 +106,7 @@ public class Actions {
 			Cards card = it.next();
 			if(card.getCityName()==city.getName()) {
 				city.addResearchCenter();
+				System.out.println(player + "builds a research center in " + city);
 		        player.removeCard(card);
 			}		
 		}			

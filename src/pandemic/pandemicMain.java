@@ -177,7 +177,7 @@ public class pandemicMain {
        System.out.println("Sara" + l1.toString());
        System.out.println("Sara" + l2.toString());
        Stack<Cards> sara=Sara.getCardsInHand();
-       System.out.println("Sara has " + sara.size()+ " cards Players in her hand");
+       System.out.println("Sara has " + sara.size()+ " cards Players in her hand ");
        //System.out.println(sara.get(1));
        System.out.println();
        
@@ -264,7 +264,7 @@ public class pandemicMain {
 				   currentPlayer.addCard(l2);
 				   System.out.println("Player " + currentPlayer.toString() + " drew the card "+ l1.toString()+ "\n and the card "+ l2.toString());
 				   Stack<Cards> hand=currentPlayer.getCardsInHand();
-				   System.out.println("Sara has " + hand.size()+ " cards Players in her hand. \n");
+				   System.out.println(currentPlayer + " has " + hand.size()+ " cards Players in her hand. \n");
 				   
 				   //si on veut mettre des actions aléatoires et/ou du choix d'actions ça peut être à cet endroit
 	}
