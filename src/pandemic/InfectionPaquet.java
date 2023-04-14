@@ -3,6 +3,10 @@ package pandemic;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * cette classe représente le paquet des cartes infection
+ *
+ */
 public class InfectionPaquet {
 private ArrayList<InfectionCards> cards;
 	
@@ -73,19 +77,19 @@ private ArrayList<InfectionCards> cards;
 		
 	/**
 	 * @param card
-	 * add a Infectioncard 
+	 * add an Infectioncard 
 	 */
 	public void addCarte(InfectionCards card) {
 	        cards.add(card);
-	    }
+	}
 
 	    /**
 	     * shuffle the cards
 	     */
-	public void melanger() {
-			Collections.shuffle(this.cards);
-			
+	  public void melanger() {
+			Collections.shuffle(this.cards);		
 	    }
+	  
 
 	    /**
 	     * @param cartes
@@ -96,6 +100,8 @@ private ArrayList<InfectionCards> cards;
 	        cards.remove(0);
 	        return carte;
 	    }
+	    
+	    
 
 	    /**
 	     * @return the number of cards

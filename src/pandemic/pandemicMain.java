@@ -3,14 +3,11 @@ package pandemic;
 import java.io.*;
 import java.util.*;
 
-//import org.json.*;
 
 /**
- * en quelques sorte c'est les plateau de jeu
- * 
+ * en quelques sorte c'est les plateau de jeu 
  *this class displays all the code we have been coding
  */
-
 public class pandemicMain {
 	
 	
@@ -215,9 +212,12 @@ public class pandemicMain {
        
 	}
 
+	/**
+	 * @param player
+	 * @param map
+	 */
 	private static void put(Players player, MappeMonde map) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub	
 	}
 	
 }

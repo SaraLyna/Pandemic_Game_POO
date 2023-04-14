@@ -1,16 +1,17 @@
 package pandemic;
-
 //import java.util.Scanner;
 
 /**
  * this class represent the action of the GlobetRotter
  *
  */
-
 class GlobetRotter extends Actions {
-	//en relation avec l'action se déplacer
-		//a la possibilité de se déplacer dans n’importe quelle ville. Ce qui augmente sa capacité d’action. 
-		// private String name;
+	/**
+	c'est en relation avec l'action se déplacer
+	il	a la possibilité de se déplacer dans n’importe quelle ville. Ce qui augmente sa capacité d’action. 
+     */
+	
+	private String name;
 
 		
 		/**
@@ -27,14 +28,10 @@ class GlobetRotter extends Actions {
 		 * @param playerToMove; the player who has this role
 		 * @param destination; the city chosen by the player
 		 */
-		public static void moveAnywhere(Players playerToMove, Cities destination) {
-			
-			
+		public static void moveAnywhere(Players playerToMove, Cities destination) {		
 			/* le code ci-dessous est à décommenter si l'on veut récupérer l'input de l'utilisateur et/ou afficher les possibilités pour les villes
-			public static void move(Players playerToMove, MappeMonde map) {
-			
-						Cities[] citiesList = map.getVilles();
-						
+			public static void move(Players playerToMove, MappeMonde map) {	
+						Cities[] citiesList = map.getVilles();					
 						System.out.print("What city do you want to travel to ? Enter the number.");
 						
 						for(int i = 0; i< citiesList.length;i++) {
@@ -55,17 +52,20 @@ class GlobetRotter extends Actions {
 							}
 						}
 						destination = citiesList[input-1];
+						scanner.close(); //to avoid ressource leak
 						*/
-			//move the player
+	
 			playerToMove.setLocation(destination);
 			System.out.print(playerToMove.getName() + " has been moved to " + destination.getName() + ".");
-			
-			//scanner.close(); //to avoid ressource leak
+
 		}
 		
 		
-		/*public String getName() {
+		/**
+		 * @return name
+		 */
+		public String getName() {
 			return this.name;
-		}*/
+		}
 
 }

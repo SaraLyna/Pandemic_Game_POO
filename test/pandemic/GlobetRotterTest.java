@@ -25,8 +25,7 @@ public class GlobetRotterTest {
 		player = new Players("Albert",Roles.GlobetRotter,city1);
 		GlobetRotter.moveAnywhere(player,city2);
 		assertFalse(player.getLocation().getName().equals(city1.getName()));
-		assertTrue(player.getLocation().getName().equals(city2.getName()));
-		
+		assertTrue(player.getLocation().getName().equals(city2.getName()));		
 	}
 	*/
 	

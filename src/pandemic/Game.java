@@ -4,6 +4,11 @@ import java.util.Iterator;
 import java.util.Stack;
 
 
+/**
+ *Cette classe sert à lancer le jeu
+ *à jouer
+ *
+ */
 public class Game {
 	
 	protected int GlobalInfectionRate;
@@ -22,10 +27,14 @@ public class Game {
 	}
 
 	
+	/**
+	 * @return null
+	 */
 	public static Iterator<String> keys() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	
 	/**
 	 * the most important method in the game, the method to play a party
@@ -34,23 +43,26 @@ public class Game {
 		
 	}
 	
-	//public boolean isFinished(){
-		//if( findRemedy() || InfectionFocusAmount == 8 || this.playersStack.size() < 2) {
-			//return true;
-		//}
-		//else {
-			//return false;
-		//}
+	
+	/**
+	public boolean isFinished(){
+		if( findRemedy() || InfectionFocusAmount == 8 || this.playersStack.size() < 2) {
+			return true;
+		}
+		else {
+			return false;
+		}
 		
-	//}
+	}
+	 */
 	
 	
 
 	/**
-	 *Returns a string representation of the object.
+	 *@return  a string representation of the object.
 	 */
 	public String toString() {
-		return "The global infection rate :"+this.GlobalInfectionRate + " and the infection focus amount "+this.InfectionFocusAmount;
+		return "The global infection rate : "+this.GlobalInfectionRate + " and the infection focus amount "+this.InfectionFocusAmount;
 	}
 
 

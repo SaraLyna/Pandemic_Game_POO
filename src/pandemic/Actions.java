@@ -15,11 +15,11 @@ public class Actions {
 		
 	}
 	
-	
-    
+ 
 
     /**
      * @param p
+     * @param Disease
 	 * check if the city has a Research Center and discover a Cure for a specific disease.
 	 * Then discard the 5 players cards.
      */
@@ -50,14 +50,15 @@ public class Actions {
 	
 	
 	
-	/** Calls setLocation() on the Player passed in parameters, throws an exception if the destination is not among the Player's neighboring cities.
+	/** 
 	 * @param playerToMove the player to be moved
 	 * @param destination the wanted destination
 	 * @throws IllegalArgumentException see above
+	 * Calls setLocation() on the Player passed in parameters,
+	 *  throws an exception if the destination is not among the Player's neighboring cities.
 	 */
 	public static void move(Players playerToMove, Cities destination) throws IllegalArgumentException {
-		List<Cities> neighborsList = playerToMove.getLocation().getNeighbors();
-		
+		List<Cities> neighborsList = playerToMove.getLocation().getNeighbors();	
 		
 		/* le code ci-dessous est à décommenter si l'on veut récupérer l'input de l'utilisateur et/ou afficher les possibilités pour les villes
 		
@@ -65,8 +66,7 @@ public class Actions {
 						for(int i = 0; i< neighborsList.size();i++) {
 							System.out.print(
 									(i+1) + "\t" + neighborsList.get(i).getName() + "\n" ); //si erreur ici il faudra caster i+1 vers string
-						}		
-						
+						}							
 						//get input from user number
 						Scanner scanner = new Scanner(System.in);
 						
@@ -79,24 +79,18 @@ public class Actions {
 							} else {
 								inputNeeded = false; //end loop
 							}
-						}
-						
+						}				
 						destination = neighborsList.get(input-1);
+						scanner.close(); //to avoid ressource leak
 		 */
-		
-		
+				
 		if (! neighborsList.contains(destination)){
 			throw new IllegalArgumentException("the destination is not among the Player's neighboring cities");
 		}
-		
-		//move the player
 		playerToMove.setLocation(destination);
 		System.out.print(playerToMove.getName() + " has been moved to " + destination.getName() + ".");
-		 
-		/* décommenter cette ligne si on utilise Scanner plus haut
-		 * 					scanner.close(); //to avoid ressource leak
-		 */
 	}
+	
 	
 	
 	/**
@@ -118,34 +112,32 @@ public class Actions {
 	}
 	
 	
-	/** this method allow to heal a specific disease from a city
+	
+	/**
+	 *  this method allow to heal a specific disease from a city
 	 * @param city , the city to heal the disease from
 	 * @param disease, the disease to be healed
 	 * @param cubesStock , the stock of the diseases' cubes
 	 */
-	public void HealDisease(Diseases disease, Cities city,HashMap <Diseases, Integer> cubesStock){
-		
+	public void HealDisease(Diseases disease, Cities city,HashMap <Diseases, Integer> cubesStock){	
 		int lastCubes = city.getCubeCount(disease);// number of cubes of the Disease disease
 		 if (lastCubes == 0) {
 		        System.out.println("There is no cubes of the disease " + disease.getDiseaseName() + " in the city "+ city.getName() + " anymore" );
-		 }
-		 
+		 }	 
 		 if(disease.isCured()) {
 			 for(int i = 0; i < lastCubes ; i++){
 				 city.reduceInfection(disease);//  the cube of the Disease disease is removed
 				 cubesStock.put(disease,1);// the removed cube is added to the cubeStock
 			 }
 			 System.out.println("The disease " + disease.getDiseaseName()+"  was successfully treated thanks to the discovery of the cure !");
-		 }
-		 
+		 }	 
 		 city.reduceInfection(disease);//  the cube of the Disease disease is removed
 		 System.out.println("a cube of the disease "+ disease.getDiseaseName() +" is removed from the city " + city.getName());
 		    
 		 if (city.getCubeCount(disease) == 0) {
 		    System.out.println("the disease " + disease.getDiseaseName() + " is eradicated !");
 		    disease.setCured(true); 
-		 }
-		
+		 }	
 	}
 
 	

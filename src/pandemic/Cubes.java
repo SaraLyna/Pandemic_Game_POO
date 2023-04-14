@@ -4,11 +4,8 @@ package pandemic;
  * this class represent the cubes of diseases
  *
  */
-public class Cubes {
-	
-	protected String diseasename;
-	
-	
+public class Cubes {	
+	protected String diseasename;	
 	
 	/**
 	 * constructor of the class Cubes
@@ -18,6 +15,7 @@ public class Cubes {
 		this.diseasename=diseasename;
 	}
 	
+	
 	/**
 	 * @return the name of the disease
 	 */
@@ -25,14 +23,12 @@ public class Cubes {
 		return this.diseasename;
 	}
 	
-	
-   
+	  
 	/**
 	 *Returns a string representation of the object.
 	 */
 	public String toString() {
-		return this.diseasename;
-		
+		return this.diseasename;	
 	}
 
 }

@@ -2,6 +2,10 @@ package pandemic;
 import java.util.*;
 
 
+/**
+ * cette classe représente les joueurs
+ *
+ */
 public class Players {
 	private String name;
 	private Roles role;
@@ -9,8 +13,7 @@ public class Players {
 	private Stack<Cards> CardsInHand; /* the stack of cards in the player's hand */
 	protected  List<Players> thePlayers;
 
-	/**
-	 * 
+	/** 
 	 * constructor of the class Players
 	 * @param name
 	 * @param role
@@ -22,6 +25,7 @@ public class Players {
 		this.location=location;
 		this.CardsInHand = new Stack<Cards>();
 	}
+	
 
 	/**
 	 * Getter of the class Players
@@ -30,6 +34,7 @@ public class Players {
 	public String getName() {
 		return this.name;
 	}
+	
 	
 	/**
 	 * getter of the class Players
@@ -46,6 +51,7 @@ public class Players {
 	public Cities getLocation() {
 		return this.location;
 	}
+	
 	
 	/**
 	 *this method allows to discard a card from the player's stack cards if the stack 's size (number of cards it contains) extends 7 (MAX)
@@ -68,6 +74,8 @@ public class Players {
 			}		
 		}
 	}
+	
+	
 	/**
 	 * Getter of the class Players
 	 * @return the player's hand of cards
@@ -108,6 +116,7 @@ public class Players {
 		return this.thePlayers;
 	}
 	
+	
 	/**
 	 * @param player
 	 * add a player in the game
@@ -115,9 +124,6 @@ public class Players {
 	public void addPlayer(Players player) {
 		this.getPlayers().add(player);
 	}
-
-	
-	
 
 	 
 

@@ -3,6 +3,11 @@ package pandemic;
 import java.util.ArrayList;
 import java.util.Collections;
 
+
+/**
+ * cette classe représente le paquet des cartes joueurs
+ *
+ */
 public class PlayersPaquet {
 	private ArrayList<PlayersCards> cards;
 	
@@ -89,6 +94,7 @@ public class PlayersPaquet {
 			Collections.shuffle(this.cards);
 			
 	    }
+	
 
 	    /**
 	     * @param cartes

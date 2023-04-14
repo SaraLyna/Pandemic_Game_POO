@@ -6,14 +6,17 @@ package pandemic;
  */
 
 public class DoctorRole extends Actions {
-	//c'est en relation avec l'action traiter une maladie
+	/**
+	c'est en relation avec l'action traiter une maladie	
+	action traiter une maladie:peut retirer tous les cubes maladie en une seule fois meme sans remède
+	sans action: retirer tous les
+	cubes dès qu’il passe dans une ville où il existe des cubes d’une maladie guérie, sans que cela compte pour une action
+	 */
 	
-	//action traiter une maladie:peut retirer tous les cubes maladie en une seule fois meme sans remède
-	
-	//sans action: retirer tous les
-	//cubes dès qu’il passe dans une ville où il existe des cubes d’une maladie guérie, sans que cela compte pour une action
 	private String name;
 	private Cities city;
+	
+	
 	/**
 	 * constructor of the class DoctorRole
 	 * @param name
@@ -27,7 +30,7 @@ public class DoctorRole extends Actions {
 	
 	
 	/**
-	 * @return une city
+	 * @return a city
 	 */
 	public Cities getCity() {
 		return this.city;
@@ -56,14 +59,12 @@ public class DoctorRole extends Actions {
 		return name;
 	}
 
+	
 	/**
 	 * @param name
-	 * 
 	 */
 	public void setName(String name) {
 		this.name = name;
-	}
-	
-	
+	}	
 
 }

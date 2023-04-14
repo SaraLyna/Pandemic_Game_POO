@@ -6,8 +6,11 @@ package pandemic;
  *
  */
 public class ExpertRole extends Actions {
-	//en relation avec l'action construire
-	//n’a pas besoin de disposer de carte joueur pour construire une station
+	/**
+	c'est en relation avec l'action construire
+	il n’a pas besoin de disposer de carte joueur pour construire une station
+	 */
+	
 	private String name;
 	
 	/**
@@ -19,8 +22,9 @@ public class ExpertRole extends Actions {
 		super();	
 		this.setName(name);
 	}
+	
+	
 	/**
-	 * 
 	 * @param city
 	 * this method builds a research station without a card to build it
 	 * and if there is already a station it throws an exception
@@ -32,17 +36,18 @@ public class ExpertRole extends Actions {
 		}
 		else {
 			throw new ResearchCenterException("this city already has a research station");
-		}
-			
-		
-		
+		}	
 	}
+	
+	
 	/**
 	 * @return name
 	 */
 	public String getName() {
 		return name;
 	}
+	
+	
 	/**
 	 * @param name
 	 */

@@ -8,10 +8,7 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.json.JSONArray;
 
-   
-
 /**
- * 
  *this class is the representation of the World of pandemic (Carte du monde de la pandémie)
  *this class allows the reading of villes.json (json file)
  */
@@ -26,8 +23,6 @@ public class MappeMonde {
 		 * @param filename, the name of the json file villes.json
 		 * @throws FileNotFoundException if filename can not be found
 		 */
-	
-	
 	public MappeMonde(String filename) throws FileNotFoundException {
 	    //filename="villes.json" , plus tard pour l'extension du jeu
 		FileReader reader = new FileReader("villes.json"); //reader allows the reading	
@@ -63,9 +58,7 @@ public class MappeMonde {
 		}
 		// Imprimer la liste des villes. 
 		for(int j = 0; j < liste_villes.length; j++) {
-			System.out.println(liste_villes[j]);
-			
-			
+			System.out.println(liste_villes[j]);		
 		}
 		/*Le programme lira maintenant les voisins. J'ai suivi l'ordre établi 
 		 * par JSON ici. Vous pouvez les trier en suivant la procédure ci-dessus.
@@ -100,28 +93,25 @@ public class MappeMonde {
 		}
 	}
 	
+	
 	/**
-	 * 
 	 * @return a list of the cities
 	 */
 	public Cities[] getVilles() {
 		return this.Villes;
 	}
 
+	
 	/**
 	 * this method is used for the final tour of infection
 	 * it goes all over the cities of the map world and initialize the boolean hasBeenInfectedTurn
 	 * of each city with calling the method resetTurn of the class Cities
 	 */
-	
 	public void endInfectionTurn() {
 		for(Cities cities : this.Villes) {
 			cities.resetTurn();
 		}
 	}
-	
-
-	
 	    
 	}
 	

@@ -206,11 +206,15 @@ la méthode construct() :Pour construire une station de recherche, il faut dispo
  et ensuite on défausse la carte de la main du joueur.
  et pour le défaussage il nous fallait une nouvelle version de la méthode removeCard() dans la classe Players.java.
  
- la méthode move():
+ la méthode move(): c'est une methode qui permet au joueur de se déplacer dans n'importe quelle ville voisine
+  (de la ville dont laquelle il se trouve)
+  on commence d'abord par voir ou se trouve le joueur, dans quelle ville, puis on le fait se déplacer dans une ville voisine.
  
- la méthode discover():
- 
- la méthode healDisease():
+ la méthode discover(): verifie si la ville a une station de recherche, si c'est le cas elle découvre un remede pour une maladie spécifique
+  et défausse cinq  cartes de la main du joueur.
+   
+ la méthode healDisease(): cette méthode permet de checker le stock de cubes de maladies dans une ville puis éradiquer la maladie
+ si un remede a été découvert on retire le cube de maladie de la ville et on le remet dans le stock.
  
  et enfin la méthode DontDoAnything(): qui consiste à ce que le joueur ne fasse RIEN.
 
