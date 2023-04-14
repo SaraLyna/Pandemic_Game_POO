@@ -77,14 +77,14 @@ class ScientistRole extends Actions{
 	
 	public boolean findRemedy(List<Cards> hand, List<Diseases> diseases, Diseases diseaseToCure) {
 	    // Vérifier si le scientifique a la bonne maladie
-	    if (!hand.get(0).getDiseaseName().equals(diseaseToCure.getDIseaseName())) {
+	    if (!hand.get(0).getDiseaseName().equals(diseaseToCure.getDiseaseName())) {
 	        return false;
 	    }
 
 	    // Vérifier s'il y a assez de cartes de la maladie pour découvrir un remède
 	    int count = 0;
 	    for (Cards card : hand) {
-	        if (card.getDiseaseName().equals(diseaseToCure.getDIseaseName())) {
+	        if (card.getDiseaseName().equals(diseaseToCure.getDiseaseName())) {
 	            count++;
 	        }
 	    }

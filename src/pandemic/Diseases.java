@@ -4,33 +4,35 @@ package pandemic;
 
 Enumération représentant les maladies dans le jeu Pandemic.
 
-Les maladies sont représentées par une couleur et une chaîne de caractères correspondant à leur nom.
+Les maladies sont représentées par une couleur et une chaîne de caractères correspondant à leur nom ansi que leur etat ( guérie ou non )
 */
 
 public enum Diseases {
-    BLUE("bleu"),
-    RED("rouge"),
-    YELLOW("jaune"),
-    BLACK("noir");
+	
+	BLUE("bleu", false),
+    RED("rouge", false),
+    YELLOW("jaune", false),
+    BLACK("noir", false);
 
     private String name;
-    /**
+    private boolean isCured;
 
-    Constructeur de l'énumération Diseases.
-    @param name nom de la maladie
-    */
-     Diseases(String name) {
+    Diseases(String name, boolean isCured) {
         this.name = name;
+        this.isCured = isCured;
     }
-    /**
 
-    Retourne le nom de la maladie.
-    @return le nom de la maladie.
-    */
-    public String getDIseaseName() {
+    public String getDiseaseName() {
         return this.name;
     }
-    
+
+    public boolean isCured() {
+        return this.isCured;
+    }
+
+    public void setCured(boolean isCured) {
+        this.isCured = isCured;
+    }
     /**
      * @param name
      * @return une maladie

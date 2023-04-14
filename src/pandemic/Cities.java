@@ -63,10 +63,10 @@ public class Cities {
         	// marked that the city is infected this turn
         	this.hasBeenInfectedThisTurn = true;
         	int cubesCount = infectionRates.getOrDefault(d, 0);
-        	System.out.print(this.name+" is infected by  "+d.getDIseaseName()+", ");
+        	System.out.print(this.name+" is infected by  "+d.getDiseaseName()+", ");
         	if (cubesCount < 3) {
      		infectionRates.put(d, cubesCount + 1);
-        		System.out.println("its infection rate for "+d.getDIseaseName()+" rises to "+ infectionRates.get(d));
+        		System.out.println("its infection rate for "+d.getDiseaseName()+" rises to "+ infectionRates.get(d));
         	} else {
         	System.out.println(" But she is already at 3, she infects her neighbors");
         	infectionPropagation(d);
@@ -123,7 +123,7 @@ public class Cities {
     public String toString() {
         String str = name + " [";
         for (Map.Entry<Diseases, Integer> entry : infectionRates.entrySet()) {
-            str += entry.getKey().getDIseaseName() + ":" + entry.getValue() + ", ";
+            str += entry.getKey().getDiseaseName() + ":" + entry.getValue() + ", ";
         }
         str = str.substring(0, str.length() - 2);
         str += "]";
@@ -183,13 +183,15 @@ public class Cities {
 	}
     
 	
-    /**
-     * @param d: maladie
-     * @return un cube d'une maladie
-     */
-    public int getCube(Diseases d){
-    	return this.infectionRates.get(d);    	
-    }
+	/**
+	 * Get the number of cubes of a specific disease in the city
+	 *
+	 * @param d the disease to check
+	 * @return the number of cubes of the specified disease in the city
+	 */
+	public int getCubeCount(Diseases d) {
+	    return this.infectionRates.get(d);
+	}
     
     
      

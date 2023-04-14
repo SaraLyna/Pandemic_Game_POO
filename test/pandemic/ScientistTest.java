@@ -40,6 +40,6 @@ public class ScientistTest {
         List<Diseases> discoveredDiseases = new ArrayList<>();
 
         assertTrue(scientist.findRemedy(hand, discoveredDiseases, redDisease));
-        assertTrue(discoveredDiseases.get(0).getDIseaseName().equals("rouge"));
+        assertTrue(discoveredDiseases.get(0).getDiseaseName().equals("rouge"));
     }
 }

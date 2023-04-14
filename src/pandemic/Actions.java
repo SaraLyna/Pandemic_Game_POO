@@ -118,12 +118,36 @@ public class Actions {
 	}
 	
 	
-	/**
-	 * 
+	/** this method allow to heal a specific disease from a city
+	 * @param city , the city to heal the disease from
+	 * @param disease, the disease to be healed
+	 * @param cubesStock , the stock of the diseases' cubes
 	 */
-	public void HealDisease() {
+	public void HealDisease(Diseases disease, Cities city,HashMap <Diseases, Integer> cubesStock){
+		
+		int lastCubes = city.getCubeCount(disease);// number of cubes of the Disease disease
+		 if (lastCubes == 0) {
+		        System.out.println("There is no cubes of the disease " + disease.getDiseaseName() + " in the city "+ city.getName() + " anymore" );
+		 }
+		 
+		 if(disease.isCured()) {
+			 for(int i = 0; i < lastCubes ; i++){
+				 city.reduceInfection(disease);//  the cube of the Disease disease is removed
+				 cubesStock.put(disease,1);// the removed cube is added to the cubeStock
+			 }
+			 System.out.println("The disease " + disease.getDiseaseName()+"  was successfully treated thanks to the discovery of the cure !");
+		 }
+		 
+		 city.reduceInfection(disease);//  the cube of the Disease disease is removed
+		 System.out.println("a cube of the disease "+ disease.getDiseaseName() +" is removed from the city " + city.getName());
+		    
+		 if (city.getCubeCount(disease) == 0) {
+		    System.out.println("the disease " + disease.getDiseaseName() + " is eradicated !");
+		    disease.setCured(true); 
+		 }
 		
 	}
+
 	
 	
 	/**
