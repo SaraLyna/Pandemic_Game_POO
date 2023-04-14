@@ -3,19 +3,24 @@ package pandemic;
 import java.io.*;
 import java.util.*;
 
+//import org.json.*;
 
 /**
- * en quelques sorte c'est les plateau de jeu 
+ * en quelques sorte c'est les plateau de jeu
+ * 
  *this class displays all the code we have been coding
  */
+
 public class pandemicMain {
-	
 	
 	/**
 	 * @param args
 	 * @throws FileNotFoundException
 	 */
 	public static void main(String args[]) throws FileNotFoundException {
+		
+		//INIT
+		
 		//System.out.println( "\u001B[40m");
 		int overallInfectionRate = 2; // Le taux global d'infection 
        MappeMonde Map= new MappeMonde("villes.json");
@@ -96,14 +101,17 @@ public class pandemicMain {
        
        
        System.out.println("After that, we put the players on the city map ,");
+       /*
        put(Lyna,Map);
        put(Sara,Map);
        put(Anais,Map);
        put(Charles,Map);
+       */
        System.out.println();
        System.out.println("We start the game !");
        System.out.println();
        
+
        
        System.out.println("First of all, we draw two Infection cards : ");
        InfectionCards une = paquetInfection.tirerCarte();
@@ -138,6 +146,31 @@ public class pandemicMain {
        
        System.out.println("Then each player in turn draws two player cards :");
        
+       
+       //FIRST TURN FOR EACH PLAYER
+       System.out.println("First player : Sara ");
+       pandemicMain.makePlayerTakeATurn(Sara, paquetPlayers);
+       Actions.move(Sara, v2); //allowed because v1 and v2 are neighboring cities
+        
+       
+       System.out.println("Second player : Lyna");
+       pandemicMain.makePlayerTakeATurn(Lyna, paquetPlayers);
+       //TODO RAJOUTER UNE ACTION POUR LYNA
+       
+       System.out.println("Third player: Anais");
+       pandemicMain.makePlayerTakeATurn(Anais, paquetPlayers);
+       //TODO RAJOUTER UNE ACTION POUR ANAIS
+       
+       System.out.println("Fourth player: Charles");
+       pandemicMain.makePlayerTakeATurn(Charles, paquetPlayers);
+       
+       //déplacer charles dans la ville 3
+       GlobetRotter.moveAnywhere(Charles, v3);
+       
+       
+       //SECOND TURN FOR EACH PLAYER
+       
+       
        System.out.println("First player : Sara ");
        PlayersCards l1=paquetPlayers.tirerCarte();
        PlayersCards l2=paquetPlayers.tirerCarte();
@@ -150,6 +183,7 @@ public class pandemicMain {
        //System.out.println(sara.get(1));
        System.out.println();
        
+       //TODO RAJOUTER UNE ACTION POUR SARA
        
        System.out.println("Second player : Lyna");
        PlayersCards l3=paquetPlayers.tirerCarte();
@@ -162,8 +196,8 @@ public class pandemicMain {
        System.out.println("Lyna has "+ lyna.size() +" cards Players in her hand");
        //System.out.println(lyna.get(1));
        System.out.println();
-      
        
+       //TODO RAJOUTER UNE ACTION POUR LYNA
        
        System.out.println("Third player: Anais");
        PlayersCards l5=paquetPlayers.tirerCarte();
@@ -177,10 +211,12 @@ public class pandemicMain {
        //System.out.println(anais.get(1));
        System.out.println();
        
+       //TODO RAJOUTER UNE ACTION POUR ANAIS
        
        System.out.println("Fourth player : Charles");
        PlayersCards l7=paquetPlayers.tirerCarte();// a players card
        PlayersCards l8=paquetPlayers.tirerCarte(); // this is an epidemic card
+       //todo? faire en sorte que la carte en question soit réellement de type EpidemicCards ?
        overallInfectionRate ++; // we increase the global rate of infection
        System.out.println("Charles picked an Epidemic card" + l8 + ", he must now pick an Infection card");
        InfectionCards l9=paquetInfection.tirerCarte(); 
@@ -189,6 +225,8 @@ public class pandemicMain {
        Stack<Cards> charles=Charles.getCardsInHand();
        System.out.println("Charles has " + charles.size()+" card Players in his hand");
        System.out.println("A cube of the disease " + l9.getDiseaseName() + " is added to the city named " + l9.getCityName()  );
+       
+       //TODO RAJOUTER UNE ACTION POUR CHARLES
        
        for(Cities city : Map.getVilles()) {
     	   if( city.getName().equals(l9.getCityName())) {
@@ -211,13 +249,31 @@ public class pandemicMain {
        
        
 	}
-
+	
+	
 	/**
-	 * @param player
-	 * @param map
+	 * Acts everything a player is supposed to do during their turn, except for the action that must be manually acted out after using this method.
+	 * @param currentPlayer the player that will take this turn
+	 * @param currentDeck the PlayersPaquet deck that is currently in use for this game
+	 * 
+	 * NB : cette méthode est améliorable en incluant le message "tour du [n]ième joueur qui est [nom du joueur]" si les parties à codées sont longues et/ou de longueur variable
 	 */
-	private static void put(Players player, MappeMonde map) {
-		// TODO Auto-generated method stub	
+	static void makePlayerTakeATurn(Players currentPlayer, PlayersPaquet currentDeck) {
+					PlayersCards l1=currentDeck.tirerCarte();
+				   PlayersCards l2=currentDeck.tirerCarte();
+				   currentPlayer.addCard(l1);
+				   currentPlayer.addCard(l2);
+				   System.out.println("Player " + currentPlayer.toString() + " drew the card "+ l1.toString()+ "\n and the card "+ l2.toString());
+				   Stack<Cards> hand=currentPlayer.getCardsInHand();
+				   System.out.println("Sara has " + hand.size()+ " cards Players in her hand. \n");
+				   
+				   //si on veut mettre des actions aléatoires et/ou du choix d'actions ça peut être à cet endroit
 	}
+	
+	/*
+	private static void put(Players player, MappeMonde map) {
+		// TODO Auto-generated method stub
+		
+	}*/
 	
 }
