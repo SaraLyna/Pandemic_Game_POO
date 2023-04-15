@@ -31,7 +31,7 @@ public class Actions {
 			Iterator<Cards> it = hand.iterator();
 			while (it.hasNext()) {	
 				Cards card = it.next();
-				if(card.getDiseaseName()==city.getName()) {
+				if(card.getDiseaseName()==Disease.getDiseaseName()) {
 					cpt += 1;
 				}
 			}
@@ -39,7 +39,7 @@ public class Actions {
 				Disease.setCured(true);
 				while (it.hasNext()) {
 					Cards card = it.next();
-					if(card.getDiseaseName()==city.getName()) {
+					if(card.getDiseaseName()==Disease.getDiseaseName()) {
 						p.removeCard(card);
 					}
 				}
