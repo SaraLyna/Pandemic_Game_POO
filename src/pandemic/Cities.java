@@ -9,6 +9,7 @@ public class Cities {
     protected String name;
     protected HashMap<Diseases, Integer> infectionRates;
     protected List<Cities> neighbors;
+    protected List<Players> players;
     protected String sector;
     protected boolean isReasearchCenter;
     protected boolean isInfectionFocus;
@@ -28,6 +29,7 @@ public class Cities {
         this.isReasearchCenter = false;
         this.isInfectionFocus = false;
         this.nbCube=0;
+        this.players = new ArrayList<>();
         this.hasBeenInfectedThisTurn = false;
         this.infectionRates = new HashMap<>();
         this.infectionRates.put(Diseases.BLUE, 0);
@@ -228,6 +230,14 @@ public class Cities {
     */
 	public void resetTurn() {
 		this.hasBeenInfectedThisTurn = false;
+	}
+
+
+
+	public void addPlayer(Players player) {
+		// TODO Auto-generated method stub
+		this.players.add(player);
+		
 	}
 	
 }

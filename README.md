@@ -340,6 +340,8 @@ codage des méthodes de la classe Actions.java
 chaque membre du groupe a codé une méthode et le dernier a fait les tests
 ensuite rendu de l'uml du Livrable3 et enfin on a complété le readme et on essaie d'avancer sur le rendu final.
 
+--BENIKKEN Anais : a codé les tests des méthodes de la classe Actions .
+
 ## Semaine 11
 premiere version du diaporama de la soutenance finale,
  codage de la classe Game.java
