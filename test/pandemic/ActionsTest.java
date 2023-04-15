@@ -25,15 +25,15 @@ public class ActionsTest {
 		Players player1=new Players("Ana",Roles.Expert,city1);
 		
 		PlayersCards card1=new PlayersCards("ville-11","noir");
-		PlayersCards card2=new PlayersCards ("ville-44","bleu");
+		//PlayersCards card2=new PlayersCards ("ville-44","bleu");
 		PlayersCards card3=new PlayersCards("ville-16","rouge");
-		PlayersCards card4= new PlayersCards("ville-37","jaune");
-		PlayersCards card5= new PlayersCards("ville-20","bleu");
+		//PlayersCards card4= new PlayersCards("ville-37","jaune");
+		//PlayersCards card5= new PlayersCards("ville-20","bleu");
 		player1.addCard(card1);
-		player1.addCard(card2);
+		//player1.addCard(card2);
 		player1.addCard(card3);
-		player1.addCard(card4);
-		player1.addCard(card5);
+		//player1.addCard(card4);
+		//player1.addCard(card5);
 		Actions action = new Actions();
 		
 		// vérifie qu'une maladie ne peut pas etre guérie si le joueur n'est pas dans une ville avec un centre de rcherche
@@ -50,12 +50,20 @@ public class ActionsTest {
 		assertFalse(disease1.isCured());
 		assertFalse(disease2.isCured());
 		
-		// ajoute une autre carte de la meme couleur dans la main du joueur 
-		player1.addCard(new PlayersCards("ville-11","noir"));
-		
+		// ajoute une autre carte de la meme couleur dans la main du joueur
+		//player1.addCard(new PlayersCards("ville-11","noir"));
+		PlayersCards card6=new PlayersCards("ville-12","rouge");
+		PlayersCards card7=new PlayersCards ("ville-45","rouge");
+		PlayersCards card8=new PlayersCards("ville-17","rouge");
+		PlayersCards card9=new PlayersCards("ville-18","rouge");
+		player1.addCard(card6);
+		player1.addCard(card7);
+		player1.addCard(card8);
+		player1.addCard(card9);
+
 		
 		action.discover(player1, disease1);
-		//assertTrue(disease1.isCured());
+		assertTrue(disease1.isCured());
 		assertFalse(disease2.isCured());
 		
 		//verifie si la main du joueur a été  mise à jour correctement
