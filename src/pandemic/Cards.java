@@ -30,5 +30,24 @@ public abstract class Cards {
 		return this.cityName;
 	}
 	
+	@Override
+	public boolean equals(Object o) {
+	    if (o == this) {
+	        return true;
+	    }
+
+	    if (!(o instanceof Cards)) {
+	        return false;
+	    }
+
+	    Cards otherCard = (Cards) o;
+
+	    return this.cityName.equals(otherCard.cityName)
+	            && this.disease.equals(otherCard.disease);
+	}
+	
+	
+
+	
 	
 }

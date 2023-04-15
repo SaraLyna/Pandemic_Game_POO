@@ -16,9 +16,10 @@ public class DoctorTest {
 	public void testRemoveCubes() {
 		 Cities city = new Cities("ville-2","Secteur 1");
 	     DoctorRole doctor = new DoctorRole("Charles", city);
-	     city.setCube(3);   
-	     assertEquals(city.getCubeCount(Diseases.BLUE),0);
+	     city.setCubeCount(Diseases.BLUE, 3);   
+	     assertEquals(city.getCubeCount(Diseases.BLUE),3);
 	     doctor.RemoveCubes(Diseases.BLUE);
+	     assertEquals(city.getCubeCount(Diseases.BLUE),0);
 	   
 	}
 

@@ -122,7 +122,7 @@ public class ActionsTest {
 		player.addCard(card2);
 		
 		Actions.construct(player);
-		assertFalse(city1.isReasearchCenter);
+		assertFalse(city1.isResearchCenter());
 		//assertFalse(player.getCardsInHand().contains(card1));
 		assertTrue(player.getCardsInHand().contains(card2));
 		
@@ -131,7 +131,7 @@ public class ActionsTest {
 		player.setLocation(newcity);
 		
 		Actions.construct(player);
-		assertFalse(newcity.isReasearchCenter);
+		assertTrue(newcity.isResearchCenter());
 		assertTrue(player.getCardsInHand().contains(card2));
 		
 		
@@ -139,40 +139,50 @@ public class ActionsTest {
 	}
 	
 	
+	
 	@Test
-	public void testHealDisease() { 
-		Cities city1=new Cities("vile-11","3");
-		Diseases disease = Diseases.RED;
-		HashMap<Diseases,Integer> cubesStock = new HashMap<> ();
-		cubesStock.put(disease, 3);
-		
-		// premier cas : quand il ne reste plus aucun cube de la maladie dans la ville 
-		city1.setCube(0);
-		Actions action = new Actions();
-		action.HealDisease(disease,city1,cubesStock);
-		assertEquals(0,city1.getCubeCount(disease));
-		assertEquals(3,(int)cubesStock.get(disease));
-		
-		// deuxieme cas: la maladie est guérie
-		city1.setCube(3);
-		disease.setCured(true);
-		action.HealDisease(disease, city1, cubesStock);
-		assertEquals(0,city1.getCubeCount(disease));
-		assertEquals(4,(int)cubesStock.get(disease));
-		
-		
-		// troisieme cas: la maladie n'est pas guérie et il reste encore des cubes 
-		city1.setCube(3);
-		disease.setCured(false);
-		action.HealDisease(disease, city1, cubesStock);
-		assertEquals(2,city1.getCubeCount(disease));
-		assertEquals(4,(int)cubesStock.get(disease));
-		
-	}
-	
+	public void testhealDiseaseWhenThereNoLeftCube() { 
+	    Cities city1 = new Cities("ville-11", "3");
+	    Diseases disease = Diseases.YELLOW;
+	    HashMap<Diseases, Integer> cubesStock = new HashMap<>();
+	    cubesStock.put(disease, 3);
+	    Actions action = new Actions();
+	    city1.setCubeCount(disease, 0);
+	    action.healDisease(disease, city1, cubesStock);
+	    assertEquals(0, city1.getCubeCount(disease));
+	    assertEquals(3, (int) cubesStock.get(disease));
+	}   
 
-	
-	
+	@Test
+	public void testHealDiseaseWhenTheDiseaseIsCured() { 
+	    Cities city1 = new Cities("ville-11", "3");
+	    Diseases disease = Diseases.YELLOW;
+	    HashMap<Diseases, Integer> cubesStock = new HashMap<>();
+	    cubesStock.put(disease, 3);
+	    Actions action = new Actions();
+	    // deuxieme cas: la maladie est guérie
+	    city1.setCubeCount(disease, 3); 
+	    disease.setCured(true);
+	    action.healDisease(disease, city1, cubesStock);
+	    assertEquals(0, city1.getCubeCount(disease));
+	    assertEquals(6, (int) cubesStock.get(disease));
+	}   
+
+	@Test
+	public void testHealDiseaseWhenTheDiseaseIsNotCured() { 
+	    Cities city1 = new Cities("ville-11", "3");
+	    Diseases disease = Diseases.YELLOW;
+	    HashMap<Diseases, Integer> cubesStock = new HashMap<>();
+	    cubesStock.put(disease, 3);
+	    Actions action = new Actions();
+	    // troisieme cas: la maladie n'est pas guérie et il reste encore des cubes 
+	    city1.setCubeCount(disease, 3);
+	    disease.setCured(false);
+	    action.healDisease(disease, city1, cubesStock);
+	    assertEquals(2, city1.getCubeCount(disease));
+	    assertEquals(4, (int) cubesStock.get(disease));
+	}
+
 	
 
 }

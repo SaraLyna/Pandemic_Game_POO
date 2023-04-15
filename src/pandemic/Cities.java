@@ -14,7 +14,7 @@ public class Cities {
     protected boolean isReasearchCenter;
     protected boolean isInfectionFocus;
     protected boolean hasBeenInfectedThisTurn;
-    private int nbCube; //number of cubes in the city,
+   // private int nbCube; //number of cubes in the city,
    
     /**
      * constructor of the class Cities
@@ -28,7 +28,7 @@ public class Cities {
         this.sector = sector;
         this.isReasearchCenter = false;
         this.isInfectionFocus = false;
-        this.nbCube=0;
+       // this.nbCube=0;
         this.players = new ArrayList<>();
         this.hasBeenInfectedThisTurn = false;
         this.infectionRates = new HashMap<>();
@@ -203,26 +203,43 @@ public class Cities {
 	    return this.infectionRates.get(d);
 	}
     
+	/**
+	 * Sets the number of cubes of a given disease in the city.
+	 * @param disease the disease to set the cube count for
+	 * @param count the number of cubes to set
+	 */
+	public void setCubeCount(Diseases disease, int count) {
+	    if (this.infectionRates.containsKey(disease)) {
+	    	this.infectionRates.put(disease, count);
+	    }
+	    else {
+	        System.out.println("Error: " + disease.getDiseaseName() + " is not present in the city " + this.getName());
+	    }
+	}
+
         
     /**
      * @param nbCube
-     * @return le nombre de cubes
-     */
+     * @return the number of cubes of the city
+     
     public int setCube(int nbCube){
     	return this.nbCube=nbCube;  	
     }
-    
+    */
 
-    /**
-     * @param d: maladie
-     * reduit le taux d'infection en réduisant le nombre de cubes dans une ville
-     */
-    public void reduceInfection(Diseases d) {
-    	if(this.infectionRates.containsKey(d)){
-    		this.infectionRates.replace(d, this.nbCube--);
-    	}
-    }
     
+    /**
+     *decreases the number of cubes of a given disease 
+     * @param disease ,the given disease 
+     */
+    public void reduceInfection(Diseases disease) {
+        if(this.infectionRates.containsKey(disease)){
+            int cubeCount = getCubeCount(disease) - 1;
+            this.infectionRates.replace(disease, cubeCount);
+            setCubeCount(disease, cubeCount);
+        }
+    }
+
     
 	/**
     * Cette méthode permet de réinitialiser le statut de la ville en indiquant que la ville

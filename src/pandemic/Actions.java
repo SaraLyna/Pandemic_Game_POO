@@ -104,14 +104,14 @@ public class Actions {
 		Iterator<Cards> it= cards.iterator();
 		while(it.hasNext()) {
 			Cards card = it.next();
-			if(card.getCityName()==city.getName()) {
+			if (card.getCityName().equals(city.getName())) {
 				city.addResearchCenter();
 				System.out.println(player + "builds a research center in " + city);
 		        player.removeCard(card);
+		        break; // Exit the loop once a research center is built
 			}		
 		}			
 	}
-	
 	
 	
 	/**
@@ -120,25 +120,28 @@ public class Actions {
 	 * @param disease, the disease to be healed
 	 * @param cubesStock , the stock of the diseases' cubes
 	 */
-	public void HealDisease(Diseases disease, Cities city,HashMap <Diseases, Integer> cubesStock){	
+	public void healDisease(Diseases disease, Cities city,HashMap <Diseases, Integer> cubesStock){	
 		int lastCubes = city.getCubeCount(disease);// number of cubes of the Disease disease
 		 if (lastCubes == 0) {
-		        System.out.println("There is no cubes of the disease " + disease.getDiseaseName() + " in the city "+ city.getName() + " anymore" );
-		 }	 
-		 if(disease.isCured()) {
+		    System.out.println("There is no cubes of the disease " + disease.getDiseaseName() + " in the city "+ city.getName() + " anymore" );
+		    return;
+		 }	
+		 
+		 else if (disease.isCured()) {
 			 for(int i = 0; i < lastCubes ; i++){
-				 city.reduceInfection(disease);//  the cube of the Disease disease is removed
-				 cubesStock.put(disease,1);// the removed cube is added to the cubeStock
+				city.reduceInfection(disease);//  the cube of the Disease disease is removed
+				cubesStock.put(disease,cubesStock.get(disease) + 1);// the removed cube is added to the cubeStock
 			 }
 			 System.out.println("The disease " + disease.getDiseaseName()+"  was successfully treated thanks to the discovery of the cure !");
-		 }	 
-		 city.reduceInfection(disease);//  the cube of the Disease disease is removed
-		 System.out.println("a cube of the disease "+ disease.getDiseaseName() +" is removed from the city " + city.getName());
-		    
-		 if (city.getCubeCount(disease) == 0) {
-		    System.out.println("the disease " + disease.getDiseaseName() + " is eradicated !");
-		    disease.setCured(true); 
+			 return; 
 		 }	
+		 
+		 else { 
+			 city.reduceInfection(disease);//  the cube of the Disease disease is removed
+			 cubesStock.put(disease,cubesStock.get(disease) + 1);
+			 System.out.println("a cube of the disease "+ disease.getDiseaseName() +" is removed from the city " + city.getName());
+			 return;
+		 }
 	}
 
 	

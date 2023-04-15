@@ -45,7 +45,7 @@ public class DoctorRole extends Actions {
 	public void RemoveCubes(Diseases disease) {
 		Cities city=getCity();
 		int diseaseCubes= city.getCubeCount(disease);
-		for(int i=diseaseCubes; i>= 0; i--) {
+		for(int i= 0; i < diseaseCubes; i++) {
 			city.reduceInfection(disease);
 		}
 		System.out.println("The doctor removes all cubes of " + city.getName() );
