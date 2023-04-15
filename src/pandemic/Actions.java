@@ -88,7 +88,7 @@ public class Actions {
 			throw new IllegalArgumentException("the destination is not among the Player's neighboring cities ");
 		}
 		playerToMove.setLocation(destination);
-		System.out.print(playerToMove.getName() + " has been moved to " + destination.getName());
+		System.out.print(playerToMove.getName() + " has been moved to " + destination.getName()+"\n");
 	}
 	
 	
@@ -106,10 +106,11 @@ public class Actions {
 			Cards card = it.next();
 			if (card.getCityName().equals(city.getName())) {
 				city.addResearchCenter();
-				System.out.println(player + "builds a research center in " + city);
+				//System.out.println(player + "builds a research center in " + city);
 		        player.removeCard(card);
 		        break; // Exit the loop once a research center is built
-			}		
+			}	
+			System.out.println(player + "builds a research center in " + city+"\n");
 		}			
 	}
 	

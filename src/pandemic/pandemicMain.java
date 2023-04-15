@@ -143,6 +143,7 @@ public class pandemicMain {
        System.out.println();
        
        System.out.println("Then each player in turn draws two player cards :");
+       System.out.println("First turn");
        
        
        //FIRST TURN FOR EACH PLAYER
@@ -153,10 +154,10 @@ public class pandemicMain {
        
        System.out.println("Second player : Lyna");
        pandemicMain.makePlayerTakeATurn(Lyna, paquetPlayers);
-       Actions.construct(Lyna);       // RAJOUTER UNE ACTION POUR LYNA
+       Actions.construct(Lyna);       //  UNE ACTION POUR LYNA
        
        System.out.println("Third player: Anais");
-       pandemicMain.makePlayerTakeATurn(Anais, paquetPlayers);
+      pandemicMain.makePlayerTakeATurn(Anais, paquetPlayers);
        //TODO RAJOUTER UNE ACTION POUR ANAIS
        
        System.out.println("Fourth player: Charles");
@@ -167,6 +168,7 @@ public class pandemicMain {
        
        
        //SECOND TURN FOR EACH PLAYER
+       System.out.println("Second turn");
        
        
        System.out.println("First player : Sara ");
@@ -193,10 +195,13 @@ public class pandemicMain {
        Stack<Cards> lyna=Lyna.getCardsInHand();
        System.out.println("Lyna has "+ lyna.size() +" cards Players in her hand");
        //System.out.println(lyna.get(1));
+       //UNE ACTION POUR LYNA 
+       try { ExpertRole.BuildStationWoCard(v1);
+       } catch (ResearchCenterException e) { 
+    	   // TODO Auto-generated catch block e.printStackTrace(); }
+       }
        System.out.println();
        
-       //TODO RAJOUTER UNE ACTION POUR LYNA
-       Actions.construct(Lyna);
        
        System.out.println("Third player: Anais");
        PlayersCards l5=paquetPlayers.tirerCarte();
@@ -257,17 +262,19 @@ public class pandemicMain {
 	 * 
 	 * NB : cette méthode est améliorable en incluant le message "tour du [n]ième joueur qui est [nom du joueur]" si les parties à codées sont longues et/ou de longueur variable
 	 */
+	
 	static void makePlayerTakeATurn(Players currentPlayer, PlayersPaquet currentDeck) {
 					PlayersCards l1=currentDeck.tirerCarte();
 				   PlayersCards l2=currentDeck.tirerCarte();
 				   currentPlayer.addCard(l1);
 				   currentPlayer.addCard(l2);
-				   System.out.println("Player " + currentPlayer.toString() + " drew the card "+ l1.toString()+ "\n and the card "+ l2.toString());
+				   System.out.println("Player " + currentPlayer + " drew the card "+ l1 + "\n and the card "+ l2);
 				   Stack<Cards> hand=currentPlayer.getCardsInHand();
 				   System.out.println(currentPlayer + " has " + hand.size()+ " cards Players in her hand. \n");
 				   
 				   //si on veut mettre des actions aléatoires et/ou du choix d'actions ça peut être à cet endroit
 	}
+	
 	
 	/*
 	private static void put(Players player, MappeMonde map) {
