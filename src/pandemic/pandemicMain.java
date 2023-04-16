@@ -147,7 +147,7 @@ public class pandemicMain {
        
        System.out.println();
        
-       System.out.println("Then each player in turn draws four player cards :"); //because there is four players
+       System.out.println("Then each player in turn draws two player cards :"); //because there is four players
        System.out.println("First turn");
        
        
