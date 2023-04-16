@@ -165,14 +165,16 @@ public class pandemicMain {
        System.out.println();
        System.out.println(Sara.getName()+ " must do 4 actions");
        System.out.println();
+       System.out.println("  moving Action : ");
        Actions.move(Sara, v2); //allowed because v1 and v2 are neighboring cities
        System.out.println(" healing Action : ");
        System.out.println("Before healing: " + v2);
        DoctorRole.RemoveCubes(Diseases.RED, v2);//retire tous les cubes
        System.out.println("After healing: " + v2);
        System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.RED));
-       
+       System.out.println("  discovering Action : ");
        Actions.discover(Sara, Diseases.RED);
+       System.out.println(" do nothing Action : ");
        Actions.DontDoAnything(); //ne fait rien
        
        System.out.println();
@@ -232,10 +234,7 @@ public class pandemicMain {
        GlobetRotter.moveAnywhere(Charles,v3);
        System.out.println();
        System.out.println();
-       System.out.println("Do nothing action");
-       Actions.DontDoAnything();
-       System.out.println();
-       System.out.println("constructing action");
+       System.out.println("building action");
        Charles.addCard(new PlayersCards("ville-3", "rouge"));
        Actions.construct(Charles);
        // we added 4 player cards of the disease rouge to charles's hand so he can find the cure of this disease
@@ -274,10 +273,16 @@ public class pandemicMain {
        System.out.println();
        System.out.println(Sara.getName()+ " must do 4 actions");
        System.out.println();
+       System.out.println(" moving Action : ");
        Actions.move(Sara, v3); 
+       System.out.println(" healing Action : ");
+       System.out.println("Before healing: " + v3);
        DoctorRole.RemoveCubes(Diseases.RED, v3);//retire tous les cubes
+       System.out.println("After healing: " + v3);
+       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.RED));
        System.out.println(" building Action : ");
        Actions.construct(Sara);
+       System.out.println(" do nothing Action : ");
        Actions.DontDoAnything(); //ne fait rien
        System.out.println();
        
@@ -330,7 +335,7 @@ public class pandemicMain {
        System.out.println();
        System.out.println(Anais.getName() + " must do 4 actions ");
        System.out.println();
-       System.out.println("constructing action");
+       System.out.println("building action");
        // Anais 's action (heal the disease red)
        Actions.construct(Anais);// method construct
        System.out.println();
@@ -360,6 +365,18 @@ public class pandemicMain {
        Stack<Cards> charles=Charles.getCardsInHand();
        System.out.println("Charles has " + charles.size()+" cards in his hand");
        System.out.println("A cube of the disease " + l9.getDiseaseName() + " is added to the city named " + l9.getCityName()  );
+       for(Cities city : Map.getVilles()) {
+    	   if( city.getName().equals(l9.getCityName())) {
+    		   city.addCube(Diseases.nameToDisease(l9.getDiseaseName()));
+    		   city.toString();
+    		   System.out.println("City state : " + city.getName());
+    		   System.out.println(city);
+    	   }
+    	   
+       }
+       System.out.println("we re-put the discarded  card Infection  in the InfectionPaquet ");
+       paquetInfection.addCarte(l9);
+
        
        //discover action combined to heal action (charles's action)
        System.out.println();
@@ -383,18 +400,8 @@ public class pandemicMain {
        System.out.println();
        System.out.println();
        
-       for(Cities city : Map.getVilles()) {
-    	   if( city.getName().equals(l9.getCityName())) {
-    		   city.addCube(Diseases.nameToDisease(l9.getDiseaseName()));
-    		   city.toString();
-    		   System.out.println("City state : " + city.getName());
-    		   System.out.println(city);
-    	   }
-    	   
-       }
+              System.out.println("Les deux tours sont terminés");
        
-       System.out.println("we re-put the discarded  card Infection  in the InfectionPaquet ");
-       paquetInfection.addCarte(l9);
        
        System.out.println();
        System.out.println("the global rate of infection is : "+overallInfectionRate);      
