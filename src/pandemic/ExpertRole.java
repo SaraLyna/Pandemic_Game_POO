@@ -35,6 +35,7 @@ public class ExpertRole extends Actions {
 			System.out.println("A new research station was built by the expert in :" + city.getName());
 		}
 		else {
+			System.out.println("this city already has a research center");
 			throw new ResearchCenterException("this city already has a research station");
 		}	
 	}

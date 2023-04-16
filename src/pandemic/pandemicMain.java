@@ -187,7 +187,7 @@ public class pandemicMain {
        System.out.println("Sara" + l1.toString());
        System.out.println("Sara" + l2.toString());
        Stack<Cards> sara=Sara.getCardsInHand();
-       System.out.println("Sara has " + sara.size()+ " cards Players in her hand ");
+       System.out.println("Sara has " + sara.size()+ " cards in her hand ");
        //System.out.println(sara.get(1));
        System.out.println();
        
@@ -201,7 +201,7 @@ public class pandemicMain {
        System.out.println("Lyna" + l3.toString());
        System.out.println("Lyna" +l4.toString());
        Stack<Cards> lyna=Lyna.getCardsInHand();
-       System.out.println("Lyna has "+ lyna.size() +" cards Players in her hand");
+       System.out.println("Lyna has "+ lyna.size() +" cards in her hand");
        //System.out.println(lyna.get(1));
        //UNE ACTION POUR LYNA 
        try { ExpertRole.BuildStationWoCard(v1);
@@ -219,7 +219,7 @@ public class pandemicMain {
        System.out.println("Anais" + l5.toString());
        System.out.println("Anais" + l6.toString());       
        Stack<Cards> anais=Anais.getCardsInHand();
-       System.out.println("Anais has " + anais.size() +" cards Players in her hand");
+       System.out.println("Anais has " + anais.size() +" cards in her hand");
        //System.out.println(anais.get(1));
        System.out.println();
        
@@ -241,7 +241,7 @@ public class pandemicMain {
        Charles.addCard(l7);
        System.out.println("Charles" + l7.toString());   
        Stack<Cards> charles=Charles.getCardsInHand();
-       System.out.println("Charles has " + charles.size()+" card Players in his hand");
+       System.out.println("Charles has " + charles.size()+" cards in his hand");
        System.out.println("A cube of the disease " + l9.getDiseaseName() + " is added to the city named " + l9.getCityName()  );
        
        //discover action combined to heal action (charles's action)
@@ -289,9 +289,9 @@ public class pandemicMain {
 				   PlayersCards l2=currentDeck.tirerCarte();
 				   currentPlayer.addCard(l1);
 				   currentPlayer.addCard(l2);
-				   System.out.println("Player " + currentPlayer.getName() + " "+ l1.toString() + " and"+ l2.toString());
+				   System.out.println("Player " + currentPlayer.getName() + " "+ l1.toString() + " and "+ l2.toString());
 				   Stack<Cards> hand=currentPlayer.getCardsInHand();
-				   System.out.println(currentPlayer.getName() + " has " + hand.size()+ " cards Players in his/her hand. \n");
+				   System.out.println(currentPlayer.getName() + " has " + hand.size()+ " cards in his/her hand. \n");
 				   
 				   //si on veut mettre des actions aléatoires et/ou du choix d'actions ça peut être à cet endroit
 	}
