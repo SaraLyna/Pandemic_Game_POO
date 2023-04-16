@@ -168,6 +168,8 @@ public class pandemicMain {
        
        
        //SECOND TURN FOR EACH PLAYER
+       System.out.println("\n");
+       System.out.println("\n");
        System.out.println("Second turn");
        
        
@@ -268,9 +270,9 @@ public class pandemicMain {
 				   PlayersCards l2=currentDeck.tirerCarte();
 				   currentPlayer.addCard(l1);
 				   currentPlayer.addCard(l2);
-				   System.out.println("Player " + currentPlayer + " drew the card "+ l1 + "\n and the card "+ l2);
+				   System.out.println("Player " + currentPlayer.getName() + " "+ l1.toString() + " and"+ l2.toString());
 				   Stack<Cards> hand=currentPlayer.getCardsInHand();
-				   System.out.println(currentPlayer + " has " + hand.size()+ " cards Players in her hand. \n");
+				   System.out.println(currentPlayer.getName() + " has " + hand.size()+ " cards Players in his/her hand. \n");
 				   
 				   //si on veut mettre des actions aléatoires et/ou du choix d'actions ça peut être à cet endroit
 	}

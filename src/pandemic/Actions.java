@@ -110,7 +110,7 @@ public class Actions {
 		        player.removeCard(card);
 		        break; // Exit the loop once a research center is built
 			}	
-			System.out.println(player + "builds a research center in " + city+"\n");
+			System.out.println(player.getName() + " built a research center in " + city.getName()+"\n");
 		}			
 	}
 	
