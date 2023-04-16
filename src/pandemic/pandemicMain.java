@@ -158,7 +158,8 @@ public class pandemicMain {
        System.out.println("First player : Sara ");
        pandemicMain.makePlayerTakeATurn(Sara, paquetPlayers);
        Actions.move(Sara, v2); //allowed because v1 and v2 are neighboring cities
-        
+       DoctorRole.RemoveCubes(Diseases.RED, v2);//retire tous les cubes
+       Actions.DontDoAnything(); //ne fait rien
        
        System.out.println("Second player : Lyna");
        pandemicMain.makePlayerTakeATurn(Lyna, paquetPlayers);
@@ -225,8 +226,9 @@ public class pandemicMain {
        System.out.println("Sara has " + sara.size()+ " cards in her hand ");
        //System.out.println(sara.get(1));
        System.out.println();
-       
-       //TODO RAJOUTER UNE ACTION POUR SARA
+       Actions.move(Sara, v3); 
+       DoctorRole.RemoveCubes(Diseases.RED, v3);//retire tous les cubes
+       Actions.DontDoAnything(); //ne fait rien
        
        System.out.println("Second player : Lyna");
        PlayersCards l3=paquetPlayers.tirerCarte();

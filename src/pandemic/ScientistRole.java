@@ -1,6 +1,8 @@
 package pandemic;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * this class represents the action of the Scientist
@@ -44,25 +46,41 @@ class ScientistRole extends Actions{
 	
 	
 	
-	/**
-	 * méthode pour trouver un remède avec une main de cartes 
-	 * @param hand
-	 * @return true or false
-	 */
-	public boolean discoverCure(List<Cards> hand) {
-        if (hand.size() != handSize) {
-            return false;
-        }
-        // Vérifie si toutes les cartes de la main ont le meme nom de ville 
-        String diseasename = hand.get(0).getDiseaseName();
-        for (Cards card : hand) {
-            if (!card.getDiseaseName().equals(diseasename)) {
-                return false;
-            }
-            System.out.println("The Scientist has find a remedy with his 4 cards");
-        }
-        // Si toutes les cartes ont le meme nom de ville , le remède est découvert
-        return true;
+	  /**
+     * @param p
+     * @param Disease
+	 * check if the city has a Research Center and discover a Cure for a specific disease.
+	 * Then discard the 5 players cards.
+     */
+    public static void discover(Players p, Diseases Disease){
+    	int cpt = 0;
+		Stack<Cards> hand = p.getCardsInHand();
+		Cities city = p.getLocation();
+		if (city.isResearchCenter()){
+			Iterator<Cards> it = hand.iterator();
+			while (it.hasNext()) {	
+				Cards card = it.next();
+				if(card.getDiseaseName()==Disease.getDiseaseName()) {
+					cpt += 1;
+				}
+			}
+			if (cpt > 3) {
+				Disease.setCured(true);
+				while (it.hasNext()) {
+					Cards card = it.next();
+					if(card.getDiseaseName()==Disease.getDiseaseName()) {
+						p.removeCard(card);
+					}
+				}
+			System.out.println("A cure has been found for the disease " + Disease.getDiseaseName());
+			}
+			else {
+				System.out.println(p.getName() + " has not enough cards to cure the disease " + Disease.getDiseaseName());
+			}
+		}
+		else {
+			System.out.println(p.getName() + ", please build a research Center to discover a Cure for the disease " + Disease.getDiseaseName());
+		}
     }
 	
 	
