@@ -105,7 +105,7 @@ public class Players {
 	 * @param c
 	 */
 	public void addCard(Cards c ) { 
-		 this.CardsInHand.add(c); 
+		 this.CardsInHand.push(c); 
 	}
 	
 	

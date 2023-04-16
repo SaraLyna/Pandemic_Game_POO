@@ -20,20 +20,20 @@ public class ExpertTest {
 		ville2= new Cities("ville-2","Secteur 2");
 		ville4= new Cities("ville-4","Secteur 1");
 		
-	ExpertRole expert1= new ExpertRole("Sara" ,ville1);
-	ExpertRole expert2= new ExpertRole("Lyna", ville2);
-	ExpertRole expert3= new ExpertRole("Bob", ville4);
+	//ExpertRole expert1= new ExpertRole("Sara" ,ville1);
+	//ExpertRole expert2= new ExpertRole("Lyna", ville2);
+	//ExpertRole expert3= new ExpertRole("Bob", ville4);
 	
 	assertFalse(ville4.isResearchCenter());
-    expert1.BuildStationWoCard(ville1);
+    ExpertRole.BuildStationWoCard(ville1);
     assertTrue(ville1.isResearchCenter());
     
     assertFalse(ville4.isResearchCenter());
-    expert2.BuildStationWoCard(ville2);
+    ExpertRole.BuildStationWoCard(ville2);
     assertTrue(ville2.isResearchCenter());
     
     assertFalse(ville4.isResearchCenter());
-    expert3.BuildStationWoCard(ville4);
+    ExpertRole.BuildStationWoCard(ville4);
     assertTrue(ville4.isResearchCenter());
     
     

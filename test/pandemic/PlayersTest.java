@@ -16,13 +16,14 @@ public class PlayersTest {
 		// get the name, role and location of the player
 		System.out.println("Player name: " + player1.getName());
 		System.out.println("Player role: " + player1.getRole());
-		System.out.println("Player location: " + player1.getLocation());
+		System.out.println("Player location: " + player1.getLocation().toString());
 		
 		// add some cards to the player's hand
 		player1.getCardsInHand().push(card1);
 		player1.getCardsInHand().push(card2);
 		player1.getCardsInHand().push(card3);
 		player1.getCardsInHand().push(card4);
+		System.out.println(player1.getCardsInHand().size());
 		
 		// discard a card if the number of cards in hand exceeds 7
 		if (player1.getCardsInHand().size() > 7) {

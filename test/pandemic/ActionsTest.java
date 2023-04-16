@@ -34,19 +34,18 @@ public class ActionsTest {
 		player1.addCard(card3);
 		//player1.addCard(card4);
 		//player1.addCard(card5);
-		Actions action = new Actions();
 		
-		// vérifie qu'une maladie ne peut pas etre guérie si le joueur n'est pas dans une ville avec un centre de rcherche
-		action.discover(player1, disease1);
+		
+		// vérifie qu'une maladie ne peut pas etre guérie si le joueur n'est pas dans une ville avec un centre de recherche
+		Actions.discover(player1, disease1);
 		assertFalse(disease1.isCured());
 		assertFalse(disease2.isCured());
 		
 		
 		//deplacer un joueur dans une ville qui contient un centre de recherche 
-		player1.setLocation(city1);
 		city1.addResearchCenter();
 		
-		action.discover(player1, disease1);
+		Actions.discover(player1, disease1);
 		assertFalse(disease1.isCured());
 		assertFalse(disease2.isCured());
 		
@@ -62,7 +61,7 @@ public class ActionsTest {
 		player1.addCard(card9);
 
 		
-		action.discover(player1, disease1);
+		Actions.discover(player1, disease1);
 		assertTrue(disease1.isCured());
 		assertFalse(disease2.isCured());
 		
@@ -118,12 +117,13 @@ public class ActionsTest {
 		player.setLocation(city1);
 		PlayersCards card1= new PlayersCards ("ville-20","bleu");
 		PlayersCards card2= new PlayersCards("ville-37","jaune");
-		player.addCard(card1);
-		player.addCard(card2);
+		player.getCardsInHand().push(card1);
+		player.getCardsInHand().push(card2);
+		assertEquals(2,player.getCardsInHand().size());
 		
 		Actions.construct(player);
 		assertFalse(city1.isResearchCenter());
-		//assertFalse(player.getCardsInHand().contains(card1));
+		assertTrue(player.getCardsInHand().contains(card1));
 		assertTrue(player.getCardsInHand().contains(card2));
 		
 		Cities newcity = new Cities("ville-37","0");
@@ -132,7 +132,7 @@ public class ActionsTest {
 		
 		Actions.construct(player);
 		assertTrue(newcity.isResearchCenter());
-		assertTrue(player.getCardsInHand().contains(card2));
+		assertEquals(1,player.getCardsInHand().size());
 		
 		
 		
@@ -146,9 +146,8 @@ public class ActionsTest {
 	    Diseases disease = Diseases.YELLOW;
 	    HashMap<Diseases, Integer> cubesStock = new HashMap<>();
 	    cubesStock.put(disease, 3);
-	    Actions action = new Actions();
 	    city1.setCubeCount(disease, 0);
-	    action.healDisease(disease, city1, cubesStock);
+	    Actions.healDisease(disease, city1, cubesStock);
 	    assertEquals(0, city1.getCubeCount(disease));
 	    assertEquals(3, (int) cubesStock.get(disease));
 	}   
@@ -159,11 +158,9 @@ public class ActionsTest {
 	    Diseases disease = Diseases.YELLOW;
 	    HashMap<Diseases, Integer> cubesStock = new HashMap<>();
 	    cubesStock.put(disease, 3);
-	    Actions action = new Actions();
-	    // deuxieme cas: la maladie est guérie
 	    city1.setCubeCount(disease, 3); 
 	    disease.setCured(true);
-	    action.healDisease(disease, city1, cubesStock);
+	    Actions.healDisease(disease, city1, cubesStock);
 	    assertEquals(0, city1.getCubeCount(disease));
 	    assertEquals(6, (int) cubesStock.get(disease));
 	}   
@@ -174,11 +171,9 @@ public class ActionsTest {
 	    Diseases disease = Diseases.YELLOW;
 	    HashMap<Diseases, Integer> cubesStock = new HashMap<>();
 	    cubesStock.put(disease, 3);
-	    Actions action = new Actions();
-	    // troisieme cas: la maladie n'est pas guérie et il reste encore des cubes 
 	    city1.setCubeCount(disease, 3);
 	    disease.setCured(false);
-	    action.healDisease(disease, city1, cubesStock);
+	    Actions.healDisease(disease, city1, cubesStock);
 	    assertEquals(2, city1.getCubeCount(disease));
 	    assertEquals(4, (int) cubesStock.get(disease));
 	}

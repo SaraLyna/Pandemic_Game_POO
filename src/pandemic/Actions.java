@@ -23,7 +23,7 @@ public class Actions {
 	 * check if the city has a Research Center and discover a Cure for a specific disease.
 	 * Then discard the 5 players cards.
      */
-    public void discover(Players p, Diseases Disease){
+    public static void discover(Players p, Diseases Disease){
     	int cpt = 0;
 		Stack<Cards> hand = p.getCardsInHand();
 		Cities city = p.getLocation();
@@ -106,12 +106,12 @@ public class Actions {
 			Cards card = it.next();
 			if (card.getCityName().equals(city.getName())) {
 				city.addResearchCenter();
-				//System.out.println(player + "builds a research center in " + city);
 		        player.removeCard(card);
 		        break; // Exit the loop once a research center is built
 			}	
-			System.out.println(player.getName() + " built a research center in " + city.getName()+"\n");
-		}			
+			
+		}		
+		System.out.println(player.getName() + " built a research center in " + city.getName()+"\n");
 	}
 	
 	
@@ -121,7 +121,7 @@ public class Actions {
 	 * @param disease, the disease to be healed
 	 * @param cubesStock , the stock of the diseases' cubes
 	 */
-	public void healDisease(Diseases disease, Cities city,HashMap <Diseases, Integer> cubesStock){	
+	public static  void healDisease(Diseases disease, Cities city,HashMap <Diseases, Integer> cubesStock){	
 		int lastCubes = city.getCubeCount(disease);// number of cubes of the Disease disease
 		 if (lastCubes == 0) {
 		    System.out.println("There is no cubes of the disease " + disease.getDiseaseName() + " in the city "+ city.getName() + " anymore" );

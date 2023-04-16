@@ -112,5 +112,6 @@ public class PlayersPaquet {
 	    public int nbCartes() {
 	        return cards.size();
 	    }
+	   
 
 }

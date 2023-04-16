@@ -74,7 +74,12 @@ public class pandemicMain {
        System.out.println("The number of cards Players is : " + paquetPlayers.nbCartes());
        InfectionPaquet paquetInfection=new InfectionPaquet();
        System.out.println("The number of cards Infection is : " + paquetInfection.nbCartes());
-       //System.out.println("creation of the discarded cards deck");
+       HashMap<Diseases, Integer> cubesStock = new HashMap<>();// the stock of the cubes
+       cubesStock.put(Diseases.BLACK,4);// there are 4 cubes of the diseases black in the stock
+       cubesStock.put(Diseases.RED,4);// there are 4 cubes of the diseases red in the stock
+       cubesStock.put(Diseases.BLUE,4);// there are 4 cubes of the diseases blue in the stock
+       cubesStock.put(Diseases.YELLOW,4);// there are 4 cubes of the diseases yellow in the stock
+       
        
     
        
@@ -157,8 +162,9 @@ public class pandemicMain {
        Actions.construct(Lyna);       //  UNE ACTION POUR LYNA
        
        System.out.println("Third player: Anais");
-      pandemicMain.makePlayerTakeATurn(Anais, paquetPlayers);
-       //TODO RAJOUTER UNE ACTION POUR ANAIS
+       pandemicMain.makePlayerTakeATurn(Anais, paquetPlayers);
+       
+      	
        
        System.out.println("Fourth player: Charles");
        pandemicMain.makePlayerTakeATurn(Charles, paquetPlayers);
@@ -217,7 +223,13 @@ public class pandemicMain {
        //System.out.println(anais.get(1));
        System.out.println();
        
-       //TODO RAJOUTER UNE ACTION POUR ANAIS
+       // Anais 's action (heal the disease red)
+       System.out.println("Before healing: " + v1);
+       Actions.healDisease(Diseases.RED, v1, cubesStock);// cause Anais is not a doctor and the disease red is not healed, she can only remove on cube of this disease in the city v1
+       System.out.println("After healing: " + v1);
+       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.RED));
+       System.out.println();
+       
        
        System.out.println("Fourth player : Charles");
        PlayersCards l7=paquetPlayers.tirerCarte();// a players card
@@ -232,7 +244,14 @@ public class pandemicMain {
        System.out.println("Charles has " + charles.size()+" card Players in his hand");
        System.out.println("A cube of the disease " + l9.getDiseaseName() + " is added to the city named " + l9.getCityName()  );
        
-       //TODO RAJOUTER UNE ACTION POUR CHARLES
+       //discover action combined to heal action (charles's action)
+       System.out.println();
+       Actions.discover(Charles,Diseases.RED);
+       System.out.println("Before healing: " + v3);
+       Actions.healDisease(Diseases.RED, v3, cubesStock);
+       System.out.println("After healing: " +v3);
+       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.RED));
+       System.out.println();
        
        for(Cities city : Map.getVilles()) {
     	   if( city.getName().equals(l9.getCityName())) {

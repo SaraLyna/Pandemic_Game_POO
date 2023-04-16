@@ -1,5 +1,6 @@
 package pandemic;
 
+
 public abstract class Cards {
 	protected String cityName;
 	protected String disease;
@@ -47,6 +48,8 @@ public abstract class Cards {
 	}
 	
 	
+	
+
 
 	
 	
