@@ -148,7 +148,10 @@ public class pandemicMain {
        System.out.println();
        
        System.out.println("Then each player in turn draws two player cards :"); //because there is four players
-       System.out.println("First turn");
+       System.out.println("************");
+       System.out.println(" First turn ");
+       System.out.println("************");
+       System.out.println();
        
        
        //FIRST TURN FOR EACH PLAYER
@@ -172,19 +175,44 @@ public class pandemicMain {
        pandemicMain.makePlayerTakeATurn(Anais, paquetPlayers);
        
       	
-       
+       System.out.println();
        System.out.println("Fourth player: Charles");
        pandemicMain.makePlayerTakeATurn(Charles, paquetPlayers);
        
+       System.out.println(Charles.getName()+ " must do 4 actions ");
+       System.out.println();
+       System.out.println("moving action");
        //déplacer charles dans la ville 3
-       GlobetRotter.moveAnywhere(Charles, v3);
+       GlobetRotter.moveAnywhere(Charles,v3);
+       System.out.println();
+       System.out.println();
+       System.out.println("Do nothing action");
+       Actions.DontDoAnything();
+       System.out.println();
+       System.out.println("constructing action");
+       Charles.addCard(new PlayersCards("ville-3", "rouge"));
+       Actions.construct(Charles);
+       // we added 4 player cards of the disease rouge to charles's hand so he can find the cure of this disease
+       Charles.addCard(new PlayersCards("ville-19", "rouge"));
+       Charles.addCard(new PlayersCards("ville-23", "rouge"));
+       Charles.addCard(new PlayersCards("ville-24", "rouge"));
+       Charles.addCard(new PlayersCards("ville-25", "rouge"));
+       Charles.addCard(new PlayersCards("ville-29", "rouge"));
+       System.out.println();
+       System.out.println("discovering action");
+       Actions.discover(Charles,Diseases.RED);
+       System.out.println();
+       System.out.println("healing action ");
+       Actions.healDisease(Diseases.RED, v3, cubesStock);
+       
+       System.out.println();
        
        
-       //SECOND TURN FOR EACH PLAYER
-       System.out.println("\n");
-       System.out.println("\n");
-       System.out.println("Second turn");
+       System.out.println("*************");
+       System.out.println(" Second turn ");
+       System.out.println("*************");
        
+       System.out.println();
        
        System.out.println("First player : Sara ");
        PlayersCards l1=paquetPlayers.tirerCarte();
@@ -233,12 +261,24 @@ public class pandemicMain {
        System.out.println("Anais has " + anais.size() +" cards in her hand");
        //System.out.println(anais.get(1));
        System.out.println();
-       
+       System.out.println();
+       System.out.println(Anais.getName() + " must do 4 actions ");
+       System.out.println();
+       System.out.println("constructing action");
        // Anais 's action (heal the disease red)
+       Actions.construct(Anais);// method construct
+       System.out.println();
+       System.out.println("Discovering action");
+       Actions.discover(Anais, Diseases.RED); // method discover 
+       System.out.println();
+       System.out.println("healing action");
        System.out.println("Before healing: " + v1);
        Actions.healDisease(Diseases.RED, v1, cubesStock);// cause Anais is not a doctor and the disease red is not healed, she can only remove on cube of this disease in the city v1
        System.out.println("After healing: " + v1);
        System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.RED));
+       System.out.println();
+       System.out.println("Do nothing action");
+       Actions.DontDoAnything();//Do nothing method
        System.out.println();
        
        
@@ -257,11 +297,24 @@ public class pandemicMain {
        
        //discover action combined to heal action (charles's action)
        System.out.println();
-       Actions.discover(Charles,Diseases.RED);
+       System.out.println();
+       System.out.println(Charles.getName()+ " must do 4 actions ");
+       System.out.println();
+       System.out.println("discovering Action");
+       Actions.discover(Charles,Diseases.RED);//method discover
+       System.out.println();
+       System.out.println(" healing action");
        System.out.println("Before healing: " + v3);
-       Actions.healDisease(Diseases.RED, v3, cubesStock);
+       Actions.healDisease(Diseases.RED, v3, cubesStock);//healing method
        System.out.println("After healing: " +v3);
        System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.RED));
+       System.out.println();
+       System.out.println( " do nothing action");
+       Actions.DontDoAnything();// Do nothing action
+       System.out.println();
+       System.out.println("moving action");
+       GlobetRotter.moveAnywhere(Charles, v3.neighbors.get(3));// move action
+       System.out.println();
        System.out.println();
        
        for(Cities city : Map.getVilles()) {

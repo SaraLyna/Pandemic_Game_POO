@@ -114,6 +114,7 @@ public class Actions {
 			Cards card = it.next();
 			if (card.getCityName().equals(city.getName())) {
 				city.addResearchCenter();
+				city.isReasearchCenter = true;
 		        player.removeCard(card);
 		        break; // Exit the loop once a research center is built
 			}	
