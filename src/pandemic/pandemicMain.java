@@ -161,8 +161,18 @@ public class pandemicMain {
        //FIRST TURN FOR EACH PLAYER
        System.out.println("First player : Sara ");
        pandemicMain.makePlayerTakeATurn(Sara, paquetPlayers);
+       System.out.println();
+       System.out.println();
+       System.out.println(Sara.getName()+ " must do 4 actions");
+       System.out.println();
        Actions.move(Sara, v2); //allowed because v1 and v2 are neighboring cities
+       System.out.println(" healing Action : ");
+       System.out.println("Before healing: " + v2);
        DoctorRole.RemoveCubes(Diseases.RED, v2);//retire tous les cubes
+       System.out.println("After healing: " + v2);
+       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.RED));
+       
+       Actions.discover(Sara, Diseases.RED);
        Actions.DontDoAnything(); //ne fait rien
        
        System.out.println();
@@ -261,9 +271,15 @@ public class pandemicMain {
        System.out.println("Sara has " + sara.size()+ " cards in her hand ");
        //System.out.println(sara.get(1));
        System.out.println();
+       System.out.println();
+       System.out.println(Sara.getName()+ " must do 4 actions");
+       System.out.println();
        Actions.move(Sara, v3); 
        DoctorRole.RemoveCubes(Diseases.RED, v3);//retire tous les cubes
+       System.out.println(" building Action : ");
+       Actions.construct(Sara);
        Actions.DontDoAnything(); //ne fait rien
+       System.out.println();
        
        System.out.println("Second player : Lyna"); 
        PlayersCards l3=paquetPlayers.tirerCarte();
