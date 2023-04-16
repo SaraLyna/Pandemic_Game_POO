@@ -20,9 +20,14 @@ public class pandemicMain {
 		//INIT
 		
 		//System.out.println( "\u001B[40m");
-		int overallInfectionRate = 2; // Le taux global d'infection 
-       MappeMonde Map= new MappeMonde("villes.json");
-       //System.out.println("Map");
+	    int overallInfectionRate = 2; // Le taux global d'infection 
+	    MappeMonde Map;
+	    if(args.length == 0) { //if no arguments
+	        System.out.println("No file name specified, we try with default file name : villes.json.");
+	        Map= new MappeMonde("villes.json"); //make map from default value
+	    } else { //if at least one argument
+	        Map= new MappeMonde(args[0]); //make map from the file name given in parameter
+	    }
        Map.displayAllCities();
        Cities v1 = Map.Villes[0];
        Cities v2 = Map.Villes[1];
