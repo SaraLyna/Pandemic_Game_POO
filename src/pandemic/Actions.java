@@ -43,8 +43,14 @@ public class Actions {
 						p.removeCard(card);
 					}
 				}
-				
+			System.out.println("A cure has been found for the disease " + Disease.getDiseaseName());
 			}
+			else {
+				System.out.println(p.getName() + " has not enough cards to cure the disease " + Disease.getDiseaseName());
+			}
+		}
+		else {
+			System.out.println(p.getName() + ", please build a research Center to discover a Cure for the disease " + Disease.getDiseaseName());
 		}
     }
 	
