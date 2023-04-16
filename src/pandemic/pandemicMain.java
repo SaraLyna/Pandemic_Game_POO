@@ -48,24 +48,28 @@ public class pandemicMain {
        System.out.println();
        //
        v3.addCube(Diseases.BLUE);
-       v4.addCube(Diseases.BLACK);
+       v4.addCube(Diseases.BLUE);
+       Map.endInfectionTurn(); 
+       System.out.println(); 
+       v3.addCube(Diseases.BLUE);
+       v4.addCube(Diseases.BLUE);
        Map.endInfectionTurn();
        System.out.println();
-       v3.addCube(Diseases.RED);
-       v4.addCube(Diseases.YELLOW);
+       v3.addCube(Diseases.BLUE);
+       v4.addCube(Diseases.BLUE); 
        Map.endInfectionTurn();
-       System.out.println();
-       v3.addCube(Diseases.RED);
-       v4.addCube(Diseases.BLACK);
+       System.out.println(); 
+       v3.addCube(Diseases.BLUE);
+       v4.addCube(Diseases.BLUE); 
        Map.endInfectionTurn();
-       System.out.println();
        System.out.println();
        System.out.println("Etat de la ville v3");
        System.out.println(v3);
        System.out.println();
        v3.addCube(Diseases.BLUE);
+       System.out.println(); 
        System.out.println();
-       System.out.println();
+       
        
        
         
@@ -161,21 +165,52 @@ public class pandemicMain {
        DoctorRole.RemoveCubes(Diseases.RED, v2);//retire tous les cubes
        Actions.DontDoAnything(); //ne fait rien
        
+       System.out.println();
+       System.out.println();
        System.out.println("Second player : Lyna");
        pandemicMain.makePlayerTakeATurn(Lyna, paquetPlayers);
-       Actions.DontDoAnything();   //  4 ACTIONs POUR LYNA
+       System.out.println();
+       System.out.println();
+       System.out.println(Lyna.getName()+ " must do 4 actions");
+       System.out.println();
+       System.out.println(" healing Action : ");
+       System.out.println("Before healing: " + v1);
        Actions.healDisease(Diseases.RED, v1, cubesStock);
-       try { ExpertRole.BuildStationWoCard(v1);
-       } catch (ResearchCenterException e) { 
-    	   // TODO Auto-generated catch block e.printStackTrace(); }
-       }
+       // cause Lyna is not a doctor and the disease red is not healed, she can only remove on cube of this disease in the city v1
+       System.out.println("After healing: " + v1);
+       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.RED));
+       System.out.println();
+       System.out.println("  moving Action : ");
        Actions.move(Lyna, v1);
-       
-       
-       System.out.println("Third player: Anais");
-       pandemicMain.makePlayerTakeATurn(Anais, paquetPlayers);
-       
-      	
+       System.out.println(" do nothing Action : ");
+       Actions.DontDoAnything();
+       System.out.println(" building Action : ");
+       try { ExpertRole.BuildStationWoCard(v1);
+       } catch (ResearchCenterException e) {
+         // TODO Auto-generated catch block e.printStackTrace();
+        }
+   System.out.println();
+   System.out.println();
+   System.out.println("Third player: Anais");
+   pandemicMain.makePlayerTakeATurn(Anais, paquetPlayers);
+   System.out.println();
+   System.out.println(Anais.getName()+ " must do 4 actions");
+   System.out.println();
+   System.out.println(" discovering Action : ");
+   ScientistRole.discoverCure(Anais,Diseases.RED);
+   System.out.println(" healing Action : ");
+   System.out.println("Before healing: " + v3);
+   Actions.healDisease(Diseases.RED, v3, cubesStock);
+   // cause Anais is not a doctor and the disease red is not healed, she can only remove on cube of this disease in the city v3
+   System.out.println("After healing: " + v3);
+   System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.RED));
+   System.out.println();
+   System.out.println("  moving Action : ");
+   Actions.move(Anais, v3);
+   System.out.println(" building Action : ");
+   Actions.construct(Anais);
+   System.out.println();
+   System.out.println();
        System.out.println();
        System.out.println("Fourth player: Charles");
        pandemicMain.makePlayerTakeATurn(Charles, paquetPlayers);
@@ -230,26 +265,39 @@ public class pandemicMain {
        DoctorRole.RemoveCubes(Diseases.RED, v3);//retire tous les cubes
        Actions.DontDoAnything(); //ne fait rien
        
-       System.out.println("Second player : Lyna");
+       System.out.println("Second player : Lyna"); 
        PlayersCards l3=paquetPlayers.tirerCarte();
-       PlayersCards l4=paquetPlayers.tirerCarte();       
+       PlayersCards l4=paquetPlayers.tirerCarte();
        Lyna.addCard(l3);
-       Lyna.addCard(l4);
+       Lyna.addCard(l4); 
        System.out.println("Lyna" + l3.toString());
        System.out.println("Lyna" +l4.toString());
        Stack<Cards> lyna=Lyna.getCardsInHand();
        System.out.println("Lyna has "+ lyna.size() +" cards in her hand");
        //System.out.println(lyna.get(1));
        //4 ACTIONs POUR LYNA 
+       System.out.println();
+       System.out.println(); 
+       System.out.println(Lyna.getName()+ " must do 4 actions");
+       System.out.println(); 
+       System.out.println(" healing Action : "); 
+       System.out.println("Before healing: " + v4); 
+       Actions.healDisease(Diseases.BLACK, v4, cubesStock);
+       // cause Lyna is not a doctor and the disease black is not healed, she can only remove on cube of this disease in the city v4
+       System.out.println("After healing: " + v4);
+       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.BLACK));
+       System.out.println();
+       System.out.println("  moving Action : ");
+       Actions.move(Lyna,v4); 
+       System.out.println(" discovering Action : ");
+       Actions.discover(Lyna, Diseases.BLACK); 
+       System.out.println(" building Action : ");
        try { ExpertRole.BuildStationWoCard(v4);
        } catch (ResearchCenterException e) { 
-    	   // TODO Auto-generated catch block e.printStackTrace(); }
-       }
-       Actions.move(Lyna,v4);  
-       Actions.healDisease(Diseases.BLACK, v4, cubesStock);
-       Actions.discover(Lyna, Diseases.BLACK);
-      
+         // TODO Auto-generated catch block e.printStackTrace(); 
+         }
        System.out.println();
+        System.out.println();
        
        
        System.out.println("Third player: Anais");
@@ -271,7 +319,7 @@ public class pandemicMain {
        Actions.construct(Anais);// method construct
        System.out.println();
        System.out.println("Discovering action");
-       Actions.discover(Anais, Diseases.RED); // method discover 
+       ScientistRole.discoverCure(Anais, Diseases.RED); // method discover 
        System.out.println();
        System.out.println("healing action");
        System.out.println("Before healing: " + v1);

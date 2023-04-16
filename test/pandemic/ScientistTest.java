@@ -26,14 +26,14 @@ public class ScientistTest {
 		player1.addCard(card3);
 		
 		// vérifie qu'une maladie ne peut pas etre guérie si le joueur n'est pas dans une ville avec un centre de recherche
-		ScientistRole.discover(player1, disease1);
+		ScientistRole.discoverCure(player1, disease1);
 		assertFalse(disease1.isCured());
 		assertFalse(disease2.isCured());	
 		
 		//deplacer un joueur dans une ville qui contient un centre de recherche 
 		city1.addResearchCenter();
 		
-		ScientistRole.discover(player1, disease1);
+		ScientistRole.discoverCure(player1, disease1);
 		assertFalse(disease1.isCured());
 		assertFalse(disease2.isCured());
 		
@@ -46,7 +46,7 @@ public class ScientistTest {
 		player1.addCard(card8);
 
 		
-		ScientistRole.discover(player1, disease1);
+		ScientistRole.discoverCure(player1, disease1);
 		assertTrue(disease1.isCured());
 		assertFalse(disease2.isCured());
 		

@@ -52,7 +52,7 @@ class ScientistRole extends Actions{
 	 * check if the city has a Research Center and discover a Cure for a specific disease.
 	 * Then discard the 5 players cards.
      */
-    public static void discover(Players p, Diseases Disease){
+    public static void discoverCure(Players p, Diseases Disease){
     	int cpt = 0;
 		Stack<Cards> hand = p.getCardsInHand();
 		Cities city = p.getLocation();
