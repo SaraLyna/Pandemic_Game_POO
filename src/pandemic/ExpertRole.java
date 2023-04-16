@@ -36,7 +36,7 @@ public class ExpertRole extends Actions {
 		}
 		else {
 			System.out.println("this city already has a research center");
-			throw new ResearchCenterException("this city already has a research station");
+			//throw new ResearchCenterException("this city already has a research station");
 		}	
 	}
 	

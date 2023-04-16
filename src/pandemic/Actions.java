@@ -85,10 +85,12 @@ public class Actions {
 		 */
 				
 		if (! neighborsList.contains(destination)){
-			throw new IllegalArgumentException("the destination is not among the Player's neighboring cities ");
-		}
+			System.out.println("the destination is not among the Player's neighboring cities ");
+			//throw new IllegalArgumentException("the destination is not among the Player's neighboring cities ");
+		}else {
 		playerToMove.setLocation(destination);
 		System.out.print(playerToMove.getName() + " has been moved to " + destination.getName()+"\n");
+	}
 	}
 	
 	
@@ -151,7 +153,7 @@ public class Actions {
 	 * this action is to do nothing,
 	 * 
 	 */
-	public void DontDoAnything(){ 
+	public static void DontDoAnything(){ 
 		System.out.println("this player don't do anything");
 	}
 	

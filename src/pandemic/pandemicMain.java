@@ -147,7 +147,7 @@ public class pandemicMain {
        
        System.out.println();
        
-       System.out.println("Then each player in turn draws two player cards :");
+       System.out.println("Then each player in turn draws four player cards :"); //because there is four players
        System.out.println("First turn");
        
        
@@ -159,7 +159,14 @@ public class pandemicMain {
        
        System.out.println("Second player : Lyna");
        pandemicMain.makePlayerTakeATurn(Lyna, paquetPlayers);
-       Actions.construct(Lyna);       //  UNE ACTION POUR LYNA
+       Actions.DontDoAnything();   //  4 ACTIONs POUR LYNA
+       Actions.healDisease(Diseases.RED, v1, cubesStock);
+       try { ExpertRole.BuildStationWoCard(v1);
+       } catch (ResearchCenterException e) { 
+    	   // TODO Auto-generated catch block e.printStackTrace(); }
+       }
+       Actions.move(Lyna, v1);
+       
        
        System.out.println("Third player: Anais");
        pandemicMain.makePlayerTakeATurn(Anais, paquetPlayers);
@@ -203,11 +210,15 @@ public class pandemicMain {
        Stack<Cards> lyna=Lyna.getCardsInHand();
        System.out.println("Lyna has "+ lyna.size() +" cards in her hand");
        //System.out.println(lyna.get(1));
-       //UNE ACTION POUR LYNA 
-       try { ExpertRole.BuildStationWoCard(v1);
+       //4 ACTIONs POUR LYNA 
+       try { ExpertRole.BuildStationWoCard(v4);
        } catch (ResearchCenterException e) { 
     	   // TODO Auto-generated catch block e.printStackTrace(); }
        }
+       Actions.move(Lyna,v4);  
+       Actions.healDisease(Diseases.BLACK, v4, cubesStock);
+       Actions.discover(Lyna, Diseases.BLACK);
+      
        System.out.println();
        
        
@@ -287,8 +298,10 @@ public class pandemicMain {
 	static void makePlayerTakeATurn(Players currentPlayer, PlayersPaquet currentDeck) {
 					PlayersCards l1=currentDeck.tirerCarte();
 				   PlayersCards l2=currentDeck.tirerCarte();
+				   
 				   currentPlayer.addCard(l1);
 				   currentPlayer.addCard(l2);
+				   
 				   System.out.println("Player " + currentPlayer.getName() + " "+ l1.toString() + " and "+ l2.toString());
 				   Stack<Cards> hand=currentPlayer.getCardsInHand();
 				   System.out.println(currentPlayer.getName() + " has " + hand.size()+ " cards in his/her hand. \n");
