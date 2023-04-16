@@ -25,7 +25,7 @@ public class MappeMonde {
 		 */
 	public MappeMonde(String filename) throws FileNotFoundException {
 	    //filename="villes.json" , plus tard pour l'extension du jeu
-		FileReader reader = new FileReader("villes.json"); //reader allows the reading	
+		FileReader reader = new FileReader(filename); //reader allows the reading	
 		JSONObject pandemic = new JSONObject(new JSONTokener(reader));
 		// Creation d'un object JSON pour lire seulement les villes.
 		JSONObject villes = pandemic.getJSONObject("cities");
