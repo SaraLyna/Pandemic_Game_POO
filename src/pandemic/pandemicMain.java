@@ -17,6 +17,7 @@ public class pandemicMain {
 	 */
 	static HashMap<Diseases, Integer> cubesStocks = new HashMap<Diseases, Integer>();
 	
+	/** global infection rate, starts at 2 and may be modified later in the game*/
 	static int overallInfectionRate = 2; 
 	
 	/**
@@ -27,13 +28,17 @@ public class pandemicMain {
 		
 		//INIT
 		
-		pandemicMain.getCubesStocks().put(Diseases.BLUE, 0);
+		/* bonus : pour plus de flexibilité remplacer ces 4 lignes par "for (Diseases d : Diseases.values()) { ...  }" si .values fonctionne dans ce contexte*/
+		pandemicMain.getCubesStocks().put(Diseases.BLUE, 0); 
 		pandemicMain.getCubesStocks().put(Diseases.RED, 0);
 		pandemicMain.getCubesStocks().put(Diseases.YELLOW, 0);
 		pandemicMain.getCubesStocks().put(Diseases.BLACK, 0);
 		
 		//System.out.println( "\u001B[40m");
-	    int overallInfectionRate = 2; // Le taux global d'infection 
+	    
+		
+				/*sauvegarde
+				 int overallInfectionRate = 2; // Le taux global d'infection */
 	    MappeMonde Map;
 	    if(args.length == 0) { //if no arguments
 	        System.out.println("No file name specified, we try with default file name : villes.json.");
