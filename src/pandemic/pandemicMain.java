@@ -15,7 +15,9 @@ public class pandemicMain {
 	 * keys : a given disease from the Disease enum
 	 * values : the number of cubes left for that disease
 	 */
-	Map<Diseases, Integer> cubes = new HashMap<Diseases, Integer>();
+	static Map<Diseases, Integer> cubesStocks = new HashMap<Diseases, Integer>();
+	
+	static int overallInfectionRate = 2; 
 	
 	/**
 	 * @param args
@@ -24,6 +26,12 @@ public class pandemicMain {
 	public static void main(String args[]) throws FileNotFoundException {
 		
 		//INIT
+		
+		//TODO setters cubes
+		pandemicMain.getCubesStocks().put(Diseases.BLUE, 0);
+		cubes.put(Diseases.RED, 0);
+		cubes.put(Diseases.YELLOW, 0);
+		cubes.put(Diseases.BLACK, 0);
 		
 		//System.out.println( "\u001B[40m");
 	    int overallInfectionRate = 2; // Le taux global d'infection 
@@ -41,7 +49,7 @@ public class pandemicMain {
        Cities v4 = Map.Villes[3];
        
        v1.addCube(Diseases.RED); //will automatically remove a cube from the appropriate stock
-       v2.addCube(Diseases.RED);
+       v2.addCube(Diseases.RED); //TODO transformer tout ça en addCube() de main
        Map.endInfectionTurn();
        System.out.println();
        v1.addCube(Diseases.RED);
@@ -90,11 +98,13 @@ public class pandemicMain {
        System.out.println("The number of cards Players is : " + paquetPlayers.nbCartes());
        InfectionPaquet paquetInfection=new InfectionPaquet();
        System.out.println("The number of cards Infection is : " + paquetInfection.nbCartes());
-       HashMap<Diseases, Integer> cubesStock = new HashMap<>();// the stock of the cubes
-       cubesStock.put(Diseases.BLACK,4);// there are 4 cubes of the diseases black in the stock
-       cubesStock.put(Diseases.RED,4);// there are 4 cubes of the diseases red in the stock
-       cubesStock.put(Diseases.BLUE,4);// there are 4 cubes of the diseases blue in the stock
-       cubesStock.put(Diseases.YELLOW,4);// there are 4 cubes of the diseases yellow in the stock
+       
+       				//HashMap<Diseases, Integer> cubesStock = new HashMap<>();// the stock of the cubes
+       
+       pandemicMain.getCubesStocks().put(Diseases.BLACK,4);// there are 4 cubes of the diseases black in the stock
+       pandemicMain.getCubesStocks().put(Diseases.RED,4);// there are 4 cubes of the diseases red in the stock
+       pandemicMain.getCubesStocks().put(Diseases.BLUE,4);// there are 4 cubes of the diseases blue in the stock
+       pandemicMain.getCubesStocks().put(Diseases.YELLOW,4);// there are 4 cubes of the diseases yellow in the stock
        
        
     
@@ -424,7 +434,32 @@ public class pandemicMain {
        
 	}
 	
-	
+
+
+	public static Map<Diseases, Integer> getCubesStocks() {
+		return cubesStocks;
+	}
+
+
+
+	public static void setCubesStocks(Map<Diseases, Integer> cubesStocks) {
+		pandemicMain.cubesStocks = cubesStocks;
+	}
+
+
+
+	public static int getOverallInfectionRate() {
+		return overallInfectionRate;
+	}
+
+
+
+	public static void setOverallInfectionRate(int overallInfectionRate) {
+		pandemicMain.overallInfectionRate = overallInfectionRate;
+	}
+
+
+
 	/**
 	 * Acts everything a player is supposed to do during their turn, except for the action that must be manually acted out after using this method.
 	 * @param currentPlayer the player that will take this turn
@@ -446,6 +481,27 @@ public class pandemicMain {
 				   
 				   //si on veut mettre des actions aléatoires et/ou du choix d'actions ça peut être à cet endroit
 	}
+	
+	/** decrements the corresponding cube stock and calls Cities.addCube()
+	 * @param  */
+	static void addCube(Cities city, Diseases diseaseType) {
+		//decrements the stock
+		pandemicMain.decrementStock(diseaseType);
+		
+		
+		//calls Cities.addCube()
+		  v1.addCube(Diseases.RED);
+	}
+	
+	/** 
+	 * decrements the corresponding cube stock
+	 * */
+	static void decrementStock(Diseases diseaseType) {
+		int newValue = pandemicMain.getCubesStocks().get(diseaseType) ;
+		map.put(key,newValue-1); //update
+	}
+	
+	todo retirer les getters et setters qui n'ont pas de sens
 	
 	
 	/*

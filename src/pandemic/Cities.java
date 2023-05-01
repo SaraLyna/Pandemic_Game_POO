@@ -59,7 +59,7 @@ public class Cities {
      * @param d the cube to add 
      */
     public void addCube(Diseases d) {  
-    	//TODO at some point we need to remove a cube from the corresponding reserve from PandemicMain
+    	//at some point we need to remove a cube from the corresponding reserve, for now we do that in the addCube method in PandemicMain
         if(hasBeenInfectedThisTurn) {
         	System.out.println(this.name + " is not re-infected because it has already been infected this turn ,");
         }
