@@ -440,19 +440,9 @@ public class pandemicMain {
 		return cubesStocks;
 	}
 
-
-
-	public static void setCubesStocks(Map<Diseases, Integer> cubesStocks) {
-		pandemicMain.cubesStocks = cubesStocks;
-	}
-
-
-
 	public static int getOverallInfectionRate() {
 		return overallInfectionRate;
 	}
-
-
 
 	public static void setOverallInfectionRate(int overallInfectionRate) {
 		pandemicMain.overallInfectionRate = overallInfectionRate;
@@ -488,9 +478,8 @@ public class pandemicMain {
 		//decrements the stock
 		pandemicMain.decrementStock(diseaseType);
 		
-		
 		//calls Cities.addCube()
-		  v1.addCube(Diseases.RED);
+		city.addCube(Diseases.RED);
 	}
 	
 	/** 
@@ -498,10 +487,8 @@ public class pandemicMain {
 	 * */
 	static void decrementStock(Diseases diseaseType) {
 		int newValue = pandemicMain.getCubesStocks().get(diseaseType) ;
-		map.put(key,newValue-1); //update
+		pandemicMain.getCubesStocks().put(diseaseType,newValue-1); //update
 	}
-	
-	todo retirer les getters et setters qui n'ont pas de sens
 	
 	
 	/*
