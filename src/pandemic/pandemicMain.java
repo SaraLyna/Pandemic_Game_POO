@@ -27,11 +27,10 @@ public class pandemicMain {
 		
 		//INIT
 		
-		//TODO setters cubes
 		pandemicMain.getCubesStocks().put(Diseases.BLUE, 0);
-		cubes.put(Diseases.RED, 0);
-		cubes.put(Diseases.YELLOW, 0);
-		cubes.put(Diseases.BLACK, 0);
+		pandemicMain.getCubesStocks().put(Diseases.RED, 0);
+		pandemicMain.getCubesStocks().put(Diseases.YELLOW, 0);
+		pandemicMain.getCubesStocks().put(Diseases.BLACK, 0);
 		
 		//System.out.println( "\u001B[40m");
 	    int overallInfectionRate = 2; // Le taux global d'infection 
@@ -193,7 +192,7 @@ public class pandemicMain {
        System.out.println("Before healing: " + v2);
        DoctorRole.RemoveCubes(Diseases.RED, v2);//retire tous les cubes
        System.out.println("After healing: " + v2);
-       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.RED));
+       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ pandemicMain.getCubesStocks().get(Diseases.RED));
        System.out.println("  discovering Action : ");
        Actions.discover(Sara, Diseases.RED);
        System.out.println(" do nothing Action : ");
@@ -209,10 +208,10 @@ public class pandemicMain {
        System.out.println();
        System.out.println(" healing Action : ");
        System.out.println("Before healing: " + v1);
-       Actions.healDisease(Diseases.RED, v1, cubesStock);
+       Actions.healDisease(Diseases.RED, v1, pandemicMain.getCubesStocks());
        // cause Lyna is not a doctor and the disease red is not healed, she can only remove on cube of this disease in the city v1
        System.out.println("After healing: " + v1);
-       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.RED));
+       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ pandemicMain.getCubesStocks().get(Diseases.RED));
        System.out.println();
        System.out.println("  moving Action : ");
        Actions.move(Lyna, v1);
@@ -234,10 +233,10 @@ public class pandemicMain {
    ScientistRole.discoverCure(Anais,Diseases.RED);
    System.out.println(" healing Action : ");
    System.out.println("Before healing: " + v3);
-   Actions.healDisease(Diseases.RED, v3, cubesStock);
+   Actions.healDisease(Diseases.RED, v3, pandemicMain.getCubesStocks());
    // cause Anais is not a doctor and the disease red is not healed, she can only remove on cube of this disease in the city v3
    System.out.println("After healing: " + v3);
-   System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.RED));
+   System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ pandemicMain.getCubesStocks().get(Diseases.RED));
    System.out.println();
    System.out.println("  moving Action : ");
    Actions.move(Anais, v3);
@@ -270,7 +269,7 @@ public class pandemicMain {
        Actions.discover(Charles,Diseases.RED);
        System.out.println();
        System.out.println("healing action ");
-       Actions.healDisease(Diseases.RED, v3, cubesStock);
+       Actions.healDisease(Diseases.RED, v3, pandemicMain.getCubesStocks());
        
        System.out.println();
        
@@ -301,7 +300,7 @@ public class pandemicMain {
        System.out.println("Before healing: " + v3);
        DoctorRole.RemoveCubes(Diseases.RED, v3);//retire tous les cubes
        System.out.println("After healing: " + v3);
-       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.RED));
+       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ pandemicMain.getCubesStocks().get(Diseases.RED));
        System.out.println(" building Action : ");
        Actions.construct(Sara);
        System.out.println(" do nothing Action : ");
@@ -325,10 +324,10 @@ public class pandemicMain {
        System.out.println(); 
        System.out.println(" healing Action : "); 
        System.out.println("Before healing: " + v4); 
-       Actions.healDisease(Diseases.BLACK, v4, cubesStock);
+       Actions.healDisease(Diseases.BLACK, v4, pandemicMain.getCubesStocks());
        // cause Lyna is not a doctor and the disease black is not healed, she can only remove on cube of this disease in the city v4
        System.out.println("After healing: " + v4);
-       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.BLACK));
+       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ pandemicMain.getCubesStocks().get(Diseases.BLACK));
        System.out.println();
        System.out.println("  moving Action : ");
        Actions.move(Lyna,v4); 
@@ -366,9 +365,9 @@ public class pandemicMain {
        System.out.println();
        System.out.println("healing action");
        System.out.println("Before healing: " + v1);
-       Actions.healDisease(Diseases.RED, v1, cubesStock);// cause Anais is not a doctor and the disease red is not healed, she can only remove on cube of this disease in the city v1
+       Actions.healDisease(Diseases.RED, v1, pandemicMain.getCubesStocks());// cause Anais is not a doctor and the disease red is not healed, she can only remove on cube of this disease in the city v1
        System.out.println("After healing: " + v1);
-       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.RED));
+       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ pandemicMain.getCubesStocks().get(Diseases.RED));
        System.out.println();
        System.out.println("Do nothing action");
        Actions.DontDoAnything();//Do nothing method
@@ -410,9 +409,9 @@ public class pandemicMain {
        System.out.println();
        System.out.println(" healing action");
        System.out.println("Before healing: " + v3);
-       Actions.healDisease(Diseases.RED, v3, cubesStock);//healing method
+       Actions.healDisease(Diseases.RED, v3, pandemicMain.getCubesStocks());//healing method
        System.out.println("After healing: " +v3);
-       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.RED));
+       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ pandemicMain.getCubesStocks().get(Diseases.RED));
        System.out.println();
        System.out.println( " do nothing action");
        Actions.DontDoAnything();// Do nothing action
