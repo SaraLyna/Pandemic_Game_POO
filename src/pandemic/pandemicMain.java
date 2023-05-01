@@ -29,10 +29,10 @@ public class pandemicMain {
 		//INIT
 		
 		/* bonus : pour plus de flexibilité remplacer ces 4 lignes par "for (Diseases d : Diseases.values()) { ...  }" si .values fonctionne dans ce contexte*/
-		pandemicMain.getCubesStocks().put(Diseases.BLUE, 0); 
-		pandemicMain.getCubesStocks().put(Diseases.RED, 0);
-		pandemicMain.getCubesStocks().put(Diseases.YELLOW, 0);
-		pandemicMain.getCubesStocks().put(Diseases.BLACK, 0);
+		pandemicMain.getCubesStocks().put(Diseases.BLUE, 24); 
+		pandemicMain.getCubesStocks().put(Diseases.RED, 24);
+		pandemicMain.getCubesStocks().put(Diseases.YELLOW, 24);
+		pandemicMain.getCubesStocks().put(Diseases.BLACK, 24);
 		
 		//System.out.println( "\u001B[40m");
 	    
