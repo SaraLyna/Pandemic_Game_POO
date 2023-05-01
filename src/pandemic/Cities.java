@@ -58,7 +58,8 @@ public class Cities {
      * each city is infected once in a propagation phase.
      * @param d the cube to add 
      */
-    public void addCube(Diseases d) {      
+    public void addCube(Diseases d) {  
+    	//TODO at some point we need to remove a cube from the corresponding reserve from PandemicMain
         if(hasBeenInfectedThisTurn) {
         	System.out.println(this.name + " is not re-infected because it has already been infected this turn ,");
         }

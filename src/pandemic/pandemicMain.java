@@ -11,6 +11,12 @@ import java.util.*;
  */
 public class pandemicMain {
 	
+	/** HashMap linking the amounts of disease cubes in stock for each disease. If any of them drops down to 0, the game is lost.
+	 * keys : a given disease from the Disease enum
+	 * values : the number of cubes left for that disease
+	 */
+	Map<Diseases, Integer> cubes = new HashMap<Diseases, Integer>();
+	
 	/**
 	 * @param args
 	 * @throws FileNotFoundException
@@ -33,7 +39,8 @@ public class pandemicMain {
        Cities v2 = Map.Villes[1];
        Cities v3 = Map.Villes[2];
        Cities v4 = Map.Villes[3];
-       v1.addCube(Diseases.RED);
+       
+       v1.addCube(Diseases.RED); //will automatically remove a cube from the appropriate stock
        v2.addCube(Diseases.RED);
        Map.endInfectionTurn();
        System.out.println();
