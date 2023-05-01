@@ -47,8 +47,15 @@ public class pandemicMain {
        Cities v3 = Map.Villes[2];
        Cities v4 = Map.Villes[3];
        
-       v1.addCube(Diseases.RED); //will automatically remove a cube from the appropriate stock
-       v2.addCube(Diseases.RED); //TODO transformer tout ça en addCube() de main
+			       /* sauvegarde
+			       v1.addCube(Diseases.RED); 
+			       v2.addCube(Diseases.RED);
+			       */
+       pandemicMain.addCube(v1,Diseases.RED); //will automatically remove a cube from the appropriate stock
+       pandemicMain.addCube(v2,Diseases.RED);
+       
+       //TODO continuer de remplacer Cities.addCube par pandemicMain.addCube pour automatiquement retirer les cubes qu'il faut
+       
        Map.endInfectionTurn();
        System.out.println();
        v1.addCube(Diseases.RED);
