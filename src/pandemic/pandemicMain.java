@@ -15,7 +15,7 @@ public class pandemicMain {
 	 * keys : a given disease from the Disease enum
 	 * values : the number of cubes left for that disease
 	 */
-	static Map<Diseases, Integer> cubesStocks = new HashMap<Diseases, Integer>();
+	static HashMap<Diseases, Integer> cubesStocks = new HashMap<Diseases, Integer>();
 	
 	static int overallInfectionRate = 2; 
 	
@@ -435,7 +435,7 @@ public class pandemicMain {
 	
 
 
-	public static Map<Diseases, Integer> getCubesStocks() {
+	public static HashMap<Diseases, Integer> getCubesStocks() {
 		return cubesStocks;
 	}
 
