@@ -1,5 +1,6 @@
 package pandemic;
 import java.util.*;
+import pandemic.chooser.*;
 
 /**
  * this class represent the most important actions to do
@@ -75,7 +76,7 @@ public class Actions {
 						}							
 						//get input from user number
 						Scanner scanner = new Scanner(System.in);
-						
+					choose	
 						int input=1; //initialization to avoid warnings, should be overriden when input is read
 						boolean inputNeeded = true;
 						while (inputNeeded) {
@@ -91,8 +92,9 @@ public class Actions {
 		 */
 				
 		if (! neighborsList.contains(destination)){
-			System.out.println("the destination is not among the Player's neighboring cities ");
+			//System.out.println("the destination is not among the Player's neighboring cities ");
 			//throw new IllegalArgumentException("the destination is not among the Player's neighboring cities ");
+			choose("false destination", neighborsList);
 		}else {
 		playerToMove.setLocation(destination);
 		System.out.print(playerToMove.getName() + " has been moved to " + destination.getName()+"\n");
