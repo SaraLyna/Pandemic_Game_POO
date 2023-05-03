@@ -11,15 +11,6 @@ import java.util.*;
  */
 public class pandemicMain {
 	
-	/** HashMap linking the amounts of disease cubes in stock for each disease. If any of them drops down to 0, the game is lost.
-	 * keys : a given disease from the Disease enum
-	 * values : the number of cubes left for that disease
-	 */
-	static HashMap<Diseases, Integer> cubesStocks = new HashMap<Diseases, Integer>();
-	
-	/** global infection rate, starts at 2 and may be modified later in the game*/
-	static int overallInfectionRate = 2; 
-	
 	/**
 	 * @param args
 	 * @throws FileNotFoundException
@@ -28,17 +19,8 @@ public class pandemicMain {
 		
 		//INIT
 		
-		/* bonus : pour plus de flexibilité remplacer ces 4 lignes par "for (Diseases d : Diseases.values()) { ...  }" si .values fonctionne dans ce contexte*/
-		pandemicMain.getCubesStocks().put(Diseases.BLUE, 24); 
-		pandemicMain.getCubesStocks().put(Diseases.RED, 24);
-		pandemicMain.getCubesStocks().put(Diseases.YELLOW, 24);
-		pandemicMain.getCubesStocks().put(Diseases.BLACK, 24);
-		
 		//System.out.println( "\u001B[40m");
-	    
-		
-				/*sauvegarde
-				 int overallInfectionRate = 2; // Le taux global d'infection */
+	    int overallInfectionRate = 2; // Le taux global d'infection 
 	    MappeMonde Map;
 	    if(args.length == 0) { //if no arguments
 	        System.out.println("No file name specified, we try with default file name : villes.json.");
@@ -51,16 +33,8 @@ public class pandemicMain {
        Cities v2 = Map.Villes[1];
        Cities v3 = Map.Villes[2];
        Cities v4 = Map.Villes[3];
-       
-			       /* sauvegarde
-			       v1.addCube(Diseases.RED); 
-			       v2.addCube(Diseases.RED);
-			       */
-       pandemicMain.addCube(v1,Diseases.RED); //will automatically remove a cube from the appropriate stock
-       pandemicMain.addCube(v2,Diseases.RED);
-       
-       //TODO continuer de remplacer Cities.addCube par pandemicMain.addCube pour automatiquement retirer les cubes qu'il faut
-       
+       v1.addCube(Diseases.RED);
+       v2.addCube(Diseases.RED);
        Map.endInfectionTurn();
        System.out.println();
        v1.addCube(Diseases.RED);
@@ -109,13 +83,11 @@ public class pandemicMain {
        System.out.println("The number of cards Players is : " + paquetPlayers.nbCartes());
        InfectionPaquet paquetInfection=new InfectionPaquet();
        System.out.println("The number of cards Infection is : " + paquetInfection.nbCartes());
-       
-       				//HashMap<Diseases, Integer> cubesStock = new HashMap<>();// the stock of the cubes
-       
-       pandemicMain.getCubesStocks().put(Diseases.BLACK,4);// there are 4 cubes of the diseases black in the stock
-       pandemicMain.getCubesStocks().put(Diseases.RED,4);// there are 4 cubes of the diseases red in the stock
-       pandemicMain.getCubesStocks().put(Diseases.BLUE,4);// there are 4 cubes of the diseases blue in the stock
-       pandemicMain.getCubesStocks().put(Diseases.YELLOW,4);// there are 4 cubes of the diseases yellow in the stock
+       HashMap<Diseases, Integer> cubesStock = new HashMap<>();// the stock of the cubes
+       cubesStock.put(Diseases.BLACK,24);// there are 4 cubes of the diseases black in the stock
+       cubesStock.put(Diseases.RED,24);// there are 4 cubes of the diseases red in the stock
+       cubesStock.put(Diseases.BLUE,24);// there are 4 cubes of the diseases blue in the stock
+       cubesStock.put(Diseases.YELLOW,24);// there are 4 cubes of the diseases yellow in the stock
        
        
     
@@ -124,7 +96,7 @@ public class pandemicMain {
        System.out.println("Start by shuffling the cards ,");
        paquetPlayers.melanger();
        paquetInfection.melanger();
-       
+       System.out.println("Then, we begin the game in the city :"+ v1);
        
        System.out.println("We create the four players by assigning each a specific role :");
        System.out.println("Sara is Doctor");
@@ -204,7 +176,7 @@ public class pandemicMain {
        System.out.println("Before healing: " + v2);
        DoctorRole.RemoveCubes(Diseases.RED, v2);//retire tous les cubes
        System.out.println("After healing: " + v2);
-       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ pandemicMain.getCubesStocks().get(Diseases.RED));
+       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.RED));
        System.out.println("  discovering Action : ");
        Actions.discover(Sara, Diseases.RED);
        System.out.println(" do nothing Action : ");
@@ -220,10 +192,10 @@ public class pandemicMain {
        System.out.println();
        System.out.println(" healing Action : ");
        System.out.println("Before healing: " + v1);
-       Actions.healDisease(Diseases.RED, v1, pandemicMain.getCubesStocks());
+       Actions.healDisease(Diseases.RED, v1, cubesStock);
        // cause Lyna is not a doctor and the disease red is not healed, she can only remove on cube of this disease in the city v1
        System.out.println("After healing: " + v1);
-       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ pandemicMain.getCubesStocks().get(Diseases.RED));
+       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.RED));
        System.out.println();
        System.out.println("  moving Action : ");
        Actions.move(Lyna, v1);
@@ -245,10 +217,10 @@ public class pandemicMain {
    ScientistRole.discoverCure(Anais,Diseases.RED);
    System.out.println(" healing Action : ");
    System.out.println("Before healing: " + v3);
-   Actions.healDisease(Diseases.RED, v3, pandemicMain.getCubesStocks());
+   Actions.healDisease(Diseases.RED, v3, cubesStock);
    // cause Anais is not a doctor and the disease red is not healed, she can only remove on cube of this disease in the city v3
    System.out.println("After healing: " + v3);
-   System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ pandemicMain.getCubesStocks().get(Diseases.RED));
+   System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.RED));
    System.out.println();
    System.out.println("  moving Action : ");
    Actions.move(Anais, v3);
@@ -263,7 +235,7 @@ public class pandemicMain {
        System.out.println(Charles.getName()+ " must do 4 actions ");
        System.out.println();
        System.out.println("moving action");
-       //déplacer charles dans la ville 3
+       //dÃ©placer charles dans la ville 3
        GlobetRotter.moveAnywhere(Charles,v3);
        System.out.println();
        System.out.println();
@@ -281,7 +253,7 @@ public class pandemicMain {
        Actions.discover(Charles,Diseases.RED);
        System.out.println();
        System.out.println("healing action ");
-       Actions.healDisease(Diseases.RED, v3, pandemicMain.getCubesStocks());
+       Actions.healDisease(Diseases.RED, v3, cubesStock);
        
        System.out.println();
        
@@ -312,7 +284,7 @@ public class pandemicMain {
        System.out.println("Before healing: " + v3);
        DoctorRole.RemoveCubes(Diseases.RED, v3);//retire tous les cubes
        System.out.println("After healing: " + v3);
-       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ pandemicMain.getCubesStocks().get(Diseases.RED));
+       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.RED));
        System.out.println(" building Action : ");
        Actions.construct(Sara);
        System.out.println(" do nothing Action : ");
@@ -336,10 +308,10 @@ public class pandemicMain {
        System.out.println(); 
        System.out.println(" healing Action : "); 
        System.out.println("Before healing: " + v4); 
-       Actions.healDisease(Diseases.BLACK, v4, pandemicMain.getCubesStocks());
+       Actions.healDisease(Diseases.BLACK, v4, cubesStock);
        // cause Lyna is not a doctor and the disease black is not healed, she can only remove on cube of this disease in the city v4
        System.out.println("After healing: " + v4);
-       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ pandemicMain.getCubesStocks().get(Diseases.BLACK));
+       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.BLACK));
        System.out.println();
        System.out.println("  moving Action : ");
        Actions.move(Lyna,v4); 
@@ -377,9 +349,9 @@ public class pandemicMain {
        System.out.println();
        System.out.println("healing action");
        System.out.println("Before healing: " + v1);
-       Actions.healDisease(Diseases.RED, v1, pandemicMain.getCubesStocks());// cause Anais is not a doctor and the disease red is not healed, she can only remove on cube of this disease in the city v1
+       Actions.healDisease(Diseases.RED, v1, cubesStock);// cause Anais is not a doctor and the disease red is not healed, she can only remove on cube of this disease in the city v1
        System.out.println("After healing: " + v1);
-       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ pandemicMain.getCubesStocks().get(Diseases.RED));
+       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.RED));
        System.out.println();
        System.out.println("Do nothing action");
        Actions.DontDoAnything();//Do nothing method
@@ -389,7 +361,7 @@ public class pandemicMain {
        System.out.println("Fourth player : Charles");
        PlayersCards l7=paquetPlayers.tirerCarte();// a players card
        PlayersCards l8=paquetPlayers.tirerCarte(); // this is an epidemic card
-       //todo? faire en sorte que la carte en question soit réellement de type EpidemicCards ?
+       //todo? faire en sorte que la carte en question soit rÃ©ellement de type EpidemicCards ?
        overallInfectionRate ++; // we increase the global rate of infection
        System.out.println("Charles picked an Epidemic card" + l8 + ", he must now pick an Infection card");
        InfectionCards l9=paquetInfection.tirerCarte(); 
@@ -421,9 +393,9 @@ public class pandemicMain {
        System.out.println();
        System.out.println(" healing action");
        System.out.println("Before healing: " + v3);
-       Actions.healDisease(Diseases.RED, v3, pandemicMain.getCubesStocks());//healing method
+       Actions.healDisease(Diseases.RED, v3, cubesStock);//healing method
        System.out.println("After healing: " +v3);
-       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ pandemicMain.getCubesStocks().get(Diseases.RED));
+       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.RED));
        System.out.println();
        System.out.println( " do nothing action");
        Actions.DontDoAnything();// Do nothing action
@@ -433,7 +405,7 @@ public class pandemicMain {
        System.out.println();
        System.out.println();
        
-              System.out.println("Les deux tours sont terminés");
+              System.out.println("Les deux tours sont terminÃ©s");
        
        
        System.out.println();
@@ -445,28 +417,13 @@ public class pandemicMain {
        
 	}
 	
-
-
-	public static HashMap<Diseases, Integer> getCubesStocks() {
-		return cubesStocks;
-	}
-
-	public static int getOverallInfectionRate() {
-		return overallInfectionRate;
-	}
-
-	public static void setOverallInfectionRate(int overallInfectionRate) {
-		pandemicMain.overallInfectionRate = overallInfectionRate;
-	}
-
-
-
+	
 	/**
 	 * Acts everything a player is supposed to do during their turn, except for the action that must be manually acted out after using this method.
 	 * @param currentPlayer the player that will take this turn
 	 * @param currentDeck the PlayersPaquet deck that is currently in use for this game
 	 * 
-	 * NB : cette méthode est améliorable en incluant le message "tour du [n]ième joueur qui est [nom du joueur]" si les parties à codées sont longues et/ou de longueur variable
+	 * NB : cette mÃ©thode est amÃ©liorable en incluant le message "tour du [n]iÃ¨me joueur qui est [nom du joueur]" si les parties Ã  codÃ©es sont longues et/ou de longueur variable
 	 */
 	
 	static void makePlayerTakeATurn(Players currentPlayer, PlayersPaquet currentDeck) {
@@ -480,25 +437,7 @@ public class pandemicMain {
 				   Stack<Cards> hand=currentPlayer.getCardsInHand();
 				   System.out.println(currentPlayer.getName() + " has " + hand.size()+ " cards in his/her hand. \n");
 				   
-				   //si on veut mettre des actions aléatoires et/ou du choix d'actions ça peut être à cet endroit
-	}
-	
-	/** decrements the corresponding cube stock and calls Cities.addCube()
-	 * @param  */
-	static void addCube(Cities city, Diseases diseaseType) {
-		//decrements the stock
-		pandemicMain.decrementStock(diseaseType);
-		
-		//calls Cities.addCube()
-		city.addCube(Diseases.RED);
-	}
-	
-	/** 
-	 * decrements the corresponding cube stock
-	 * */
-	static void decrementStock(Diseases diseaseType) {
-		int newValue = pandemicMain.getCubesStocks().get(diseaseType) ;
-		pandemicMain.getCubesStocks().put(diseaseType,newValue-1); //update
+				   //si on veut mettre des actions alÃ©atoires et/ou du choix d'actions Ã§a peut Ãªtre Ã  cet endroit
 	}
 	
 	

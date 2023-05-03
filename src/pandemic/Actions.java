@@ -91,8 +91,8 @@ public class Actions {
 		 */
 				
 		if (! neighborsList.contains(destination)){
-			System.out.println("the destination is not among the Player's neighboring cities ");
-			//throw new IllegalArgumentException("the destination is not among the Player's neighboring cities ");
+			//System.out.println("the destination is not among the Player's neighboring cities ");
+			throw new IllegalArgumentException("the destination is not among the Player's neighboring cities ");
 		}else {
 		playerToMove.setLocation(destination);
 		System.out.print(playerToMove.getName() + " has been moved to " + destination.getName()+"\n");
