@@ -11,6 +11,8 @@ import java.util.*;
  */
 public class pandemicMain {
 	
+	//int overallInfectionRate = 2;
+	
 	/**
 	 * @param args
 	 * @throws FileNotFoundException
@@ -452,6 +454,19 @@ public class pandemicMain {
 				   //si on veut mettre des actions alÃ©atoires et/ou du choix d'actions Ã§a peut Ãªtre Ã  cet endroit
 	}
 	
+    //Phase d'infection !
+	/*
+    public void infectionPhase() {
+    	ArrayList<InfectionCards> hand = new ArrayList<>();
+    	InfectionPaquet paquetInfection=new InfectionPaquet();//pour le test
+ 	   for (int i=0; i< overallInfectionRate +1; i++) {
+ 	       hand.add(paquetInfection.tirerCarte());
+ 	   }
+ 	   for (int j =0; j< hand.size()+1; j++) {
+ 		   hand[j].getCityName().City.infectionPropagation(hand[j].getDiseaseName());
+ 	   }
+    }
+    */
 	
 	/*
 	private static void put(Players player, MappeMonde map) {
