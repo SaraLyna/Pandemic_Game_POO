@@ -91,8 +91,8 @@ public class Actions {
 		 */
 				
 		if (! neighborsList.contains(destination)){
-			//System.out.println("the destination is not among the Player's neighboring cities ");
-			throw new IllegalArgumentException("the destination is not among the Player's neighboring cities ");
+			System.out.println("the destination is not among the Player's neighboring cities ");
+			//throw new IllegalArgumentException("the destination is not among the Player's neighboring cities ");
 		}else {
 		playerToMove.setLocation(destination);
 		System.out.print(playerToMove.getName() + " has been moved to " + destination.getName()+"\n");
@@ -110,17 +110,23 @@ public class Actions {
 		Stack<Cards> cards= player.getCardsInHand();
 		Cities city = player.getLocation();
 		Iterator<Cards> it= cards.iterator();
+		boolean a = false;
 		while(it.hasNext()) {
 			Cards card = it.next();
 			if (card.getCityName().equals(city.getName())) {
-				city.addResearchCenter();
-				city.isReasearchCenter = true;
-		        player.removeCard(card);
+				if (city.isReasearchCenter == false) {
+					city.addResearchCenter();
+					player.removeCard(card);
+					a = true;
+					System.out.println(player.getName() + " built a research center in " + city.getName()+"\n");
+				}       
 		        break; // Exit the loop once a research center is built
-			}	
-			
-		}		
-		System.out.println(player.getName() + " built a research center in " + city.getName()+"\n");
+			}		
+		}
+		if(a == false) {
+			System.out.println(player.getName() + " did not built a research center in " + city.getName()+"\n");
+		}
+
 	}
 	
 	

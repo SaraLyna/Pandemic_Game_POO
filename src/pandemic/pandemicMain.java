@@ -170,8 +170,20 @@ public class pandemicMain {
        System.out.println();
        System.out.println(Sara.getName()+ " must do 4 actions");
        System.out.println();
-       System.out.println("  moving Action : ");
+      /** System.out.println("  moving Action : ");
        Actions.move(Sara, v2); //allowed because v1 and v2 are neighboring cities
+       System.out.println(" healing Action : ");
+       System.out.println("Before healing: " + v2);
+       DoctorRole.RemoveCubes(Diseases.RED, v2);//retire tous les cubes
+       System.out.println("After healing: " + v2);
+       System.out.println("the number of cubes of the disease red in the cubsStock rises to "+ cubesStock.get(Diseases.RED));
+       System.out.println("  discovering Action : ");
+       Actions.discover(Sara, Diseases.RED);
+       System.out.println(" do nothing Action : ");
+       Actions.DontDoAnything(); //ne fait rien
+       */
+       System.out.println("  moving Action : ");
+       Actions.DontDoAnything(); //allowed because v1 and v2 are neighboring cities
        System.out.println(" healing Action : ");
        System.out.println("Before healing: " + v2);
        DoctorRole.RemoveCubes(Diseases.RED, v2);//retire tous les cubes
