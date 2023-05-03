@@ -23,58 +23,36 @@ public class PlayersPaquet {
 		 * all the cards in the package players
 		 */
 		public void initCards() {
-			this.cards.add(new PlayersCards("ville-19", "rouge"));
-		    this.cards.add(new PlayersCards("ville-23", "rouge"));
-		    this.cards.add(new PlayersCards("ville-24", "rouge"));
-		    this.cards.add(new PlayersCards("ville-25", "rouge"));
-		    this.cards.add(new PlayersCards("ville-29", "rouge"));
-			this.cards.add(new PlayersCards("ville-30", "rouge"));
-			this.cards.add(new PlayersCards("ville-31", "rouge"));
-			this.cards.add(new PlayersCards("ville-35", "rouge"));
-			this.cards.add(new PlayersCards("ville-36", "rouge"));
-			this.cards.add(new PlayersCards("ville-37", "rouge"));
-			this.cards.add(new PlayersCards("ville-42", "rouge"));
-			this.cards.add(new PlayersCards("ville-48", "rouge"));
-			this.cards.add(new PlayersCards("ville-2", "noir"));
-			this.cards.add(new PlayersCards("ville-3", "noir"));
-			this.cards.add(new PlayersCards("ville-8", "noir"));
-			this.cards.add(new PlayersCards("ville-9", "noir"));
-			this.cards.add(new PlayersCards("ville-10", "noir"));
-			this.cards.add(new PlayersCards("ville-14", "noir"));
-			this.cards.add(new PlayersCards("ville-15", "noir"));
-			this.cards.add(new PlayersCards("ville-16", "noir"));
-			this.cards.add(new PlayersCards("ville-20", "noir"));
-			this.cards.add(new PlayersCards("ville-21", "noir"));
-			this.cards.add(new PlayersCards("ville-22", "noir"));
-			this.cards.add(new PlayersCards("ville-27", "noir"));
-			this.cards.add(new PlayersCards("ville-1", "jaune"));
-			this.cards.add(new PlayersCards("ville-5", "jaune"));
-			this.cards.add(new PlayersCards("ville-6", "jaune"));
-			this.cards.add(new PlayersCards("ville-7", "jaune"));
-			this.cards.add(new PlayersCards("ville-12", "jaune"));
-			this.cards.add(new PlayersCards("ville-13", "jaune"));
-			this.cards.add(new PlayersCards("ville-17", "jaune"));
-			this.cards.add(new PlayersCards("ville-18", "jaune"));
-			this.cards.add(new PlayersCards("ville-38", "jaune"));
-			this.cards.add(new PlayersCards("ville-43", "jaune"));
-			this.cards.add(new PlayersCards("ville-44", "jaune"));
-			this.cards.add(new PlayersCards("ville-47", "jaune"));
-			this.cards.add(new PlayersCards("ville-4", "bleu"));
-			this.cards.add(new PlayersCards("ville-11", "bleu"));
-			this.cards.add(new PlayersCards("ville-26", "bleu"));
-			this.cards.add(new PlayersCards("ville-28", "bleu"));
-			this.cards.add(new PlayersCards("ville-32", "bleu"));
-			this.cards.add(new PlayersCards("ville-33", "bleu"));
-			this.cards.add(new PlayersCards("ville-34", "bleu"));
-			this.cards.add(new PlayersCards("ville-39", "bleu"));
-			this.cards.add(new PlayersCards("ville-40", "bleu"));
-			this.cards.add(new PlayersCards("ville-41", "bleu"));
-			this.cards.add(new PlayersCards("ville-45", "bleu"));
-			this.cards.add(new PlayersCards("ville-46", "bleu"));
-			this.cards.add(new EpidemicCards("epidemic","epidemic"));
-			this.cards.add(new EpidemicCards("epidemic","epidemic"));
-			this.cards.add(new EpidemicCards("epidemic","epidemic"));
-			this.cards.add(new EpidemicCards("epidemic","epidemic"));
+			 String[] colors = {"rouge", "noir", "jaune", "bleu"};
+			    String[] redCards = {"ville-19", "ville-23", "ville-24", "ville-25", "ville-29", "ville-30", "ville-31", "ville-35", "ville-36", "ville-37", "ville-42", "ville-48"};
+			    String[] blackCards = {"ville-2", "ville-3", "ville-8", "ville-9", "ville-10", "ville-14", "ville-15", "ville-16", "ville-20", "ville-21", "ville-22", "ville-27"};
+			    String[] yellowCards = {"ville-1", "ville-5", "ville-6", "ville-7", "ville-12", "ville-13", "ville-17", "ville-18", "ville-38", "ville-43", "ville-44", "ville-47"};
+			    String[] blueCards = {"ville-4", "ville-11", "ville-26", "ville-28", "ville-32", "ville-33", "ville-34", "ville-39", "ville-40", "ville-41", "ville-45", "ville-46"};
+			    int[] cardCounts = {redCards.length, blackCards.length, yellowCards.length, blueCards.length};
+			    for (int colorIndex = 0; colorIndex < colors.length; colorIndex++) {
+			        for (int cardIndex = 0; cardIndex < cardCounts[colorIndex]; cardIndex++) {
+			            String cardName = "";
+			            switch (colorIndex) {
+			                case 0:
+			                    cardName = redCards[cardIndex];
+			                    break;
+			                case 1:
+			                    cardName = blackCards[cardIndex];
+			                    break;
+			                case 2:
+			                    cardName = yellowCards[cardIndex];
+			                    break;
+			                case 3:
+			                    cardName = blueCards[cardIndex];
+			                    break;
+			            }
+			            this.cards.add(new PlayersCards(cardName, colors[colorIndex]));
+			        }
+			    }
+			    this.cards.add(new EpidemicCards("epidemic", "epidemic"));
+			    this.cards.add(new EpidemicCards("epidemic", "epidemic"));
+			    this.cards.add(new EpidemicCards("epidemic", "epidemic"));
+			    this.cards.add(new EpidemicCards("epidemic", "epidemic"));
 			
 		}
 	
