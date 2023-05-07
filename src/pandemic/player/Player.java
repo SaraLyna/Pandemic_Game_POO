@@ -3,6 +3,7 @@ import java.util.*;
 
 import pandemic.City;
 import pandemic.Disease;
+import pandemic.Game;
 import pandemic.ResearchCenterException;
 import pandemic.card.Card;
 import pandemic.chooser.RandomListChooser;
@@ -16,19 +17,31 @@ public abstract class Player {
 	protected String name;
 	protected City location;
 	protected ArrayList<Card> CardsInHand; /* the stack of cards in the player's hand */
-						
+	protected Game game; /* the Game instance this player has been created in, will be useful for instance to access the cubesStocks*/
 						//protected  List<Player> thePlayers; //voir si utilisable, pb d'actualisations entre les listes des différents joueurs, pour qu'elles soient synchronisées il faudrait utiliser addPlayer sur chacun des joueurs
 																//ça ferait plus de sens de stocker ça dans Game je pense
+
+	public Game getGame() {
+		return game;
+	}
+
+	/* should be unused for what we're doing*/
+	public void setGame(Game game) {
+		this.game = game;
+	}
+
 
 	/** 
 	 * constructor of the class Players
 	 * @param name
 	 * @param location
+	 * @param game the Game instance this player has been created in
 	 */
-	public Player(String name, City location) {
+	public Player(String name, City location, Game game) {
 		this.name=name;
 		this.location=location;
 		this.CardsInHand = new ArrayList<Card>();
+		this.game = game;
 	}
 	
 
@@ -100,7 +113,7 @@ public abstract class Player {
 	
 	
 	
-	/**
+	/** will be overriden in the Scientist class
      * @param p
      * @param Disease
 	 * check if the city has a Research Center and discover a Cure for a specific disease.
@@ -201,14 +214,16 @@ public abstract class Player {
 	}
 	
 	
-	/**
+	/** will be overriden for the Scientist subclass
 	 *  this method allow to heal a specific disease from a city, will be overriden for the Doctor role
 	 * @param city , the city to heal the disease from
 	 * @param disease, the disease to be healed
 	 * @param cubesStock , the stock of the diseases' cubes
 	 */
-	public void healDisease(Disease disease, City city,HashMap <Disease, Integer> cubesStock){	
+	public void healDisease(Disease disease, City city){	
 		int lastCubes = city.getCubeCount(disease);// number of cubes of the Disease disease
+		 HashMap<Disease, Integer> cubesStock = this.getGame().getCubesStocks(); /*reference to the attribute in Game*/
+		
 		 if (lastCubes == 0) {
 		    System.out.println("There is no cubes of the disease " + disease.getDiseaseName() + " in the city "+ city.getName() + " anymore" );
 		    return;

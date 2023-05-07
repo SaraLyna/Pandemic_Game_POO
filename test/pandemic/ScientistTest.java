@@ -6,7 +6,7 @@ import pandemic.card.Card;
 import pandemic.card.PlayersCards;
 import pandemic.player.Player;
 import pandemic.player.Roles;
-import pandemic.player.ScientistRole;
+import pandemic.player.Scientist;
 
 import static org.junit.Assert.*;
 
@@ -32,14 +32,14 @@ public class ScientistTest {
 		player1.addCard(card3);
 		
 		// vérifie qu'une maladie ne peut pas etre guérie si le joueur n'est pas dans une ville avec un centre de recherche
-		ScientistRole.discoverCure(player1, disease1);
+		Scientist.discoverCure(player1, disease1);
 		assertFalse(disease1.isCured());
 		assertFalse(disease2.isCured());	
 		
 		//deplacer un joueur dans une ville qui contient un centre de recherche 
 		city1.addResearchCenter();
 		
-		ScientistRole.discoverCure(player1, disease1);
+		Scientist.discoverCure(player1, disease1);
 		assertFalse(disease1.isCured());
 		assertFalse(disease2.isCured());
 		
@@ -52,7 +52,7 @@ public class ScientistTest {
 		player1.addCard(card8);
 
 		
-		ScientistRole.discoverCure(player1, disease1);
+		Scientist.discoverCure(player1, disease1);
 		assertTrue(disease1.isCured());
 		assertFalse(disease2.isCured());
 		
@@ -65,7 +65,7 @@ public class ScientistTest {
 
 	@Test
     public void testFindRemedy() {
-        ScientistRole scientist = new ScientistRole("Scientist",4);
+        Scientist scientist = new Scientist("Scientist",4);
         List<Card> hand = new ArrayList<>();
         hand.add(new PlayersCards("ville-11", "rouge"));
         hand.add(new PlayersCards("ville-44", "rouge"));

@@ -1,5 +1,6 @@
 package pandemic.player;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Stack;
@@ -12,13 +13,12 @@ import pandemic.card.Card;
  * this class represents the action of the Scientist
  *
  */
-class ScientistRole extends Actions{
+class Scientist extends Player {
 	/**
 	il a besoin de disposer que de 4 cartes joueur d’une même maladie pour découvrir
 	un remède. C’est donc en relation avec l’action découvrir un remède
 	 */
 	
-	private String name="Scientist";
 	private int handSize=4;
 	
 	/**
@@ -26,9 +26,8 @@ class ScientistRole extends Actions{
 	 * @param name
 	 * @param handSize
 	 */
-	public ScientistRole (String name, int handSize) {
-		super();
-		this.name=name;
+	public Scientist (String name, City city, int handSize) {
+		super(name,city);
 		this.handSize=handSize;
 	}
 	
@@ -100,14 +99,15 @@ class ScientistRole extends Actions{
 	
 	
 	/**
-	 * @param hand
 	 * @param diseases
 	 * @param diseaseToCure
 	 * @return a boolean
 	 * méthode findRemedy qui permettrait de trouver un remede pour une maladie donnée 
 	 * en utilisant la méthode discoverCure définie plus haut 
 	 */
-	public boolean findRemedy(List<Card> hand, List<Disease> diseases, Disease diseaseToCure) {
+	public boolean healDisease(Disease disease, City city) {
+		
+		ArrayList<Card> hand = this.getCardsInHand();
 	    // Vérifier si le scientifique a la bonne maladie
 	    if (!hand.get(0).getDiseaseName().equals(diseaseToCure.getDiseaseName())) {
 	        return false;
