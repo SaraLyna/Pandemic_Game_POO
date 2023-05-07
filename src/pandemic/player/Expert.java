@@ -7,22 +7,19 @@ import pandemic.ResearchCenterException;
  * this class represents the action of the Expert
  *
  */
-public class ExpertRole extends Actions {
+public class Expert extends Player {
 	/**
 	c'est en relation avec l'action construire
 	il n’a pas besoin de disposer de carte joueur pour construire une station
 	 */
-	
-	private String name;
 	
 	/**
 	 * constructor of the class ExpertRole
 	 * @param name
 	 * @param city
 	 */
-	public ExpertRole(String name, City city) {
-		super();	
-		this.setName(name);
+	public Expert(String name, City city) {
+		super(name,city);
 	}
 	
 	
@@ -31,14 +28,15 @@ public class ExpertRole extends Actions {
 	 * this method builds a research station without a card to build it
 	 * and if there is already a station it throws an exception
 	 */
-	public static void BuildStationWoCard(	City city) throws ResearchCenterException {
-		if(! city.isResearchCenter()) {
-			city.addResearchCenter();
-			System.out.println("A new research station was built by the expert in :" + city.getName());
+	public void BuildStationWoCard() throws ResearchCenterException {
+		City currentLocation = this.getLocation();
+		if(! currentLocation.isResearchCenter()) {
+			currentLocation.addResearchCenter();
+			System.out.println("A new research station was built by the expert in :" + currentLocation.getName());
 		}
 		else {
-			System.out.println("this city already has a research center");
-			//throw new ResearchCenterException("this city already has a research station");
+			//System.out.println("this city already has a research center");
+			throw new ResearchCenterException("this city already has a research station");
 		}	
 	}
 	

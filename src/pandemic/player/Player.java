@@ -3,6 +3,7 @@ import java.util.*;
 
 import pandemic.City;
 import pandemic.Disease;
+import pandemic.ResearchCenterException;
 import pandemic.card.Card;
 import pandemic.chooser.RandomListChooser;
 
@@ -105,11 +106,11 @@ public abstract class Player {
 	 * check if the city has a Research Center and discover a Cure for a specific disease.
 	 * Then discard the 5 players cards.
      */
-    public void discover(Player p, Disease Disease){
+    public void discover(Disease Disease){
 		//TODO IMPLEMENTER RANDOMLISTCHOOSER DANS CETTE METHODE POUR AUTOMATISER
     	int cpt = 0;
-		ArrayList<Card> hand = p.getCardsInHand();
-		City city = p.getLocation();
+		ArrayList<Card> hand = this.getCardsInHand();
+		City city = this.getLocation();
 		if (city.isResearchCenter()){
 			Iterator<Card> it = hand.iterator();
 			while (it.hasNext()) {	
@@ -123,17 +124,17 @@ public abstract class Player {
 				while (it.hasNext()) {
 					Card card = it.next();
 					if(card.getDiseaseName()==Disease.getDiseaseName()) {
-						p.removeCard(card);
+						this.removeCard(card);
 					}
 				}
 			System.out.println("A cure has been found for the disease " + Disease.getDiseaseName());
 			}
 			else {
-				System.out.println(p + " has not enough cards to cure the disease " + Disease.getDiseaseName());
+				System.out.println(this + " has not enough cards to cure the disease " + Disease.getDiseaseName());
 			}
 		}
 		else {
-			System.out.println(p + ", please build a research Center to discover a Cure for the disease " + Disease.getDiseaseName());
+			System.out.println(this + ", please build a research Center to discover a Cure for the disease " + Disease.getDiseaseName());
 		}
     }
 	
@@ -145,14 +146,14 @@ public abstract class Player {
 	 * @throws IllegalArgumentException see above
 	 * Calls setLocation() on a random location among the neighboring cities.
 	 */
-	public void move(Player playerToMove) throws IllegalArgumentException {
+	public void move() throws IllegalArgumentException {
 		
 		/* note : if we want to add the possibility of using an InputListChooser we need a boolean somewhere that is retrieved by this function to use the correct ListChooser*/
 		
-		List<City> neighborsList = playerToMove.getLocation().getNeighbors();	
+		List<City> neighborsList = this.getLocation().getNeighbors();	
 		
 		RandomListChooser<City> rlc = new RandomListChooser<>();
-		City chosenCity = rlc.choose("A city will be chosen randomly for the player " + playerToMove + " to move.",neighborsList); /* we use the random list chooser to automatically pick a city*/
+		City chosenCity = rlc.choose("A city will be chosen randomly for the player " + this + " to move.",neighborsList); /* we use the random list chooser to automatically pick a city*/
 				
 		/* code à supprimer vu que le randomListChooser est ici cantonné à neighborsList
 			if (! neighborsList.contains(destination)){
@@ -163,8 +164,8 @@ public abstract class Player {
 							//choose("false destination", neighborsList);
 			}else {*/
 		
-		playerToMove.setLocation(chosenCity);
-		System.out.print(playerToMove + " has been moved to " + chosenCity.getName()+"\n"); /*here "playerToMove" will output the players name via toString*/
+		this.setLocation(chosenCity);
+		System.out.print(this + " has been moved to " + chosenCity.getName()+"\n"); /*here "playerToMove" will output the players name via toString*/
 	}
 	
 	
@@ -174,11 +175,11 @@ public abstract class Player {
 	 * this action consist to build a research center
 	 * in the same city where the player card is
 	 */
-	public void construct( Player player) {
+	public void construct() throws ResearchCenterException {
 		
 		//TODO IMPLEMENTER RANDOMLISTCHOOSER DANS CETTE METHODE POUR AUTOMATISER
-		ArrayList<Card> cards= player.getCardsInHand();
-		City city = player.getLocation();
+		ArrayList<Card> cards= this.getCardsInHand();
+		City city = this.getLocation();
 		Iterator<Card> it= cards.iterator();
 		boolean a = false;
 		while(it.hasNext()) {
@@ -186,15 +187,15 @@ public abstract class Player {
 			if (card.getCityName().equals(city.getName())) {
 				if (city.isResearchCenter() == false) {
 					city.addResearchCenter();
-					player.removeCard(card);
+					this.removeCard(card);
 					a = true;
-					System.out.println(player + " built a research center in " + city.getName()+"\n");
+					System.out.println(this + " built a research center in " + city.getName()+"\n");
 				}       
 		        break; // Exit the loop once a research center is built
 			}		
 		}
 		if(a == false) {
-			System.out.println(player + " did not built a research center in " + city.getName()+"\n");
+			System.out.println(this + " did not built a research center in " + city.getName()+"\n");
 		}
 
 	}
@@ -239,88 +240,5 @@ public abstract class Player {
 	public void DontDoAnything(){ 
 		System.out.println(this + "does not do anything"); /* this will use toString*/
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/**
-	 * 
-	 * 	
-	 * 
-	 * 
-	 * 
-	 * @return the list of the Players
-
-	public List<Player> getPlayers(){
-		return this.thePlayers;
-	}
-	
-
-	
-
-
-	 * @param player
-	 * add a player in the game
-
-	public void addPlayer(Player player) {
-		this.getPlayers().add(player);
-	}
-
-
-
-	
-	/**
-	 *this method allows to discard a card from the player's stack cards if the stack 's size (number of cards it contains) extends 7 (MAX)
-	 
-	public void discard() {	
-		
-		this.CardsInHand.remove(this.CardsInHand[0]);
-	}
-	
-	 	 */
 
 }

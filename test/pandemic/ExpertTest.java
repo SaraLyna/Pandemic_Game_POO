@@ -5,7 +5,7 @@ package pandemic;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import pandemic.player.ExpertRole;
+import pandemic.player.Expert;
 
 /**
  * @author Sara Lyna
@@ -27,15 +27,15 @@ public class ExpertTest {
 	//ExpertRole expert3= new ExpertRole("Bob", ville4);
 	
 	assertFalse(ville4.isResearchCenter());
-    ExpertRole.BuildStationWoCard(ville1);
+    Expert.BuildStationWoCard(ville1);
     assertTrue(ville1.isResearchCenter());
     
     assertFalse(ville4.isResearchCenter());
-    ExpertRole.BuildStationWoCard(ville2);
+    Expert.BuildStationWoCard(ville2);
     assertTrue(ville2.isResearchCenter());
     
     assertFalse(ville4.isResearchCenter());
-    ExpertRole.BuildStationWoCard(ville4);
+    Expert.BuildStationWoCard(ville4);
     assertTrue(ville4.isResearchCenter());
     
     

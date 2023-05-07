@@ -193,7 +193,7 @@ public class City {
 	 * et met le booleen a true
 	 */
 	public void addResearchCenter() {
-		this.isReasearchCenter = true;
+		this.isResearchCenter = true;
 	}
     
 	
