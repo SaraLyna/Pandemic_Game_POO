@@ -143,9 +143,9 @@ public class Game {
 				   currentPlayer.addCard(l1);
 				   currentPlayer.addCard(l2);
 				   
-				   System.out.println("Player " + currentPlayer.getName() + " "+ l1.toString() + " and "+ l2.toString());
-				   Stack<Card> hand=currentPlayer.getCardsInHand();
-				   System.out.println(currentPlayer.getName() + " has " + hand.size()+ " cards in his/her hand. \n");
+				   System.out.println("Player " + currentPlayer + " "+ l1.toString() + " and "+ l2.toString());
+				   ArrayList<Card> hand=currentPlayer.getCardsInHand();
+				   System.out.println(currentPlayer + " has " + hand.size()+ " cards in his/her hand. \n");
 				   
 				   //si on veut mettre des actions alÃ©atoires et/ou du choix d'actions Ã§a peut Ãªtre Ã  cet endroit
 	}

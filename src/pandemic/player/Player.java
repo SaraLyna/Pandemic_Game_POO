@@ -32,10 +32,10 @@ public abstract class Player {
 	
 
 	/**
-	 * Getter of the class Players
+	 * This method overrides toString method and is a getter of the "name" attribute
 	 * @return the name of the player
 	 */
-	public String getName() {
+	public String toString() {
 		return this.name;
 	}
 	
@@ -172,7 +172,7 @@ public abstract class Player {
 			}else {*/
 		
 		playerToMove.setLocation(chosenCity);
-		System.out.print(playerToMove.getName() + " has been moved to " + chosenCity.getName()+"\n");
+		System.out.print(playerToMove + " has been moved to " + chosenCity.getName()+"\n"); /*here "playerToMove" will output the players name via toString*/
 	}
 	
 	
@@ -196,13 +196,13 @@ public abstract class Player {
 					city.addResearchCenter();
 					player.removeCard(card);
 					a = true;
-					System.out.println(player.getName() + " built a research center in " + city.getName()+"\n");
+					System.out.println(player + " built a research center in " + city.getName()+"\n");
 				}       
 		        break; // Exit the loop once a research center is built
 			}		
 		}
 		if(a == false) {
-			System.out.println(player.getName() + " did not built a research center in " + city.getName()+"\n");
+			System.out.println(player + " did not built a research center in " + city.getName()+"\n");
 		}
 
 	}
@@ -245,7 +245,7 @@ public abstract class Player {
 	 * 
 	 */
 	public void DontDoAnything(){ 
-		System.out.println(this + "does not do anything");
+		System.out.println(this + "does not do anything"); /* this will use toString*/
 	}
 	
 	

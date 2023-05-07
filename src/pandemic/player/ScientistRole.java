@@ -33,13 +33,7 @@ class ScientistRole extends Actions{
 	}
 	
 	
-	/**
-	 * @return name
-	 */
-	public String getName() {
-		return this.name;
-	}
-	
+
 	
 	/**
 	 * @return the number of cards ih the hand of the player ==4
