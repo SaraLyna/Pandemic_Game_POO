@@ -1,7 +1,12 @@
 package pandemic.player;
 //import java.util.Scanner;
 
+import java.util.Arrays;
+import java.util.List;
+
 import pandemic.City;
+import pandemic.Game;
+import pandemic.chooser.RandomListChooser;
 
 /**
  * this class represent the action of the GlobetRotter
@@ -19,8 +24,8 @@ class Globetrotter extends Player {
 		 * @param name
 		 * @param city
 		 */
-		public Globetrotter(String name, City city) {
-			super(name,city);
+		public Globetrotter(String name, City city, Game game) {
+			super(name,city,game);
 		}
 		
 		/** overrides the base method from Player
@@ -28,35 +33,16 @@ class Globetrotter extends Player {
 		 * @param playerToMove; the player who has this role
 		 * @param destination; the city chosen by the player
 		 */
-		public static void move(Player playerToMove, City destination) {		
-			/* le code ci-dessous est à décommenter si l'on veut récupérer l'input de l'utilisateur et/ou afficher les possibilités pour les villes
-			public static void move(Players playerToMove, MappeMonde map) {	
-						Cities[] citiesList = map.getVilles();					
-						System.out.print("What city do you want to travel to ? Enter the number.");
-						
-						for(int i = 0; i< citiesList.length;i++) {
-							System.out.print(
-									(i+1) + "\t" + citiesList[i].getName() + "\n" ); //si erreur ici il faudra caster i+1 vers string
-						}		
-						//get number
-						Scanner scanner = new Scanner(System.in);
-						
-						int input=1; //initialization to avoid warnings, should be overriden when input is read
-						boolean inputNeeded = true;
-						while (inputNeeded) {
-							input = scanner.nextInt(); //get input from user
-							if (input > citiesList.length) {
-								System.out.print("Invalid number, try again.");
-							} else {
-								inputNeeded = false; //end loop
-							}
-						}
-						destination = citiesList[input-1];
-						scanner.close(); //to avoid ressource leak
-						*/
-	
-			playerToMove.setLocation(destination);
-			System.out.print(playerToMove + " has been moved to " + destination.getName() + ".");
+		public void move() throws IllegalArgumentException {
+			
+			RandomListChooser<City> rlc = new RandomListChooser<>();
+			City allCitiesArray[] = this.getGame().getMap().getCities();
+			List<City> allCitiesList = Arrays.asList(allCitiesArray); /*conversion to an ArrayList to feed it to ListChooser*/
+			
+			
+			City destination = rlc.choose("A city will be chosen randomly for the player " + this + " to move.",allCitiesList); /* we use the random list chooser to automatically pick a city*/
+			this.setLocation(destination);
+			System.out.print(this + " has been moved to " + destination.getName() + ".");
 
 		}
 

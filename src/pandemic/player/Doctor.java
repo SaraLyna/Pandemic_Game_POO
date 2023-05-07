@@ -2,6 +2,7 @@ package pandemic.player;
 
 import pandemic.City;
 import pandemic.Disease;
+import pandemic.Game;
 
 /**
  * this class represent players that have the Doctor role

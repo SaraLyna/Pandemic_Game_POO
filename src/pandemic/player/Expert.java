@@ -1,6 +1,7 @@
 package pandemic.player;
 
 import pandemic.City;
+import pandemic.Game;
 import pandemic.ResearchCenterException;
 
 /**
@@ -18,8 +19,8 @@ public class Expert extends Player {
 	 * @param name
 	 * @param city
 	 */
-	public Expert(String name, City city) {
-		super(name,city);
+	public Expert(String name, City city, Game game) {
+		super(name,city,game);
 	}
 	
 	

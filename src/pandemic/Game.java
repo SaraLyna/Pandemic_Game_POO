@@ -29,6 +29,16 @@ public class Game {
 	protected Stack<PlayersCards> playersStack;
 	/** the map object created from the json file*/
 	protected MappeMonde map;
+	
+	public MappeMonde getMap() {
+		return map;
+	}
+
+	/* should be unused*/
+	public void setMap(MappeMonde map) {
+		this.map = map;
+	}
+
 	/** HashMap linking the amounts of disease cubes in stock for each disease. If any of them drops down to 0, the game is lost.
 	  * keys : a given disease from the Disease enum
 	  * values : the number of cubes left for that disease */
@@ -135,15 +145,6 @@ public class Game {
 	 * 
 	 * NB : cette mÃ©thode est amÃ©liorable en incluant le message "tour du [n]iÃ¨me joueur qui est [nom du joueur]" si les parties Ã  codÃ©es sont longues et/ou de longueur variable
 	 */
-	
-	
-	
-	 /**
-	 * @param name
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}	
 	
 	static void makePlayerTakeATurn(Player currentPlayer, PlayersPaquet currentDeck) {
 					PlayersCards l1=currentDeck.tirerCarte();
