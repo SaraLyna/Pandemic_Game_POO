@@ -4,10 +4,10 @@ import pandemic.City;
 import pandemic.Disease;
 
 /**
- * this class represent the action of the Doctor
+ * this class represent players that have the Doctor role
  */
 
-public class DoctorRole extends Actions {
+public class Doctor extends Player {
 	/**
 	c'est en relation avec l'action traiter une maladie	
 	action traiter une maladie:peut retirer tous les cubes maladie en une seule fois meme sans remède
@@ -15,8 +15,9 @@ public class DoctorRole extends Actions {
 	cubes dès qu’il passe dans une ville où il existe des cubes d’une maladie guérie, sans que cela compte pour une action
 	 */
 	
+	/* pas besoin normalement avec l'héritage
 	private String name;
-	private City city;
+	private City city;*/
 	
 	
 	/**
@@ -24,27 +25,17 @@ public class DoctorRole extends Actions {
 	 * @param name
 	 * @param city
 	 */
-	public DoctorRole(String name, City city) {
-		super();
-		this.setName(name);
-		this.city=city;
+	public Doctor(String name, City city) {
+		super(name, city);
 	}
 	
 	
-	/**
-	 * @return a city
-	 */
-	public City getCity() {
-		return this.city;
-	}
-	
-	
-	/**
+	/** overrides bc special role
 	 * @param disease
 	 * retire les cubes d'une maladie dans une ville
 	 * tout en réduisant le taux d'infection
 	 */
-	public static void RemoveCubes(Disease disease, City city) {
+	public static void healDisease(Disease disease, City city) {
 		//Cities city=getCity();
 		int diseaseCubes= city.getCubeCount(disease);
 		for(int i= 0; i < diseaseCubes; i++) {
@@ -52,21 +43,5 @@ public class DoctorRole extends Actions {
 		}
 		System.out.println("The doctor removes all cubes of the disease " + disease.getDiseaseName() + " from the city "+ city.getName() );
 	}
-
-	
-	/**
-	 * @return name of the doctor
-	 */
-	public String getName() {
-		return name;
-	}
-
-	
-	/**
-	 * @param name
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}	
 
 }

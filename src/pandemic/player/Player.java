@@ -12,9 +12,9 @@ import pandemic.chooser.RandomListChooser;
  * No Player object must be instantiated, use one of the availaible roles. (see child classes)
  */
 public abstract class Player {
-	private String name;
-	private City location;
-	private ArrayList<Card> CardsInHand; /* the stack of cards in the player's hand */
+	protected String name;
+	protected City location;
+	protected ArrayList<Card> CardsInHand; /* the stack of cards in the player's hand */
 						
 						//protected  List<Player> thePlayers; //voir si utilisable, pb d'actualisations entre les listes des différents joueurs, pour qu'elles soient synchronisées il faudrait utiliser addPlayer sur chacun des joueurs
 																//ça ferait plus de sens de stocker ça dans Game je pense
@@ -47,15 +47,7 @@ public abstract class Player {
 		return this.location;
 	}
 	
-	
-	/**
-	 *this method allows to discard a card from the player's stack cards if the stack 's size (number of cards it contains) extends 7 (MAX)
-	 
-	public void discard() {	
-		
-		this.CardsInHand.remove(this.CardsInHand[0]);
-	}
-	*/
+
 	
 	
 	/**
@@ -209,7 +201,7 @@ public abstract class Player {
 	
 	
 	/**
-	 *  this method allow to heal a specific disease from a city
+	 *  this method allow to heal a specific disease from a city, will be overriden for the Doctor role
 	 * @param city , the city to heal the disease from
 	 * @param disease, the disease to be healed
 	 * @param cubesStock , the stock of the diseases' cubes
@@ -318,6 +310,17 @@ public abstract class Player {
 		this.getPlayers().add(player);
 	}
 
+
+
+	
+	/**
+	 *this method allows to discard a card from the player's stack cards if the stack 's size (number of cards it contains) extends 7 (MAX)
+	 
+	public void discard() {	
+		
+		this.CardsInHand.remove(this.CardsInHand[0]);
+	}
+	
 	 	 */
 
 }

@@ -136,6 +136,15 @@ public class Game {
 	 * NB : cette mÃ©thode est amÃ©liorable en incluant le message "tour du [n]iÃ¨me joueur qui est [nom du joueur]" si les parties Ã  codÃ©es sont longues et/ou de longueur variable
 	 */
 	
+	
+	
+	 /**
+	 * @param name
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}	
+	
 	static void makePlayerTakeATurn(Player currentPlayer, PlayersPaquet currentDeck) {
 					PlayersCards l1=currentDeck.tirerCarte();
 				   PlayersCards l2=currentDeck.tirerCarte();
