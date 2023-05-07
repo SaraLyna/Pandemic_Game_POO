@@ -23,13 +23,15 @@ public class RandomListChooser<T> implements ListChooser<T> {
 		if (list.isEmpty()) {
 			return null;
 		}
-		System.out.println(msg);
-		System.out.print("[0 - none");
+		System.out.println(msg+"\n");
+		//System.out.print("[0 - none");//à décommenter pour avoir la version ancienne
+		System.out.print("0 - none\n");
 		int index = 1;
 		for (T element : list) {
-			System.out.print(", " + (index++) + " - " + element);
+			System.out.print((index++) + " - " + element + "\n" );//version avec passages à la ligne
+			//System.out.print(", " + (index++) + " - " + element);		//à décommenter pour avoir la version ancienne
 		}
-		System.out.println("]");
+		//System.out.println("]"); //à décommenter pour avoir la version ancienne
 		return list.get(random.nextInt(list.size()));
 	}
 
