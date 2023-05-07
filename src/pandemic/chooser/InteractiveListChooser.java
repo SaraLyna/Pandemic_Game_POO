@@ -4,6 +4,8 @@ import java.util.List;
 
 import pandemic.chooser.util.Input;
 
+/* A NE PAS UTILISER TANT QUE RandomListCHooser N'EST PAS IMPLEMENTE PARTOUT*/
+
 public class InteractiveListChooser<T> implements ListChooser<T> {
 
 	/**
