@@ -62,10 +62,12 @@ public class Actions {
 	 * @param playerToMove the player to be moved
 	 * @param destination the wanted destination
 	 * @throws IllegalArgumentException see above
-	 * Calls setLocation() on the Player passed in parameters,
-	 *  throws an exception if the destination is not among the Player's neighboring cities.
+	 * Calls setLocation() on a random location among the neighboring cities.
 	 */
-	public static void move(Players playerToMove, Cities destination) throws IllegalArgumentException {
+	public static void move(Players playerToMove) throws IllegalArgumentException {
+		
+		/* note : if we want to add the possibility of using an InputListChooser we need a boolean somewhere that is retrieved by this function to use the correct ListChooser*/
+		
 		List<Cities> neighborsList = playerToMove.getLocation().getNeighbors();	
 		
 		RandomListChooser<Cities> rlc = new RandomListChooser<>();

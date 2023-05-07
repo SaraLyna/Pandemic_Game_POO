@@ -70,13 +70,13 @@ public class ActionsTest {
 		assertEquals(6,player1.getCardsInHand().size());
 		}
 	
-	
+	/* tests obsolètes pour un move() où la destination est choisie aléatoirement
 	
 	// pour la méthode move , il nous faut prévoir deux tests différents , car le joueur est susceptible d'entrer une destination invalide , 
 	// on crée donc un test pour un move avec une destination valide , et l'autre pour un move vers une destination invalide  
 	@Test
 	public void testMoveValid() {
-		Cities city1=new Cities("vile-11","3");
+		Cities city1=new Cities("ville-11","3");
 		Cities city2= new Cities("ville-44","2");
 		Cities city3= new Cities("ville-16","1");
 		city1.neighbors.add(city2);
@@ -89,7 +89,7 @@ public class ActionsTest {
 	}
 	@Test
 	public void testMoveInvalid() {
-		Cities city1=new Cities("vile-11","3");
+		Cities city1=new Cities("ville-11","3");
 		Cities city2= new Cities("ville-44","2");
 		Cities city3= new Cities("ville-16","1");
 		city1.neighbors.add(city2) ;
@@ -106,10 +106,11 @@ public class ActionsTest {
 			}
 		assertEquals(city1,player.getLocation());
 	}
+	*/
 	
 	@Test
 	public void testConstruct() {
-		Cities city1=new Cities("vile-11","3");
+		Cities city1=new Cities("ville-11","3");
 		Cities city2= new Cities("ville-44","2");
 		
 		Players player = new Players ("Samuel", Roles.GlobetRotter,city2);
