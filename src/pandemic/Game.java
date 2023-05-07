@@ -48,7 +48,12 @@ public class Game {
 		
 		cubeStocks = new HashMap<Disease,Integer>();
 		
-		//TODO TOUT INITIALISER AVEC GENRE pandemicMain.getCubesStocks().put(Diseases.BLUE, 24); 
+		//init cubeStocks for each disease
+		Disease everyDisease[] = Disease.values(); 
+		//will be [BLUE, RED, YELLOW, BLACK] for the classic game
+		for(Disease d:everyDisease) {
+			this.getCubesStocks().put(d, 24);
+		}
 		
 		if ( (numPlayers<2) || (numPlayers>4) ) {
 			System.out.println("Error : invalid number of players"); //TODO facultatif : mettre ça en exception
