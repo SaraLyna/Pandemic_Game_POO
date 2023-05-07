@@ -9,24 +9,23 @@ import pandemic.card.Card;
  * cette classe représente les joueurs
  *
  */
-public class Player {
+public abstract class Player {
 	private String name;
-	private Roles role;
 	private City location;
-	private Stack<Card> CardsInHand; /* the stack of cards in the player's hand */
-	protected  List<Player> thePlayers;
+	private ArrayList<Card> CardsInHand; /* the stack of cards in the player's hand */
+						
+						//protected  List<Player> thePlayers; //voir si utilisable, pb d'actualisations entre les listes des différents joueurs, pour qu'elles soient synchronisées il faudrait utiliser addPlayer sur chacun des joueurs
+																//ça ferait plus de sens de stocker ça dans Game je pense
 
 	/** 
 	 * constructor of the class Players
 	 * @param name
-	 * @param role
 	 * @param location
 	 */
-	public Player(String name, Roles role, City location) {
+	public Player(String name, City location) {
 		this.name=name;
-		this.role=role;
 		this.location=location;
-		this.CardsInHand = new Stack<Card>();
+		this.CardsInHand = new ArrayList<Card>();
 	}
 	
 
@@ -36,15 +35,6 @@ public class Player {
 	 */
 	public String getName() {
 		return this.name;
-	}
-	
-	
-	/**
-	 * getter of the class Players
-	 * @return the role of the player
-	 */
-	public Roles getRole() {
-		return this.role;
 	}
 	
 	/**
@@ -58,22 +48,23 @@ public class Player {
 	
 	/**
 	 *this method allows to discard a card from the player's stack cards if the stack 's size (number of cards it contains) extends 7 (MAX)
-	 */
-	public void discard() {		
-		this.CardsInHand.pop();
+	 
+	public void discard() {	
+		
+		this.CardsInHand.remove(this.CardsInHand[0]);
 	}
+	*/
 	
 	
 	/**
-	 * defausse la carte de la main du joueur ,
-	 * new version
+	 * defausse la carte demandée de la main du joueur
 	 */
 	public void removeCard(Card c) {
 		Iterator<Card> it= CardsInHand.iterator();
 		while(it.hasNext()) {
 			Card card = it.next();
 			if(card.getCityName()==c.getCityName()) {
-		        it.remove();
+				it.remove();
 			}		
 		}
 	}
@@ -83,7 +74,7 @@ public class Player {
 	 * Getter of the class Players
 	 * @return the player's hand of cards
 	 */
-	public Stack<Card> getCardsInHand() {
+	public ArrayList<Card> getCardsInHand() {
 	    return this.CardsInHand;
 	}
 
@@ -91,7 +82,7 @@ public class Player {
 	 * Setter of the class Players
 	 * @param cardsInHand the new stack of cards in the player's hand
 	 */
-	public void setCardsInHand(Stack<Card> cardsInHand) {
+	public void setCardsInHand(ArrayList<Card> cardsInHand) {
 	    this.CardsInHand = cardsInHand;
 	}
 	
@@ -103,31 +94,39 @@ public class Player {
 	public void setLocation(City city) {
 		this.location = city;
 	}
+	
 	 /**
 	  * add a card in the hand of the player 
 	 * @param c
 	 */
 	public void addCard(Card c ) { 
-		 this.CardsInHand.push(c); 
+		 this.CardsInHand.add(c); 
 	}
 	
 	
 	/**
+	 * 
+	 * 	
+	 * 
+	 * 
+	 * 
 	 * @return the list of the Players
-	 */
+
 	public List<Player> getPlayers(){
 		return this.thePlayers;
 	}
 	
+
 	
-	/**
+
+
 	 * @param player
 	 * add a player in the game
-	 */
+
 	public void addPlayer(Player player) {
 		this.getPlayers().add(player);
 	}
 
-	 
+	 	 */
 
 }
