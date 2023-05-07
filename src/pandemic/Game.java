@@ -3,11 +3,11 @@ package pandemic;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-import pandemic.card.Cards;
+import pandemic.card.Card;
 import pandemic.card.InfectionCards;
 import pandemic.card.PlayersCards;
 import pandemic.card.PlayersPaquet;
-import player.Players;
+import pandemic.player.Player;
 
 /* TODO déplacer toutes les méthodes de main ici, et rédiger le reste*/
 
@@ -27,7 +27,11 @@ public class Game {
 	protected int GlobalInfectionRate;
 	protected Stack<InfectionCards> infectionStack;
 	protected Stack<PlayersCards> playersStack;
+	/** the map object created from the json file*/
 	protected MappeMonde map;
+	/** HashMap linking the amounts of disease cubes in stock for each disease. If any of them drops down to 0, the game is lost.
+	  * keys : a given disease from the Disease enum
+	  * values : the number of cubes left for that disease */
 	protected HashMap<Disease, Integer> cubeStocks;
 	
 	
@@ -42,8 +46,9 @@ public class Game {
 	public Game (String mapFile, int numPlayers, int GlobalInfectionRate) throws FileNotFoundException{
 		this.GlobalInfectionRate=GlobalInfectionRate;
 		
-		cubeStocks = new HashMap<Diseases,Integer>();
-		TODO INITIALISER
+		cubeStocks = new HashMap<Disease,Integer>();
+		
+		//TODO TOUT INITIALISER AVEC GENRE pandemicMain.getCubesStocks().put(Diseases.BLUE, 24); 
 		
 		if ( (numPlayers<2) || (numPlayers>4) ) {
 			System.out.println("Error : invalid number of players"); //TODO facultatif : mettre ça en exception
@@ -51,19 +56,13 @@ public class Game {
 		
 		this.map = new MappeMonde(mapFile);
 		
-		//TODO créer [playerNumber] joueurs
+		//TODO créer [playerNumber] objets joueurs
+		for (int i=0;i<numPlayers;i++) {
+			//TODO créer un objet joueur
+		}
 		
 
 		
-	}
-
-	
-	/**
-	 * @return null
-	 */
-	public static Iterator<String> keys() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 	
 	
@@ -91,6 +90,10 @@ public class Game {
 	
 	}
 	
+	public HashMap<Disease, Integer> getCubesStocks() {
+		return this.cubeStocks;
+	}
+	
 	
 	
 	
@@ -109,7 +112,7 @@ public class Game {
 	 * NB : cette mÃ©thode est amÃ©liorable en incluant le message "tour du [n]iÃ¨me joueur qui est [nom du joueur]" si les parties Ã  codÃ©es sont longues et/ou de longueur variable
 	 */
 	
-	static void makePlayerTakeATurn(Players currentPlayer, PlayersPaquet currentDeck) {
+	static void makePlayerTakeATurn(Player currentPlayer, PlayersPaquet currentDeck) {
 					PlayersCards l1=currentDeck.tirerCarte();
 				   PlayersCards l2=currentDeck.tirerCarte();
 				   
@@ -117,7 +120,7 @@ public class Game {
 				   currentPlayer.addCard(l2);
 				   
 				   System.out.println("Player " + currentPlayer.getName() + " "+ l1.toString() + " and "+ l2.toString());
-				   Stack<Cards> hand=currentPlayer.getCardsInHand();
+				   Stack<Card> hand=currentPlayer.getCardsInHand();
 				   System.out.println(currentPlayer.getName() + " has " + hand.size()+ " cards in his/her hand. \n");
 				   
 				   //si on veut mettre des actions alÃ©atoires et/ou du choix d'actions Ã§a peut Ãªtre Ã  cet endroit
@@ -133,7 +136,15 @@ public class Game {
 				|| this.playersStack.size() < 2);	
 	}
 	
-	*/
+	
+		/**
+	 * @return null
+	 
+	public static Iterator<String> keys() {
+		// TODO Auto-generated method stub
+		return null;
+	}*/
+	
 
 
 
