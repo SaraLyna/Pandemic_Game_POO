@@ -7,7 +7,7 @@ import pandemic.City;
  * this class represent the action of the GlobetRotter
  *
  */
-class GlobetRotter extends Actions {
+class Globetrotter extends Actions {
 	/**
 	c'est en relation avec l'action se déplacer
 	il	a la possibilité de se déplacer dans n’importe quelle ville. Ce qui augmente sa capacité d’action. 
@@ -21,7 +21,7 @@ class GlobetRotter extends Actions {
 		 * @param name
 		 * @param city
 		 */
-		public GlobetRotter(String name, City city) {
+		public Globetrotter(String name, City city) {
 			super();
 		}
 		
