@@ -37,7 +37,15 @@ public class Game {
 			System.out.println("Error : invalid number of players"); //TODO facultatif : mettre ça en exception
 		} 
 		
+		MappeMonde map = new MappeMonde(mapFile);
+		
 		//TODO créer [playerNumber] joueurs
+		
+		
+		//TODO gérer le reste du jeu en lançant des tours jusqu'à ce que isFinished soit à true
+		while (!this.isFinished()) {
+			effectuer des tours
+		}
 		
 	}
 
@@ -57,26 +65,20 @@ public class Game {
 	public void play() {
 		
 		//INIT
-	    MappeMonde Map;
+		Map.displayAllCities();
+	     ;
 	    //TODO récupérer map depuius les args
 	    
 		//TODO faire ici tout ce que le main faisait 
 	}
 	
 	
-	/**
-	 * 
-	determines whether the game is finished
+	/** @return true if the game is finished, false otherwise*/
 	public boolean isFinished(){
-		if( findRemedy() || InfectionFocusAmount == 8 || this.playersStack.size() < 2) {
-			return true;
-		}
-		else {
-			return false;
-		}
-		
+		return (TODO : si remede trouvé) 
+				|| InfectionFocusAmount == 8 
+				|| this.playersStack.size() < 2);	
 	}
-	 */
 	
 	
 
@@ -85,6 +87,28 @@ public class Game {
 	 */
 	public String toString() {
 		return "The global infection rate : "+this.GlobalInfectionRate + " and the infection focus amount "+this.InfectionFocusAmount;
+	}
+	
+	/**
+	 * Acts everything a player is supposed to do during their turn, except for the action that must be manually acted out after using this method.
+	 * @param currentPlayer the player that will take this turn
+	 * @param currentDeck the PlayersPaquet deck that is currently in use for this game
+	 * 
+	 * NB : cette mÃ©thode est amÃ©liorable en incluant le message "tour du [n]iÃ¨me joueur qui est [nom du joueur]" si les parties Ã  codÃ©es sont longues et/ou de longueur variable
+	 */
+	
+	static void makePlayerTakeATurn(Players currentPlayer, PlayersPaquet currentDeck) {
+					PlayersCards l1=currentDeck.tirerCarte();
+				   PlayersCards l2=currentDeck.tirerCarte();
+				   
+				   currentPlayer.addCard(l1);
+				   currentPlayer.addCard(l2);
+				   
+				   System.out.println("Player " + currentPlayer.getName() + " "+ l1.toString() + " and "+ l2.toString());
+				   Stack<Cards> hand=currentPlayer.getCardsInHand();
+				   System.out.println(currentPlayer.getName() + " has " + hand.size()+ " cards in his/her hand. \n");
+				   
+				   //si on veut mettre des actions alÃ©atoires et/ou du choix d'actions Ã§a peut Ãªtre Ã  cet endroit
 	}
 
 
