@@ -6,7 +6,7 @@ import java.util.Stack;
 /* TODO déplacer toutes les méthodes de main ici, et rédiger le reste*/
 
 /**
- *Cette classe sert à lancer le jeu
+ * Class to run the pandemic game simulation.
  *
  */
 public class Game {
@@ -15,7 +15,7 @@ public class Game {
 	 *  all the necessary data to be stored for the game, will be accessed by other classes by passing the Game instance to them
 	 */
 	
-	//TODO terminer la docu
+	//TODO terminer la docu des attributs
 	//TODO créer tous les getters et setters nécessaires
 	protected int GlobalInfectionRate = 2;
 	protected int InfectionFocusAmount ;
@@ -46,11 +46,13 @@ public class Game {
 	 * the most important method in the game, the method to play a party
 	 */
 	public void play() {
-		
+		//TODO faire ici tout ce que le main faisait 
 	}
 	
 	
 	/**
+	 * 
+	determines whether the game is finished
 	public boolean isFinished(){
 		if( findRemedy() || InfectionFocusAmount == 8 || this.playersStack.size() < 2) {
 			return true;
@@ -65,7 +67,7 @@ public class Game {
 	
 
 	/**
-	 *@return  a string representation of the object.
+	 *@return a string representation of the object.
 	 */
 	public String toString() {
 		return "The global infection rate : "+this.GlobalInfectionRate + " and the infection focus amount "+this.InfectionFocusAmount;
