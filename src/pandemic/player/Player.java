@@ -140,7 +140,7 @@ public abstract class Player {
 	
 	
 	
-	/** 
+	/** will be overriden in Globetrotter
 	 * @param playerToMove the player to be moved
 	 * @param destination the wanted destination
 	 * @throws IllegalArgumentException see above

@@ -23,12 +23,13 @@ public class Expert extends Player {
 	}
 	
 	
-	/**
-	 * @param city
+	/** overrides the method from Player
 	 * this method builds a research station without a card to build it
 	 * and if there is already a station it throws an exception
+	 * @param city
+	 * 
 	 */
-	public void BuildStationWoCard() throws ResearchCenterException {
+	public void construct() throws ResearchCenterException {
 		City currentLocation = this.getLocation();
 		if(! currentLocation.isResearchCenter()) {
 			currentLocation.addResearchCenter();
@@ -39,23 +40,6 @@ public class Expert extends Player {
 			throw new ResearchCenterException("this city already has a research station");
 		}	
 	}
-	
-	
-	/**
-	 * @return name
-	 */
-	public String getName() {
-		return name;
-	}
-	
-	
-	/**
-	 * @param name
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-	
 	
 
 }

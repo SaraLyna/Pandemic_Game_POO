@@ -7,13 +7,11 @@ import pandemic.City;
  * this class represent the action of the GlobetRotter
  *
  */
-class Globetrotter extends Actions {
+class Globetrotter extends Player {
 	/**
 	c'est en relation avec l'action se déplacer
 	il	a la possibilité de se déplacer dans n’importe quelle ville. Ce qui augmente sa capacité d’action. 
      */
-	
-	private String name;
 
 		
 		/**
@@ -22,15 +20,15 @@ class Globetrotter extends Actions {
 		 * @param city
 		 */
 		public Globetrotter(String name, City city) {
-			super();
+			super(name,city);
 		}
 		
-		/**
+		/** overrides the base method from Player
 		 * this method allows the player whose role is "globetRotter" to travel to the city of his choice
 		 * @param playerToMove; the player who has this role
 		 * @param destination; the city chosen by the player
 		 */
-		public static void moveAnywhere(Player playerToMove, City destination) {		
+		public static void move(Player playerToMove, City destination) {		
 			/* le code ci-dessous est à décommenter si l'on veut récupérer l'input de l'utilisateur et/ou afficher les possibilités pour les villes
 			public static void move(Players playerToMove, MappeMonde map) {	
 						Cities[] citiesList = map.getVilles();					
@@ -58,16 +56,8 @@ class Globetrotter extends Actions {
 						*/
 	
 			playerToMove.setLocation(destination);
-			System.out.print(playerToMove.getName() + " has been moved to " + destination.getName() + ".");
+			System.out.print(playerToMove + " has been moved to " + destination.getName() + ".");
 
-		}
-		
-		
-		/**
-		 * @return name
-		 */
-		public String getName() {
-			return this.name;
 		}
 
 }
