@@ -67,38 +67,20 @@ public class Actions {
 	public static void move(Players playerToMove, Cities destination) throws IllegalArgumentException {
 		List<Cities> neighborsList = playerToMove.getLocation().getNeighbors();	
 		
-		/* le code ci-dessous est à décommenter si l'on veut récupérer l'input de l'utilisateur et/ou afficher les possibilités pour les villes
-		
-						System.out.print("What neighboring city do you want to travel to ? Enter the number.");
-						for(int i = 0; i< neighborsList.size();i++) {
-							System.out.print(
-									(i+1) + "\t" + neighborsList.get(i).getName() + "\n" ); //si erreur ici il faudra caster i+1 vers string
-						}							
-						//get input from user number
-						Scanner scanner = new Scanner(System.in);
-					choose	
-						int input=1; //initialization to avoid warnings, should be overriden when input is read
-						boolean inputNeeded = true;
-						while (inputNeeded) {
-							input = scanner.nextInt(); //get input from user
-							if (input > neighborsList.size() ) {
-								System.out.print("Invalid number, try again.");
-							} else {
-								inputNeeded = false; //end loop
-							}
-						}				
-						destination = neighborsList.get(input-1);
-						scanner.close(); //to avoid ressource leak
-		 */
+		RandomListChooser<Cities> rlc = new RandomListChooser<>();
+		Cities chosenCity = rlc.choose("A city will be chosen randomly for the player " + playerToMove.getName() + " to move.",neighborsList);
 				
-		if (! neighborsList.contains(destination)){
-			//System.out.println("the destination is not among the Player's neighboring cities ");
-			//throw new IllegalArgumentException("the destination is not among the Player's neighboring cities ");
-			choose("false destination", neighborsList);
-		}else {
-		playerToMove.setLocation(destination);
+		/* code à supprimer vu que le randomListChooser est ici cantonné à neighborsList
+			if (! neighborsList.contains(destination)){
+				//System.out.println("the destination is not among the Player's neighboring cities ");
+				//throw new IllegalArgumentException("the destination is not among the Player's neighboring cities ");
+				
+						
+							//choose("false destination", neighborsList);
+			}else {*/
+		
+		playerToMove.setLocation(chosenCity);
 		System.out.print(playerToMove.getName() + " has been moved to " + destination.getName()+"\n");
-	}
 	}
 	
 	
