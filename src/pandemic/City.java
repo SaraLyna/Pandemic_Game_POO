@@ -13,7 +13,7 @@ public class City {
     protected List<City> neighbors;
     protected List<Player> players;
     protected String sector;
-    protected boolean isReasearchCenter;
+    protected boolean isResearchCenter;
     protected boolean isInfectionFocus;
     protected boolean hasBeenInfectedThisTurn;
    // private int nbCube; //number of cubes in the city,
@@ -28,7 +28,7 @@ public class City {
         this.name = name;
         this.neighbors = new ArrayList<City>();
         this.sector = sector;
-        this.isReasearchCenter = false;
+        this.isResearchCenter = false;
         this.isInfectionFocus = false;
        // this.nbCube=0;
         this.players = new ArrayList<>();
@@ -184,7 +184,7 @@ public class City {
 	 * sinon false
 	 */
 	public boolean isResearchCenter() {
-		return this.isReasearchCenter;
+		return this.isResearchCenter;
 	}
 	
 

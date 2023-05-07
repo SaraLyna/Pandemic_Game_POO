@@ -116,7 +116,7 @@ public abstract class Player {
     public void discover(Player p, Disease Disease){
 		//TODO IMPLEMENTER RANDOMLISTCHOOSER DANS CETTE METHODE POUR AUTOMATISER
     	int cpt = 0;
-		Stack<Card> hand = p.getCardsInHand();
+		ArrayList<Card> hand = p.getCardsInHand();
 		City city = p.getLocation();
 		if (city.isResearchCenter()){
 			Iterator<Card> it = hand.iterator();
@@ -137,11 +137,11 @@ public abstract class Player {
 			System.out.println("A cure has been found for the disease " + Disease.getDiseaseName());
 			}
 			else {
-				System.out.println(p.getName() + " has not enough cards to cure the disease " + Disease.getDiseaseName());
+				System.out.println(p + " has not enough cards to cure the disease " + Disease.getDiseaseName());
 			}
 		}
 		else {
-			System.out.println(p.getName() + ", please build a research Center to discover a Cure for the disease " + Disease.getDiseaseName());
+			System.out.println(p + ", please build a research Center to discover a Cure for the disease " + Disease.getDiseaseName());
 		}
     }
 	
@@ -160,7 +160,7 @@ public abstract class Player {
 		List<City> neighborsList = playerToMove.getLocation().getNeighbors();	
 		
 		RandomListChooser<City> rlc = new RandomListChooser<>();
-		City chosenCity = rlc.choose("A city will be chosen randomly for the player " + playerToMove.getName() + " to move.",neighborsList); /* we use the random list chooser to automatically pick a city*/
+		City chosenCity = rlc.choose("A city will be chosen randomly for the player " + playerToMove + " to move.",neighborsList); /* we use the random list chooser to automatically pick a city*/
 				
 		/* code à supprimer vu que le randomListChooser est ici cantonné à neighborsList
 			if (! neighborsList.contains(destination)){
@@ -185,14 +185,14 @@ public abstract class Player {
 	public void construct( Player player) {
 		
 		//TODO IMPLEMENTER RANDOMLISTCHOOSER DANS CETTE METHODE POUR AUTOMATISER
-		Stack<Card> cards= player.getCardsInHand();
+		ArrayList<Card> cards= player.getCardsInHand();
 		City city = player.getLocation();
 		Iterator<Card> it= cards.iterator();
 		boolean a = false;
 		while(it.hasNext()) {
 			Card card = it.next();
 			if (card.getCityName().equals(city.getName())) {
-				if (city.isReasearchCenter == false) {
+				if (city.isResearchCenter() == false) {
 					city.addResearchCenter();
 					player.removeCard(card);
 					a = true;
