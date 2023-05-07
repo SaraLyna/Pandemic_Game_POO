@@ -83,7 +83,7 @@ public class Actions {
 			}else {*/
 		
 		playerToMove.setLocation(chosenCity);
-		System.out.print(playerToMove.getName() + " has been moved to " + destination.getName()+"\n");
+		System.out.print(playerToMove.getName() + " has been moved to " + chosenCity.getName()+"\n");
 	}
 	
 	

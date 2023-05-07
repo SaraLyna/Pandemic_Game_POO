@@ -17,6 +17,7 @@ public class Game {
 	
 	//TODO terminer la docu des attributs
 	//TODO créer tous les getters et setters nécessaires
+	protected int InfectionFocusAmount;
 	protected int GlobalInfectionRate;
 	protected Stack<InfectionCards> infectionStack;
 	protected Stack<PlayersCards> playersStack;
@@ -56,8 +57,6 @@ public class Game {
 	public void play() {
 		
 		//INIT
-		
-	    int overallInfectionRate = 2; // Le taux global d'infection 
 	    MappeMonde Map;
 	    //TODO récupérer map depuius les args
 	    
