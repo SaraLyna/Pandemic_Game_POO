@@ -99,6 +99,25 @@ public class Game {
 		return this.cubeStocks;
 	}
 	
+	/** decrements the corresponding cube stock and calls Cities.addCube()
+	 * @param  */
+	void addCube(City city, Disease diseaseType) {
+		//decrements the stock
+		this.decrementStock(diseaseType);
+		
+		//calls Cities.addCube()
+		city.addCube(diseaseType);
+	}
+	
+	/** 
+	 * decrements the corresponding cube stock
+	 * */
+	void decrementStock(Disease diseaseType) {
+		int newValue = this.getCubesStocks().get(diseaseType) ;
+		this.getCubesStocks().put(diseaseType, newValue-1); //update with a decremented value
+	}
+
+	
 	
 	
 	
@@ -145,10 +164,8 @@ public class Game {
 		/**
 	 * @return null
 	 
-	public static Iterator<String> keys() {
-		// TODO Auto-generated method stub
-		return null;
-	}*/
+	 *
+	 */
 	
 
 
