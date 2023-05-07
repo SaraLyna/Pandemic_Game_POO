@@ -65,7 +65,7 @@ public class Game {
 	public void play() {
 		
 		//INIT
-		Map.displayAllCities();
+		map.displayAllCities();
 	     ;
 	    //TODO récupérer map depuius les args
 	    
