@@ -25,6 +25,7 @@ public class Actions {
 	 * Then discard the 5 players cards.
      */
     public static void discover(Players p, Diseases Disease){
+		//TODO IMPLEMENTER RANDOMLISTCHOOSER DANS CETTE METHODE POUR AUTOMATISER
     	int cpt = 0;
 		Stack<Cards> hand = p.getCardsInHand();
 		Cities city = p.getLocation();
@@ -68,7 +69,7 @@ public class Actions {
 		List<Cities> neighborsList = playerToMove.getLocation().getNeighbors();	
 		
 		RandomListChooser<Cities> rlc = new RandomListChooser<>();
-		Cities chosenCity = rlc.choose("A city will be chosen randomly for the player " + playerToMove.getName() + " to move.",neighborsList);
+		Cities chosenCity = rlc.choose("A city will be chosen randomly for the player " + playerToMove.getName() + " to move.",neighborsList); /* we use the random list chooser to automatically pick a city*/
 				
 		/* code à supprimer vu que le randomListChooser est ici cantonné à neighborsList
 			if (! neighborsList.contains(destination)){
@@ -91,6 +92,8 @@ public class Actions {
 	 * in the same city where the player card is
 	 */
 	public static void construct( Players player) {
+		
+		//TODO IMPLEMENTER RANDOMLISTCHOOSER DANS CETTE METHODE POUR AUTOMATISER
 		Stack<Cards> cards= player.getCardsInHand();
 		Cities city = player.getLocation();
 		Iterator<Cards> it= cards.iterator();
