@@ -1,5 +1,6 @@
 package pandemic;
 
+import player.Player;
 
 public class PlayersTest {
 	public static void main(String[] args) {
@@ -11,7 +12,7 @@ public class PlayersTest {
 		PlayersCards card4= new PlayersCards("ville-20","noir");
 		
 		
-		Players player1 = new Players("John", Roles.Doctor, city1);
+		Player player1 = new Player("John", Roles.Doctor, city1);
 		
 		// get the name, role and location of the player
 		System.out.println("Player name: " + player1.getName());

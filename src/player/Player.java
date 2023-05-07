@@ -1,17 +1,21 @@
-package pandemic;
+package player;
 import java.util.*;
+
+import pandemic.Cards;
+import pandemic.Cities;
+import pandemic.Roles;
 
 
 /**
  * cette classe représente les joueurs
  *
  */
-public class Players {
+public class Player {
 	private String name;
 	private Roles role;
 	private Cities location;
 	private Stack<Cards> CardsInHand; /* the stack of cards in the player's hand */
-	protected  List<Players> thePlayers;
+	protected  List<Player> thePlayers;
 
 	/** 
 	 * constructor of the class Players
@@ -19,7 +23,7 @@ public class Players {
 	 * @param role
 	 * @param location
 	 */
-	public Players(String name, Roles role, Cities location) {
+	public Player(String name, Roles role, Cities location) {
 		this.name=name;
 		this.role=role;
 		this.location=location;
@@ -112,7 +116,7 @@ public class Players {
 	/**
 	 * @return the list of the Players
 	 */
-	public List<Players> getPlayers(){
+	public List<Player> getPlayers(){
 		return this.thePlayers;
 	}
 	
@@ -121,7 +125,7 @@ public class Players {
 	 * @param player
 	 * add a player in the game
 	 */
-	public void addPlayer(Players player) {
+	public void addPlayer(Player player) {
 		this.getPlayers().add(player);
 	}
 

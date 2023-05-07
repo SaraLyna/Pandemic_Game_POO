@@ -4,6 +4,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Stack;
 
+import player.Player;
+
 /**
  * this class represents the action of the Scientist
  *
@@ -52,7 +54,7 @@ class ScientistRole extends Actions{
 	 * check if the city has a Research Center and discover a Cure for a specific disease.
 	 * Then discard the 5 players cards.
      */
-    public static void discoverCure(Players p, Disease Disease){
+    public static void discoverCure(Player p, Disease Disease){
     	int cpt = 0;
 		Stack<Cards> hand = p.getCardsInHand();
 		Cities city = p.getLocation();

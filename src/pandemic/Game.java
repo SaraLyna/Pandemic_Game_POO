@@ -3,6 +3,8 @@ package pandemic;
 import java.io.FileNotFoundException;
 import java.util.*;
 
+import player.Players;
+
 /* TODO déplacer toutes les méthodes de main ici, et rédiger le reste*/
 
 /**

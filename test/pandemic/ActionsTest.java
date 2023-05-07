@@ -9,6 +9,8 @@ import java.util.*;
 
 import org.junit.Test;
 
+import player.Player;
+
 /**
  * 
  *
@@ -22,7 +24,7 @@ public class ActionsTest {
 	
 		Disease disease1=Disease.RED;
 		Disease disease2= Disease.BLUE;
-		Players player1=new Players("Ana",Roles.Expert,city1);
+		Player player1=new Player("Ana",Roles.Expert,city1);
 		
 		PlayersCards card1=new PlayersCards("ville-11","noir");
 		//PlayersCards card2=new PlayersCards ("ville-44","bleu");
@@ -113,7 +115,7 @@ public class ActionsTest {
 		Cities city1=new Cities("ville-11","3");
 		Cities city2= new Cities("ville-44","2");
 		
-		Players player = new Players ("Samuel", Roles.GlobetRotter,city2);
+		Player player = new Player ("Samuel", Roles.GlobetRotter,city2);
 		//city1.addPlayer(player);
 		player.setLocation(city1);
 		PlayersCards card1= new PlayersCards ("ville-20","bleu");

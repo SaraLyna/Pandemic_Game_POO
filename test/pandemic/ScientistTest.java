@@ -2,6 +2,8 @@ package pandemic;
 
 import org.junit.Test;
 
+import player.Player;
+
 import static org.junit.Assert.*;
 
 
@@ -19,7 +21,7 @@ public class ScientistTest {
 		Cities city1= new Cities("ville-11","3");
 		Disease disease1=Disease.RED;
 		Disease disease2= Disease.BLUE;
-		Players player1=new Players("Ana",Roles.Expert,city1);	
+		Player player1=new Player("Ana",Roles.Expert,city1);	
 		PlayersCards card1=new PlayersCards("ville-11","noir");
 		PlayersCards card3=new PlayersCards("ville-16","rouge");
 		player1.addCard(card1);

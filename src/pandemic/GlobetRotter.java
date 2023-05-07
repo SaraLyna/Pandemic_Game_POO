@@ -1,6 +1,8 @@
 package pandemic;
 //import java.util.Scanner;
 
+import player.Player;
+
 /**
  * this class represent the action of the GlobetRotter
  *
@@ -28,7 +30,7 @@ class GlobetRotter extends Actions {
 		 * @param playerToMove; the player who has this role
 		 * @param destination; the city chosen by the player
 		 */
-		public static void moveAnywhere(Players playerToMove, Cities destination) {		
+		public static void moveAnywhere(Player playerToMove, Cities destination) {		
 			/* le code ci-dessous est à décommenter si l'on veut récupérer l'input de l'utilisateur et/ou afficher les possibilités pour les villes
 			public static void move(Players playerToMove, MappeMonde map) {	
 						Cities[] citiesList = map.getVilles();					

@@ -8,9 +8,11 @@ import java.io.InputStream;
 
 import org.junit.Test;
 
+import player.Player;
+
 public class GlobetRotterTest {
 	
-	private Players player;
+	private Player player;
 	private Cities city1;
 	private Cities city2;
 	
@@ -32,7 +34,7 @@ public class GlobetRotterTest {
 	public void moveTest() throws FileNotFoundException { 
 		MappeMonde m1 = new MappeMonde("villes.json");
 		city1 = m1.getVilles()[2];
-		player = new Players("Albert",Roles.GlobetRotter, city1 );
+		player = new Player("Albert",Roles.GlobetRotter, city1 );
 		
 		city2 = city1.getNeighbors().get(0); //premier voisin listé
 		

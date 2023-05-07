@@ -2,6 +2,8 @@ package pandemic;
 
 import java.util.*;
 
+import player.Player;
+
 /**
  * this class represents the cities in the Map, the cities in the game pandemic.
  */
@@ -9,7 +11,7 @@ public class Cities {
     protected String name;
     protected HashMap<Disease, Integer> infectionRates;
     protected List<Cities> neighbors;
-    protected List<Players> players;
+    protected List<Player> players;
     protected String sector;
     protected boolean isReasearchCenter;
     protected boolean isInfectionFocus;
@@ -252,7 +254,7 @@ public class Cities {
 
 
 
-	public void addPlayer(Players player) {
+	public void addPlayer(Player player) {
 		// TODO Auto-generated method stub
 		this.players.add(player);
 		

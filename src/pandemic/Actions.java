@@ -1,6 +1,7 @@
 package pandemic;
 import java.util.*;
 import pandemic.chooser.*;
+import player.Player;
 
 /**
  * this class represent the most important actions to do
@@ -24,7 +25,7 @@ public class Actions {
 	 * check if the city has a Research Center and discover a Cure for a specific disease.
 	 * Then discard the 5 players cards.
      */
-    public static void discover(Players p, Disease Disease){
+    public static void discover(Player p, Disease Disease){
 		//TODO IMPLEMENTER RANDOMLISTCHOOSER DANS CETTE METHODE POUR AUTOMATISER
     	int cpt = 0;
 		Stack<Cards> hand = p.getCardsInHand();
@@ -64,7 +65,7 @@ public class Actions {
 	 * @throws IllegalArgumentException see above
 	 * Calls setLocation() on a random location among the neighboring cities.
 	 */
-	public static void move(Players playerToMove) throws IllegalArgumentException {
+	public static void move(Player playerToMove) throws IllegalArgumentException {
 		
 		/* note : if we want to add the possibility of using an InputListChooser we need a boolean somewhere that is retrieved by this function to use the correct ListChooser*/
 		
@@ -93,7 +94,7 @@ public class Actions {
 	 * this action consist to build a research center
 	 * in the same city where the player card is
 	 */
-	public static void construct( Players player) {
+	public static void construct( Player player) {
 		
 		//TODO IMPLEMENTER RANDOMLISTCHOOSER DANS CETTE METHODE POUR AUTOMATISER
 		Stack<Cards> cards= player.getCardsInHand();
