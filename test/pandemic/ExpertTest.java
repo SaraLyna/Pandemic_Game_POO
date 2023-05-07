@@ -5,20 +5,22 @@ package pandemic;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import pandemic.player.ExpertRole;
+
 /**
  * @author Sara Lyna
  *
  */
 public class ExpertTest {
-    private Cities ville1;
-    private Cities ville2;
-    private Cities ville4;
+    private City ville1;
+    private City ville2;
+    private City ville4;
     
 	@Test
 	public void testBuildStation() throws ResearchCenterException {
-		ville1= new Cities("ville-5","Secteur 2");
-		ville2= new Cities("ville-2","Secteur 2");
-		ville4= new Cities("ville-4","Secteur 1");
+		ville1= new City("ville-5","Secteur 2");
+		ville2= new City("ville-2","Secteur 2");
+		ville4= new City("ville-4","Secteur 1");
 		
 	//ExpertRole expert1= new ExpertRole("Sara" ,ville1);
 	//ExpertRole expert2= new ExpertRole("Lyna", ville2);

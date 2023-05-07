@@ -1,10 +1,12 @@
-package pandemic;
+package pandemic.player;
 
 import java.util.Iterator;
 import java.util.List;
 import java.util.Stack;
 
-import player.Player;
+import pandemic.City;
+import pandemic.Disease;
+import pandemic.card.Card;
 
 /**
  * this class represents the action of the Scientist
@@ -56,12 +58,12 @@ class ScientistRole extends Actions{
      */
     public static void discoverCure(Player p, Disease Disease){
     	int cpt = 0;
-		Stack<Cards> hand = p.getCardsInHand();
-		Cities city = p.getLocation();
+		Stack<Card> hand = p.getCardsInHand();
+		City city = p.getLocation();
 		if (city.isResearchCenter()){
-			Iterator<Cards> it = hand.iterator();
+			Iterator<Card> it = hand.iterator();
 			while (it.hasNext()) {	
-				Cards card = it.next();
+				Card card = it.next();
 				if(card.getDiseaseName()==Disease.getDiseaseName()) {
 					cpt += 1;
 				}
@@ -69,7 +71,7 @@ class ScientistRole extends Actions{
 			if (cpt > 3) {
 				Disease.setCured(true);
 				while (it.hasNext()) {
-					Cards card = it.next();
+					Card card = it.next();
 					if(card.getDiseaseName()==Disease.getDiseaseName()) {
 						p.removeCard(card);
 					}
@@ -93,10 +95,10 @@ class ScientistRole extends Actions{
 	    if (o == this) {
 	        return true;
 	    }
-	    if (!(o instanceof Cards)) {
+	    if (!(o instanceof Card)) {
 	        return false;
 	    }
-	    Cards card = (Cards) o;
+	    Card card = (Card) o;
 	    return this.name.equals(card.getDiseaseName());
 	}
 	
@@ -111,14 +113,14 @@ class ScientistRole extends Actions{
 	 * méthode findRemedy qui permettrait de trouver un remede pour une maladie donnée 
 	 * en utilisant la méthode discoverCure définie plus haut 
 	 */
-	public boolean findRemedy(List<Cards> hand, List<Disease> diseases, Disease diseaseToCure) {
+	public boolean findRemedy(List<Card> hand, List<Disease> diseases, Disease diseaseToCure) {
 	    // Vérifier si le scientifique a la bonne maladie
 	    if (!hand.get(0).getDiseaseName().equals(diseaseToCure.getDiseaseName())) {
 	        return false;
 	    }
 	    // Vérifier s'il y a assez de cartes de la maladie pour découvrir un remède
 	    int count = 0;
-	    for (Cards card : hand) {
+	    for (Card card : hand) {
 	        if (card.getDiseaseName().equals(diseaseToCure.getDiseaseName())) {
 	            count++;
 	        }

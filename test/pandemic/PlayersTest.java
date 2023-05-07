@@ -1,11 +1,13 @@
 package pandemic;
 
-import player.Player;
+import pandemic.card.PlayersCards;
+import pandemic.player.Player;
+import pandemic.player.Roles;
 
 public class PlayersTest {
 	public static void main(String[] args) {
 		// create a new player object
-		Cities city1= new Cities("ville-11","3");
+		City city1= new City("ville-11","3");
 		PlayersCards card1= new PlayersCards("ville-10","bleu");
 		PlayersCards card2= new PlayersCards("ville-12","rouge");
 		PlayersCards card3= new PlayersCards("ville-44","jaune");

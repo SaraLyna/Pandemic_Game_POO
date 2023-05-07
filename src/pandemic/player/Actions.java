@@ -1,7 +1,10 @@
-package pandemic;
+package pandemic.player;
 import java.util.*;
+
+import pandemic.City;
+import pandemic.Disease;
+import pandemic.card.Card;
 import pandemic.chooser.*;
-import player.Player;
 
 /**
  * this class represent the most important actions to do
@@ -28,12 +31,12 @@ public class Actions {
     public static void discover(Player p, Disease Disease){
 		//TODO IMPLEMENTER RANDOMLISTCHOOSER DANS CETTE METHODE POUR AUTOMATISER
     	int cpt = 0;
-		Stack<Cards> hand = p.getCardsInHand();
-		Cities city = p.getLocation();
+		Stack<Card> hand = p.getCardsInHand();
+		City city = p.getLocation();
 		if (city.isResearchCenter()){
-			Iterator<Cards> it = hand.iterator();
+			Iterator<Card> it = hand.iterator();
 			while (it.hasNext()) {	
-				Cards card = it.next();
+				Card card = it.next();
 				if(card.getDiseaseName()==Disease.getDiseaseName()) {
 					cpt += 1;
 				}
@@ -41,7 +44,7 @@ public class Actions {
 			if (cpt > 4) {
 				Disease.setCured(true);
 				while (it.hasNext()) {
-					Cards card = it.next();
+					Card card = it.next();
 					if(card.getDiseaseName()==Disease.getDiseaseName()) {
 						p.removeCard(card);
 					}
@@ -69,10 +72,10 @@ public class Actions {
 		
 		/* note : if we want to add the possibility of using an InputListChooser we need a boolean somewhere that is retrieved by this function to use the correct ListChooser*/
 		
-		List<Cities> neighborsList = playerToMove.getLocation().getNeighbors();	
+		List<City> neighborsList = playerToMove.getLocation().getNeighbors();	
 		
-		RandomListChooser<Cities> rlc = new RandomListChooser<>();
-		Cities chosenCity = rlc.choose("A city will be chosen randomly for the player " + playerToMove.getName() + " to move.",neighborsList); /* we use the random list chooser to automatically pick a city*/
+		RandomListChooser<City> rlc = new RandomListChooser<>();
+		City chosenCity = rlc.choose("A city will be chosen randomly for the player " + playerToMove.getName() + " to move.",neighborsList); /* we use the random list chooser to automatically pick a city*/
 				
 		/* code à supprimer vu que le randomListChooser est ici cantonné à neighborsList
 			if (! neighborsList.contains(destination)){
@@ -97,12 +100,12 @@ public class Actions {
 	public static void construct( Player player) {
 		
 		//TODO IMPLEMENTER RANDOMLISTCHOOSER DANS CETTE METHODE POUR AUTOMATISER
-		Stack<Cards> cards= player.getCardsInHand();
-		Cities city = player.getLocation();
-		Iterator<Cards> it= cards.iterator();
+		Stack<Card> cards= player.getCardsInHand();
+		City city = player.getLocation();
+		Iterator<Card> it= cards.iterator();
 		boolean a = false;
 		while(it.hasNext()) {
-			Cards card = it.next();
+			Card card = it.next();
 			if (card.getCityName().equals(city.getName())) {
 				if (city.isReasearchCenter == false) {
 					city.addResearchCenter();
@@ -126,7 +129,7 @@ public class Actions {
 	 * @param disease, the disease to be healed
 	 * @param cubesStock , the stock of the diseases' cubes
 	 */
-	public static  void healDisease(Disease disease, Cities city,HashMap <Disease, Integer> cubesStock){	
+	public static  void healDisease(Disease disease, City city,HashMap <Disease, Integer> cubesStock){	
 		int lastCubes = city.getCubeCount(disease);// number of cubes of the Disease disease
 		 if (lastCubes == 0) {
 		    System.out.println("There is no cubes of the disease " + disease.getDiseaseName() + " in the city "+ city.getName() + " anymore" );

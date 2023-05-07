@@ -1,9 +1,8 @@
-package player;
+package pandemic.player;
 import java.util.*;
 
-import pandemic.Cards;
-import pandemic.Cities;
-import pandemic.Roles;
+import pandemic.City;
+import pandemic.card.Card;
 
 
 /**
@@ -13,8 +12,8 @@ import pandemic.Roles;
 public class Player {
 	private String name;
 	private Roles role;
-	private Cities location;
-	private Stack<Cards> CardsInHand; /* the stack of cards in the player's hand */
+	private City location;
+	private Stack<Card> CardsInHand; /* the stack of cards in the player's hand */
 	protected  List<Player> thePlayers;
 
 	/** 
@@ -23,11 +22,11 @@ public class Player {
 	 * @param role
 	 * @param location
 	 */
-	public Player(String name, Roles role, Cities location) {
+	public Player(String name, Roles role, City location) {
 		this.name=name;
 		this.role=role;
 		this.location=location;
-		this.CardsInHand = new Stack<Cards>();
+		this.CardsInHand = new Stack<Card>();
 	}
 	
 
@@ -52,7 +51,7 @@ public class Player {
 	 * Getter of the class Players
 	 * @return the location of the player
 	 */
-	public Cities getLocation() {
+	public City getLocation() {
 		return this.location;
 	}
 	
@@ -69,10 +68,10 @@ public class Player {
 	 * defausse la carte de la main du joueur ,
 	 * new version
 	 */
-	public void removeCard(Cards c) {
-		Iterator<Cards> it= CardsInHand.iterator();
+	public void removeCard(Card c) {
+		Iterator<Card> it= CardsInHand.iterator();
 		while(it.hasNext()) {
-			Cards card = it.next();
+			Card card = it.next();
 			if(card.getCityName()==c.getCityName()) {
 		        it.remove();
 			}		
@@ -84,7 +83,7 @@ public class Player {
 	 * Getter of the class Players
 	 * @return the player's hand of cards
 	 */
-	public Stack<Cards> getCardsInHand() {
+	public Stack<Card> getCardsInHand() {
 	    return this.CardsInHand;
 	}
 
@@ -92,7 +91,7 @@ public class Player {
 	 * Setter of the class Players
 	 * @param cardsInHand the new stack of cards in the player's hand
 	 */
-	public void setCardsInHand(Stack<Cards> cardsInHand) {
+	public void setCardsInHand(Stack<Card> cardsInHand) {
 	    this.CardsInHand = cardsInHand;
 	}
 	
@@ -101,14 +100,14 @@ public class Player {
 	 * @param city ; the city to set
 	 */
 	
-	public void setLocation(Cities city) {
+	public void setLocation(City city) {
 		this.location = city;
 	}
 	 /**
 	  * add a card in the hand of the player 
 	 * @param c
 	 */
-	public void addCard(Cards c ) { 
+	public void addCard(Card c ) { 
 		 this.CardsInHand.push(c); 
 	}
 	

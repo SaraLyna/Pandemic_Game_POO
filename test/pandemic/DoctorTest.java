@@ -6,6 +6,8 @@ package pandemic;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import pandemic.player.DoctorRole;
+
 /**
  * @author Sara Lyna
  *
@@ -14,7 +16,7 @@ public class DoctorTest {
 
 	@Test
 	public void testRemoveCubes() {
-		 Cities city = new Cities("ville-2","Secteur 1");
+		 City city = new City("ville-2","Secteur 1");
 	     city.setCubeCount(Disease.BLUE, 3);   
 	     assertEquals(city.getCubeCount(Disease.BLUE),3);
 	     DoctorRole.RemoveCubes(Disease.BLUE, city);

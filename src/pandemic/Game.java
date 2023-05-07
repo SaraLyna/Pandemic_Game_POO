@@ -3,6 +3,10 @@ package pandemic;
 import java.io.FileNotFoundException;
 import java.util.*;
 
+import pandemic.card.Cards;
+import pandemic.card.InfectionCards;
+import pandemic.card.PlayersCards;
+import pandemic.card.PlayersPaquet;
 import player.Players;
 
 /* TODO déplacer toutes les méthodes de main ici, et rédiger le reste*/

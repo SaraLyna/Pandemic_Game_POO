@@ -14,7 +14,7 @@ import org.json.JSONArray;
  */
 public class MappeMonde {
 
-	protected Cities[] Villes ;
+	protected City[] Villes ;
 	
 		/**
 		 * this method allows the reading of a json file
@@ -43,7 +43,7 @@ public class MappeMonde {
 		 * Pour les classer, je vous conseille de créer un tableau et d'utiliser 
 		 * les commandes suivantes.
 		 */
-		this.Villes= new Cities[villes.length()];
+		this.Villes= new City[villes.length()];
 		String[] liste_villes = new String[villes.length()];
 		while (villes_entries.hasNext()) {
 			// Obtient le nom de la ville.
@@ -53,7 +53,7 @@ public class MappeMonde {
 			// La liste des villes commence par 1, mais un tableau en Java 
 			// commence à l'index 0. De cette manière, il est nécessaire d'utiliser -1.
 			liste_villes[Integer.parseInt(numberVille)-1] = nomVille;
-			this.Villes[Integer.parseInt(numberVille)-1]= new Cities(nomVille, villes.get(nomVille).toString());//erreur
+			this.Villes[Integer.parseInt(numberVille)-1]= new City(nomVille, villes.get(nomVille).toString());//erreur
 			
 		}
 		// Imprimer la liste des villes. 
@@ -88,7 +88,7 @@ public class MappeMonde {
 	 * it goes all over elements of the list of cities and displays them with toString() method of the class Cities
 	 */
 	public void displayAllCities() {
-		for(Cities cities : this.Villes) {
+		for(City cities : this.Villes) {
 			System.out.println(cities);
 		}
 	}
@@ -97,7 +97,7 @@ public class MappeMonde {
 	/**
 	 * @return a list of the cities
 	 */
-	public Cities[] getVilles() {
+	public City[] getVilles() {
 		return this.Villes;
 	}
 
@@ -108,7 +108,7 @@ public class MappeMonde {
 	 * of each city with calling the method resetTurn of the class Cities
 	 */
 	public void endInfectionTurn() {
-		for(Cities cities : this.Villes) {
+		for(City cities : this.Villes) {
 			cities.resetTurn();
 		}
 	}

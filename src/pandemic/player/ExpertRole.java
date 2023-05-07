@@ -1,5 +1,7 @@
-package pandemic;
+package pandemic.player;
 
+import pandemic.City;
+import pandemic.ResearchCenterException;
 
 /**
  * this class represents the action of the Expert
@@ -18,7 +20,7 @@ public class ExpertRole extends Actions {
 	 * @param name
 	 * @param city
 	 */
-	public ExpertRole(String name, Cities city) {
+	public ExpertRole(String name, City city) {
 		super();	
 		this.setName(name);
 	}
@@ -29,7 +31,7 @@ public class ExpertRole extends Actions {
 	 * this method builds a research station without a card to build it
 	 * and if there is already a station it throws an exception
 	 */
-	public static void BuildStationWoCard(	Cities city) throws ResearchCenterException {
+	public static void BuildStationWoCard(	City city) throws ResearchCenterException {
 		if(! city.isResearchCenter()) {
 			city.addResearchCenter();
 			System.out.println("A new research station was built by the expert in :" + city.getName());

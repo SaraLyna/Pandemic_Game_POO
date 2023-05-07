@@ -9,7 +9,10 @@ import java.util.*;
 
 import org.junit.Test;
 
-import player.Player;
+import pandemic.card.PlayersCards;
+import pandemic.player.Actions;
+import pandemic.player.Player;
+import pandemic.player.Roles;
 
 /**
  * 
@@ -20,7 +23,7 @@ public class ActionsTest {
 
 	@Test
 	public void testDiscover() {
-		Cities city1= new Cities("ville-11","3");
+		City city1= new City("ville-11","3");
 	
 		Disease disease1=Disease.RED;
 		Disease disease2= Disease.BLUE;
@@ -112,8 +115,8 @@ public class ActionsTest {
 	
 	@Test
 	public void testConstruct() {
-		Cities city1=new Cities("ville-11","3");
-		Cities city2= new Cities("ville-44","2");
+		City city1=new City("ville-11","3");
+		City city2= new City("ville-44","2");
 		
 		Player player = new Player ("Samuel", Roles.GlobetRotter,city2);
 		//city1.addPlayer(player);
@@ -129,7 +132,7 @@ public class ActionsTest {
 		assertTrue(player.getCardsInHand().contains(card1));
 		assertTrue(player.getCardsInHand().contains(card2));
 		
-		Cities newcity = new Cities("ville-37","0");
+		City newcity = new City("ville-37","0");
 		newcity.addPlayer(player);
 		player.setLocation(newcity);
 		
@@ -145,7 +148,7 @@ public class ActionsTest {
 	
 	@Test
 	public void testhealDiseaseWhenThereNoLeftCube() { 
-	    Cities city1 = new Cities("ville-11", "3");
+	    City city1 = new City("ville-11", "3");
 	    Disease disease = Disease.YELLOW;
 	    HashMap<Disease, Integer> cubesStock = new HashMap<>();
 	    cubesStock.put(disease, 3);
@@ -157,7 +160,7 @@ public class ActionsTest {
 
 	@Test
 	public void testHealDiseaseWhenTheDiseaseIsCured() { 
-	    Cities city1 = new Cities("ville-11", "3");
+	    City city1 = new City("ville-11", "3");
 	    Disease disease = Disease.YELLOW;
 	    HashMap<Disease, Integer> cubesStock = new HashMap<>();
 	    cubesStock.put(disease, 3);
@@ -170,7 +173,7 @@ public class ActionsTest {
 
 	@Test
 	public void testHealDiseaseWhenTheDiseaseIsNotCured() { 
-	    Cities city1 = new Cities("ville-11", "3");
+	    City city1 = new City("ville-11", "3");
 	    Disease disease = Disease.YELLOW;
 	    HashMap<Disease, Integer> cubesStock = new HashMap<>();
 	    cubesStock.put(disease, 3);

@@ -1,7 +1,7 @@
-package pandemic;
+package pandemic.card;
 
 
-public abstract class Cards {
+public abstract class Card {
 	protected String cityName;
 	protected String disease;
 	
@@ -10,7 +10,7 @@ public abstract class Cards {
 	 * @param city
 	 * @param disease
 	 */
-	public Cards(String cityName, String disease) {
+	public Card(String cityName, String disease) {
 		this.cityName=cityName;
 		this.disease=disease;
 	}
@@ -37,11 +37,11 @@ public abstract class Cards {
 	        return true;
 	    }
 
-	    if (!(o instanceof Cards)) {
+	    if (!(o instanceof Card)) {
 	        return false;
 	    }
 
-	    Cards otherCard = (Cards) o;
+	    Card otherCard = (Card) o;
 
 	    return this.cityName.equals(otherCard.cityName)
 	            && this.disease.equals(otherCard.disease);

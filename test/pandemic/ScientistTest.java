@@ -2,7 +2,11 @@ package pandemic;
 
 import org.junit.Test;
 
-import player.Player;
+import pandemic.card.Card;
+import pandemic.card.PlayersCards;
+import pandemic.player.Player;
+import pandemic.player.Roles;
+import pandemic.player.ScientistRole;
 
 import static org.junit.Assert.*;
 
@@ -18,7 +22,7 @@ public class ScientistTest {
 
 	@Test
 	public void testdiscover() {
-		Cities city1= new Cities("ville-11","3");
+		City city1= new City("ville-11","3");
 		Disease disease1=Disease.RED;
 		Disease disease2= Disease.BLUE;
 		Player player1=new Player("Ana",Roles.Expert,city1);	
@@ -62,7 +66,7 @@ public class ScientistTest {
 	@Test
     public void testFindRemedy() {
         ScientistRole scientist = new ScientistRole("Scientist",4);
-        List<Cards> hand = new ArrayList<>();
+        List<Card> hand = new ArrayList<>();
         hand.add(new PlayersCards("ville-11", "rouge"));
         hand.add(new PlayersCards("ville-44", "rouge"));
         hand.add(new PlayersCards("ville-20", "rouge"));

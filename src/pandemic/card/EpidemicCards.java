@@ -1,4 +1,4 @@
-package pandemic;
+package pandemic.card;
 
 /**
  * this class represent the EpidemicCards

@@ -2,15 +2,15 @@ package pandemic;
 
 import java.util.*;
 
-import player.Player;
+import pandemic.player.Player;
 
 /**
  * this class represents the cities in the Map, the cities in the game pandemic.
  */
-public class Cities {
+public class City {
     protected String name;
     protected HashMap<Disease, Integer> infectionRates;
-    protected List<Cities> neighbors;
+    protected List<City> neighbors;
     protected List<Player> players;
     protected String sector;
     protected boolean isReasearchCenter;
@@ -24,9 +24,9 @@ public class Cities {
      * @param neighbors , the list of the neighbors
      * @param sector , the sector of the city
      */
-    public Cities(String name, String sector) {
+    public City(String name, String sector) {
         this.name = name;
-        this.neighbors = new ArrayList<Cities>();
+        this.neighbors = new ArrayList<City>();
         this.sector = sector;
         this.isReasearchCenter = false;
         this.isInfectionFocus = false;
@@ -48,7 +48,7 @@ public class Cities {
      */
     private void infectionPropagation(Disease d) {
     	this.displayAllNeighbors();
-        for (Cities neighbor : this.neighbors) {
+        for (City neighbor : this.neighbors) {
             neighbor.addCube(d);
         }
     }
@@ -109,7 +109,7 @@ public class Cities {
     /**
      * @return the list of the neighbors
      */
-    public List<Cities> getAllCities() {
+    public List<City> getAllCities() {
         return this.neighbors;
     }
     
@@ -119,7 +119,7 @@ public class Cities {
 	 */
     public void displayAllNeighbors(){
     	System.out.println("The neighbors of  "+this.getName()+" are :");
-    	for(Cities neighbor:this.neighbors) {
+    	for(City neighbor:this.neighbors) {
     		System.out.println(neighbor);
     	}
     }
@@ -146,7 +146,7 @@ public class Cities {
     * Cette méthode permet d'obtenir la liste des villes voisines de la ville actuelle.
     * @return une liste contenant les villes voisines de la ville actuelle
     */
-    public List<Cities> getNeighbors(){
+    public List<City> getNeighbors(){
     	return this.neighbors;
     }
     
@@ -155,7 +155,7 @@ public class Cities {
     * Cette méthode permet d'ajouter une ville voisine à la ville actuelle.
     * @param neighbors la ville à ajouter comme voisine de la ville actuelle
     */
-    public void addNeighbors(Cities neighbors){
+    public void addNeighbors(City neighbors){
     	this.neighbors.add(neighbors);
     }
     

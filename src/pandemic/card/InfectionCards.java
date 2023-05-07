@@ -1,9 +1,9 @@
-package pandemic;
+package pandemic.card;
 
 /**
  * this class represent the InfectionCards
  */
-public class InfectionCards extends Cards {
+public class InfectionCards extends Card {
 	
 	/**
 	 * constructor of the class InfectionCards

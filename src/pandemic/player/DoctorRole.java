@@ -1,5 +1,7 @@
-package pandemic;
+package pandemic.player;
 
+import pandemic.City;
+import pandemic.Disease;
 
 /**
  * this class represent the action of the Doctor
@@ -14,7 +16,7 @@ public class DoctorRole extends Actions {
 	 */
 	
 	private String name;
-	private Cities city;
+	private City city;
 	
 	
 	/**
@@ -22,7 +24,7 @@ public class DoctorRole extends Actions {
 	 * @param name
 	 * @param city
 	 */
-	public DoctorRole(String name, Cities city) {
+	public DoctorRole(String name, City city) {
 		super();
 		this.setName(name);
 		this.city=city;
@@ -32,7 +34,7 @@ public class DoctorRole extends Actions {
 	/**
 	 * @return a city
 	 */
-	public Cities getCity() {
+	public City getCity() {
 		return this.city;
 	}
 	
@@ -42,7 +44,7 @@ public class DoctorRole extends Actions {
 	 * retire les cubes d'une maladie dans une ville
 	 * tout en réduisant le taux d'infection
 	 */
-	public static void RemoveCubes(Disease disease, Cities city) {
+	public static void RemoveCubes(Disease disease, City city) {
 		//Cities city=getCity();
 		int diseaseCubes= city.getCubeCount(disease);
 		for(int i= 0; i < diseaseCubes; i++) {

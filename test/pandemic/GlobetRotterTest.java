@@ -8,13 +8,15 @@ import java.io.InputStream;
 
 import org.junit.Test;
 
-import player.Player;
+import pandemic.player.GlobetRotter;
+import pandemic.player.Player;
+import pandemic.player.Roles;
 
 public class GlobetRotterTest {
 	
 	private Player player;
-	private Cities city1;
-	private Cities city2;
+	private City city1;
+	private City city2;
 	
 	
 	
