@@ -17,19 +17,27 @@ public class Game {
 	
 	//TODO terminer la docu des attributs
 	//TODO créer tous les getters et setters nécessaires
-	protected int GlobalInfectionRate = 2;
-	protected int InfectionFocusAmount ;
+	protected int GlobalInfectionRate;
 	protected Stack<InfectionCards> infectionStack;
 	protected Stack<PlayersCards> playersStack;
 	
 	
 	/**
-	 * @param GlobalInfectionRate
-	 * @param InfectionFocusAmount
+	 * Builds an instance of Game by creating all its necessary components : map, players, etc.
+	 *  @param mapFile The name of the file that contains city data
+	 *  @param playerNumber The numbers of players for this game, should be between 2 and 4 included.
+	 *  @param GlobalInfectionRate Should be 2 for the classic version of the game.
+	 *	
 	 */
-	public Game (int GlobalInfectionRate, int InfectionFocusAmount ){
+	public Game (String mapFile, int numPlayers, int GlobalInfectionRate){
 		this.GlobalInfectionRate=GlobalInfectionRate;
-		this.InfectionFocusAmount=InfectionFocusAmount;
+		
+		if ( (numPlayers<2) || (numPlayers>4) ) {
+			System.out.println("Error : invalid number of players"); //TODO facultatif : mettre ça en exception
+		} 
+		
+		//TODO créer [playerNumber] joueurs
+		
 	}
 
 	
@@ -46,6 +54,13 @@ public class Game {
 	 * the most important method in the game, the method to play a party
 	 */
 	public void play() {
+		
+		//INIT
+		
+	    int overallInfectionRate = 2; // Le taux global d'infection 
+	    MappeMonde Map;
+	    //TODO récupérer map depuius les args
+	    
 		//TODO faire ici tout ce que le main faisait 
 	}
 	
