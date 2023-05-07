@@ -25,8 +25,8 @@ public class Doctor extends Player {
 	 * @param name
 	 * @param city
 	 */
-	public Doctor(String name, City city) {
-		super(name, city);
+	public Doctor(String name, City city,  Game game) {
+		super(name, city, game);
 	}
 	
 	
@@ -35,7 +35,7 @@ public class Doctor extends Player {
 	 * retire les cubes d'une maladie dans une ville
 	 * tout en réduisant le taux d'infection
 	 */
-	public static void healDisease(Disease disease, City city) {
+	public void healDisease(Disease disease, City city) {
 		//Cities city=getCity();
 		int diseaseCubes= city.getCubeCount(disease);
 		for(int i= 0; i < diseaseCubes; i++) {

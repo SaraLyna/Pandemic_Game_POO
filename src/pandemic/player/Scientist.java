@@ -7,6 +7,7 @@ import java.util.Stack;
 
 import pandemic.City;
 import pandemic.Disease;
+import pandemic.Game;
 import pandemic.card.Card;
 
 /**
@@ -26,8 +27,8 @@ class Scientist extends Player {
 	 * @param name
 	 * @param handSize
 	 */
-	public Scientist (String name, City city, int handSize) {
-		super(name,city);
+	public Scientist (String name, City city, Game game, int handSize) {
+		super(name,city, game);
 		this.handSize=handSize;
 	}
 	
@@ -39,47 +40,7 @@ class Scientist extends Player {
 	 */
 	public int getSize() {
 		return this.handSize;
-	}
-	
-	
-	
-	  /**
-     * @param p
-     * @param Disease
-	 * check if the city has a Research Center and discover a Cure for a specific disease.
-	 * Then discard the 5 players cards.
-     */
-    public static void discoverCure(Player p, Disease Disease){
-    	int cpt = 0;
-		Stack<Card> hand = p.getCardsInHand();
-		City city = p.getLocation();
-		if (city.isResearchCenter()){
-			Iterator<Card> it = hand.iterator();
-			while (it.hasNext()) {	
-				Card card = it.next();
-				if(card.getDiseaseName()==Disease.getDiseaseName()) {
-					cpt += 1;
-				}
-			}
-			if (cpt > 3) {
-				Disease.setCured(true);
-				while (it.hasNext()) {
-					Card card = it.next();
-					if(card.getDiseaseName()==Disease.getDiseaseName()) {
-						p.removeCard(card);
-					}
-				}
-			System.out.println("A cure has been found for the disease " + Disease.getDiseaseName());
-			}
-			else {
-				System.out.println(p.getName() + " has not enough cards to cure the disease " + Disease.getDiseaseName());
-			}
-		}
-		else {
-			System.out.println(p.getName() + ", please build a research Center to discover a Cure for the disease " + Disease.getDiseaseName());
-		}
-    }
-	
+	}	
 	
 	/**
 	 * method equals
@@ -105,29 +66,14 @@ class Scientist extends Player {
 	 * méthode findRemedy qui permettrait de trouver un remede pour une maladie donnée 
 	 * en utilisant la méthode discoverCure définie plus haut 
 	 */
-	public boolean healDisease(Disease disease, City city) {
-		
+	public void healDisease(Disease diseaseToCure, City city) {
+				
 		ArrayList<Card> hand = this.getCardsInHand();
-	    // Vérifier si le scientifique a la bonne maladie
-	    if (!hand.get(0).getDiseaseName().equals(diseaseToCure.getDiseaseName())) {
-	        return false;
-	    }
-	    // Vérifier s'il y a assez de cartes de la maladie pour découvrir un remède
-	    int count = 0;
-	    for (Card card : hand) {
-	        if (card.getDiseaseName().equals(diseaseToCure.getDiseaseName())) {
-	            count++;
-	        }
-	    }
-	    if (count < handSize) {
-	        return false;
-	    }
-	    // Vérifier si un remède n'a pas encore été découvert pour la maladie donnée
-	    if (diseases.contains(diseaseToCure)) {
-	        return false;
-	    }
-	    // Découvrir un remède pour la maladie
-	    diseases.add(diseaseToCure);
-	    return true;
+		
+		//TODO récupérer la méthode de ScientistRole et l'adapter
+		
+		//TODO IMPLEMENTER RANDOMLISTCHOOSER DANS CETTE METHODE POUR AUTOMATISER
+	    
+		
 	}
 }
