@@ -14,7 +14,7 @@ import org.json.JSONArray;
  */
 public class MappeMonde {
 
-	protected City[] Villes ;
+	protected City[] cities ;
 	
 		/**
 		 * this method allows the reading of a json file
@@ -43,7 +43,7 @@ public class MappeMonde {
 		 * Pour les classer, je vous conseille de créer un tableau et d'utiliser 
 		 * les commandes suivantes.
 		 */
-		this.Villes= new City[villes.length()];
+		this.cities= new City[villes.length()];
 		String[] liste_villes = new String[villes.length()];
 		while (villes_entries.hasNext()) {
 			// Obtient le nom de la ville.
@@ -53,7 +53,7 @@ public class MappeMonde {
 			// La liste des villes commence par 1, mais un tableau en Java 
 			// commence à l'index 0. De cette manière, il est nécessaire d'utiliser -1.
 			liste_villes[Integer.parseInt(numberVille)-1] = nomVille;
-			this.Villes[Integer.parseInt(numberVille)-1]= new City(nomVille, villes.get(nomVille).toString());//erreur
+			this.cities[Integer.parseInt(numberVille)-1]= new City(nomVille, villes.get(nomVille).toString());//erreur
 			
 		}
 		// Imprimer la liste des villes. 
@@ -74,7 +74,7 @@ public class MappeMonde {
 	    	for (int i = 0; i < liste_voisins.length(); i++) {
 	    		String nomNeighbor = liste_voisins.get(i).toString();
 	    		String numberNeighbor = nomNeighbor.replaceAll("[^0-9]", "");
-	    		this.Villes[Integer.parseInt(numberVille)-1].addNeighbors(this.Villes[Integer.parseInt(numberNeighbor)-1]);
+	    		this.cities[Integer.parseInt(numberVille)-1].addNeighbors(this.cities[Integer.parseInt(numberNeighbor)-1]);
 	    		
 	    	    System.out.print(liste_voisins.get(i)+" ");
 	    	}
@@ -88,8 +88,8 @@ public class MappeMonde {
 	 * it goes all over elements of the list of cities and displays them with toString() method of the class Cities
 	 */
 	public void displayAllCities() {
-		for(City cities : this.Villes) {
-			System.out.println(cities);
+		for(City city : this.cities) {
+			System.out.println(city);
 		}
 	}
 	
@@ -97,8 +97,8 @@ public class MappeMonde {
 	/**
 	 * @return a list of the cities
 	 */
-	public City[] getVilles() {
-		return this.Villes;
+	public City[] getCities() {
+		return this.cities;
 	}
 
 	
@@ -108,8 +108,8 @@ public class MappeMonde {
 	 * of each city with calling the method resetTurn of the class Cities
 	 */
 	public void endInfectionTurn() {
-		for(City cities : this.Villes) {
-			cities.resetTurn();
+		for(City city : this.cities) {
+			city.resetTurn();
 		}
 	}
 	    
