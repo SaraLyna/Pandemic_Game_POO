@@ -6,12 +6,9 @@ import java.util.*;
 //import org.json.*;
 
 /**
- * en quelques sorte c'est le plateau de jeu
- * this class displays all the code we have been coding
+ * entry point of the executable, runs the whole game by calling a Game object.
  */
 public class pandemicMain {
-	
-	//int overallInfectionRate = 2;
 	
 	/**
 	 * @param args

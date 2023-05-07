@@ -3,15 +3,21 @@ package pandemic;
 import java.util.Iterator;
 import java.util.Stack;
 
+/* TODO déplacer toutes les méthodes de main ici, et rédiger le reste*/
 
 /**
  *Cette classe sert à lancer le jeu
- *à jouer
  *
  */
 public class Game {
 	
-	protected int GlobalInfectionRate;
+	/*
+	 *  all the necessary data to be stored for the game, will be accessed by other classes by passing the Game instance to them
+	 */
+	
+	//TODO terminer la docu
+	//TODO créer tous les getters et setters nécessaires
+	protected int GlobalInfectionRate = 2;
 	protected int InfectionFocusAmount ;
 	protected Stack<InfectionCards> infectionStack;
 	protected Stack<PlayersCards> playersStack;
