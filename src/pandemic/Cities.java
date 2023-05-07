@@ -7,7 +7,7 @@ import java.util.*;
  */
 public class Cities {
     protected String name;
-    protected HashMap<Diseases, Integer> infectionRates;
+    protected HashMap<Disease, Integer> infectionRates;
     protected List<Cities> neighbors;
     protected List<Players> players;
     protected String sector;
@@ -32,10 +32,10 @@ public class Cities {
         this.players = new ArrayList<>();
         this.hasBeenInfectedThisTurn = false;
         this.infectionRates = new HashMap<>();
-        this.infectionRates.put(Diseases.BLUE, 0);
-        this.infectionRates.put(Diseases.RED, 0);
-        this.infectionRates.put(Diseases.YELLOW, 0);
-        this.infectionRates.put(Diseases.BLACK, 0);
+        this.infectionRates.put(Disease.BLUE, 0);
+        this.infectionRates.put(Disease.RED, 0);
+        this.infectionRates.put(Disease.YELLOW, 0);
+        this.infectionRates.put(Disease.BLACK, 0);
     }
 
     
@@ -44,7 +44,7 @@ public class Cities {
      * start a propagation or the infection in the current city,
      * @param d the disease to add,
      */
-    private void infectionPropagation(Diseases d) {
+    private void infectionPropagation(Disease d) {
     	this.displayAllNeighbors();
         for (Cities neighbor : this.neighbors) {
             neighbor.addCube(d);
@@ -58,7 +58,7 @@ public class Cities {
      * each city is infected once in a propagation phase.
      * @param d the cube to add 
      */
-    public void addCube(Diseases d) {  
+    public void addCube(Disease d) {  
     	//at some point we need to remove a cube from the corresponding reserve, for now we do that in the addCube method in PandemicMain
         if(hasBeenInfectedThisTurn) {
         	System.out.println(this.name + " is not re-infected because it has already been infected this turn ,");
@@ -99,7 +99,7 @@ public class Cities {
     /**
      * @return a dictionnary of all the cubes of diseases in a city
      */
-    public HashMap<Diseases, Integer> getAllCubes() {
+    public HashMap<Disease, Integer> getAllCubes() {
         return this.infectionRates;
     }
     
@@ -131,7 +131,7 @@ public class Cities {
     */
     public String toString() {
         String str = name + " [";
-        for (Map.Entry<Diseases, Integer> entry : infectionRates.entrySet()) {
+        for (Map.Entry<Disease, Integer> entry : infectionRates.entrySet()) {
             str += entry.getKey().getDiseaseName() + ":" + entry.getValue() + ", ";
         }
         str = str.substring(0, str.length() - 2);
@@ -200,7 +200,7 @@ public class Cities {
 	 * @param d the disease to check
 	 * @return the number of cubes of the specified disease in the city
 	 */
-	public int getCubeCount(Diseases d) {
+	public int getCubeCount(Disease d) {
 	    return this.infectionRates.get(d);
 	}
     
@@ -209,7 +209,7 @@ public class Cities {
 	 * @param disease the disease to set the cube count for
 	 * @param count the number of cubes to set
 	 */
-	public void setCubeCount(Diseases disease, int count) {
+	public void setCubeCount(Disease disease, int count) {
 	    if (this.infectionRates.containsKey(disease)) {
 	    	this.infectionRates.put(disease, count);
 	    }
@@ -233,7 +233,7 @@ public class Cities {
      *decreases the number of cubes of a given disease 
      * @param disease ,the given disease 
      */
-    public void reduceInfection(Diseases disease) {
+    public void reduceInfection(Disease disease) {
         if(this.infectionRates.containsKey(disease)){
             int cubeCount = getCubeCount(disease) - 1;
             this.infectionRates.replace(disease, cubeCount);

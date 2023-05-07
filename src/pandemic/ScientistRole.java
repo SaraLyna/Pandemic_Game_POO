@@ -52,7 +52,7 @@ class ScientistRole extends Actions{
 	 * check if the city has a Research Center and discover a Cure for a specific disease.
 	 * Then discard the 5 players cards.
      */
-    public static void discoverCure(Players p, Diseases Disease){
+    public static void discoverCure(Players p, Disease Disease){
     	int cpt = 0;
 		Stack<Cards> hand = p.getCardsInHand();
 		Cities city = p.getLocation();
@@ -109,7 +109,7 @@ class ScientistRole extends Actions{
 	 * méthode findRemedy qui permettrait de trouver un remede pour une maladie donnée 
 	 * en utilisant la méthode discoverCure définie plus haut 
 	 */
-	public boolean findRemedy(List<Cards> hand, List<Diseases> diseases, Diseases diseaseToCure) {
+	public boolean findRemedy(List<Cards> hand, List<Disease> diseases, Disease diseaseToCure) {
 	    // Vérifier si le scientifique a la bonne maladie
 	    if (!hand.get(0).getDiseaseName().equals(diseaseToCure.getDiseaseName())) {
 	        return false;

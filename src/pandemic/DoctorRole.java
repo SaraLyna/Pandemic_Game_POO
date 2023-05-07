@@ -42,7 +42,7 @@ public class DoctorRole extends Actions {
 	 * retire les cubes d'une maladie dans une ville
 	 * tout en réduisant le taux d'infection
 	 */
-	public static void RemoveCubes(Diseases disease, Cities city) {
+	public static void RemoveCubes(Disease disease, Cities city) {
 		//Cities city=getCity();
 		int diseaseCubes= city.getCubeCount(disease);
 		for(int i= 0; i < diseaseCubes; i++) {

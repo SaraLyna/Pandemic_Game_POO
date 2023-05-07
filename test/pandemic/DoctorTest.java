@@ -15,10 +15,10 @@ public class DoctorTest {
 	@Test
 	public void testRemoveCubes() {
 		 Cities city = new Cities("ville-2","Secteur 1");
-	     city.setCubeCount(Diseases.BLUE, 3);   
-	     assertEquals(city.getCubeCount(Diseases.BLUE),3);
-	     DoctorRole.RemoveCubes(Diseases.BLUE, city);
-	     assertEquals(city.getCubeCount(Diseases.BLUE),0);
+	     city.setCubeCount(Disease.BLUE, 3);   
+	     assertEquals(city.getCubeCount(Disease.BLUE),3);
+	     DoctorRole.RemoveCubes(Disease.BLUE, city);
+	     assertEquals(city.getCubeCount(Disease.BLUE),0);
 	   
 	}
 

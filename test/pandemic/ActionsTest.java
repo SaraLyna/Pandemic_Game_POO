@@ -20,8 +20,8 @@ public class ActionsTest {
 	public void testDiscover() {
 		Cities city1= new Cities("ville-11","3");
 	
-		Diseases disease1=Diseases.RED;
-		Diseases disease2= Diseases.BLUE;
+		Disease disease1=Disease.RED;
+		Disease disease2= Disease.BLUE;
 		Players player1=new Players("Ana",Roles.Expert,city1);
 		
 		PlayersCards card1=new PlayersCards("ville-11","noir");
@@ -144,8 +144,8 @@ public class ActionsTest {
 	@Test
 	public void testhealDiseaseWhenThereNoLeftCube() { 
 	    Cities city1 = new Cities("ville-11", "3");
-	    Diseases disease = Diseases.YELLOW;
-	    HashMap<Diseases, Integer> cubesStock = new HashMap<>();
+	    Disease disease = Disease.YELLOW;
+	    HashMap<Disease, Integer> cubesStock = new HashMap<>();
 	    cubesStock.put(disease, 3);
 	    city1.setCubeCount(disease, 0);
 	    Actions.healDisease(disease, city1, cubesStock);
@@ -156,8 +156,8 @@ public class ActionsTest {
 	@Test
 	public void testHealDiseaseWhenTheDiseaseIsCured() { 
 	    Cities city1 = new Cities("ville-11", "3");
-	    Diseases disease = Diseases.YELLOW;
-	    HashMap<Diseases, Integer> cubesStock = new HashMap<>();
+	    Disease disease = Disease.YELLOW;
+	    HashMap<Disease, Integer> cubesStock = new HashMap<>();
 	    cubesStock.put(disease, 3);
 	    city1.setCubeCount(disease, 3); 
 	    disease.setCured(true);
@@ -169,8 +169,8 @@ public class ActionsTest {
 	@Test
 	public void testHealDiseaseWhenTheDiseaseIsNotCured() { 
 	    Cities city1 = new Cities("ville-11", "3");
-	    Diseases disease = Diseases.YELLOW;
-	    HashMap<Diseases, Integer> cubesStock = new HashMap<>();
+	    Disease disease = Disease.YELLOW;
+	    HashMap<Disease, Integer> cubesStock = new HashMap<>();
 	    cubesStock.put(disease, 3);
 	    city1.setCubeCount(disease, 3);
 	    disease.setCured(false);

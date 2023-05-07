@@ -17,8 +17,8 @@ public class ScientistTest {
 	@Test
 	public void testdiscover() {
 		Cities city1= new Cities("ville-11","3");
-		Diseases disease1=Diseases.RED;
-		Diseases disease2= Diseases.BLUE;
+		Disease disease1=Disease.RED;
+		Disease disease2= Disease.BLUE;
 		Players player1=new Players("Ana",Roles.Expert,city1);	
 		PlayersCards card1=new PlayersCards("ville-11","noir");
 		PlayersCards card3=new PlayersCards("ville-16","rouge");
@@ -66,8 +66,8 @@ public class ScientistTest {
         hand.add(new PlayersCards("ville-20", "rouge"));
         hand.add(new PlayersCards("ville-13", "rouge"));
 
-        Diseases redDisease = Diseases.RED;
-        List<Diseases> discoveredDiseases = new ArrayList<>();
+        Disease redDisease = Disease.RED;
+        List<Disease> discoveredDiseases = new ArrayList<>();
 
         assertTrue(scientist.findRemedy(hand, discoveredDiseases, redDisease));
         assertTrue(discoveredDiseases.get(0).getDiseaseName().equals("rouge"));

@@ -24,7 +24,7 @@ public class Actions {
 	 * check if the city has a Research Center and discover a Cure for a specific disease.
 	 * Then discard the 5 players cards.
      */
-    public static void discover(Players p, Diseases Disease){
+    public static void discover(Players p, Disease Disease){
 		//TODO IMPLEMENTER RANDOMLISTCHOOSER DANS CETTE METHODE POUR AUTOMATISER
     	int cpt = 0;
 		Stack<Cards> hand = p.getCardsInHand();
@@ -125,7 +125,7 @@ public class Actions {
 	 * @param disease, the disease to be healed
 	 * @param cubesStock , the stock of the diseases' cubes
 	 */
-	public static  void healDisease(Diseases disease, Cities city,HashMap <Diseases, Integer> cubesStock){	
+	public static  void healDisease(Disease disease, Cities city,HashMap <Disease, Integer> cubesStock){	
 		int lastCubes = city.getCubeCount(disease);// number of cubes of the Disease disease
 		 if (lastCubes == 0) {
 		    System.out.println("There is no cubes of the disease " + disease.getDiseaseName() + " in the city "+ city.getName() + " anymore" );

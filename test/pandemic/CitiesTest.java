@@ -35,46 +35,46 @@ public class CitiesTest {
     	@Test
     	public void testAddCube() {
     	    // Test ajouter un cube à une ville
-    	    city1.addCube(Diseases.BLUE);
+    	    city1.addCube(Disease.BLUE);
     	    
-    	    assertEquals(1, (int)city1.getAllCubes().get(Diseases.BLUE));
+    	    assertEquals(1, (int)city1.getAllCubes().get(Disease.BLUE));
     	    
     	    // Test ajouter un cube à la même ville avec la même maladie
     	    city1.resetTurn();
-    	    city1.addCube(Diseases.BLUE);
-    	    assertEquals(2, (int)city1.getAllCubes().get(Diseases.BLUE));
+    	    city1.addCube(Disease.BLUE);
+    	    assertEquals(2, (int)city1.getAllCubes().get(Disease.BLUE));
     	    
     	    // Test ajouter un cube à la même ville avec une maladie différente
     	    city1.resetTurn();
-    	    city1.addCube(Diseases.RED);
-    	    assertEquals(1, (int)city1.getAllCubes().get(Diseases.RED));
+    	    city1.addCube(Disease.RED);
+    	    assertEquals(1, (int)city1.getAllCubes().get(Disease.RED));
     	    
     	    // Test ajouter un cube à une ville qui a déjà été infectée ce tour
-    	    city1.addCube(Diseases.BLUE);
-    	    assertEquals(2, (int)city1.getAllCubes().get(Diseases.BLUE));
+    	    city1.addCube(Disease.BLUE);
+    	    assertEquals(2, (int)city1.getAllCubes().get(Disease.BLUE));
     }
 
     	@Test
     	public void testInfectionPropagation() {
     	    // Test propagation de l'infection
     		city1.resetTurn();
-    	    city1.addCube(Diseases.BLUE);
+    	    city1.addCube(Disease.BLUE);
     		city1.resetTurn();
-    	    city1.addCube(Diseases.BLUE);
+    	    city1.addCube(Disease.BLUE);
     	    city1.resetTurn();
-    	    city1.addCube(Diseases.BLUE);
+    	    city1.addCube(Disease.BLUE);
     	    city1.resetTurn();
-    	    city1.addCube(Diseases.BLUE);
-    	    assertEquals(3, (int)city1.getAllCubes().get(Diseases.BLUE));
-    	    assertEquals(1, (int)city2.getAllCubes().get(Diseases.BLUE));
-    	    assertEquals(1, (int)city3.getAllCubes().get(Diseases.BLUE));
-    	    assertEquals(0, (int)city4.getAllCubes().get(Diseases.BLUE));
+    	    city1.addCube(Disease.BLUE);
+    	    assertEquals(3, (int)city1.getAllCubes().get(Disease.BLUE));
+    	    assertEquals(1, (int)city2.getAllCubes().get(Disease.BLUE));
+    	    assertEquals(1, (int)city3.getAllCubes().get(Disease.BLUE));
+    	    assertEquals(0, (int)city4.getAllCubes().get(Disease.BLUE));
     	    
     	    // Test propagation de l'infection à une ville qui a déjà été infectée ce tour
     	    city2.resetTurn();
-    	    city2.addCube(Diseases.RED);
-    	    assertEquals(0, (int)city1.getAllCubes().get(Diseases.RED));
-    	    assertEquals(0, (int)city4.getAllCubes().get(Diseases.RED));
+    	    city2.addCube(Disease.RED);
+    	    assertEquals(0, (int)city1.getAllCubes().get(Disease.RED));
+    	    assertEquals(0, (int)city4.getAllCubes().get(Disease.RED));
     }
 
     	@Test
