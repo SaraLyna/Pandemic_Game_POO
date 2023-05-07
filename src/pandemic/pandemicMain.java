@@ -11,7 +11,7 @@ import java.util.*;
  */
 public class pandemicMain {
 	
-	//int overallInfectionRate = 2;
+	int overallInfectionRate = 2;//mettre dans le main
 	
 	/**
 	 * @param args
@@ -454,19 +454,26 @@ public class pandemicMain {
 				   //si on veut mettre des actions alÃ©atoires et/ou du choix d'actions Ã§a peut Ãªtre Ã  cet endroit
 	}
 	
-    //Phase d'infection !
-	/*
-    public void infectionPhase() {
-    	ArrayList<InfectionCards> hand = new ArrayList<>();
-    	InfectionPaquet paquetInfection=new InfectionPaquet();//pour le test
+    //Méthode pour automatiser la phase d'infection classique
+    public void phaseOfInfection() {
+    	ArrayList<InfectionCards> hand = new ArrayList<>(); //la main du "jeu" pour recuperer et jouer les cartes infections
+    	InfectionPaquet paquetInfection=new InfectionPaquet();//simule le paquet de cartes d'infection
+    	InfectionPaquet defausse=new InfectionPaquet(); //simule la défausse
  	   for (int i=0; i< overallInfectionRate +1; i++) {
  	       hand.add(paquetInfection.tirerCarte());
- 	   }
- 	   for (int j =0; j< hand.size()+1; j++) {
- 		   hand[j].getCityName().City.infectionPropagation(hand[j].getDiseaseName());
+ 	       for(Cities city : Map.getVilles()) {
+ 	    	   if( city.getName().equals(hand.get(i).getCityName())) {
+ 	    		   city.infectionPropagation(Diseases.nameToDisease(hand.get(i).getDiseaseName()));
+ 	    		   //met dans la défausse
+ 	    		   defausse.addCarte(hand.get(i));
+ 	    		   //remove the card from hand
+ 	    		   hand.remove(i);
+ 	    		   
+ 	    	   }
+ 	       }
  	   }
     }
-    */
+    
 	
 	/*
 	private static void put(Players player, MappeMonde map) {
