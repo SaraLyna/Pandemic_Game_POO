@@ -49,7 +49,7 @@ public class City {
      * start a propagation or the infection in the current city,
      * @param d the disease to add,
      */
-    private void infectionPropagation(Disease d) {
+    public void infectionPropagation(Disease d) {
     	this.displayAllNeighbors();
         for (City neighbor : this.neighbors) {
             neighbor.addCube(d);
