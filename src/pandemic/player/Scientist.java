@@ -1,14 +1,10 @@
 package pandemic.player;
-
+import pandemic.card.Card;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Stack;
-
 import pandemic.City;
 import pandemic.Disease;
 import pandemic.Game;
-import pandemic.card.Card;
 
 /**
  * this class represents the action of the Scientist
@@ -65,7 +61,7 @@ class Scientist extends Player {
 	 * @return a boolean
 	 * méthode findRemedy qui permettrait de trouver un remede pour une maladie donnée 
 	 * en utilisant la méthode discoverCure définie plus haut 
-	 */
+	 
 	public void healDisease(Disease diseaseToCure, City city) {
 				
 		ArrayList<Card> hand = this.getCardsInHand();
@@ -75,5 +71,44 @@ class Scientist extends Player {
 		//TODO IMPLEMENTER RANDOMLISTCHOOSER DANS CETTE METHODE POUR AUTOMATISER
 	    
 		
-	}
+	}*/
+	
+	
+	/**
+     * @param p
+     * @param Disease
+	 * check if the city has a Research Center and discover a Cure for a specific disease.
+	 * Then discard the 5 players cards.
+     */
+    public static void discover(Player p, Disease Disease){
+    	int cpt = 0;
+		ArrayList<Card> hand = p.getCardsInHand();
+		City city = p.getLocation();
+		if (city.isResearchCenter()){
+			Iterator<Card> it = hand.iterator();
+			while (it.hasNext()) {	
+				Card card = it.next();
+				if(card.getDiseaseName()==Disease.getDiseaseName()) {
+					cpt += 1;
+				}
+			}
+			if (cpt > 4) {
+				Disease.setCured(true);
+				while (it.hasNext()) {
+					Card card = it.next();
+					if(card.getDiseaseName()==Disease.getDiseaseName()) {
+						p.removeCard(card);
+					}
+				}
+			System.out.println("A cure has been found for the disease " + Disease.getDiseaseName());
+			}
+			else {
+				System.out.println(p.toString() + " has not enough cards to cure the disease " + Disease.getDiseaseName());
+			}
+		}
+		else {
+			System.out.println(p.toString() + ", please build a research Center to discover a Cure for the disease " + Disease.getDiseaseName());
+		}
+    }
+
 }
