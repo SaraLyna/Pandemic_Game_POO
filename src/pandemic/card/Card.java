@@ -1,16 +1,16 @@
 package pandemic.card;
-
+import pandemic.Disease;
 
 public abstract class Card {
 	protected String cityName;
-	protected String disease;
+	protected Disease disease;
 	
 	/**
 	 * constructor of the class Cards
 	 * @param city
 	 * @param disease
 	 */
-	public Card(String cityName, String disease) {
+	public Card(String cityName, Disease disease) {
 		this.cityName=cityName;
 		this.disease=disease;
 	}
@@ -20,7 +20,7 @@ public abstract class Card {
 	 * @return the name of the disease
 	 */
 	public String getDiseaseName() {
-		return this.disease;
+		return (this.disease.toString());
 	}
 	
 	
