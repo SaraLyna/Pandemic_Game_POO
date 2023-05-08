@@ -37,7 +37,7 @@ public class Doctor extends Player {
 	 * tout en réduisant le taux d'infection
 	 */
 	public void healDisease(Disease disease, City city) {
-		//Cities city=getCity();
+		//TODO IMPLEMENTER CHOIX RANDOM
 		int diseaseCubes= city.getCubeCount(disease);
 		for(int i= 0; i < diseaseCubes; i++) {
 			city.reduceInfection(disease);

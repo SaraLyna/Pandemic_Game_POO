@@ -13,27 +13,48 @@ import pandemic.player.Player;
 
 /**
  * Class to run the pandemic game simulation.
- *
+ * All the necessary data to be stored for the game, will be accessed by other classes by passing the Game instance to them
  */
 public class Game {
 	
-	/*
-	 *  all the necessary data to be stored for the game, will be accessed by other classes by passing the Game instance to them
-	 */
-	
 	//TODO terminer la docu des attributs
 	//TODO créer tous les getters et setters nécessaires
+	
+	/** the exhaustive list of the players in this game*/
+	protected ArrayList<Player> players;
+	
+	/** to count how many InfectionFocus there are, if there are more than X the game ends*/
 	protected int InfectionFocusAmount;
+	/**TODO DOCU*/
 	protected int GlobalInfectionRate;
+	/**TODO DOCU*/
+	
 	protected Stack<InfectionCards> infectionStack;
+	/**TODO DOCU*/
 	protected Stack<PlayersCards> playersStack;
+	
 	/** the map object created from the json file*/
 	protected MappeMonde map;
 	
+	/** will take one of the values blow to signal in the play() method that the loop needs to end :
+	 * "ongoing" : game goes on
+	 * "wonBecauseCures" : game won by the players finding all 4 cures
+	 * "lostBecauseCubes" : game lost by being unable to add a cube to a city bc the reserve for that color is empty
+	 * "lostBecauseInfections" : game lost by reaching 8 infection outbreaks
+	 * "lostBecauseDraw" : game lost because a player couldn't draw their 2 cards
+	 */
+	protected String state; //TODO facultatif mettre en enum si possible
+	
+	
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
 	public MappeMonde getMap() {
 		return map;
 	}
-
 	/* should be unused*/
 	public void setMap(MappeMonde map) {
 		this.map = map;
@@ -75,14 +96,11 @@ public class Game {
 		for (int i=0;i<numPlayers;i++) {
 			//TODO créer un objet joueur
 		}
-		
-
-		
 	}
 	
 	
 	/**
-	 * the most important method in the game, the method to play a party
+	 * the most important method in the game, the method to play
 	 */
 	public void play() {
 		//TODO faire dans cette méthode tout ce que le main faisait 
@@ -92,14 +110,47 @@ public class Game {
 		//INIT
 		map.displayAllCities();
 		
-		//TODO gérer le reste du jeu en lançant des tours jusqu'à ce que isFinished soit à true
+		//TODO FAIRE LE RESTE DE L'INIT
+		
+		
+		
+		
+		
+		// TURNS
 		while (true) {
-			//TODO effectuer des tours
+			//TODO : cycler parmi les joueurs avec un itérable pour leur faire jouer leurs tours
+			
+			/*TODO à l'intérieur des fonctions qui peuvent déclencher une win/loss de la partie, il faut :
+			1. mettre qqch pour tester si la partie est finie et 
+			2. faire remonter l'information en modifiant l'attribut state
+			3. juste après l'appel de la fonction dans Game, tester si "state" est à autre chose que ongoing, si oui sortir immédiatement du while avec un break*/
+		
+			
+			//rédiger code ici avec des break qd nécessaire
+			break;
 		}
-	    
-
-	     
-	    //NB :  les méthodes qui peuvent potentiellement faire perdre la partie doivent soit return qqch qui l'indique, ou modifier un attribut isFinished de Game (au choix) 
+		
+		
+		/* we just got out of the while because the game has ended */
+		switch(this.getState()) {
+			case "lostBecauseDraw": 
+				System.out.println("The game has been lost because a player couldn't draw their 2 cards.");
+				break;
+			case "lostBecauseInfections" :
+				System.out.println("The game has been lost by reaching the maximum amount of infection outbreaks");
+				break;
+			case "lostBecauseCubes":
+				System.out.println("The game has been lost by being unable to add a cube to a city bc the reserve for that color is empty.");
+				break;
+			case "wonBecauseCures":
+				System.out.println("The game has been won as all cures have been discovered.");
+				break;
+			case "ongoing":
+				System.out.println("PROBLEME : ON NE DEVRAIT PAS SORTIR DE LA BOUCLE");
+				break;
+			default:
+				System.out.println("PROBLEME : ON NE DEVRAIT PAS ATTEINDRE LE DEFAULT");
+		}
 	
 	
 	
@@ -147,17 +198,16 @@ public class Game {
 	 */
 	
 	static void makePlayerTakeATurn(Player currentPlayer, PlayersPaquet currentDeck) {
-					PlayersCards l1=currentDeck.tirerCarte();
-				   PlayersCards l2=currentDeck.tirerCarte();
-				   
-				   currentPlayer.addCard(l1);
-				   currentPlayer.addCard(l2);
-				   
-				   System.out.println("Player " + currentPlayer + " "+ l1.toString() + " and "+ l2.toString());
-				   ArrayList<Card> hand=currentPlayer.getCardsInHand();
-				   System.out.println(currentPlayer + " has " + hand.size()+ " cards in his/her hand. \n");
-				   
-				   //si on veut mettre des actions alÃ©atoires et/ou du choix d'actions Ã§a peut Ãªtre Ã  cet endroit
+		/* TODO : implémmenter les tests pour voir si la partie est terminée, si oui MAJ l'attribut state puis sortir de la fonction immédiatement*/
+			PlayersCards l1=currentDeck.tirerCarte();
+		    PlayersCards l2=currentDeck.tirerCarte();
+		   
+		    currentPlayer.addCard(l1);
+		    currentPlayer.addCard(l2);
+		     
+		    System.out.println("Player " + currentPlayer + " "+ l1.toString() + " and "+ l2.toString());
+		    ArrayList<Card> hand=currentPlayer.getCardsInHand();
+		    System.out.println(currentPlayer + " has " + hand.size()+ " cards in his/her hand. \n");
 	}
 	
 	
@@ -171,8 +221,7 @@ public class Game {
 	}
 	
 	
-		/**
-	 * @return null
+
 	 
 	 *
 	 */
