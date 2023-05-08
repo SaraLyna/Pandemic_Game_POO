@@ -218,7 +218,7 @@ public abstract class Player {
 	public void healDisease(){	
 		
 		City currentCity = this.getLocation();
-		ArrayList<Disease> allDiseasesInTheCity = currentCity.getAllDiseases(); //TODO rédiger allDiseasesInTheCity dans City
+		List<Disease> allDiseasesInTheCity = currentCity.getAllDiseases(); //TODO rédiger allDiseasesInTheCity dans City
 		
 		
 		RandomListChooser<Disease> rlc = new RandomListChooser<>();
