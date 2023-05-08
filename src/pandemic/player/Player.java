@@ -134,8 +134,10 @@ public abstract class Player {
 		System.out.print(this + " has been moved to the neighboring city : " + chosenCity.getName()+"\n"); /*here "playerToMove" will output the players name via toString*/
 	}
 	
-	/**
-	 * @param player
+	/** IF THE PLAYER IS NOT AN EXPERT, chooseCard() WILL RETURN A CARD, THAT WILL BE FED TO THIS METHOD
+	 * IF THE PLAYER IS AN EXPERT, chooseCard() WILL RETURN NULL, WHICH WILL BE FED TO THIS
+	 * 
+	 * 
 	 * this action consist to build a research center
 	 * in the same city where the player card is
 	 * @param cardToDiscard the card previously chosen by the player to be discarded
@@ -262,9 +264,9 @@ public abstract class Player {
 	/* randomly choses a card among those in the player hand that are the same as the city they're in
 	 * , can be used to decide what card the construct() method will discard
 	 * 
-	 * this method will not be overriden in Expert since no choice is needed, we simply do not need that method in that case*/
+	 **/
 	public Card chooseCard() {
-		TODO
+		TODO CODE THE METHOD
 	}
 	
 	
@@ -285,9 +287,50 @@ public abstract class Player {
 		return chosenDisease;
 	}
 	
+	
+	
+	/** will be overriden for Expert which has different conditions
+	 * @return true if the player has a card corresponding to the city they're in, and if that city doesn't have a research center yet.
+	 * 
+	 * */
+	public boolean playerCanConstruct() {
+		boolean playerHasCard = TODO;
+		boolean cityDoesntHaveResearchCenter = !this.getLocation().isResearchCenter();
+		return (playerHasCard && cityDoesntHaveResearchCenter);
+	}
+	
+	/** will be overriden for Scientist who only needs 4 cards
+	 * @return true if the city the player is in has a research center, and the player has the 5 cards of a disease that has not been cured yet */
+	public boolean playerCanDiscover() {
+		boolean playerHasNCardsOfADiseaseNotCuredYet = TODO;
+		boolean cityHasResearchCenter = !this.getLocation().isResearchCenter();
+	}
 
 	
 	
+	
+	
+	
+	
+	/** auxilliary method needed for both Player.playerCanDiscover() and Scientist.playerCanDiscover()
+	 * @param N the number of cards, will be 5 for regular players and 4 for Scientists
+	 * @return true if the player has at least N cards of a disease that has not been cured yet
+	 */
+	public boolean playerHasNCardsOfADiseaseNotCuredYet(int N) {
+		int counter=0;
+		for (Disease d : itérer dans les maladies pas encore guéries) {
+			for (Card c : itérer dans la main de this) {
+				if ( c.getDisease().equals(d)) {
+					counter++;
+				}
+			}
+			if (counter>=N) { //if the player has at least N cards of a disease that has not been cured yet
+				return true;
+			}
+		}
+		
+		return false; //if we iterated through all diseases without finding one that fits
+	}
 
 	
 

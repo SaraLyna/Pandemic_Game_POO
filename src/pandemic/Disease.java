@@ -25,12 +25,19 @@ public enum Disease {
         this.isCured = isCured;
     }
     
-
+ 
     /**
      * @return name of the disease
      */
-    public String getDiseaseName() {
+    public String getDiseaseName() { // maybe delete this and use toString instead ?
         return this.name;
+    }
+    
+    /**
+     * @return name of the disease
+     */
+    public String toString() {
+        return this.getDiseaseName();
     }
     
     

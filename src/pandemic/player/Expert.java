@@ -25,7 +25,8 @@ public class Expert extends Player {
 	}
 	
 	
-	/** overrides the method from Player
+	/** IF THE PLAYER IS AN EXPERT, chooseCard() WILL RETURN NULL, WHICH WILL BE FED TO THIS
+	 * overrides the method from Player
 	 * this method builds a research station without a card to build it
 	 * and if there is already a station it throws an exception
 	 * 
@@ -45,6 +46,22 @@ public class Expert extends Player {
 			//System.out.println("this city already has a research center");
 			throw new ResearchCenterException("this city already has a research station");
 		}	
+	}
+	
+	/* returns null as expert does need to choose anything
+	 * 
+	 **/
+	public Card chooseCard() {
+		return null;
+	}
+	
+	/** overriden for Expert who does not need any card to construct
+	 * @return true if that city doesn't have a research center yet.
+	 * 
+	 * */
+	public boolean playerCanConstruct() {
+		boolean cityDoesntHaveResearchCenter = !this.getLocation().isResearchCenter();
+		return (cityDoesntHaveResearchCenter);
 	}
 	
 

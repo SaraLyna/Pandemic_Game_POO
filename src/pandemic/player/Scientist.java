@@ -53,27 +53,6 @@ class Scientist extends Player {
 	}
 	
 	
-	
-	
-	/** A SUPPRIMER, CONTENU DANS LA CLASSE MERE PLAYER
-	 * @param diseases
-	 * @param diseaseToCure
-	 * @return a boolean
-	 * méthode findRemedy qui permettrait de trouver un remede pour une maladie donnée 
-	 * en utilisant la méthode discoverCure définie plus haut 
-	 
-	public void healDisease(Disease diseaseToCure, City city) {
-				
-		ArrayList<Card> hand = this.getCardsInHand();
-		
-		//TODO récupérer la méthode de ScientistRole et l'adapter
-		
-		//TODO IMPLEMENTER RANDOMLISTCHOOSER DANS CETTE METHODE POUR AUTOMATISER
-	    
-		
-	}*/
-	
-	
 	/**
      * @param p
      * @param Disease

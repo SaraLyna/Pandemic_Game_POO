@@ -27,11 +27,13 @@ public class Game {
 	protected static final int MAXNBINFECTIONAMOUNT = 8; // the biggest number of Infection focus that we can have in the game 
 	//exhaustive list of all actions a player can do,except for the special action of the doctor that they can do without losing one of their 4 actions per turn, that one is treated separately
 		//TODO bonus : maybe there's a way to directly use the methods as elements of the list like in C, but this works as well
-	protected static final ArrayList<String> ACTIONS = new ArrayList<>(
+	protected static final ArrayList<String> ALLACTIONS = new ArrayList<>(
 		    Collections.unmodifiableList(
 		    		Arrays.asList(
 		    				"discover", "move", "construct","healDisease","dontDoAnything"))); 
 	
+	/* will be updated every time a player has to choose what to do, to list all allowed choices*/
+	protected ArrayList<String> allDoableActions;
 	
 	/* attributes below*/
 	
@@ -350,8 +352,26 @@ public class Game {
 		    for (Player p : this.players) { /*for each player*/
 		    	for (int i=0;i<4;i++) {
 		    		
-		    		TODO NE METTRE DANS ACTIONS QUE LES ACTIONS POSSIBLES (eg construct est parfois impossible) ? OU ALORS DONNER LE CHOIX AU JOUEUR DE FAIRE UNE ACTION IMPOSSIBLE, CE QUI FAIT QU'IL NE FFAIT RIEN ?
+		    		//for each action we check if it's doable by the player, if yes we add it to the list of possible choices 
+		    		this.allDoableActions.add("dontDoAnything"); //always allowed
 		    		
+		    		this.allDoableActions.add("move"); //every city has neighbors => always allowed
+		    		
+		    		if ( p.playerCanConstruct() ) {
+		    			this.allDoableActions.add("construct");
+		    		}
+		    		
+		    		if ( p.playerCanDiscover() ) {
+		    			this.allDoableActions.add("discover");
+		    		}
+		    		
+		    		if ( p.playerCanHeal() ) {
+		    			this.allDoableActions.add("healDisease");
+		    		}
+		    		
+		    		
+		    				
+		    				
 		    		String chosenAction = rlcStr.choose("An action will be chosen randomly for the player" + p + ".", ACTIONS);
 		    		switch(chosenAction) {
 			    		  case "move":
