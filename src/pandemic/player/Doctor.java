@@ -1,5 +1,7 @@
 package pandemic.player;
 
+import java.util.HashMap;
+
 import pandemic.City;
 import pandemic.Disease;
 import pandemic.Game;
@@ -31,18 +33,37 @@ public class Doctor extends Player {
 	}
 	
 	
-	/** overrides bc special role
-	 * @param disease
-	 * retire les cubes d'une maladie dans une ville
-	 * tout en réduisant le taux d'infection
+
+	/**
+	 *  this method allow to heal a specific disease from a city
+	 * @param city , the city to heal the disease from
+	 * @param disease, the disease to be healed
+	 * @param cubesStock , the stock of the diseases' cubes
 	 */
-	public void healDisease(Disease disease, City city) {
-		//TODO IMPLEMENTER CHOIX RANDOM
-		int diseaseCubes= city.getCubeCount(disease);
-		for(int i= 0; i < diseaseCubes; i++) {
-			city.reduceInfection(disease);
-		}
-		System.out.println("The doctor removes all cubes of the disease " + disease.getDiseaseName() + " from the city "+ city.getName() );
+	public static  void healDisease(Disease disease, City city,HashMap <Disease, Integer> cubesStock){	
+		int lastCubes = city.getCubeCount(disease);// number of cubes of the Disease disease
+		 if (lastCubes == 0) {
+		    System.out.println("There is no cubes of the disease " + disease.getDiseaseName() + " in the city "+ city.getName() + " anymore" );
+		    return;
+		 }	
+		 
+		 else if (disease.isCured()) {
+			 for(int i = 0; i < lastCubes ; i++){
+				city.reduceInfection(disease);//  the cube of the Disease disease is removed
+				cubesStock.put(disease,cubesStock.get(disease) + 1);// the removed cube is added to the cubeStock
+			 }
+			 System.out.println("The disease " + disease.getDiseaseName()+"  was successfully treated thanks to the discovery of the cure !");
+			 return; 
+		 }	
+		 
+		 else { 
+			 city.reduceInfection(disease);//  the cube of the Disease disease is removed
+			 cubesStock.put(disease,cubesStock.get(disease) + 1);
+			 System.out.println("a cube of the disease "+ disease.getDiseaseName() +" is removed from the city " + city.getName());
+			 return;
+		 }
 	}
+
+
 
 }

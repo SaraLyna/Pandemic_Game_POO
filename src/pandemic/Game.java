@@ -28,10 +28,15 @@ public class Game {
 	/**TODO DOCU*/
 	protected int GlobalInfectionRate;
 	/**TODO DOCU*/
-	
+	protected int numberOfResearchCenter;
+	/**TODO DOCU*/
 	protected Stack<InfectionCards> infectionStack;
 	/**TODO DOCU*/
 	protected Stack<PlayersCards> playersStack;
+	/**TODO DOCU*/
+	protected int maxNbResearchCenter;
+	/**TODO DOCU*/
+	protected int maxNbInfectionFocusAmount;
 	
 	/** the map object created from the json file*/
 	protected MappeMonde map;
@@ -74,8 +79,14 @@ public class Game {
 	 * @throws FileNotFoundException 
 	 *	
 	 */
-	public Game (String mapFile, int numPlayers, int GlobalInfectionRate) throws FileNotFoundException{
-		this.GlobalInfectionRate=GlobalInfectionRate;
+	public Game (String mapFile, int numPlayers) throws FileNotFoundException{
+		
+		this.GlobalInfectionRate = 0;
+		this.InfectionFocusAmount = 0;
+		this.numberOfResearchCenter = 0;
+		this.maxNbResearchCenter = 6; // the biggest number of research center that we can have in the game 
+		this.maxNbInfectionFocusAmount = 8; // the biggest number of Infection focus that we can have in the game 
+		
 		
 		cubeStocks = new HashMap<Disease,Integer>();
 		
@@ -97,6 +108,8 @@ public class Game {
 			//TODO créer un objet joueur
 		}
 	}
+	
+	
 	
 	
 	/**

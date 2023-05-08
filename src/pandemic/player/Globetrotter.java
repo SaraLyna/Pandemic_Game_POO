@@ -40,9 +40,9 @@ class Globetrotter extends Player {
 			List<City> allCitiesList = Arrays.asList(allCitiesArray); /*conversion to an ArrayList to feed it to ListChooser*/
 			
 			
-			City destination = rlc.choose("A city will be chosen randomly for the player " + this + " to move.",allCitiesList); /* we use the random list chooser to automatically pick a city*/
+			City destination = rlc.choose("A city will be chosen randomly for the player " + this.getName() + " to move.",allCitiesList); /* we use the random list chooser to automatically pick a city*/
 			this.setLocation(destination);
-			System.out.print(this + " has been moved to " + destination.getName() + ".");
+			System.out.print(this.getName() + " has been moved to " + destination.getName() + ".");
 
 		}
 
