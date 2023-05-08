@@ -32,9 +32,12 @@ public class Expert extends Player {
 	 */
 	public void construct() throws ResearchCenterException {
 		City currentLocation = this.getLocation();
-		if(! currentLocation.isResearchCenter()) {
+		if(! currentLocation.isResearchCenter() && this.game.getNumberOfResearchCenter() < 6) {
 			currentLocation.addResearchCenter();
 			System.out.println("A new research station was built by the expert in :" + currentLocation.getName());
+			currentLocation.setisResearchCenter();
+			this.game.setNumberOfResearchCenter(this.game.getNumberOfResearchCenter() + 1);
+
 		}
 		else {
 			//System.out.println("this city already has a research center");
