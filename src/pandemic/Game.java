@@ -7,6 +7,7 @@ import pandemic.card.Card;
 import pandemic.card.InfectionCards;
 import pandemic.card.PlayersCards;
 import pandemic.card.PlayersPaquet;
+import pandemic.chooser.RandomListChooser;
 import pandemic.player.Player;
 
 /* TODO déplacer toutes les méthodes de main ici, et rédiger le reste*/
@@ -24,7 +25,12 @@ public class Game {
 	protected static final int STARTINGGLOBALINFECTIONRATE = 2;
 	protected static final int MAXNBRESEARCHCENTER = 6; // the biggest number of research center that we can have in the game 
 	protected static final int MAXNBINFECTIONAMOUNT = 8; // the biggest number of Infection focus that we can have in the game 
-	
+	//exhaustive list of all actions a player can do,except for the special action of the doctor that they can do without losing one of their 4 actions per turn, that one is treated separately
+		//TODO bonus : maybe there's a way to directly use the methods as elements of the list like in C, but this works as well
+	protected static final ArrayList<String> ACTIONS = new ArrayList<>(
+		    Collections.unmodifiableList(
+		    		Arrays.asList(
+		    				"discover", "move", "construct","healDisease","dontDoAnything"))); 
 	
 	
 	/* attributes below*/
@@ -252,7 +258,7 @@ public class Game {
 	
 	public void limitOfInfectionFocus() {
 		
-		if(this.InfectionFocusAmount == Game.MAXNBINFECTIONAMOUNT) {
+		if(this.InfectionFocusAmount == MAXNBINFECTIONAMOUNT) {
 			this.state = "lostBecauseInfectionFocus";
 		}
 	}
@@ -265,7 +271,7 @@ public class Game {
 	// Not forgetting that when a city has a research center , all the cubes of the diseases in its infectionRates are removed and all the diseases are cured. So we don't have to check that in this method
 	public void moveResearchCenter(City cityFrom , City cityTo) {
 		
-		if(this.numberOfResearchCenter == Game.MAXNBRESEARCHCENTER && cityFrom.isResearchCenter) {
+		if(this.numberOfResearchCenter == MAXNBRESEARCHCENTER && cityFrom.isResearchCenter) {
 			cityTo.isResearchCenter = true;
 			cityFrom.isResearchCenter = false;
 		}
@@ -300,7 +306,7 @@ public class Game {
 	 * NB : cette mÃ©thode est amÃ©liorable en incluant le message "tour du [n]iÃ¨me joueur qui est [nom du joueur]" si les parties Ã  codÃ©es sont longues et/ou de longueur variable
 	 */
 	
-	static void makePlayerTakeATurn(Player currentPlayer, PlayersPaquet currentDeck) {
+		void makePlayerTakeATurn(Player currentPlayer, PlayersPaquet currentDeck) {
 		/* TODO : implémmenter les tests pour voir si la partie est terminée, si oui MAJ l'attribut state puis sortir de la fonction immédiatement*/
 			PlayersCards l1=currentDeck.tirerCarte();
 		    PlayersCards l2=currentDeck.tirerCarte();
@@ -311,7 +317,47 @@ public class Game {
 		    System.out.println("Player " + currentPlayer + " "+ l1.toString() + " and "+ l2.toString());
 		    ArrayList<Card> hand=currentPlayer.getCardsInHand();
 		    System.out.println(currentPlayer + " has " + hand.size()+ " cards in his/her hand. \n");
-	}
+		    
+		    //TODO COMPLETER AVEC CE QU'IL FAUT
+		    
+		    
+		    
+		    /* player does its 4 actions*/
+		    for (Player p : this.players) { /*for each player*/
+		    	for (int i=0;i<4;i++) {
+		    		
+		    		RandomListChooser<String> rlc = new RandomListChooser<>();
+		    		String chosenAction = rlc.choose("An action will be chosen randomly for the player" + p + ".", ACTIONS);
+		    		switch(chosenAction) {
+			    		  case "move":
+			    			  TODO
+			    		    // code block
+			    		    break;
+			    		  case "discover":
+			    		    // code block
+			    			//TODO CHECKER SI FIN DU JEU A CAUSE DE CETTE ACTION
+			    		    break;
+			    		  case "construct":
+			    			  //TODO
+			    			  break;
+			    		  case "healDisease":
+			    			  p.healDisease();
+
+			    			  break;
+			    		  case "dontDoAnything":
+			    			  p.dontDoAnything();
+			    		
+			    		  default:
+			    		    System.out.println("ERROR, THIS SHOULD NEVER BE DISPLAYED");
+			    		}
+			    	}
+		    	
+		    	
+		    	//if player is a doctor and is in a city 
+		    }
+		    
+		}
+		    
 	
 	
 	

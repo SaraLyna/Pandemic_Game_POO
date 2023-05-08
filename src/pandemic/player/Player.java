@@ -213,33 +213,39 @@ public abstract class Player {
 	
 	
 	/** will be overriden for the Scientist subclass
-	 *  this method allow to heal a specific disease from a city, will be overriden for the Doctor role
-	 * @param city , the city to heal the disease from
-	 * @param disease, the disease to be healed
-	 * @param cubesStock , the stock of the diseases' cubes
+	 *  this method allow to heal a specific disease from the city the player is in, will be overriden for the Doctor role
 	 */
-	public void healDisease(Disease disease, City city){	
-		int lastCubes = city.getCubeCount(disease);// number of cubes of the Disease disease
+	public void healDisease(){	
+		
+		City currentCity = this.getLocation();
+		ArrayList<Disease> allDiseasesInTheCity = currentCity.getAllDiseases(); //TODO rédiger allDiseasesInTheCity dans City
+		
+		
+		RandomListChooser<Disease> rlc = new RandomListChooser<>();
+		Disease chosenDisease = rlc.choose("A disease will be randomly chosen among all those present in the city.", allDiseasesInTheCity);
+		
+		
+		int lastCubes = currentCity.getCubeCount(chosenDisease);// number of cubes of the Disease disease
 		 HashMap<Disease, Integer> cubesStock = this.getGame().getCubesStocks(); /*reference to the attribute in Game*/
 		
 		 if (lastCubes == 0) {
-		    System.out.println("There is no cubes of the disease " + disease.getDiseaseName() + " in the city "+ city.getName() + " anymore" );
+		    System.out.println("There is no cubes of the disease " + chosenDisease.getDiseaseName() + " in the city "+ currentCity.getName() + " anymore" );
 		    return;
 		 }	
 		 
-		 else if (disease.isCured()) {
+		 else if (chosenDisease.isCured()) {
 			 for(int i = 0; i < lastCubes ; i++){
-				city.reduceInfection(disease);//  the cube of the Disease disease is removed
-				cubesStock.put(disease,cubesStock.get(disease) + 1);// the removed cube is added to the cubeStock
+				 currentCity.reduceInfection(chosenDisease);//  the cube of the Disease disease is removed
+				cubesStock.put(chosenDisease,cubesStock.get(chosenDisease) + 1);// the removed cube is added to the cubeStock
 			 }
-			 System.out.println("The disease " + disease.getDiseaseName()+"  was successfully treated thanks to the discovery of the cure !");
+			 System.out.println("The disease " + chosenDisease.getDiseaseName()+"  was successfully treated thanks to the discovery of the cure !");
 			 return; 
 		 }	
 		 
 		 else { 
-			 city.reduceInfection(disease);//  the cube of the Disease disease is removed
-			 cubesStock.put(disease,cubesStock.get(disease) + 1);
-			 System.out.println("a cube of the disease "+ disease.getDiseaseName() +" is removed from the city " + city.getName());
+			 currentCity.reduceInfection(chosenDisease);//  the cube of the Disease disease is removed
+			 cubesStock.put(chosenDisease,cubesStock.get(chosenDisease) + 1);
+			 System.out.println("a cube of the disease "+ chosenDisease.getDiseaseName() +" is removed from the city " + currentCity.getName());
 			 return;
 		 }
 	}
@@ -250,7 +256,7 @@ public abstract class Player {
 	 * this action is to do nothing,
 	 * 
 	 */
-	public void DontDoAnything(){ 
+	public void dontDoAnything(){ 
 		System.out.println(this + "does not do anything"); /* this will use toString*/
 	}
 	

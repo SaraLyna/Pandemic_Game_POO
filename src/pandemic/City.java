@@ -108,6 +108,11 @@ public class City {
         return this.infectionRates;
     }
     
+    /** @return the list of all diseases that have a non-zero number of cubes*/
+    public ArrayList<Disease> getAllDiseases() {
+    	//TODO
+    }
+    
 
     /**
      * @return the list of the neighbors
