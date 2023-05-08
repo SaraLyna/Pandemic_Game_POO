@@ -7,6 +7,7 @@ import pandemic.card.Card;
 import pandemic.card.InfectionCards;
 import pandemic.card.PlayersCards;
 import pandemic.card.PlayersPaquet;
+import pandemic.card.InfectionPaquet;
 import pandemic.chooser.RandomListChooser;
 import pandemic.player.Player;
 
@@ -22,7 +23,7 @@ public class Game {
 	//TODO créer tous les getters et setters nécessaires
 	
 	/*constants below*/
-	protected static final int STARTINGGLOBALINFECTIONRATE = 2;
+	protected static int STARTINGGLOBALINFECTIONRATE = 2; //final retirer pour méthode epidemyPhaseOfInfection()
 	protected static final int MAXNBRESEARCHCENTER = 6; // the biggest number of research center that we can have in the game 
 	protected static final int MAXNBINFECTIONAMOUNT = 8; // the biggest number of Infection focus that we can have in the game 
 	//exhaustive list of all actions a player can do,except for the special action of the doctor that they can do without losing one of their 4 actions per turn, that one is treated separately
@@ -50,10 +51,12 @@ public class Game {
 	protected int numberOfResearchCenter;
 	
 	/**TODO DOCU*/
-	protected Stack<InfectionCards> infectionStack;
+	//protected Stack<InfectionCards> InfectionStack;
+	protected InfectionPaquet infectionStack;
 	
 	/**TODO DOCU*/
-	protected Stack<PlayersCards> playersStack;
+	//protected Stack<PlayersCards> playersStack;
+	protected PlayersPaquet playersStack;
 
 	/**TODO DOCU*/
 	protected int maxNbInfectionFocusAmount;
@@ -75,7 +78,9 @@ public class Game {
 	  * values : the number of cubes left for that disease */
 	protected HashMap<Disease, Integer> cubeStocks;
 	
+	protected ArrayList<InfectionCards> hand;
 	
+	protected ArrayList<InfectionCards> discardInfectionStack;
 	
 	/* getters and setters below*/
 
@@ -110,7 +115,8 @@ public class Game {
 		this.GlobalInfectionRate = STARTINGGLOBALINFECTIONRATE;
 		this.InfectionFocusAmount = 0;
 		this.numberOfResearchCenter = 0;
-		
+		this.hand =new ArrayList<>();
+		this.discardInfectionStack = new ArrayList<>();
 		
 		
 		cubeStocks = new HashMap<Disease,Integer>();
@@ -311,7 +317,36 @@ public class Game {
 		this.changeCubeStock(diseaseType, -1);
 	}
 	
+	/**
+	 * Launch the phase of infection in the end of the round
+	 */
+	public void phaseOfInfection() {
+	 	for (int i=0; i< STARTINGGLOBALINFECTIONRATE +1; i++) {
+	 	    hand.add(this.infectionStack.tirerCarte());
+	 	    for(City city : map.getCities()) {
+	 	    	if( city.getName().equals(hand.get(i).getCityName())) {
+	 	    		city.infectionPropagation(Disease.nameToDisease(hand.get(i).getDiseaseName()));
+	 	    		discardInfectionStack.add(hand.get(i));
+	 	    		hand.remove(i);
+	 	    	}
+	 	    }
+	 	}
+	}	
 	
+	/**
+	 * Launch a special phase of infection when an epidemy card is pull.
+	 */
+	public void epidemyPhaseOfInfection() {
+	    STARTINGGLOBALINFECTIONRATE++;
+	 	hand.add(this.infectionStack.tirerCarte());
+	 	for(City city : map.getCities()) {
+	 	    if( city.getName().equals(hand.get(0).getCityName())) {
+	 	    	city.infectionPropagation(Disease.nameToDisease(hand.get(0).getDiseaseName()));
+	 	    	discardInfectionStack.add(hand.get(0));
+	 	    	hand.remove(0);
+	 	    }
+	 	}
+	}	
 	
 	/**
 	 *@return a string representation of the object.
