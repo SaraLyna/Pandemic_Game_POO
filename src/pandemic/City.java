@@ -109,8 +109,18 @@ public class City {
     }
     
     /** @return the list of all diseases that have a non-zero number of cubes*/
-    public ArrayList<Disease> getAllDiseases() {
-    	//TODO
+    public List<Disease> getAllDiseases() {
+    	
+    	 ArrayList<Disease> diseasesList = new ArrayList<>();
+    	 Disease[] everyDisease = Disease.values();
+    	 
+ 	     for (Disease d : everyDisease) {
+ 	    	 if(this.getCubeCount(d) > 0) {
+ 	    		 diseasesList.add(d);
+ 	    	 }
+ 	     }
+ 	     
+ 	     return diseasesList;
     }
     
 

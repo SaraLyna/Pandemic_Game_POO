@@ -350,7 +350,7 @@ public class Game {
 		    		String chosenAction = rlc.choose("An action will be chosen randomly for the player" + p + ".", ACTIONS);
 		    		switch(chosenAction) {
 			    		  case "move":
-			    			  TODO
+			    			  //TODO
 			    		    // code block
 			    		    break;
 			    		  case "discover":
