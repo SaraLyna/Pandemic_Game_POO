@@ -45,5 +45,10 @@ class Globetrotter extends Player {
 			System.out.print(this + " has been moved to " + destination.getName() + ".");
 
 		}
+		
+		/* randomly choses destination, will be overriden in Globetrotter*/
+		public City chooseDestination() {
+			TODO
+		}
 
 }
