@@ -1,10 +1,12 @@
 package pandemic.player;
 
 import java.util.HashMap;
+import java.util.List;
 
 import pandemic.City;
 import pandemic.Disease;
 import pandemic.Game;
+import pandemic.chooser.RandomListChooser;
 
 /**
  * this class represent players that have the Doctor role
@@ -40,17 +42,24 @@ public class Doctor extends Player {
 	 * @param disease, the disease to be healed
 	 * @param cubesStock , the stock of the diseases' cubes
 	 */
-	public void healDisease(Disease disease, City city){	
+	public void healDisease(){	
 		
-		HashMap<Disease, Integer> cubesStock = this.getGame().getCubesStocks();
+		City currentCity = this.getLocation();
+		List<Disease> allDiseasesInTheCity = currentCity.getAllDiseases(); //TODO rédiger allDiseasesInTheCity dans City
 		
-		int lastCubes = city.getCubeCount(disease);// number of cubes of the Disease disease
+		
+		RandomListChooser<Disease> rlc = new RandomListChooser<>();
+		Disease chosenDisease = rlc.choose("A disease will be randomly chosen among all those present in the city.", allDiseasesInTheCity);
+		
+		
+		int lastCubes = currentCity.getCubeCount(chosenDisease);// number of cubes of the Disease chosenDisease
+		 HashMap<Disease, Integer> cubesStock = this.getGame().getCubesStocks(); /*reference to the attribute in Game*/
+		
 			 for(int i = 0; i < lastCubes ; i++){
-				city.reduceInfection(disease);//  the cube of the Disease disease is removed
-				cubesStock.put(disease,cubesStock.get(disease) + 1);// the removed cube is added to the cubeStock
+				currentCity.reduceInfection(chosenDisease);//  the cube of the Disease disease is removed
+				cubesStock.put(chosenDisease,cubesStock.get(chosenDisease) + 1);// the removed cube is added to the cubeStock
 			 }
-			 System.out.println("The disease " + disease.getDiseaseName()+"  was successfully treated thanks to the discovery of the cure !");
-			 return; 
+			 System.out.println("The disease " + chosenDisease.getDiseaseName()+"  was successfully treated thanks to the discovery of the cure !");
 		 }	
 
 

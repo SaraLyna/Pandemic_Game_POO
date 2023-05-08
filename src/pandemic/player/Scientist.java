@@ -80,10 +80,10 @@ class Scientist extends Player {
 	 * check if the city has a Research Center and discover a Cure for a specific disease.
 	 * Then discard the 5 players cards.
      */
-    public static void discover(Player p, Disease Disease){
+    public  void discover(Disease Disease){
     	int cpt = 0;
-		ArrayList<Card> hand = p.getCardsInHand();
-		City city = p.getLocation();
+		ArrayList<Card> hand = this.getCardsInHand();
+		City city = this.getLocation();
 		if (city.isResearchCenter()){
 			Iterator<Card> it = hand.iterator();
 			while (it.hasNext()) {	
@@ -97,17 +97,17 @@ class Scientist extends Player {
 				while (it.hasNext()) {
 					Card card = it.next();
 					if(card.getDiseaseName()==Disease.getDiseaseName()) {
-						p.removeCard(card);
+						this.removeCard(card);
 					}
 				}
 			System.out.println("A cure has been found for the disease " + Disease.getDiseaseName());
 			}
 			else {
-				System.out.println(p.toString() + " has not enough cards to cure the disease " + Disease.getDiseaseName());
+				System.out.println(this.toString() + " has not enough cards to cure the disease " + Disease.getDiseaseName());
 			}
 		}
 		else {
-			System.out.println(p.toString() + ", please build a research Center to discover a Cure for the disease " + Disease.getDiseaseName());
+			System.out.println(this.toString() + ", please build a research Center to discover a Cure for the disease " + Disease.getDiseaseName());
 		}
     }
 
