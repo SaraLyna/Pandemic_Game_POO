@@ -110,7 +110,23 @@ public class Game {
 	}
 	
 	
+	/*
+	 * this method allow to know if cures of all the diseases have been found or not
+	 * @return true if yes or false if no
+	 */
 	
+	public boolean findRemedy(){
+	    Disease[] everyDisease = Disease.values();
+	    for (Disease d : everyDisease) {
+	        if (!d.isCured()) {
+	            // if any disease is not cured, return false immediately
+	            return false;
+	        }
+	    }
+	    // if all diseases are cured, return true
+	    return true;
+	}
+
 	
 	/**
 	 * the most important method in the game, the method to play

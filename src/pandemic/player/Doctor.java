@@ -40,7 +40,7 @@ public class Doctor extends Player {
 	 * @param disease, the disease to be healed
 	 * @param cubesStock , the stock of the diseases' cubes
 	 */
-	public static  void healDisease(Disease disease, City city,HashMap <Disease, Integer> cubesStock){	
+	public void healDisease(Disease disease, City city,HashMap <Disease, Integer> cubesStock){	
 		int lastCubes = city.getCubeCount(disease);// number of cubes of the Disease disease
 		 if (lastCubes == 0) {
 		    System.out.println("There is no cubes of the disease " + disease.getDiseaseName() + " in the city "+ city.getName() + " anymore" );
