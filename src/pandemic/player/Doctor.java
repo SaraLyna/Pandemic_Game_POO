@@ -45,12 +45,6 @@ public class Doctor extends Player {
 		HashMap<Disease, Integer> cubesStock = this.getGame().getCubesStocks();
 		
 		int lastCubes = city.getCubeCount(disease);// number of cubes of the Disease disease
-		 if (lastCubes == 0) {
-		    System.out.println("There is no cubes of the disease " + disease.getDiseaseName() + " in the city "+ city.getName() + " anymore" );
-		    return;
-		 }	
-		 
-		 else if (disease.isCured()) {
 			 for(int i = 0; i < lastCubes ; i++){
 				city.reduceInfection(disease);//  the cube of the Disease disease is removed
 				cubesStock.put(disease,cubesStock.get(disease) + 1);// the removed cube is added to the cubeStock
@@ -58,15 +52,6 @@ public class Doctor extends Player {
 			 System.out.println("The disease " + disease.getDiseaseName()+"  was successfully treated thanks to the discovery of the cure !");
 			 return; 
 		 }	
-		 
-		 else { 
-			 city.reduceInfection(disease);//  the cube of the Disease disease is removed
-			 cubesStock.put(disease,cubesStock.get(disease) + 1);
-			 System.out.println("a cube of the disease "+ disease.getDiseaseName() +" is removed from the city " + city.getName());
-			 return;
-		 }
-	}
-
 
 
 }
