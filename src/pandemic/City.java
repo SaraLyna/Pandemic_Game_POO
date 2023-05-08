@@ -190,7 +190,15 @@ public class City {
 		return this.isResearchCenter;
 	}
 	
-
+	/*
+	 * 
+	 */
+	
+	public void setisResearchCenter() {
+		
+		this.isResearchCenter = true;
+	}
+	
 	/**
 	 * ajoute une station de recherche
 	 * et met le booleen a true

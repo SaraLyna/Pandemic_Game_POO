@@ -126,6 +126,29 @@ public class Game {
 		}
 	}
 	
+	/*
+	 * allow to set a new number of research center 
+	 */
+	public void setNumberOfResearchCenter(int number) {
+		this.numberOfResearchCenter = number;	
+	}
+	
+
+	/**
+	 * @return the number of research center
+	 */
+	
+	public int getNumberOfResearchCenter() {
+		return this.numberOfResearchCenter;
+	}
+	
+	/**
+	 * @return the number of infection focus
+	 */
+	
+	public int getNumberOfInfectionFocus() {
+		return this.getNumberOfInfectionFocus();
+	}
 	
 	/*
 	 * this method allow to know if cures of all the diseases have been found or not
@@ -263,6 +286,7 @@ public class Game {
 	 * @param cityTo, the city to move the research center to
 	 */
 	// Not forgetting that when a city has a research center , all the cubes of the diseases in its infectionRates are removed and all the diseases are cured. So we don't have to check that in this method
+	
 	public void moveResearchCenter(City cityFrom , City cityTo) {
 		
 		if(this.numberOfResearchCenter == Game.MAXNBRESEARCHCENTER && cityFrom.isResearchCenter) {
@@ -278,10 +302,6 @@ public class Game {
 	public void decrementStock(Disease diseaseType) {
 		this.changeCubeStock(diseaseType, -1);
 	}
-	
-
-
-	
 	
 	
 	
