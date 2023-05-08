@@ -369,9 +369,10 @@ public class Game {
 			    			  }
 ;			    			  break;
 			    		  case "healDisease":
-			    			  p.healDisease();
-
+			    			  Disease chosenDisease = p.chooseDisease();
+			    			  p.healDisease(chosenDisease);
 			    			  break;
+			    			  
 			    		  case "dontDoAnything":
 			    			  p.dontDoAnything();
 			    		

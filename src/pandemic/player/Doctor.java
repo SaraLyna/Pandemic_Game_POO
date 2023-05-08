@@ -37,20 +37,14 @@ public class Doctor extends Player {
 	
 
 	/**
-	 *  this method allow to heal a specific disease from a city
+	 *  this method allows to remove all cubes for a specific disease, in the city the player is in.
 	 * @param city , the city to heal the disease from
 	 * @param disease, the disease to be healed
 	 * @param cubesStock , the stock of the diseases' cubes
 	 */
-	public void healDisease(){	
+	public void healDisease(Disease chosenDisease){	
 		
-		City currentCity = this.getLocation();
-		List<Disease> allDiseasesInTheCity = currentCity.getAllDiseases(); //TODO rédiger allDiseasesInTheCity dans City
-		
-		
-		RandomListChooser<Disease> rlc = new RandomListChooser<>();
-		Disease chosenDisease = rlc.choose("A disease will be randomly chosen among all those present in the city.", allDiseasesInTheCity);
-		
+		City currentCity = this.getLocation();		
 		
 		int lastCubes = currentCity.getCubeCount(chosenDisease);// number of cubes of the Disease chosenDisease
 		 HashMap<Disease, Integer> cubesStock = this.getGame().getCubesStocks(); /*reference to the attribute in Game*/
@@ -60,7 +54,7 @@ public class Doctor extends Player {
 				cubesStock.put(chosenDisease,cubesStock.get(chosenDisease) + 1);// the removed cube is added to the cubeStock
 			 }
 			 System.out.println("The disease " + chosenDisease.getDiseaseName()+"  was successfully treated thanks to the discovery of the cure !");
-		 }	
+		 }
 
 
 }

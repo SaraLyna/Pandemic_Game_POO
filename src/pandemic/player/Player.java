@@ -210,15 +210,9 @@ public abstract class Player {
 	/** will be overriden for the Scientist subclass
 	 *  this method allow to heal a specific disease from the city the player is in, will be overriden for the Doctor role
 	 */
-	public void healDisease(){	
+	public void healDisease(Disease chosenDisease){	
 		
 		City currentCity = this.getLocation();
-		List<Disease> allDiseasesInTheCity = currentCity.getAllDiseases(); //TODO rédiger allDiseasesInTheCity dans City
-		
-		
-		RandomListChooser<Disease> rlc = new RandomListChooser<>();
-		Disease chosenDisease = rlc.choose("A disease will be randomly chosen among all those present in the city.", allDiseasesInTheCity);
-		
 		
 		int lastCubes = currentCity.getCubeCount(chosenDisease);// number of cubes of the Disease disease
 		 HashMap<Disease, Integer> cubesStock = this.getGame().getCubesStocks(); /*reference to the attribute in Game*/
@@ -257,7 +251,28 @@ public abstract class Player {
 	
 	
 	
-	/* randomly choses destination, will be overriden in Globetrotter*/
+	/* randomly choses a disease among the ones present in the city, can be used to decide what disease the healDisease() method will target
+	 * 
+	 this method will not be overriden in Doctor since the choice is the same regardless of the role*/
+	public Disease chooseDisease() {
+		
+		City currentCity = this.getLocation();
+		
+		List<Disease> allDiseasesInTheCity = currentCity.getAllDiseases(); //TODO rédiger allDiseasesInTheCity dans City
+		
+		
+		RandomListChooser<Disease> rlc = new RandomListChooser<>();
+		Disease chosenDisease = rlc.choose("A disease will be randomly chosen among all those present in the city.", allDiseasesInTheCity);
+		
+		return chosenDisease;
+	}
+	
+
+	
+	
+	/* randomly choses destination among the neighboring cities, can be used to decide what city the move() method will target
+	 * 
+	 * this method will be overriden in Globetrotter since there is more choice in that case*/
 	public City chooseDestination() {
 		 List<City> neighborsList = this.getLocation().getNeighbors();
 		 RandomListChooser<City> rlcCity = new RandomListChooser<>();
