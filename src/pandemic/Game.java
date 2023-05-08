@@ -20,6 +20,13 @@ public class Game {
 	//TODO terminer la docu des attributs
 	//TODO créer tous les getters et setters nécessaires
 	
+	/*constants*/
+	protected static final int STARTINGGLOBALINFECTIONRATE = 2;
+	protected static final int MAXNBRESEARCHCENTER = 6; // the biggest number of research center that we can have in the game 
+	protected static final int MAXNBINFECTIONAMOUNT = 8; // the biggest number of Infection focus that we can have in the game 
+	
+	
+	
 	/** the exhaustive list of the players in this game*/
 	protected ArrayList<Player> players;
 	
@@ -34,7 +41,7 @@ public class Game {
 	/**TODO DOCU*/
 	protected Stack<PlayersCards> playersStack;
 	/**TODO DOCU*/
-	protected int maxNbResearchCenter;
+
 	/**TODO DOCU*/
 	protected int maxNbInfectionFocusAmount;
 	
@@ -70,7 +77,6 @@ public class Game {
 	  * values : the number of cubes left for that disease */
 	protected HashMap<Disease, Integer> cubeStocks;
 	
-	
 	/**
 	 * Builds an instance of Game by creating all its necessary components : map, players, etc.
 	 *  @param mapFile The name of the file that contains city data
@@ -81,11 +87,10 @@ public class Game {
 	 */
 	public Game (String mapFile, int numPlayers) throws FileNotFoundException{
 		
-		this.GlobalInfectionRate = 0;
+		this.GlobalInfectionRate = STARTINGGLOBALINFECTIONRATE;
 		this.InfectionFocusAmount = 0;
 		this.numberOfResearchCenter = 0;
-		this.maxNbResearchCenter = 6; // the biggest number of research center that we can have in the game 
-		this.maxNbInfectionFocusAmount = 8; // the biggest number of Infection focus that we can have in the game 
+		
 		
 		
 		cubeStocks = new HashMap<Disease,Integer>();
