@@ -111,6 +111,59 @@ public abstract class Player {
 	
 	
 	
+	/** will be overriden in Globetrotter
+	 * @param playerToMove the player to be moved
+	 * @param destination the wanted destination
+	 * @throws IllegalArgumentException see above
+	 * Calls setLocation() on the given location, that must be among the neighboring cities.
+	 */
+	public void move(City chosenCity) throws IllegalArgumentException {
+		
+		/* note : if we want to add the possibility of using an InputListChooser we need a boolean somewhere that is retrieved by this function to use the correct ListChooser*/
+		
+		/* code à supprimer vu que le randomListChooser est ici cantonné à neighborsList
+			if (! neighborsList.contains(destination)){
+				//System.out.println("the destination is not among the Player's neighboring cities ");
+				//throw new IllegalArgumentException("the destination is not among the Player's neighboring cities ");
+				
+						
+							//choose("false destination", neighborsList);
+			}else {*/
+		
+		this.setLocation(chosenCity);
+		System.out.print(this + " has been moved to the neighboring city : " + chosenCity.getName()+"\n"); /*here "playerToMove" will output the players name via toString*/
+	}
+	
+	/**
+	 * @param player
+	 * this action consist to build a research center
+	 * in the same city where the player card is
+	 */
+	public void construct() throws ResearchCenterException {
+		
+		//TODO IMPLEMENTER RANDOMLISTCHOOSER DANS CETTE METHODE POUR AUTOMATISER
+		ArrayList<Card> cards= this.getCardsInHand();
+		City city = this.getLocation();
+		Iterator<Card> it= cards.iterator();
+		boolean a = false;
+		while(it.hasNext()) {
+			Card card = it.next();
+			if (card.getCityName().equals(city.getName())) {
+				if (city.isResearchCenter() == false) {
+					city.addResearchCenter();
+					this.removeCard(card);
+					a = true;
+					System.out.println(this + " built a research center in " + city.getName()+"\n");
+				}       
+		        break; // Exit the loop once a research center is built
+			}		
+		}
+		if(a == false) {
+			System.out.println(this + " did not built a research center in " + city.getName()+"\n");
+		}
+
+	}
+	
 	/** will be overriden in the Scientist class
      * @param p
      * @param Disease
@@ -148,63 +201,6 @@ public abstract class Player {
 			System.out.println(this + ", please build a research Center to discover a Cure for the disease " + Disease.getDiseaseName());
 		}
     }
-	
-	
-	
-	/** will be overriden in Globetrotter
-	 * @param playerToMove the player to be moved
-	 * @param destination the wanted destination
-	 * @throws IllegalArgumentException see above
-	 * Calls setLocation() on the given location, that must be among the neighboring cities.
-	 */
-	public void move(City chosenCity) throws IllegalArgumentException {
-		
-		/* note : if we want to add the possibility of using an InputListChooser we need a boolean somewhere that is retrieved by this function to use the correct ListChooser*/
-		
-		/* code à supprimer vu que le randomListChooser est ici cantonné à neighborsList
-			if (! neighborsList.contains(destination)){
-				//System.out.println("the destination is not among the Player's neighboring cities ");
-				//throw new IllegalArgumentException("the destination is not among the Player's neighboring cities ");
-				
-						
-							//choose("false destination", neighborsList);
-			}else {*/
-		
-		this.setLocation(chosenCity);
-		System.out.print(this + " has been moved to the neighboring city : " + chosenCity.getName()+"\n"); /*here "playerToMove" will output the players name via toString*/
-	}
-	
-	
-	
-	/**
-	 * @param player
-	 * this action consist to build a research center
-	 * in the same city where the player card is
-	 */
-	public void construct() throws ResearchCenterException {
-		
-		//TODO IMPLEMENTER RANDOMLISTCHOOSER DANS CETTE METHODE POUR AUTOMATISER
-		ArrayList<Card> cards= this.getCardsInHand();
-		City city = this.getLocation();
-		Iterator<Card> it= cards.iterator();
-		boolean a = false;
-		while(it.hasNext()) {
-			Card card = it.next();
-			if (card.getCityName().equals(city.getName())) {
-				if (city.isResearchCenter() == false) {
-					city.addResearchCenter();
-					this.removeCard(card);
-					a = true;
-					System.out.println(this + " built a research center in " + city.getName()+"\n");
-				}       
-		        break; // Exit the loop once a research center is built
-			}		
-		}
-		if(a == false) {
-			System.out.println(this + " did not built a research center in " + city.getName()+"\n");
-		}
-
-	}
 	
 	
 	/** will be overriden for the Scientist subclass
@@ -249,6 +245,16 @@ public abstract class Player {
 		System.out.println(this + "does not do anything"); /* this will use toString*/
 	}
 	
+	/* randomly choses destination among the neighboring cities, can be used to decide what city the move() method will target
+	 * 
+	 * this method will be overriden in Globetrotter since there is more choice in that case*/
+	public City chooseDestination() {
+		 List<City> neighborsList = this.getLocation().getNeighbors();
+		 RandomListChooser<City> rlcCity = new RandomListChooser<>();
+		 City randomlyChosenDestination = rlcCity.choose("A city will be chosen randomly for the player " + this + " to move.",neighborsList); /* we use the random list chooser to automatically pick a city*/
+		 return randomlyChosenDestination;
+	}
+	
 	
 	
 	/* randomly choses a disease among the ones present in the city, can be used to decide what disease the healDisease() method will target
@@ -270,15 +276,7 @@ public abstract class Player {
 
 	
 	
-	/* randomly choses destination among the neighboring cities, can be used to decide what city the move() method will target
-	 * 
-	 * this method will be overriden in Globetrotter since there is more choice in that case*/
-	public City chooseDestination() {
-		 List<City> neighborsList = this.getLocation().getNeighbors();
-		 RandomListChooser<City> rlcCity = new RandomListChooser<>();
-		 City randomlyChosenDestination = rlcCity.choose("A city will be chosen randomly for the player " + this + " to move.",neighborsList); /* we use the random list chooser to automatically pick a city*/
-		 return randomlyChosenDestination;
-	}
+
 	
 
 }
