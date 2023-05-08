@@ -18,8 +18,6 @@ public abstract class Player {
 	protected City location;
 	protected ArrayList<Card> CardsInHand; /* the stack of cards in the player's hand */
 	protected Game game; /* the Game instance this player has been created in, will be useful for instance to access the cubesStocks*/
-						//protected  List<Player> thePlayers; //voir si utilisable, pb d'actualisations entre les listes des différents joueurs, pour qu'elles soient synchronisées il faudrait utiliser addPlayer sur chacun des joueurs
-																//ça ferait plus de sens de stocker ça dans Game je pense
 
 
 	/** 
@@ -44,12 +42,7 @@ public abstract class Player {
 		this.game = game;
 	}
 
-	/*
-	 * @return the name of the player 
-	 */
-	public String getName() {
-		return this.name;
-	}
+	
 	/**
 	 * This method overrides toString method and is a getter of the "name" attribute
 	 * @return the name of the player
@@ -260,5 +253,14 @@ public abstract class Player {
 	public void DontDoAnything(){ 
 		System.out.println(this + "does not do anything"); /* this will use toString*/
 	}
+	
+
+	/*
+	 * @return the name of the player 
+	public String getName() {
+		return this.name;
+	}*/
+	
+	
 
 }
