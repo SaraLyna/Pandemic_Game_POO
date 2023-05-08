@@ -208,7 +208,7 @@ public class Game {
 	
 	/** decrements the corresponding cube stock and calls Cities.addCube()
 	 * @param  */
-	void addCube(City city, Disease diseaseType) {
+	public void addCube(City city, Disease diseaseType) {
 		//decrements the stock
 		this.decrementStock(diseaseType);
 		
@@ -223,7 +223,7 @@ public class Game {
 	 * @param diseaseType
 	 * @param amountChanged The number to add to the current stock.
 	 * */
-	void changeCubeStock(Disease diseaseType, int amountChanged) {
+	public void changeCubeStock(Disease diseaseType, int amountChanged) {
 		
 		int currentCubeStockForThatDisease = this.getCubesStocks().get(diseaseType) ;
 		
@@ -235,11 +235,47 @@ public class Game {
 		}
 	}
 	
+	/*this method implements a type of lost
+	 * 
+	 */
+	
+	public void missingCards() {
+		
+		if(this.playersStack.size() < 2) {
+			this.state = "lostBecauseCards";
+		}
+	}
+	
+	/*this method implements a type of lost
+	 * 
+	 */
+	
+	public void limitOfInfectionFocus() {
+		
+		if(this.InfectionFocusAmount == Game.MAXNBINFECTIONAMOUNT) {
+			this.state = "lostBecauseInfectionFocus";
+		}
+	}
+	
+	/*
+	 * this method allow to move a research center from a city to another one
+	 * @param cityFrom, the city to move the research center from
+	 * @param cityTo, the city to move the research center to
+	 */
+	// Not forgetting that when a city has a research center , all the cubes of the diseases in its infectionRates are removed and all the diseases are cured. So we don't have to check that in this method
+	public void moveResearchCenter(City cityFrom , City cityTo) {
+		
+		if(this.numberOfResearchCenter == Game.MAXNBRESEARCHCENTER && cityFrom.isResearchCenter) {
+			cityTo.isResearchCenter = true;
+			cityFrom.isResearchCenter = false;
+		}
+	}
+	
 	
 	/** 
 	 * decrements the corresponding cube stock
 	 * */
-	void decrementStock(Disease diseaseType) {
+	public void decrementStock(Disease diseaseType) {
 		this.changeCubeStock(diseaseType, -1);
 	}
 	
