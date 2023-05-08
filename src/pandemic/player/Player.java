@@ -171,7 +171,7 @@ public abstract class Player {
 			}else {*/
 		
 		this.setLocation(chosenCity);
-		System.out.print(this + " has been moved to " + chosenCity.getName()+"\n"); /*here "playerToMove" will output the players name via toString*/
+		System.out.print(this + " has been moved to the neighboring city : " + chosenCity.getName()+"\n"); /*here "playerToMove" will output the players name via toString*/
 	}
 	
 	
