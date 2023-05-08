@@ -231,7 +231,7 @@ public abstract class Player {
 		 if (lastCubes == 0) {
 		    System.out.println("There is no cubes of the disease " + chosenDisease.getDiseaseName() + " in the city "+ currentCity.getName() + " anymore" );
 		    return;
-		 }	
+		 }
 		 
 		 else if (chosenDisease.isCured()) {
 			 for(int i = 0; i < lastCubes ; i++){
@@ -259,13 +259,6 @@ public abstract class Player {
 	public void dontDoAnything(){ 
 		System.out.println(this + "does not do anything"); /* this will use toString*/
 	}
-	
-
-	/*
-	 * @return the name of the player 
-	public String getName() {
-		return this.name;
-	}*/
 	
 	
 
