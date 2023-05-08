@@ -12,9 +12,10 @@ import org.json.JSONArray;
  *this class is the representation of the World of pandemic (Carte du monde de la pandémie)
  *this class allows the reading of villes.json (json file)
  */
-public class MappeMonde {
+public class Mappemonde {
 
 	protected City[] cities ;
+	protected Game game; //the Game instance for which this has been created
 	
 		/**
 		 * this method allows the reading of a json file
@@ -23,7 +24,7 @@ public class MappeMonde {
 		 * @param filename, the name of the json file villes.json
 		 * @throws FileNotFoundException if filename can not be found
 		 */
-	public MappeMonde(String filename) throws FileNotFoundException {
+	public Mappemonde(String filename) throws FileNotFoundException {
 	    //filename="villes.json" , plus tard pour l'extension du jeu
 		FileReader reader = new FileReader(filename); //reader allows the reading	
 		JSONObject pandemic = new JSONObject(new JSONTokener(reader));
@@ -53,7 +54,7 @@ public class MappeMonde {
 			// La liste des villes commence par 1, mais un tableau en Java 
 			// commence à l'index 0. De cette manière, il est nécessaire d'utiliser -1.
 			liste_villes[Integer.parseInt(numberVille)-1] = nomVille;
-			this.cities[Integer.parseInt(numberVille)-1]= new City(nomVille, villes.get(nomVille).toString());//erreur
+			this.cities[Integer.parseInt(numberVille)-1]= new City(nomVille, villes.get(nomVille).toString(), this.game);//erreur
 			
 		}
 		// Imprimer la liste des villes. 

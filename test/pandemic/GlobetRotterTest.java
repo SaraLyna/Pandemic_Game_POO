@@ -34,7 +34,7 @@ public class GlobetRotterTest {
 	*/
 	
 	public void moveTest() throws FileNotFoundException { 
-		MappeMonde m1 = new MappeMonde("villes.json");
+		Mappemonde m1 = new Mappemonde("villes.json");
 		city1 = m1.getVilles()[2];
 		player = new Player("Albert",Roles.GlobetRotter, city1 );
 		

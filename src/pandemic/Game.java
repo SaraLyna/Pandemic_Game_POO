@@ -51,7 +51,7 @@ public class Game {
 	protected int maxNbInfectionFocusAmount;
 	
 	/** the map object created from the json file*/
-	protected MappeMonde map;
+	protected Mappemonde map;
 	
 	/** will take one of the values below to signal in the play() method that the loop needs to end :
 	 * "ongoing" : game goes on
@@ -77,11 +77,11 @@ public class Game {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public MappeMonde getMap() {
+	public Mappemonde getMap() {
 		return map;
 	}
 	/* should be unused*/
-	public void setMap(MappeMonde map) {
+	public void setMap(Mappemonde map) {
 		this.map = map;
 	}
 
@@ -118,7 +118,7 @@ public class Game {
 			System.out.println("Error : invalid number of players"); //TODO facultatif : mettre ça en exception
 		} 
 		
-		this.map = new MappeMonde(mapFile);
+		this.map = new Mappemonde(mapFile);
 		
 		//TODO créer [playerNumber] objets joueurs
 		for (int i=0;i<numPlayers;i++) {
