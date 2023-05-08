@@ -20,27 +20,32 @@ public class Game {
 	//TODO terminer la docu des attributs
 	//TODO créer tous les getters et setters nécessaires
 	
-	/*constants*/
+	/*constants below*/
 	protected static final int STARTINGGLOBALINFECTIONRATE = 2;
 	protected static final int MAXNBRESEARCHCENTER = 6; // the biggest number of research center that we can have in the game 
 	protected static final int MAXNBINFECTIONAMOUNT = 8; // the biggest number of Infection focus that we can have in the game 
 	
 	
 	
+	/* attributes below*/
+	
 	/** the exhaustive list of the players in this game*/
 	protected ArrayList<Player> players;
 	
 	/** to count how many InfectionFocus there are, if there are more than X the game ends*/
 	protected int InfectionFocusAmount;
+	
 	/**TODO DOCU*/
 	protected int GlobalInfectionRate;
+	
 	/**TODO DOCU*/
 	protected int numberOfResearchCenter;
+	
 	/**TODO DOCU*/
 	protected Stack<InfectionCards> infectionStack;
+	
 	/**TODO DOCU*/
 	protected Stack<PlayersCards> playersStack;
-	/**TODO DOCU*/
 
 	/**TODO DOCU*/
 	protected int maxNbInfectionFocusAmount;
@@ -56,8 +61,16 @@ public class Game {
 	 * "lostBecauseDraw" : game lost because a player couldn't draw their 2 cards
 	 */
 	protected String state; //TODO facultatif mettre en enum si possible
+
+	/** HashMap linking the amounts of disease cubes in stock for each disease. If any of them drops down to 0, the game is lost.
+	  * keys : a given disease from the Disease enum
+	  * values : the number of cubes left for that disease */
+	protected HashMap<Disease, Integer> cubeStocks;
 	
 	
+	
+	/* getters and setters below*/
+
 	public String getState() {
 		return state;
 	}
@@ -72,10 +85,9 @@ public class Game {
 		this.map = map;
 	}
 
-	/** HashMap linking the amounts of disease cubes in stock for each disease. If any of them drops down to 0, the game is lost.
-	  * keys : a given disease from the Disease enum
-	  * values : the number of cubes left for that disease */
-	protected HashMap<Disease, Integer> cubeStocks;
+	
+	
+	/*other methods below*/
 	
 	/**
 	 * Builds an instance of Game by creating all its necessary components : map, players, etc.
