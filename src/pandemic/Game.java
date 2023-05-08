@@ -327,7 +327,11 @@ public class Game {
 	 */
 	
 		void makePlayerTakeATurn(Player currentPlayer, PlayersPaquet currentDeck) {
-		/* TODO : implémmenter les tests pour voir si la partie est terminée, si oui MAJ l'attribut state puis sortir de la fonction immédiatement*/
+			/* TODO : implémmenter les tests pour voir si la partie est terminée, si oui MAJ l'attribut state puis sortir de la fonction immédiatement*/
+    		
+			RandomListChooser<String> rlcStr = new RandomListChooser<>();
+
+		
 			PlayersCards l1=currentDeck.tirerCarte();
 		    PlayersCards l2=currentDeck.tirerCarte();
 		   
@@ -346,11 +350,11 @@ public class Game {
 		    for (Player p : this.players) { /*for each player*/
 		    	for (int i=0;i<4;i++) {
 		    		
-		    		RandomListChooser<String> rlc = new RandomListChooser<>();
-		    		String chosenAction = rlc.choose("An action will be chosen randomly for the player" + p + ".", ACTIONS);
+		    		String chosenAction = rlcStr.choose("An action will be chosen randomly for the player" + p + ".", ACTIONS);
 		    		switch(chosenAction) {
 			    		  case "move":
-			    			  p.move();
+			    			 City randomlyChosenDestination = p.chooseDestination(); 		    			 
+			    			  p.move(randomlyChosenDestination);
 			    		    // code block
 			    		    break;
 			    		  case "discover":

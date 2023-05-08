@@ -33,17 +33,19 @@ class Globetrotter extends Player {
 		 * @param playerToMove; the player who has this role
 		 * @param destination; the city chosen by the player
 		 */
-		public void move() throws IllegalArgumentException {
-			
-			RandomListChooser<City> rlc = new RandomListChooser<>();
-			City allCitiesArray[] = this.getGame().getMap().getCities();
-			List<City> allCitiesList = Arrays.asList(allCitiesArray); /*conversion to an ArrayList to feed it to ListChooser*/
-			
-			
-			City destination = rlc.choose("A city will be chosen randomly for the player " + this + " to move.",allCitiesList); /* we use the random list chooser to automatically pick a city*/
+		public void move(City destination) throws IllegalArgumentException {
 			this.setLocation(destination);
 			System.out.print(this + " has been moved to " + destination.getName() + ".");
 
+		}
+		
+		/* overriden to choose among all cities*/
+		public City chooseDestination() {
+			RandomListChooser<City> rlc = new RandomListChooser<>();
+			City allCitiesArray[] = this.getGame().getMap().getCities();
+			List<City> allCitiesList = Arrays.asList(allCitiesArray); /*conversion to an ArrayList to feed it to ListChooser*/
+			City destination = rlc.choose("A city will be chosen randomly for the player " + this + " to move.",allCitiesList); /* we use the random list chooser to automatically pick a city*/
+			return destination;
 		}
 
 }

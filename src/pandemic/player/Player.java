@@ -10,8 +10,8 @@ import pandemic.chooser.RandomListChooser;
 
 
 /**
- * An abstract class to model players in the game.
- * No Player object must be instantiated, use one of the availaible roles. (see child classes)
+ * An abstract class to model players in the game. The actions for the players are stored here, and there are subclasses that override those methods when necessary.
+ * This is an abstract class, no Player object must be instantiated ;  use one of the availaible roles. (see child classes)
  */
 public abstract class Player {
 	protected String name;
@@ -155,17 +155,12 @@ public abstract class Player {
 	 * @param playerToMove the player to be moved
 	 * @param destination the wanted destination
 	 * @throws IllegalArgumentException see above
-	 * Calls setLocation() on a random location among the neighboring cities.
+	 * Calls setLocation() on the given location, that must be among the neighboring cities.
 	 */
-	public void move() throws IllegalArgumentException {
+	public void move(City chosenCity) throws IllegalArgumentException {
 		
 		/* note : if we want to add the possibility of using an InputListChooser we need a boolean somewhere that is retrieved by this function to use the correct ListChooser*/
 		
-		List<City> neighborsList = this.getLocation().getNeighbors();	
-		
-		RandomListChooser<City> rlc = new RandomListChooser<>();
-		City chosenCity = rlc.choose("A city will be chosen randomly for the player " + this + " to move.",neighborsList); /* we use the random list chooser to automatically pick a city*/
-				
 		/* code à supprimer vu que le randomListChooser est ici cantonné à neighborsList
 			if (! neighborsList.contains(destination)){
 				//System.out.println("the destination is not among the Player's neighboring cities ");
@@ -176,7 +171,7 @@ public abstract class Player {
 			}else {*/
 		
 		this.setLocation(chosenCity);
-		System.out.print(this + " has been moved to " + chosenCity.getName()+"\n"); /*here "playerToMove" will output the players name via toString*/
+		System.out.print(this + " has been moved to the neighboring city : " + chosenCity.getName()+"\n"); /*here "playerToMove" will output the players name via toString*/
 	}
 	
 	
@@ -260,6 +255,15 @@ public abstract class Player {
 		System.out.println(this + "does not do anything"); /* this will use toString*/
 	}
 	
+	
+	
+	/* randomly choses destination, will be overriden in Globetrotter*/
+	public City chooseDestination() {
+		 List<City> neighborsList = this.getLocation().getNeighbors();
+		 RandomListChooser<City> rlcCity = new RandomListChooser<>();
+		 City randomlyChosenDestination = rlcCity.choose("A city will be chosen randomly for the player " + this + " to move.",neighborsList); /* we use the random list chooser to automatically pick a city*/
+		 return randomlyChosenDestination;
+	}
 	
 
 }
