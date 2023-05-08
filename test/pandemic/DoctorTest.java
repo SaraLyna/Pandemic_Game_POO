@@ -13,7 +13,7 @@ public class DoctorTest {
     @Test
     public void testhealDiseaseWhenThereNoLeftCube() throws FileNotFoundException {
         // Initialize a game with a city and a disease
-    	Game game = new Game("ville.json", 4);
+    	Game game = new Game("villes.json", 4);
     	City city = new City("ville-11", "3", game);
         Disease disease = Disease.BLUE;
         
@@ -31,7 +31,7 @@ public class DoctorTest {
 
 	@Test
 	public void testHealDiseaseWhenTheDiseaseIsCured() throws FileNotFoundException{ 
-		Game game = new Game("ville.json", 4);
+		Game game = new Game("villes.json", 4);
     	City city = new City("ville-11", "3",game);
         Disease disease = Disease.BLUE;
         
@@ -51,7 +51,7 @@ public class DoctorTest {
 
 	@Test
 	public void testHealDiseaseWhenTheDiseaseIsNotCured() throws FileNotFoundException { 
-		Game game = new Game("ville.json", 4);
+		Game game = new Game("villes.json", 4);
     	City city = new City("ville-11", "3",game);
         Disease disease = Disease.BLUE;
             

@@ -358,8 +358,12 @@ public class Game {
 			    			//TODO CHECKER SI FIN DU JEU A CAUSE DE CETTE ACTION
 			    		    break;
 			    		  case "construct":
-			    			  //TODO
-			    			  break;
+			    			  try {
+			    				  p.construct();
+			    			  } catch (ResearchCenterException e) {
+			    				  e.printStackTrace();
+			    			  }
+;			    			  break;
 			    		  case "healDisease":
 			    			  p.healDisease();
 
