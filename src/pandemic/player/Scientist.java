@@ -16,7 +16,7 @@ class Scientist extends Player {
 	un remède. C’est donc en relation avec l’action découvrir un remède
 	 */
 	
-	private int handSize=4;
+	private int handSize=4; //TODO VOIR A QUOI CA SERT
 	
 	/**
 	 * constructor of the class ScientistRole
@@ -55,7 +55,7 @@ class Scientist extends Player {
 	
 	
 	
-	/**
+	/** A SUPPRIMER, CONTENU DANS LA CLASSE MERE PLAYER
 	 * @param diseases
 	 * @param diseaseToCure
 	 * @return a boolean
