@@ -24,7 +24,9 @@ public class Mappemonde {
 		 * @param filename, the name of the json file villes.json
 		 * @throws FileNotFoundException if filename can not be found
 		 */
-	public Mappemonde(String filename) throws FileNotFoundException {
+	public Mappemonde(String filename, Game game) throws FileNotFoundException {
+		this.game = game;
+		
 	    //filename="villes.json" , plus tard pour l'extension du jeu
 		FileReader reader = new FileReader(filename); //reader allows the reading	
 		JSONObject pandemic = new JSONObject(new JSONTokener(reader));

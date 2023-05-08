@@ -118,7 +118,7 @@ public class Game {
 			System.out.println("Error : invalid number of players"); //TODO facultatif : mettre ça en exception
 		} 
 		
-		this.map = new Mappemonde(mapFile);
+		this.map = new Mappemonde(mapFile, this);
 		
 		//TODO créer [playerNumber] objets joueurs
 		for (int i=0;i<numPlayers;i++) {
