@@ -3,6 +3,7 @@ package pandemic.player;
 import pandemic.City;
 import pandemic.Game;
 import pandemic.ResearchCenterException;
+import pandemic.card.Card;
 
 /**
  * this class represents the action of the Expert
@@ -27,10 +28,11 @@ public class Expert extends Player {
 	/** overrides the method from Player
 	 * this method builds a research station without a card to build it
 	 * and if there is already a station it throws an exception
-	 * @param city
 	 * 
+	 * This takes a parameter cardToDiscard to have the same signature as Player.construct() and override it, but this parameter will not be used.
+	 * @param cardToDiscard can be anything, unused in the method besides for the signature
 	 */
-	public void construct() throws ResearchCenterException {
+	public void construct(Card cardToDiscard) throws ResearchCenterException {
 		City currentLocation = this.getLocation();
 		if(! currentLocation.isResearchCenter() && this.game.getNumberOfResearchCenter() < 6) {
 			currentLocation.addResearchCenter();

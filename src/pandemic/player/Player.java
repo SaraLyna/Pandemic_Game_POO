@@ -138,10 +138,14 @@ public abstract class Player {
 	 * @param player
 	 * this action consist to build a research center
 	 * in the same city where the player card is
+	 * @param cardToDiscard the card previously chosen by the player to be discarded
 	 */
-	public void construct() throws ResearchCenterException {
+	public void construct(Card cardToDiscard) throws ResearchCenterException {
 		
-		//TODO IMPLEMENTER RANDOMLISTCHOOSER DANS CETTE METHODE POUR AUTOMATISER
+		TODO//TODO MAJ LA METHODE CI-DESSOUS POUR UTILISER LA CARTE DE L'ARGUMENT ET PAS UNE CARTE ALEATOIRE
+		
+		
+		
 		ArrayList<Card> cards= this.getCardsInHand();
 		City city = this.getLocation();
 		Iterator<Card> it= cards.iterator();
@@ -253,6 +257,14 @@ public abstract class Player {
 		 RandomListChooser<City> rlcCity = new RandomListChooser<>();
 		 City randomlyChosenDestination = rlcCity.choose("A city will be chosen randomly for the player " + this + " to move.",neighborsList); /* we use the random list chooser to automatically pick a city*/
 		 return randomlyChosenDestination;
+	}
+	
+	/* randomly choses a card among those in the player hand that are the same as the city they're in
+	 * , can be used to decide what card the construct() method will discard
+	 * 
+	 * this method will not be overriden in Expert since no choice is needed, we simply do not need that method in that case*/
+	public Card chooseCard() {
+		TODO
 	}
 	
 	

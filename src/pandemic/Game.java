@@ -350,6 +350,8 @@ public class Game {
 		    for (Player p : this.players) { /*for each player*/
 		    	for (int i=0;i<4;i++) {
 		    		
+		    		TODO NE METTRE DANS ACTIONS QUE LES ACTIONS POSSIBLES (eg construct est parfois impossible) ? OU ALORS DONNER LE CHOIX AU JOUEUR DE FAIRE UNE ACTION IMPOSSIBLE, CE QUI FAIT QU'IL NE FFAIT RIEN ?
+		    		
 		    		String chosenAction = rlcStr.choose("An action will be chosen randomly for the player" + p + ".", ACTIONS);
 		    		switch(chosenAction) {
 			    		  case "move":
@@ -359,6 +361,7 @@ public class Game {
 			    		    break;
 			    		    
 			    		  case "construct":
+			    			  TODO CHOISIR UNE CARTE PARMI CELLES QUI MARCHENT
 			    			  try {
 			    				  p.construct();
 			    			  } catch (ResearchCenterException e) {
