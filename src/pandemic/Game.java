@@ -53,7 +53,7 @@ public class Game {
 	/** the map object created from the json file*/
 	protected MappeMonde map;
 	
-	/** will take one of the values blow to signal in the play() method that the loop needs to end :
+	/** will take one of the values below to signal in the play() method that the loop needs to end :
 	 * "ongoing" : game goes on
 	 * "wonBecauseCures" : game won by the players finding all 4 cures
 	 * "lostBecauseCubes" : game lost by being unable to add a cube to a city bc the reserve for that color is empty
@@ -217,16 +217,22 @@ public class Game {
 	}
 	
 	/** 
-	 * increases (or decreases if negative) the corresponding cube stock, 
+	 * increases (or decreases if negative) the corresponding cube stock, and changes the state attribute if this makes the players lose the game
+	 * USING changeCubeStock() DIRECTLY OR INDIRECTLY IN THE play() METHOD SHOULD IMMEDIATELY BE FOLLOWED BY A CHECK OF THE state ATTRIBUTE TO END THE GAME IF NECESSARY
 	 * eg to add one yellow cube to the reserve  : changeCubeStock(YELLOW, +1)
 	 * @param diseaseType
 	 * @param amountChanged The number to add to the current stock.
 	 * */
 	void changeCubeStock(Disease diseaseType, int amountChanged) {
-		int newValue = this.getCubesStocks().get(diseaseType) ;
-		this.getCubesStocks().put(diseaseType, newValue+ amountChanged); //update with a decremented value
 		
-		//TODO vérifier lose con ici
+		int currentCubeStockForThatDisease = this.getCubesStocks().get(diseaseType) ;
+		
+		if( currentCubeStockForThatDisease >= -amountChanged ) { //if there are enough cubes to be taken, ie game not lost
+			int newCubeStockForThatDisease = currentCubeStockForThatDisease + amountChanged;
+			this.getCubesStocks().put(diseaseType, newCubeStockForThatDisease); //update with a decremented value
+		} else {
+			this.state = "lostBecauseCubes";
+		}
 	}
 	
 	
