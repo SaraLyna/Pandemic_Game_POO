@@ -205,12 +205,27 @@ public class Game {
 	}
 	
 	/** 
+	 * increases (or decreases if negative) the corresponding cube stock, 
+	 * eg to add one yellow cube to the reserve  : changeCubeStock(YELLOW, +1)
+	 * @param diseaseType
+	 * @param amountChanged The number to add to the current stock.
+	 * */
+	void changeCubeStock(Disease diseaseType, int amountChanged) {
+		int newValue = this.getCubesStocks().get(diseaseType) ;
+		this.getCubesStocks().put(diseaseType, newValue+ amountChanged); //update with a decremented value
+		
+		//TODO vérifier lose con ici
+	}
+	
+	
+	/** 
 	 * decrements the corresponding cube stock
 	 * */
 	void decrementStock(Disease diseaseType) {
-		int newValue = this.getCubesStocks().get(diseaseType) ;
-		this.getCubesStocks().put(diseaseType, newValue-1); //update with a decremented value
+		this.changeCubeStock(diseaseType, -1);
 	}
+	
+
 
 	
 	

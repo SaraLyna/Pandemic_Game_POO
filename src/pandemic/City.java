@@ -16,6 +16,8 @@ public class City {
     protected boolean isResearchCenter;
     protected boolean isInfectionFocus;
     protected boolean hasBeenInfectedThisTurn;
+    protected Game game; /* the Game instance this city has been created in, will be useful for instance to access the cubesStocks*/
+    
    // private int nbCube; //number of cubes in the city,
    
     /**
@@ -24,8 +26,9 @@ public class City {
      * @param neighbors , the list of the neighbors
      * @param sector , the sector of the city
      */
-    public City(String name, String sector) {
+    public City(String name, String sector, Game game) {
         this.name = name;
+        this.game = game;
         this.neighbors = new ArrayList<City>();
         this.sector = sector;
         this.isResearchCenter = false;
@@ -236,11 +239,31 @@ public class City {
      * @param disease ,the given disease 
      */
     public void reduceInfection(Disease disease) {
+    	this.game.changeCubeStock(disease, +1); //increments the stock of cubes to simulate putting back the cube in the reserve
+    	
+    	//remove a cube from the city
         if(this.infectionRates.containsKey(disease)){
-            int cubeCount = getCubeCount(disease) - 1;
-            this.infectionRates.replace(disease, cubeCount);
-            setCubeCount(disease, cubeCount);
+            int newCubeCount = getCubeCount(disease) - 1;
+            //this.infectionRates.replace(disease, newCubeCount); ligne redondante je pense
+            setCubeCount(disease, newCubeCount);
+        } else {
+        	System.out.println("PROBLEME : ACCESS FOR A NON-EXISTING DISEASE KEY IN THE infectionRates HASHMAP");
         }
+    }
+    
+    /**
+     * sets the number of cubes of a given disease to 0 for this city
+     * @param disease ,the given disease 
+     */
+	    public void nullifyInfection(Disease disease) {
+	    	int nbCubesRemoved = this.getCubeCount(disease);
+	    	this.game.changeCubeStock(disease, nbCubesRemoved); //adjusts the stock of cubes to simulate putting back the cube in the reserve
+		    if(this.infectionRates.containsKey(disease)){
+		    	setCubeCount(disease,0);
+		    } else {
+		    	System.out.println("PROBLEME : ACCESS FOR A NON-EXISTING DISEASE KEY IN THE infectionRates HASHMAP");
+		    }
+	      
     }
 
     
@@ -255,7 +278,6 @@ public class City {
 
 
 	public void addPlayer(Player player) {
-		// TODO Auto-generated method stub
 		this.players.add(player);
 		
 	}
