@@ -357,10 +357,7 @@ public class Game {
 			    			  p.move(randomlyChosenDestination);
 			    		    // code block
 			    		    break;
-			    		  case "discover":
-			    		    // code block
-			    			//TODO CHECKER SI FIN DU JEU A CAUSE DE CETTE ACTION
-			    		    break;
+			    		    
 			    		  case "construct":
 			    			  try {
 			    				  p.construct();
@@ -368,6 +365,12 @@ public class Game {
 			    				  e.printStackTrace();
 			    			  }
 ;			    			  break;
+			    		  case "discover":
+			    		    // code block
+			    			  TODO
+			    			//TODO CHECKER SI FIN DU JEU A CAUSE DE CETTE ACTION
+			    		    break;
+			    		    
 			    		  case "healDisease":
 			    			  Disease chosenDisease = p.chooseDisease();
 			    			  p.healDisease(chosenDisease);
