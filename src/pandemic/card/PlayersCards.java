@@ -15,12 +15,12 @@ public class PlayersCards extends Card{
 	/**
 	 * constructor of the class PlayersCards
 	 * @param city
-	 * @param disease
+	 * @param colors
 	 */
-	public PlayersCards(String cityName,Disease disease,Game game) {
+	public PlayersCards(String cityName,Disease colors,Game game) {
 		super(game);
 		this.cityName=cityName;
-		this.disease=disease;
+		this.disease=colors;
 		
 	}
 	

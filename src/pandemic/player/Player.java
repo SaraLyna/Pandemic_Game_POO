@@ -33,6 +33,9 @@ public abstract class Player {
 		this.game = game;
 	}
 	
+	/**
+	 * @return the game
+	 */
 	public Game getGame() {
 		return game;
 	}

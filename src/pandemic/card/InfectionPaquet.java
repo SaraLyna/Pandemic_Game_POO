@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import pandemic.Disease;
+import pandemic.Game;
 
 /**
  * cette classe représente le paquet des cartes infection
@@ -31,7 +32,7 @@ private ArrayList<InfectionCards> cards;
 				//will be [BLUE, RED, YELLOW, BLACK] for the classic game
 				for(Disease d:everyDisease) {
 			        for (String city : cities) {
-			            this.cards.add(new InfectionCards(city, d, game));
+						this.cards.add(new InfectionCards(city, d, null));
 			        }
 			    }
 		}

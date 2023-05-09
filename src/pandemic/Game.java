@@ -19,13 +19,12 @@ import pandemic.player.Player;
  */
 public class Game {
 	
-	//TODO terminer la docu des attributs
 	//TODO créer tous les getters et setters nécessaires
 	
 	/*constants below*/
-	protected static final int STARTINGGLOBALINFECTIONRATE = 2;
-	protected static final int MAXNBRESEARCHCENTER = 6; // the biggest number of research center that we can have in the game 
-	protected static final int MAXNBINFECTIONAMOUNT = 8; // the biggest number of Infection focus that we can have in the game 
+	protected static final int STARTINGGLOBALINFECTIONRATE = 2; //the global infection rate
+	protected static final int MAXNBRESEARCHCENTER = 6; // the biggest number of research center that we can have in the game is 6
+	protected static final int MAXNBINFECTIONAMOUNT = 8; // the biggest number of Infection focus that we can have in the game is 8
 	//exhaustive list of all actions a player can do,except for the special action of the doctor that they can do without losing one of their 4 actions per turn, that one is treated separately
 		//TODO bonus : maybe there's a way to directly use the methods as elements of the list like in C, but this works as well
 	protected static final ArrayList<String> ALLACTIONS = new ArrayList<>(
@@ -108,8 +107,8 @@ public class Game {
 	 * @throws FileNotFoundException 
 	 *	
 	 */
-	public Game (String mapFile, int numPlayers) throws FileNotFoundException{
-		
+	public Game (String mapFile, int numPlayers, int nb) throws FileNotFoundException{
+		 this.nb = 2; //  Global infection rate, should be 2 for the classic version of the game.
 		this.GlobalInfectionRate = STARTINGGLOBALINFECTIONRATE;
 		this.InfectionFocusAmount = 0;
 		this.numberOfResearchCenter = 0;
@@ -136,6 +135,7 @@ public class Game {
 			//TODO créer un objet joueur
 		}
 	}
+	
 	
 	/*
 	 * allow to set a new number of research center 
@@ -236,12 +236,18 @@ public class Game {
 	
 	}
 	
+	/**
+	 * @return the stock of cubes
+	 */
 	public HashMap<Disease, Integer> getCubesStocks() {
 		return this.cubeStocks;
 	}
 	
-	/** decrements the corresponding cube stock and calls Cities.addCube()
-	 * @param  */
+	/** 
+	 * decrements the corresponding cube stock and calls Cities.addCube()
+	 * @param city, the city we add the cube in
+	 * @param diseaseType, the type of the disease that the cube represents
+	 */
 	public void addCube(City city, Disease diseaseType) {
 		//decrements the stock
 		this.decrementStock(diseaseType);
@@ -256,7 +262,7 @@ public class Game {
 	 * eg to add one yellow cube to the reserve  : changeCubeStock(YELLOW, +1)
 	 * @param diseaseType
 	 * @param amountChanged The number to add to the current stock.
-	 * */
+	  */
 	public void changeCubeStock(Disease diseaseType, int amountChanged) {
 		
 		int currentCubeStockForThatDisease = this.getCubesStocks().get(diseaseType) ;

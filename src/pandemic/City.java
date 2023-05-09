@@ -25,6 +25,7 @@ public class City {
      * @param name , the name of city
      * @param neighbors , the list of the neighbors
      * @param sector , the sector of the city
+     * @param game, the Game himself
      */
     public City(String name, String sector, Game game) {
         this.name = name;
@@ -108,9 +109,12 @@ public class City {
         return this.infectionRates;
     }
     
-    /** @return the list of all diseases that have a non-zero number of cubes*/
-    public List<Disease> getAllDiseases() {
-    	
+    
+    /**
+     *  @return the list of all diseases that have a non-zero number of cubes
+     *  
+     */
+    public List<Disease> getAllDiseases() {  	
     	 ArrayList<Disease> diseasesList = new ArrayList<>();
     	 Disease[] everyDisease = Disease.values();
     	 
@@ -118,8 +122,7 @@ public class City {
  	    	 if(this.getCubeCount(d) > 0) {
  	    		 diseasesList.add(d);
  	    	 }
- 	     }
- 	     
+ 	     }	     
  	     return diseasesList;
     }
     
@@ -284,7 +287,7 @@ public class City {
 		    if(this.infectionRates.containsKey(disease)){
 		    	setCubeCount(disease,0);
 		    } else {
-		    	System.out.println("PROBLEME : ACCESS FOR A NON-EXISTING DISEASE KEY IN THE infectionRates HASHMAP");
+		    	System.out.println("PROBLEM : ACCESS FOR A NON-EXISTING DISEASE KEY IN THE infectionRates HASHMAP");
 		    }
 	      
     }
@@ -300,6 +303,10 @@ public class City {
 
 
 
+	/**
+	 * @param player
+	 * adds a player
+	 */
 	public void addPlayer(Player player) {
 		this.players.add(player);
 		

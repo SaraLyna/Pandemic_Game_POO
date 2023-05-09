@@ -4,6 +4,7 @@
 package pandemic.card;
 import pandemic.Disease;
 import pandemic.Game;
+import pandemic.City;
 
 public abstract class Card {
 	protected Game game;
@@ -18,7 +19,10 @@ public abstract class Card {
 	}
 	
 	
-	//TODO DOCU
+	
+	/**
+	 * this method doesn't do anything
+	 */
 	public void sideEffectWhenDrawn() {
 		//does nothing
 	}
@@ -35,7 +39,7 @@ public abstract class Card {
 
 	    Card otherCard = (Card) o;
 
-	    return this.cityName.equals(otherCard.cityName)
+	    return this.getName().equals(otherCard.getName())
 	            && this.disease.equals(otherCard.disease);
 	}
 	
