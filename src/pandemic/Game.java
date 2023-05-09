@@ -78,8 +78,6 @@ public class Game {
 	  * values : the number of cubes left for that disease */
 	protected HashMap<Disease, Integer> cubeStocks;
 	
-	protected ArrayList<InfectionCards> hand;
-	
 	protected ArrayList<InfectionCards> discardInfectionStack;
 	
 	/* getters and setters below*/
@@ -322,12 +320,11 @@ public class Game {
 	 */
 	public void phaseOfInfection() {
 	 	for (int i=0; i< this.GlobalInfectionRate +1; i++) {
-	 	    hand.add(this.infectionStack.tirerCarte());
+	 	    InfectionCards tempCard = this.infectionStack.tirerCarte();
 	 	    for(City city : map.getCities()) {
-	 	    	if( city.getName().equals(hand.get(i).getCityName())) {
-	 	    		city.infectionPropagation(Disease.nameToDisease(hand.get(i).getDiseaseName()));
-	 	    		discardInfectionStack.add(hand.get(i));
-	 	    		hand.remove(i);
+	 	    	if( city.getName().equals(tempCard.getCityName())) {
+	 	    		city.infectionPropagation(Disease.nameToDisease(tempCard.getDiseaseName()));
+	 	    		discardInfectionStack.add(tempCard);
 	 	    	}
 	 	    }
 	 	}
@@ -338,12 +335,11 @@ public class Game {
 	 */
 	public void epidemyPhaseOfInfection() {
 	    this.GlobalInfectionRate++;
-	 	hand.add(this.infectionStack.tirerCarte());
+	    InfectionCards tempCard = this.infectionStack.tirerCarte();
 	 	for(City city : map.getCities()) {
-	 	    if( city.getName().equals(hand.get(0).getCityName())) {
-	 	    	city.infectionPropagation(Disease.nameToDisease(hand.get(0).getDiseaseName()));
-	 	    	discardInfectionStack.add(hand.get(0));
-	 	    	hand.remove(0);
+	 	    if( city.getName().equals(tempCard.getCityName())) {
+	 	    	city.infectionPropagation(Disease.nameToDisease(tempCard.getDiseaseName()));
+	 	    	discardInfectionStack.add(tempCard);
 	 	    }
 	 	}
 	}	
