@@ -23,7 +23,7 @@ public class Game {
 	//TODO créer tous les getters et setters nécessaires
 	
 	/*constants below*/
-	protected static int STARTINGGLOBALINFECTIONRATE = 2; //final retirer pour méthode epidemyPhaseOfInfection()
+	protected static final int STARTINGGLOBALINFECTIONRATE = 2;
 	protected static final int MAXNBRESEARCHCENTER = 6; // the biggest number of research center that we can have in the game 
 	protected static final int MAXNBINFECTIONAMOUNT = 8; // the biggest number of Infection focus that we can have in the game 
 	//exhaustive list of all actions a player can do,except for the special action of the doctor that they can do without losing one of their 4 actions per turn, that one is treated separately
@@ -321,7 +321,7 @@ public class Game {
 	 * Launch the phase of infection in the end of the round
 	 */
 	public void phaseOfInfection() {
-	 	for (int i=0; i< STARTINGGLOBALINFECTIONRATE +1; i++) {
+	 	for (int i=0; i< this.GlobalInfectionRate +1; i++) {
 	 	    hand.add(this.infectionStack.tirerCarte());
 	 	    for(City city : map.getCities()) {
 	 	    	if( city.getName().equals(hand.get(i).getCityName())) {
@@ -337,7 +337,7 @@ public class Game {
 	 * Launch a special phase of infection when an epidemy card is pull.
 	 */
 	public void epidemyPhaseOfInfection() {
-	    STARTINGGLOBALINFECTIONRATE++;
+	    this.GlobalInfectionRate++;
 	 	hand.add(this.infectionStack.tirerCarte());
 	 	for(City city : map.getCities()) {
 	 	    if( city.getName().equals(hand.get(0).getCityName())) {
