@@ -279,7 +279,9 @@ Le fonctionnement du fichier JAR :
 
 
 diaporama de la soutenance .
-### Difficultés restant à résoudre
+### Difficultés restant à résoudre (résolues)
+Hésitation sur le nom des classes et création de nouveau packages pour plus d'organisation,
+Modification de presque toutes les autres classes pour plus de cohérence dans le projet.
 
 # Journal de bord
 
@@ -352,3 +354,7 @@ premiere version du diaporama de la soutenance finale,
   Revision du code
 
 ## Semaine 12
+creation des packages pandemic , pandemic.player, pandemic.card 
+pour mieux gérer l'organisation du jeu.
+renommage des classes, codage de game et modification des autres classes pour plus de cohérence.
+préparation de la soutenance finale.
