@@ -24,7 +24,7 @@ public class pandemicMain {
 	 */
 	public static void main(String args[]) throws FileNotFoundException {
 		
-		TODO REFAIRE LES ARGS HANDLING AVEC LE NOUVEAU CONSTRUCTEUR DE GAME
+		//TODO REFAIRE LES ARGS HANDLING AVEC LE NOUVEAU CONSTRUCTEUR DE GAME
 		
 		//args handling
 		String[] argsAfterProcessing = pandemicMain.defaultValuesForArgs; /* initialized with default values*/

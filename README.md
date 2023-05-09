@@ -264,6 +264,11 @@ jouer au jeu pandemic !
 
 
 --Explication du code :
+Renommage des classes et création des packages,
+suppression de la classe Actions et fusion avec Player,
+Automatisation de main et Codage de Game (tout en mettant l'ancien main dedans),
+itération sur les villes et maladies de : InfectionPaquet et PlayersPaquet à l'aide
+d'une boucle for plutot que d'écrire les cartes une par une.
 
 --Classe Game:
 méthode play():
@@ -348,7 +353,20 @@ ensuite rendu de l'uml du Livrable3 et enfin on a complété le readme et on ess
 
 ## Semaine 11
 premiere version du diaporama de la soutenance finale,
- codage de la classe Game.java
-  Revision du code
+Codage de la classe Game.java
+Révision du code
 
 ## Semaine 12
+Codage de la classe Game,
+Création des packages pour plus d'organisation et de lisibilité,
+renommage des classes : Cities --> City
+Diseases--> Disease
+Cards --> Card
+DoctorRole --> Doctor
+ExpertRole --> Expert
+ScientistRole --> Scientist
+Players --> Player
+Actions n'existe plus car on l'a fusionné avec Player.
+Soutenance et présentation du projet.
+rendu final.
+
