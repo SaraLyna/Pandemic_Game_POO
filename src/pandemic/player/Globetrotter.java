@@ -30,6 +30,7 @@ class Globetrotter extends Player {
 		
 		/** overrides the base method from Player
 		 * this method allows the player whose role is "globetRotter" to travel to the city of his choice
+		 * @override
 		 * @param playerToMove; the player who has this role
 		 * @param destination; the city chosen by the player
 		 */

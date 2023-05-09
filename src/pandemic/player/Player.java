@@ -266,7 +266,7 @@ public abstract class Player {
 	 * 
 	 **/
 	public Card chooseCard() {
-		TODO CODE THE METHOD
+		//TODO CODE THE METHOD
 	}
 	
 	
@@ -318,8 +318,8 @@ public abstract class Player {
 	 */
 	public boolean playerHasNCardsOfADiseaseNotCuredYet(int N) {
 		int counter=0;
-		for (Disease d : itérer dans les maladies pas encore guéries) {
-			for (Card c : itérer dans la main de this) {
+		for (Disease d : TODO itérer dans les maladies pas encore guéries) {
+			for (Card c : TODO itérer dans la main de this) {
 				if ( c.getDisease().equals(d)) {
 					counter++;
 				}
