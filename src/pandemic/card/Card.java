@@ -1,34 +1,26 @@
+//TODO
+
+
 package pandemic.card;
 import pandemic.Disease;
+import pandemic.Game;
 
 public abstract class Card {
-	protected String cityName;
-	protected Disease disease;
+	protected Game game;
 	
 	/**
 	 * constructor of the class Cards
 	 * @param city
 	 * @param disease
 	 */
-	public Card(String cityName, Disease disease) {
-		this.cityName=cityName;
-		this.disease=disease;
+	public Card(Game game) {
+		this.game = game;
 	}
 	
 	
-	/**
-	 * @return the name of the disease
-	 */
-	public String getDiseaseName() {
-		return (this.disease.toString());
-	}
-	
-	
-	/**
-	 * @return the name of the city
-	 */
-	public String getCityName() {
-		return this.cityName;
+	//TODO DOCU
+	public void sideEffectWhenDrawn() {
+		//does nothing
 	}
 	
 	@Override

@@ -113,7 +113,6 @@ public class Game {
 		this.GlobalInfectionRate = STARTINGGLOBALINFECTIONRATE;
 		this.InfectionFocusAmount = 0;
 		this.numberOfResearchCenter = 0;
-		this.hand =new ArrayList<>();
 		this.discardInfectionStack = new ArrayList<>();
 		
 		
@@ -276,7 +275,7 @@ public class Game {
 	
 	public void missingCards() {
 		
-		if(this.playersStack.size() < 2) {
+		if(this.playersStack.nbCartes() < 2) {
 			this.state = "lostBecauseCards";
 		}
 	}
@@ -412,7 +411,7 @@ public class Game {
 			    		    break;
 			    		    
 			    		  case "construct":
-			    			  TODO CHOISIR UNE CARTE PARMI CELLES QUI MARCHENT
+			    			  //TODO CHOISIR UNE CARTE PARMI CELLES QUI MARCHENT
 			    			  try {
 			    				  p.construct();
 			    			  } catch (ResearchCenterException e) {
@@ -421,7 +420,7 @@ public class Game {
 ;			    			  break;
 			    		  case "discover":
 			    		    // code block
-			    			  TODO
+			    			//TODO
 			    			//TODO CHECKER SI FIN DU JEU A CAUSE DE CETTE ACTION
 			    		    break;
 			    		    

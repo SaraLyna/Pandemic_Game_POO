@@ -1,17 +1,20 @@
 package pandemic.card;
 
+import pandemic.Disease;
+import pandemic.Game;
+
 /**
  * this class represent the InfectionCards
  */
-public class InfectionCards extends Card {
+public class InfectionCards extends PlayersCards {
 	
 	/**
 	 * constructor of the class InfectionCards
 	 * @param cityName
 	 * @param disease
 	 */
-	public InfectionCards(String cityName,String disease){
-		super(cityName,disease);
+	public InfectionCards(String cityName,Disease disease, Game game){
+		super(cityName,disease, game);
 	}
 	
 	
@@ -21,23 +24,6 @@ public class InfectionCards extends Card {
 	public String toString(){
 		return " A card Infection for the city named "+ cityName +" and the disease "+disease;	
 	}
-	
-	/**
-	 * @return the name of the city on the card
-	 */
-	public String getCityName() {
-		return super.getCityName();
-	}
-	
-	
-	/**
-	 * @return the name of the disease on the card
-	 */
-	
-	public String getDiseaseName() {
-		return super.getDiseaseName();
-	}
-	
-		 
+	 
 	    
 }

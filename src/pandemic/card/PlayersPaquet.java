@@ -80,6 +80,7 @@ public class PlayersPaquet {
 	     */
 	    public PlayersCards tirerCarte() {
 	        PlayersCards carte = cards.get(0);
+	        carte.sideEffectWhenDrawn();
 	        cards.remove(0);
 	        return carte;
 	    }

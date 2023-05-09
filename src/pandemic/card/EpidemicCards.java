@@ -1,18 +1,17 @@
 package pandemic.card;
 
+import pandemic.*;
 /**
  * this class represent the EpidemicCards
  *
  */
-public class EpidemicCards extends PlayersCards {
+public class EpidemicCards extends Card {
 	
 	/**
 	 * constructor of the class EpidemicCards
-	 * @param city
-	 * @param disease
 	 */
-	public EpidemicCards(String cityName,String disease){
-		super(cityName,disease);
+	public EpidemicCards(Game game) {
+		super(game);
 	}
 	
 	
@@ -20,16 +19,17 @@ public class EpidemicCards extends PlayersCards {
 	 *@return  a string representation of the object.
 	 */
 	public String toString(){
-		return "A card Epidemic for the city named "+ cityName ;		
+		return "A card Epidemic." ;		
 	}
 	
-	
-	/**
-	 * @return the name of the city on the card
-	 */	
-	public String getCityName() {
-		return super.getCityName();
+
+
+	@Override
+	public void sideEffectWhenDrawn() {
+		this.game.epidemyPhaseOfInfection();
+		
 	}
+	
 	
 
 }
