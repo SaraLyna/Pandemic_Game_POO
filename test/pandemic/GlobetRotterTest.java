@@ -8,11 +8,15 @@ import java.io.InputStream;
 
 import org.junit.Test;
 
+import pandemic.player.Globetrotter;
+import pandemic.player.Player;
+import pandemic.player.Roles;
+
 public class GlobetRotterTest {
 	
-	private Players player;
-	private Cities city1;
-	private Cities city2;
+	private Player player;
+	private City city1;
+	private City city2;
 	
 	
 	
@@ -30,9 +34,9 @@ public class GlobetRotterTest {
 	*/
 	
 	public void moveTest() throws FileNotFoundException { 
-		MappeMonde m1 = new MappeMonde("villes.json");
+		Mappemonde m1 = new Mappemonde("villes.json");
 		city1 = m1.getVilles()[2];
-		player = new Players("Albert",Roles.GlobetRotter, city1 );
+		player = new Player("Albert",Roles.GlobetRotter, city1 );
 		
 		city2 = city1.getNeighbors().get(0); //premier voisin listé
 		
@@ -43,7 +47,7 @@ public class GlobetRotterTest {
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		
-		GlobetRotter.moveAnywhere(player, city2); //todo : voir si globetrotter est statique ou non
+		Globetrotter.moveAnywhere(player, city2); //todo : voir si globetrotter est statique ou non
 		
 		assertFalse(player.getLocation().getName().equals(city1.getName()));
 		assertTrue(player.getLocation().getName().equals(city2.getName()));

@@ -6,7 +6,7 @@ package pandemic;
 * à leur nom ansi que leur etat ( guérie ou non )
 */
 
-public enum Diseases {
+public enum Disease {
 	
 	BLUE("bleu", false),
     RED("rouge", false),
@@ -20,17 +20,24 @@ public enum Diseases {
      * @param name
      * @param isCured
      */
-    Diseases(String name, boolean isCured) {
+    Disease(String name, boolean isCured) {
         this.name = name;
         this.isCured = isCured;
     }
     
-
+ 
     /**
      * @return name of the disease
      */
-    public String getDiseaseName() {
+    public String getDiseaseName() { // maybe delete this and use toString instead ?
         return this.name;
+    }
+    
+    /**
+     * @return name of the disease
+     */
+    public String toString() {
+        return this.getDiseaseName();
     }
     
     
@@ -56,20 +63,20 @@ public enum Diseases {
      * @param name
      * @return une maladie
      */
-    public static Diseases nameToDisease(String name) {
-        Diseases d = null; // initialiser à null pour gérer les noms de maladies invalides
+    public static Disease nameToDisease(String name) {
+        Disease d = null; // initialiser à null pour gérer les noms de maladies invalides
 
         if (name.equalsIgnoreCase("bleu")) {
-            d = Diseases.BLUE;
+            d = Disease.BLUE;
         }
         else if (name.equalsIgnoreCase("rouge")) {
-            d = Diseases.RED;
+            d = Disease.RED;
         }
         else if (name.equalsIgnoreCase("jaune")) { 
-            d = Diseases.YELLOW;
+            d = Disease.YELLOW;
         }
         else if(name.equalsIgnoreCase("noir")) { 
-            d = Diseases.BLACK;
+            d = Disease.BLACK;
         }
 
         if (d == null) { // gérer les noms de maladies invalides

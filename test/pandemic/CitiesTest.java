@@ -8,18 +8,18 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class CitiesTest {
-    private Cities city1;
-    private Cities city2;
-    private Cities city3;
-    private Cities city4;
+    private City city1;
+    private City city2;
+    private City city3;
+    private City city4;
 
     @Before
     public void setUp() throws Exception {
         // Créer les villes
-        city1 = new Cities("City 1", "Secteur 1");
-        city2 = new Cities("City 2", "Secteur 2");
-        city3 = new Cities("City 3", "Secteur 1");
-        city4 = new Cities("City 4", "Secteur 2");
+        city1 = new City("City 1", "Secteur 1");
+        city2 = new City("City 2", "Secteur 2");
+        city3 = new City("City 3", "Secteur 1");
+        city4 = new City("City 4", "Secteur 2");
 
         // Ajouter les voisins
         city1.addNeighbors(city2);
@@ -35,46 +35,46 @@ public class CitiesTest {
     	@Test
     	public void testAddCube() {
     	    // Test ajouter un cube à une ville
-    	    city1.addCube(Diseases.BLUE);
+    	    city1.addCube(Disease.BLUE);
     	    
-    	    assertEquals(1, (int)city1.getAllCubes().get(Diseases.BLUE));
+    	    assertEquals(1, (int)city1.getAllCubes().get(Disease.BLUE));
     	    
     	    // Test ajouter un cube à la même ville avec la même maladie
     	    city1.resetTurn();
-    	    city1.addCube(Diseases.BLUE);
-    	    assertEquals(2, (int)city1.getAllCubes().get(Diseases.BLUE));
+    	    city1.addCube(Disease.BLUE);
+    	    assertEquals(2, (int)city1.getAllCubes().get(Disease.BLUE));
     	    
     	    // Test ajouter un cube à la même ville avec une maladie différente
     	    city1.resetTurn();
-    	    city1.addCube(Diseases.RED);
-    	    assertEquals(1, (int)city1.getAllCubes().get(Diseases.RED));
+    	    city1.addCube(Disease.RED);
+    	    assertEquals(1, (int)city1.getAllCubes().get(Disease.RED));
     	    
     	    // Test ajouter un cube à une ville qui a déjà été infectée ce tour
-    	    city1.addCube(Diseases.BLUE);
-    	    assertEquals(2, (int)city1.getAllCubes().get(Diseases.BLUE));
+    	    city1.addCube(Disease.BLUE);
+    	    assertEquals(2, (int)city1.getAllCubes().get(Disease.BLUE));
     }
 
     	@Test
     	public void testInfectionPropagation() {
     	    // Test propagation de l'infection
     		city1.resetTurn();
-    	    city1.addCube(Diseases.BLUE);
+    	    city1.addCube(Disease.BLUE);
     		city1.resetTurn();
-    	    city1.addCube(Diseases.BLUE);
+    	    city1.addCube(Disease.BLUE);
     	    city1.resetTurn();
-    	    city1.addCube(Diseases.BLUE);
+    	    city1.addCube(Disease.BLUE);
     	    city1.resetTurn();
-    	    city1.addCube(Diseases.BLUE);
-    	    assertEquals(3, (int)city1.getAllCubes().get(Diseases.BLUE));
-    	    assertEquals(1, (int)city2.getAllCubes().get(Diseases.BLUE));
-    	    assertEquals(1, (int)city3.getAllCubes().get(Diseases.BLUE));
-    	    assertEquals(0, (int)city4.getAllCubes().get(Diseases.BLUE));
+    	    city1.addCube(Disease.BLUE);
+    	    assertEquals(3, (int)city1.getAllCubes().get(Disease.BLUE));
+    	    assertEquals(1, (int)city2.getAllCubes().get(Disease.BLUE));
+    	    assertEquals(1, (int)city3.getAllCubes().get(Disease.BLUE));
+    	    assertEquals(0, (int)city4.getAllCubes().get(Disease.BLUE));
     	    
     	    // Test propagation de l'infection à une ville qui a déjà été infectée ce tour
     	    city2.resetTurn();
-    	    city2.addCube(Diseases.RED);
-    	    assertEquals(0, (int)city1.getAllCubes().get(Diseases.RED));
-    	    assertEquals(0, (int)city4.getAllCubes().get(Diseases.RED));
+    	    city2.addCube(Disease.RED);
+    	    assertEquals(0, (int)city1.getAllCubes().get(Disease.RED));
+    	    assertEquals(0, (int)city4.getAllCubes().get(Disease.RED));
     }
 
     	@Test
@@ -91,7 +91,7 @@ public class CitiesTest {
     	@Test
         public void testGetNeighbors() {
             // Test get neighbors
-            List<Cities> neighbors = city1.getNeighbors();
+            List<City> neighbors = city1.getNeighbors();
             assertEquals(2, neighbors.size());
             assertEquals(city2, neighbors.get(0));
             assertEquals(city3, neighbors.get(1));

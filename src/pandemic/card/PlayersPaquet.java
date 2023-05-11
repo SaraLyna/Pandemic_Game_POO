@@ -1,4 +1,4 @@
-package pandemic;
+package pandemic.card;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -80,6 +80,7 @@ public class PlayersPaquet {
 	     */
 	    public PlayersCards tirerCarte() {
 	        PlayersCards carte = cards.get(0);
+	        carte.sideEffectWhenDrawn();
 	        cards.remove(0);
 	        return carte;
 	    }

@@ -1,25 +1,26 @@
-/**
- * 
- */
 package pandemic;
-
 import static org.junit.Assert.*;
+
+import java.io.FileNotFoundException;
+
 import org.junit.Test;
 
-/**
- * @author Sara Lyna
- *
- */
+import pandemic.player.Doctor;
+
 public class DoctorTest {
+    
+    @Test
+    public void testhealDiseaseWhenThereNoLeftCube() throws FileNotFoundException {
+        
+    	Game game = new Game("villes.json", 4);
+    	City city = new City("ville-11", "3", game);
+        Disease disease = Disease.BLUE;
+        
+        // Initialize a Doctor player in the city
+        Doctor doctor = new Doctor("Charles", city, game);
+	    doctor.healDisease();
+	    assertEquals(0, city.getCubeCount(disease));
+	}   
 
-	@Test
-	public void testRemoveCubes() {
-		 Cities city = new Cities("ville-2","Secteur 1");
-	     city.setCubeCount(Diseases.BLUE, 3);   
-	     assertEquals(city.getCubeCount(Diseases.BLUE),3);
-	     DoctorRole.RemoveCubes(Diseases.BLUE, city);
-	     assertEquals(city.getCubeCount(Diseases.BLUE),0);
-	   
-	}
-
+    
 }

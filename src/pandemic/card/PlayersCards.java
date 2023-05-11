@@ -1,18 +1,27 @@
-package pandemic;
+//TODO
+
+package pandemic.card;
+import pandemic.Disease;
+import pandemic.Game;
 
 /**
  * this class represents the players cards
  *
  */
-public class PlayersCards extends Cards{
+public class PlayersCards extends Card{
 	
+	protected String cityName;
+	protected Disease disease;
 	/**
 	 * constructor of the class PlayersCards
 	 * @param city
-	 * @param disease
+	 * @param colors
 	 */
-	public PlayersCards(String cityName,String disease) {
-		super(cityName,disease);
+	public PlayersCards(String cityName,Disease colors,Game game) {
+		super(game);
+		this.cityName=cityName;
+		this.disease=colors;
+		
 	}
 	
 	
@@ -28,7 +37,7 @@ public class PlayersCards extends Cards{
 	 * @return the name of the city on the card
 	 */
 	public String getCityName() {
-		return super.getCityName();
+		return this.cityName;
 	}
 	
 	
@@ -36,7 +45,14 @@ public class PlayersCards extends Cards{
 	 * @return the name of the disease on the card
 	 */
 	public String getDiseaseName() {
-		return super.getDiseaseName();
+		return this.getDiseaseName();
+	}
+	
+	/**
+	 * @return the name of the disease
+	 */
+	public String toStringDiseaseName() {
+		return (this.disease.toString());
 	}
 	
 	

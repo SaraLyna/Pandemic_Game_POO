@@ -12,7 +12,7 @@ public class MappeMondeTest {
     @Test
     public void testMappeMonde() {
         try {
-            MappeMonde map = new MappeMonde("villes.json");
+            Mappemonde map = new Mappemonde("villes.json");
             map.displayAllCities();
             map.endInfectionTurn();
         } catch (FileNotFoundException e) {

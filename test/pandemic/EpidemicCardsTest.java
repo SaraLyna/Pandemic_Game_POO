@@ -1,6 +1,9 @@
 package pandemic;
 
 import org.junit.Test;
+
+import pandemic.card.EpidemicCards;
+
 import static org.junit.Assert.*;
 
 public class EpidemicCardsTest {
