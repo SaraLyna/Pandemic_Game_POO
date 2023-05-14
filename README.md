@@ -1,3 +1,8 @@
+## Se référer à la branche "experimental" pour le rendu final
+
+
+
+
 # l2s4-projet-2023
 
 # Equipe
